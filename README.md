@@ -3,6 +3,9 @@ Dibware.Template.Presentation.Web
 
 A C# ASP.net MVC 4 web template 
 
+## A WORK IN PROGRESS
+
+
 ## Git Commits
 * Name your commits in the following format YYYYMMDD-HHMM-IINN COMMENT
 * Where YYYY    = Year
