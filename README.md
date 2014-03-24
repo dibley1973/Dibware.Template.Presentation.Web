@@ -1,10 +1,12 @@
 Dibware.Template.Presentation.Web
 =================================
 
-A C# ASP.net MVC 4 web template 
+A C# ASP.net 4.5, MVC 4 web template 
 
-## A WORK IN PROGRESS
+## A WORK IN PROGRESS!!!
 
+## Architecture
+* Based stringly on an architecture devised by by John collinson
 
 ## Git Commits
 * Name your commits in the following format YYYYMMDD-HHMM-IINN COMMENT

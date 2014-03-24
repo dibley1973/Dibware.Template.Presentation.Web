@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using Dibware.System.Extensions;
 
 namespace Dibware.Template.Presentation.Web.Models.Base
