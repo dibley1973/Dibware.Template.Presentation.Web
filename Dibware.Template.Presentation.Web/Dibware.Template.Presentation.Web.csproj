@@ -58,6 +58,10 @@
       <HintPath>Libraries\LowercaseRoutesMVC.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Libraries\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="Ninject, Version=3.0.0.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>Libraries\Ninject.dll</HintPath>
@@ -80,25 +84,50 @@
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
-    <Reference Include="System.Web" />
-    <Reference Include="System.Web.Extensions" />
-    <Reference Include="System.Web.Helpers, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Web">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Extensions">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System.Web.Http, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
     <Reference Include="System.Web.Http.WebHost, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
-    <Reference Include="System.Web.Mvc, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Web.Mvc, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System.Web.Optimization, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>Libraries\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
     </Reference>
     <Reference Include="System.Xml" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Web.Services" />
     <Reference Include="System.EnterpriseServices" />
     <Reference Include="System.Xml.Linq" />
+    <Reference Include="WebGrease, Version=1.3.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Libraries\WebGrease.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="assets\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="assets\js\bootstrap.js" />
     <Content Include="assets\js\bootstrap.min.js" />
+    <Content Include="assets\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="assets\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="assets\fonts\glyphicons-halflings-regular.woff" />
     <None Include="assets\js\jquery-1.8.2.intellisense.js" />
     <Content Include="assets\js\jquery-1.8.2.js" />
     <Content Include="assets\js\jquery-1.8.2.min.js" />
@@ -108,16 +137,19 @@
     <Content Include="assets\themes\grey\bootstrap-theme.css" />
     <Content Include="assets\themes\grey\bootstrap.css" />
     <Content Include="assets\themes\pink\bootstrap-theme.css" />
-    <Content Include="assets\themes\pink\bootstrap.min.css" />
+    <Content Include="assets\themes\pink\bootstrap.css" />
+    <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Libraries\AutoMapper.dll" />
     <Content Include="Libraries\Dibware.System.Extensions.dll" />
     <Content Include="Libraries\Dibware.Web.Security.dll" />
     <Content Include="Libraries\LowercaseRoutesMVC.dll" />
+    <Content Include="Libraries\Newtonsoft.Json.dll" />
     <Content Include="Libraries\Ninject.dll" />
     <Content Include="Libraries\Ninject.Web.Common.dll" />
     <Content Include="Libraries\Ninject.Web.Mvc.dll" />
     <Content Include="Libraries\System.Web.Optimization.dll" />
+    <Content Include="Libraries\WebGrease.dll" />
     <Content Include="Views\Web.config" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
@@ -173,6 +205,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ExceptionMessages.resx</DependentUpon>
     </Compile>
+    <Compile Include="Resources\LinkText.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LinkText.resx</DependentUpon>
+    </Compile>
     <Compile Include="Resources\MetaTagData.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -184,9 +221,7 @@
       <DependentUpon>ViewNames.resx</DependentUpon>
     </Compile>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="assets\fonts\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <EmbeddedResource Include="Resources\ConfigurationKeys.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -195,6 +230,10 @@
     <EmbeddedResource Include="Resources\ExceptionMessages.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>ExceptionMessages.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\LinkText.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>LinkText.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Resources\MetaTagData.resx">
       <Generator>ResXFileCodeGenerator</Generator>

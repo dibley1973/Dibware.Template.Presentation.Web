@@ -1,15 +1,11 @@
 ﻿using AutoMapper;
-using Dibware.Template.Presentation.Web.Modules.Authentication;
 using Dibware.Template.Presentation.Web.Modules.Configuration;
-using Dibware.Web.Security.Principal;
 using Ninject;
 using Ninject.Web.Common;
 using Ninject.Web.Mvc;
 using System;
 using System.Linq;
 using System.Reflection;
-using System.Security.Principal;
-using System.Web;
 using System.Web.Http;
 using System.Web.Mvc;
 using System.Web.Optimization;

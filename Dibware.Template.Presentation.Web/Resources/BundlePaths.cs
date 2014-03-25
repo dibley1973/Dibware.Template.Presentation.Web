@@ -22,9 +22,10 @@ namespace Dibware.Template.Presentation.Web.Resources
 
         public static class Styles
         {
-            public const String Bootstrap = @"~/Bootstrap/css";
-            public const String Common = @"~/styles/common";
+            //public const String Bootstrap = @"~/Bootstrap/css";
+            //public const String Common = @"~/styles/common";
             public const String MainLayout = @"~/MainLayout/css";
+
             public static class Themes
             {
                 public const String BlackAndWhite = @"~/BlackAndWhiteTheme/css";

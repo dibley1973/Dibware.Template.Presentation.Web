@@ -13,7 +13,7 @@ namespace Dibware.Template.Presentation.Web.Resources
             internal const String Themes = AssetsPrefix + @"themes/";
         }
 
-        public static class FileSuffixes
+        private static class FileSuffixes
         {
             public const String BootstrapCss = @"bootstrap.css";
             public const String BootstrapThemeCss = @"bootstrap-theme.css";
@@ -21,7 +21,8 @@ namespace Dibware.Template.Presentation.Web.Resources
 
         public static class Css
         {
-            public const String CommonLayout = Prefixes.Css + @"common-layout.css";
+            public const String CommonLayout = @"common-layout.css";
+            public const String CommonLayoutPath = Prefixes.Css + CommonLayout;
         }
 
         public static class Fonts
@@ -55,12 +56,12 @@ namespace Dibware.Template.Presentation.Web.Resources
 
         public static class Themes
         {
-            private const String ThemesPrefix = @"themes/";
+            private const String ThemesPrefix = Prefixes.Themes;
 
             public static class BlackAndWhite
             {
                 public const String Name = "black-and-white";
-                private const String BlackAndWhitePrefix = Prefixes.Css + ThemesPrefix + Name + @"/";
+                private const String BlackAndWhitePrefix = ThemesPrefix + Name + @"/";
                 public const String Bootstrap = FileSuffixes.BootstrapCss;
                 public const String BootstrapPath = BlackAndWhitePrefix + FileSuffixes.BootstrapCss;
                 public const String BootstrapTheme = FileSuffixes.BootstrapThemeCss;
@@ -70,7 +71,7 @@ namespace Dibware.Template.Presentation.Web.Resources
             public static class Grey
             {
                 public const String Name = "grey";
-                private const String GreyPrefix = Prefixes.Css + ThemesPrefix + Name + @"/";
+                private const String GreyPrefix = ThemesPrefix + Name + @"/";
                 public const String Bootstrap = FileSuffixes.BootstrapCss;
                 public const String BootstrapPath = GreyPrefix + FileSuffixes.BootstrapCss;
                 public const String BootstrapTheme = FileSuffixes.BootstrapThemeCss;
@@ -80,11 +81,11 @@ namespace Dibware.Template.Presentation.Web.Resources
             public static class Pink
             {
                 public const String Name = "pink";
-                private const String PinkPrefix = Prefixes.Css + ThemesPrefix + Name + @"/";
+                private const String PinkPrefix = ThemesPrefix + Name + @"/";
                 public const String Bootstrap = FileSuffixes.BootstrapCss;
-                public const String BootstrapPath = PinkPrefix + FileSuffixes.BootstrapCss;
+                public const String BootstrapPath = PinkPrefix + Bootstrap;
                 public const String BootstrapTheme = FileSuffixes.BootstrapThemeCss;
-                public const String BootstrapThemePath = PinkPrefix + FileSuffixes.BootstrapThemeCss;
+                public const String BootstrapThemePath = PinkPrefix + BootstrapTheme;
             }
         }
     }

@@ -1,6 +1,8 @@
 ﻿using Dibware.Template.Presentation.Web.Models.Base;
 using Dibware.Template.Presentation.Web.Modules.Authentication;
+using Dibware.Template.Presentation.Web.Modules.Configuration;
 using Dibware.Template.Presentation.Web.Resources;
+using Ninject;
 using System;
 using System.Collections.Generic;
 using System.Web.Mvc;
@@ -13,6 +15,28 @@ namespace Dibware.Template.Presentation.Web.Controllers.Base
     /// </summary>
     public class BaseController : Controller
     {
+        #region Properties
+
+        /// <summary>
+        /// Gets the user security information for the current HTTP request.
+        /// </summary>
+        /// <returns>The user security information for the current HTTP request.</returns>
+        protected virtual new IWebsitePrincipal User
+        {
+            get { return HttpContext.User as WebsitePrincipal; }
+        }
+
+        /// <summary>
+        /// Gets or sets the application configuration.
+        /// </summary>
+        /// <value>
+        /// The application configuration.
+        /// </value>
+        [Inject]
+        public IApplicationConfiguration ApplicationConfiguration { get; set; }
+
+        #endregion
+
         /// <summary>
         /// Fills the base view model.
         /// </summary>
@@ -74,7 +98,6 @@ namespace Dibware.Template.Presentation.Web.Controllers.Base
         /// <param name="stylesheetBundlePathList">The stylesheet bundle path list to fill.</param>
         private static void FillListWithStylesheetBundlePaths(ICollection<String> stylesheetBundlePathList)
         {
-            stylesheetBundlePathList.Add(BundlePaths.Styles.Bootstrap);
             stylesheetBundlePathList.Add(BundlePaths.Styles.MainLayout);
         }
 
@@ -89,8 +112,16 @@ namespace Dibware.Template.Presentation.Web.Controllers.Base
             // and add the respective colour theme bundle
             switch (themeColour)
             {
+                case AssetPaths.Themes.BlackAndWhite.Name:
+                    stylesheetBundlePathList.Add(BundlePaths.Styles.Themes.BlackAndWhite);
+                    break;
+
                 case AssetPaths.Themes.Grey.Name:
                     stylesheetBundlePathList.Add(BundlePaths.Styles.Themes.Grey);
+                    break;
+
+                case AssetPaths.Themes.Pink.Name:
+                    stylesheetBundlePathList.Add(BundlePaths.Styles.Themes.Pink);
                     break;
 
                 default:

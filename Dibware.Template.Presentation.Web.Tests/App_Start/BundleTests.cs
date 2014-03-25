@@ -1,13 +1,13 @@
-﻿using Dibware.Template.Presentation.Web.Resources;
-using Dibware.Template.Presentation.Web.Tests.Helpers;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Moq;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Optimization;
+using Dibware.Template.Presentation.Web.Resources;
+using Dibware.Template.Presentation.Web.Tests.Helpers;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Moq;
 
 namespace Dibware.Template.Presentation.Web.Tests.App_Start
 {
@@ -57,10 +57,10 @@ namespace Dibware.Template.Presentation.Web.Tests.App_Start
         private static String MapBundleItemPath(String item)
         {
             // Get project folder
-            const String webProjectName = "dibware.clique.presentation.web";
+            const String webProjectName = "dibware.template.presentation.web";
             var folderPath = ThisAssembly.GetProjectDirectory();
             folderPath = Directory.GetParent(folderPath).FullName;
-            String pathToMvcProject = String.Concat(folderPath, @"\", webProjectName);
+            var pathToMvcProject = String.Concat(folderPath, @"\", webProjectName);
 
             // Strip the ~ and switch from / to \
             item = item.Replace("~", String.Empty).Replace("/", @"\");

@@ -1,4 +1,5 @@
 ﻿using System.Web.Mvc;
+using Dibware.Template.Presentation.Web.Filters;
 
 namespace Dibware.Template.Presentation.Web
 {
@@ -10,7 +11,7 @@ namespace Dibware.Template.Presentation.Web
             //filters.Add(new CompressAttribute());
             //filters.Add(new HandleErrorForAjaxRequestAttribute());
             //filters.Add(new CustomHandleErrorAttribute());
-            //filters.Add(new ManageBaseViewModelAttribute());
+            filters.Add(new ManageBaseViewModelAttribute());
 
             // Removed this attribute as it seems to
             // duplicate some of the HTML!

@@ -1,5 +1,5 @@
-﻿@model Dibware.Clique.Presentation.Web.Models.Base.BaseViewModel
-@using Dibware.Clique.Presentation.Web.Resources
+﻿@model Dibware.Template.Presentation.Web.Models.Base.BaseViewModel
+@using Dibware.Template.Presentation.Web.Resources
 
 <!DOCTYPE html>
 <html lang="en">
@@ -11,13 +11,11 @@
     <meta name="author" content="@Model.MetaAuthor"/>
     <title>@Model.PageTitle</title>
     <link rel="shortcut icon" type="image/x-icon" href="~/favicon.ico" />
-
     @* Add Stylesheets *@
     @foreach (var styleBundlePath in Model.StylesheetBundlePathList)
     {
       @Styles.Render(styleBundlePath)
     }
-
   </head>
   <body>
 
@@ -47,7 +45,7 @@
     <div class="container main-content">
 
       <div>
-        <h1>Bootstrap starter template</h1>
+        <h1>Bootstrap Website Template</h1>
         <p class="lead">Use this document as a way to quickly start any new project.<br> 
         All you get is this text and a mostly barebones HTML document.</p>
         
