@@ -27,7 +27,9 @@ namespace Dibware.Template.Presentation.Web.Resources
             public const String MainLayout = @"~/MainLayout/css";
             public static class Themes
             {
+                public const String BlackAndWhite = @"~/BlackAndWhiteTheme/css";
                 public const String Grey = @"~/GreyTheme/css";
+                public const String Pink = @"~/PinkTheme/css";
             }
         }
     }
