@@ -45,6 +45,10 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>Libraries\AutoMapper.dll</HintPath>
     </Reference>
+    <Reference Include="Dibware.Helpers, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Libraries\Dibware.Helpers.dll</HintPath>
+    </Reference>
     <Reference Include="Dibware.System.Extensions, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>Libraries\Dibware.System.Extensions.dll</HintPath>
@@ -141,6 +145,7 @@
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Libraries\AutoMapper.dll" />
+    <Content Include="Libraries\Dibware.Helpers.dll" />
     <Content Include="Libraries\Dibware.System.Extensions.dll" />
     <Content Include="Libraries\Dibware.Web.Security.dll" />
     <Content Include="Libraries\LowercaseRoutesMVC.dll" />
@@ -215,6 +220,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>MetaTagData.resx</DependentUpon>
     </Compile>
+    <Compile Include="Resources\UserRole.cs" />
     <Compile Include="Resources\ViewNames.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

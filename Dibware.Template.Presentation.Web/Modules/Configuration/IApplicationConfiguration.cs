@@ -45,7 +45,7 @@ namespace Dibware.Template.Presentation.Web.Modules.Configuration
         /// <value>
         /// The default theme name.
         /// </value>
-        String DefaultThemeName{ get; }
+        String DefaultThemeName { get; }
 
         #region role Names
 
@@ -64,6 +64,14 @@ namespace Dibware.Template.Presentation.Web.Modules.Configuration
         /// The name of the main user role.
         /// </value>
         String MainUserRoleName { get; }
+
+        /// <summary>
+        /// Gets the name of the super user role.
+        /// </summary>
+        /// <value>
+        /// The name of the super user role.
+        /// </value>
+        String SuperUserRoleName { get; }
 
         /// <summary>
         /// Gets the name of the unknown user role.

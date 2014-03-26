@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using Dibware.Template.Presentation.Web.Resources;
+using System;
 using System.Configuration;
-using System.Linq;
-using System.Web;
-using Dibware.Template.Presentation.Web.Resources;
 
 namespace Dibware.Template.Presentation.Web.Modules.Configuration
 {
@@ -87,6 +84,18 @@ namespace Dibware.Template.Presentation.Web.Modules.Configuration
         public String MainUserRoleName
         {
             get { return ConfigurationManager.AppSettings[ConfigurationKeys.RoleName_MainUser]; }
+        }
+
+        /// <summary>
+        /// Gets the name of the super user role.
+        /// </summary>
+        /// <value>
+        /// The name of the super user role.
+        /// </value>
+        /// <exception cref="NotImplementedException"></exception>
+        public string SuperUserRoleName
+        {
+            get { return ConfigurationManager.AppSettings[ConfigurationKeys.RoleName_SuperUser]; }
         }
 
         /// <summary>

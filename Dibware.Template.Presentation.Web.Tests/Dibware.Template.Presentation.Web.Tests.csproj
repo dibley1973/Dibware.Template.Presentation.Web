@@ -53,6 +53,10 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>Libraries\MvcContrib.TestHelper.dll</HintPath>
     </Reference>
+    <Reference Include="MvcRouteTester, Version=1.0.1.1, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Libraries\MvcRouteTester.dll</HintPath>
+    </Reference>
     <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>Libraries\Newtonsoft.Json.dll</HintPath>
@@ -78,6 +82,11 @@
   <ItemGroup>
     <Compile Include="App_Start\BundleTests.cs" />
     <Compile Include="App_Start\RouteConfigTests.cs" />
+    <Compile Include="Filters\GlobalFilterTests.cs" />
+    <Compile Include="Filters\ManageBaseViewModelAttributeTest.cs" />
+    <Compile Include="Filters\WebsiteAuthorizeAttributeTests.cs" />
+    <Compile Include="Mocks\MockWebsiteAuthorizeAttribute.cs" />
+    <Compile Include="RouteTests\HomeControllerRouteTests.cs" />
     <Compile Include="App_Start\WebApiConfigTests.cs" />
     <Compile Include="Helpers\ControllerHelper.cs" />
     <Compile Include="Helpers\ReflectionHelpers.cs" />
@@ -96,11 +105,13 @@
     <Content Include="Libraries\Moq.dll" />
     <Content Include="Libraries\MvcContrib.dll" />
     <Content Include="Libraries\MvcContrib.TestHelper.dll" />
+    <Content Include="Libraries\MvcRouteTester.dll" />
     <Content Include="Libraries\Newtonsoft.Json.dll" />
     <Content Include="Libraries\System.Web.Optimization.dll" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Controllers\" />
+    <Folder Include="Extensions\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Dibware.Template.Presentation.Web\Dibware.Template.Presentation.Web.csproj">

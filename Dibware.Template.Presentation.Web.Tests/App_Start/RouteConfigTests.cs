@@ -1,9 +1,6 @@
-﻿using Dibware.Template.Presentation.Web.Controllers;
-using Dibware.Template.Presentation.Web.Tests.Helpers;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
 using System;
-using System.Net.Http;
 using System.Web;
 using System.Web.Http;
 using System.Web.Routing;
@@ -23,7 +20,6 @@ namespace Dibware.Template.Presentation.Web.Tests.App_Start
     {
         #region Declarations
 
-        //private HttpContextBase _mockRouteContextBase;
         private HttpConfiguration _config;
 
         #endregion
@@ -42,16 +38,6 @@ namespace Dibware.Template.Presentation.Web.Tests.App_Start
                 routeTemplate: "{controller}/{action}/{id}",
                 defaults: new { id = RouteParameter.Optional }
             );
-
-            //var _mockRouteContextBase =(new Mock<HttpContextBase>(MockBehavior.Strict)).Object;
-            //var httpContext = new Rou()
-
-            //this._mockBundleContext = new BundleContext(mockContext, new BundleCollection(), String.Empty);
-
-            //BundleTable.EnableOptimizations = true;
-
-            // Mock mapping a bundle item's virtual path to a physical path
-            //BundleTable.MapPathMethod = MapBundleItemPath;
         }
 
         #endregion
@@ -60,7 +46,6 @@ namespace Dibware.Template.Presentation.Web.Tests.App_Start
 
         #region RegisterRoutes
 
-        [Ignore]
         [TestMethod]
         public void Test_RegisterRoutes_CheckCorrectCount()
         {
@@ -75,9 +60,8 @@ namespace Dibware.Template.Presentation.Web.Tests.App_Start
             Assert.AreEqual(expectedCollectionCount, routeCollection.Count);
         }
 
-        [Ignore]
         [TestMethod]
-        public void Test_RegisterRoutes_CheckCorrectType()
+        public void Test_RegisterRoutes_ReturnsCorrectRouteType()
         {
             // Arrange
             const String expectedRoute0TypeName = "System.Web.Mvc.RouteCollectionExtensions+IgnoreRouteInternal";
@@ -94,31 +78,15 @@ namespace Dibware.Template.Presentation.Web.Tests.App_Start
 
         #endregion
 
-        [Ignore]
+        #region Routes
+
         [TestMethod]
-        public void Test_HomeController_IndexIsCorrect()
-        {
-            // fails but almost there!
-            // Ref:
-            //  http://www.strathweb.com/2012/08/testing-routes-in-asp-net-web-api/
-
-            var request = new HttpRequestMessage(HttpMethod.Get, "http://server/Home/Index");
-            var routeTester = new RouteTester(_config, request);
-
-            Assert.AreEqual(typeof(HomeController), routeTester.GetControllerType());
-            Assert.AreEqual(ReflectionHelpers.GetMethodName((HomeController c) => c.Index()), routeTester.GetActionName());
-        }
-
-        [Ignore]
-        [TestMethod]
-        public void Test_RouteHasDefaultActionWhenUrlWithoutAction()
+        public void Test_DefaultRoute_ReturnsIndexActionOnHomeController()
         {
             // Arrange
             var mockRouteContextBase = new Mock<HttpContextBase>();
             mockRouteContextBase.Setup(c => c.Request.AppRelativeCurrentExecutionFilePath)
                 .Returns("~/");
-            //mockRouteContextBase.Setup(c => c.Request.AppRelativeCurrentExecutionFilePath)
-            //.Returns(url);
             var routes = new RouteCollection();
             RouteConfig.RegisterRoutes(routes);
 
@@ -127,18 +95,17 @@ namespace Dibware.Template.Presentation.Web.Tests.App_Start
 
             // Assert
             Assert.IsNotNull(routeData);
+            Assert.AreEqual("Home", routeData.Values["controller"]);    // Watch casing!
+            Assert.AreEqual("Index", routeData.Values["action"]);       // Watch casing!
         }
 
-        [Ignore]
         [TestMethod]
-        public void Test_Route_HomeIndex()
+        public void Test_RouteDataForHomeIndex_ReturnsIndexActionOnHomeController()
         {
             // Arrange
             var mockRouteContextBase = new Mock<HttpContextBase>();
             mockRouteContextBase.Setup(c => c.Request.AppRelativeCurrentExecutionFilePath)
-                .Returns("~/home.index");
-            //mockRouteContextBase.Setup(c => c.Request.AppRelativeCurrentExecutionFilePath)
-            //.Returns(url);
+                .Returns("~/home/index");
             var routes = new RouteCollection();
             RouteConfig.RegisterRoutes(routes);
 
@@ -147,7 +114,11 @@ namespace Dibware.Template.Presentation.Web.Tests.App_Start
 
             // Assert
             Assert.IsNotNull(routeData);
+            Assert.AreEqual("home", routeData.Values["controller"]);
+            Assert.AreEqual("index", routeData.Values["action"]);
         }
+
+        #endregion
 
         #endregion
     }

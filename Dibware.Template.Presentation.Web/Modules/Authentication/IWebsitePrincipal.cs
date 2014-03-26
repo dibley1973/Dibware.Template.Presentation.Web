@@ -5,7 +5,7 @@ using System.Security.Principal;
 namespace Dibware.Template.Presentation.Web.Modules.Authentication
 {
     /// <summary>
-    /// Defines the expected members of a CliquePrinciple object
+    /// Defines the expected members of a WebsitePrinciple object
     /// </summary>
     public interface IWebsitePrincipal : IPrincipal
     {

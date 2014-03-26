@@ -138,6 +138,9 @@
   <data name="RoleName_MainUser" xml:space="preserve">
     <value>RoleName_MainUser</value>
   </data>
+  <data name="RoleName_SuperUser" xml:space="preserve">
+    <value>RoleName_SuperUser</value>
+  </data>
   <data name="RoleName_UnknownUser" xml:space="preserve">
     <value>RoleName_UnknownUser</value>
   </data>

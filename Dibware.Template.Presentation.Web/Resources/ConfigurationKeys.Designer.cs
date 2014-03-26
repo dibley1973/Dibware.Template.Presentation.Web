@@ -124,6 +124,15 @@ namespace Dibware.Template.Presentation.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to RoleName_SuperUser.
+        /// </summary>
+        internal static string RoleName_SuperUser {
+            get {
+                return ResourceManager.GetString("RoleName_SuperUser", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to RoleName_UnknownUser.
         /// </summary>
         internal static string RoleName_UnknownUser {

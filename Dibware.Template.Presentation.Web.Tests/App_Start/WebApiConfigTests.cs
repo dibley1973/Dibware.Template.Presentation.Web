@@ -12,7 +12,7 @@ namespace Dibware.Template.Presentation.Web.Tests.App_Start
     {
         #region Declarations
 
-        private HttpConfiguration _config;
+        //private HttpConfiguration _config;
 
         #endregion
 
@@ -21,10 +21,10 @@ namespace Dibware.Template.Presentation.Web.Tests.App_Start
         [TestInitialize]
         public void TestInit()
         {
-            _config = new HttpConfiguration
-            {
-                IncludeErrorDetailPolicy = IncludeErrorDetailPolicy.Always
-            };
+            //_config = new HttpConfiguration
+            //{
+            //    IncludeErrorDetailPolicy = IncludeErrorDetailPolicy.Always
+            //};
             //_config.Routes.MapHttpRoute(name: "Default", routeTemplate: "api/{controller}/{id}", defaults: new { id = RouteParameter.Optional });
             //_config.Routes.MapHttpRoute(name: "DefaultRPC", routeTemplate: "api/v2/{controller}/{action}/{id}", defaults: new { id = RouteParameter.Optional });
             //_config.Routes.MapHttpRoute(name: "DefaultRPC", routeTemplate: "api/v2/{controller}/{action}/{id}", defaults: new { id = RouteParameter.Optional });
@@ -54,7 +54,7 @@ namespace Dibware.Template.Presentation.Web.Tests.App_Start
 
         [Ignore]    // TODO: Implement if we get any WebApi controllers
         [TestMethod]
-        public void UrlControllerGetIsCorrect()
+        public void Test_WebApiUrlControllerGet_ReturnsCorrectType()
         {
             //var request = new HttpRequestMessage(HttpMethod.Get, "http://www.strathweb.com/api/url/");
             //var routeTester = new RouteTester(_config, request);
