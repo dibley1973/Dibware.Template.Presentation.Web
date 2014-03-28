@@ -96,7 +96,9 @@
     <Compile Include="Filters\GlobalFilterTests.cs" />
     <Compile Include="Filters\ManageBaseViewModelAttributeTest.cs" />
     <Compile Include="Filters\WebsiteAuthorizeAttributeTests.cs" />
+    <Compile Include="Mocks\MockBaseViewModel.cs" />
     <Compile Include="Mocks\MockWebsiteAuthorizeAttribute.cs" />
+    <Compile Include="Models\Base\BaseViewModelTests.cs" />
     <Compile Include="Modules\Authentication\WebsitePrincipalTests.cs" />
     <Compile Include="Modules\UserPreferences\UserPreferenceTests.cs" />
     <Compile Include="Resources\FailedTestMessages.Designer.cs">
