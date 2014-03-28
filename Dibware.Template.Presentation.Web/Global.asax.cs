@@ -1,11 +1,14 @@
 ﻿using AutoMapper;
+using Dibware.Template.Presentation.Web.Modules.Authentication;
 using Dibware.Template.Presentation.Web.Modules.Configuration;
+using Dibware.Web.Security.Principal;
 using Ninject;
 using Ninject.Web.Common;
 using Ninject.Web.Mvc;
 using System;
 using System.Linq;
 using System.Reflection;
+using System.Web;
 using System.Web.Http;
 using System.Web.Mvc;
 using System.Web.Optimization;
@@ -77,8 +80,9 @@ namespace Dibware.Template.Presentation.Web
                 (IApplicationConfiguration)DependencyResolver.Current.GetService(typeof(IApplicationConfiguration));
             //var roleRepository =
             //    (IRoleRepository)DependencyResolver.Current.GetService(typeof(IRoleRepository));
-            //var identity = (IIdentity)HttpContext.Current.User.Identity;
-            //var webIdentity = new WebIdentity(identity, roleRepository);
+            var identity = HttpContext.Current.User.Identity;
+            var roles = new string[] {};
+            var webIdentity = new WebIdentity(identity, roles);
 
             //// check if user has no roles, and add default role if they don'e
             //if (webIdentity.Roles.Length == 0)
@@ -87,12 +91,12 @@ namespace Dibware.Template.Presentation.Web
             //    webIdentity.Roles[webIdentity.Roles.Length - 1] = "Unknown";
             //}
 
-            //var principal = new WebsitePrincipal(webIdentity)
-            //{
-            //    ApplicationConfiguration = applicationConfiguration
-            //};
+            var principal = new WebsitePrincipal(webIdentity)
+            {
+                ApplicationConfiguration = applicationConfiguration
+            };
 
-            //HttpContext.Current.User = principal;
+            HttpContext.Current.User = principal;
         }
 
     }
