@@ -1,18 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Security.Principal;
-using System.Text;
-using System.Threading.Tasks;
-using System.Web;
-using System.Web.Mvc;
-using System.Web.Routing;
-using Dibware.Template.Presentation.Web.Modules.Authentication;
+﻿using Dibware.Template.Presentation.Web.Modules.Authentication;
 using Dibware.Template.Presentation.Web.Modules.Configuration;
 using Dibware.Template.Presentation.Web.Tests.Resources;
 using Dibware.Web.Security.Principal;
 using Moq;
 using MvcContrib.TestHelper;
+using System;
+using System.Security.Principal;
+using System.Web;
+using System.Web.Mvc;
+using System.Web.Routing;
 
 namespace Dibware.Template.Presentation.Web.Tests.Helpers
 {
@@ -45,6 +41,7 @@ namespace Dibware.Template.Presentation.Web.Tests.Helpers
             var webIdentity = new WebIdentity(identity, roles);
             var principal = new WebsitePrincipal(webIdentity);
             var appConfigurationMock = new Mock<IApplicationConfiguration>();
+            appConfigurationMock.Setup(ac => ac.BrandName).Returns("TestBrand");
             principal.ApplicationConfiguration = appConfigurationMock.Object;
 
             // Mock http context and create controller context

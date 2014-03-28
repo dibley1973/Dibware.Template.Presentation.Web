@@ -183,11 +183,15 @@
     <Compile Include="Composition\IApplicationConfigurationMapping.cs" />
     <Compile Include="Controllers\Base\BaseController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Filters\CompressAttribute.cs" />
+    <Compile Include="Filters\CustomHandleErrorAttribute.cs" />
+    <Compile Include="Filters\HandleErrorForAjaxRequestAttribute.cs" />
     <Compile Include="Filters\ManageBaseViewModelAttribute.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Base\BaseViewModel.cs" />
+    <Compile Include="Models\Error\ErrorViewModel.cs" />
     <Compile Include="Models\Home\AboutViewModel.cs" />
     <Compile Include="Models\Home\IndexViewModel.cs" />
     <Compile Include="Modules\Authentication\IWebsitePrincipal.cs" />
@@ -200,6 +204,11 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Resources\AssetPaths.cs" />
     <Compile Include="Resources\BundlePaths.cs" />
+    <Compile Include="Resources\CompressionEncoding.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CompressionEncoding.resx</DependentUpon>
+    </Compile>
     <Compile Include="Resources\ConfigurationKeys.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -220,6 +229,16 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>MetaTagData.resx</DependentUpon>
     </Compile>
+    <Compile Include="Resources\RequestHeaders.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RequestHeaders.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\ResponseHeaders.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ResponseHeaders.resx</DependentUpon>
+    </Compile>
     <Compile Include="Resources\UserRole.cs" />
     <Compile Include="Resources\ViewNames.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -229,6 +248,10 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
+    <EmbeddedResource Include="Resources\CompressionEncoding.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>CompressionEncoding.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="Resources\ConfigurationKeys.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>ConfigurationKeys.Designer.cs</LastGenOutput>
@@ -242,8 +265,16 @@
       <LastGenOutput>LinkText.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Resources\MetaTagData.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
+      <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>MetaTagData.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\RequestHeaders.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>RequestHeaders.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\ResponseHeaders.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>ResponseHeaders.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Resources\ViewNames.resx">
       <Generator>ResXFileCodeGenerator</Generator>

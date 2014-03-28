@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Security.Principal;
 using System.Web;
@@ -31,6 +32,54 @@ namespace Dibware.Template.Presentation.Web.Modules.Authentication
         /// </value>
         [Inject]
         public IApplicationConfiguration ApplicationConfiguration { get; set; }
+
+        /// <summary>
+        /// Gets a value indicating whether this instance is an administrator user.
+        /// </summary>
+        /// <value>
+        /// <c>true</c> if this instance is an administrator user; otherwise, <c>false</c>.
+        /// </value>
+        public bool IsAdministratorUser
+        {
+            get { return IsInRole(ApplicationConfiguration.AdministratorUserRoleName); }
+        }
+
+        /// <summary>
+        /// Gets a value indicating whether this instance is a main user.
+        /// </summary>
+        /// <value>
+        /// <c>true</c> if this instance is a main user; otherwise, <c>false</c>.
+        /// </value>
+        public bool IsMainUser
+        {
+            get { return IsInRole(ApplicationConfiguration.MainUserRoleName); }
+        }
+
+        /// <summary>
+        /// Gets a value indicating whether this instance is an unknowh user.
+        /// </summary>
+        /// <value>
+        /// <c>true</c> if this instance is an unknown user; otherwise, <c>false</c>.
+        /// </value>
+        public bool IsUnknownUser
+        {
+            get { return IsInRole(ApplicationConfiguration.UnknownUserRoleName); }
+        }
+
+        /// <summary>
+        /// Gets the name.
+        /// </summary>
+        /// <value>
+        /// The name.
+        /// </value>
+        public String Name
+        {
+            get
+            {
+                var ti = new CultureInfo("en-US", false).TextInfo;
+                return ti.ToTitleCase(Identity.Name);
+            }
+        }
 
         #endregion
 
