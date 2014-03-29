@@ -12,6 +12,12 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "GitInfo", "GitInfo", "{D7FB
 		README.md = README.md
 	EndProjectSection
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "01-Presentation", "01-Presentation", "{8B18F95B-2F37-4C96-8CEB-8CC77491F627}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "02-Core", "02-Core", "{43DC97A4-5E29-45FF-A80E-9E1CF7C010A4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dibware.Template.Core.Domain", "Dibware.Template.Core.Domain\Dibware.Template.Core.Domain.csproj", "{9CE3ACA7-1C53-474D-8C51-807C11B45045}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -26,8 +32,17 @@ Global
 		{8EC2C9B7-CACE-42D2-A6BF-5D4CBC2CEA67}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8EC2C9B7-CACE-42D2-A6BF-5D4CBC2CEA67}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8EC2C9B7-CACE-42D2-A6BF-5D4CBC2CEA67}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9CE3ACA7-1C53-474D-8C51-807C11B45045}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9CE3ACA7-1C53-474D-8C51-807C11B45045}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9CE3ACA7-1C53-474D-8C51-807C11B45045}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9CE3ACA7-1C53-474D-8C51-807C11B45045}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{8EC2C9B7-CACE-42D2-A6BF-5D4CBC2CEA67} = {8B18F95B-2F37-4C96-8CEB-8CC77491F627}
+		{5D1F727E-B742-412C-B7FD-F41392334B81} = {8B18F95B-2F37-4C96-8CEB-8CC77491F627}
+		{9CE3ACA7-1C53-474D-8C51-807C11B45045} = {43DC97A4-5E29-45FF-A80E-9E1CF7C010A4}
 	EndGlobalSection
 EndGlobal

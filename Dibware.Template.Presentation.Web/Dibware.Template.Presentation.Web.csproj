@@ -246,7 +246,12 @@
       <DependentUpon>ViewNames.resx</DependentUpon>
     </Compile>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\Dibware.Template.Core.Domain\Dibware.Template.Core.Domain.csproj">
+      <Project>{9ce3aca7-1c53-474d-8c51-807c11b45045}</Project>
+      <Name>Dibware.Template.Core.Domain</Name>
+    </ProjectReference>
+  </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Resources\CompressionEncoding.resx">
       <Generator>ResXFileCodeGenerator</Generator>

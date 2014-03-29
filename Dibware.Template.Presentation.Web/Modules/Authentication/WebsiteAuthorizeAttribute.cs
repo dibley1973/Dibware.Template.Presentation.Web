@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Dibware.Helpers.System;
@@ -83,20 +82,20 @@ namespace Dibware.Template.Presentation.Web.Modules.Authentication
                 return false;
             }
 
-            // see if the user is in any of the mapped roles.
-            var result = EnumHelper.GetAllSelectedItems<UserRole>(_allowedRole)
-                .Any(role => httpContext.User.IsInRole(GetMappedRole(role)));
+            //// see if the user is in any of the mapped roles.
+            //var result = EnumHelper.GetAllSelectedItems<UserRole>(_allowedRole)
+            //    .Any(role => httpContext.User.IsInRole(GetMappedRole(role)));
 
-
-            //foreach (var role in EnumHelper.GetAllSelectedItems<UserRole>(this._allowedRole))
-            //{
-            //    // ... and see if our current user is in the mapped role.
-            //    if (httpContext.User.IsInRole(this.GetMappedRole(role)))
-            //    {
-            //        result = true;
-            //        break; // For performance.
-            //    }
-            //}
+            var result = false;
+            foreach (var role in EnumHelper.GetAllSelectedItems<UserRole>(_allowedRole))
+            {
+                // ... and see if our current user is in the mapped role.
+                if (httpContext.User.IsInRole(GetMappedRole(role)))
+                {
+                    result = true;
+                    break; // For performance.
+                }
+            }
 
             return result;
         }

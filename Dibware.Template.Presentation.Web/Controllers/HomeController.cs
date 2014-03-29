@@ -1,11 +1,8 @@
 ﻿using Dibware.Template.Presentation.Web.Controllers.Base;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
 using Dibware.Template.Presentation.Web.Models.Home;
+using Dibware.Template.Presentation.Web.Modules.Authentication;
 using Dibware.Template.Presentation.Web.Resources;
+using System.Web.Mvc;
 
 namespace Dibware.Template.Presentation.Web.Controllers
 {
@@ -27,7 +24,7 @@ namespace Dibware.Template.Presentation.Web.Controllers
         //
         // GET: /Home/
         //No authorisation, anyone can view this.
-        //[WebsiteAuthoriz(UserRole.All)]
+        //[WebsiteAuthorize(UserRole.All)]
         [HttpGet]
         public ActionResult Index()
         {

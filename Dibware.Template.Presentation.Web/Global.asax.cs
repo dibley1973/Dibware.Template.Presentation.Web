@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Dibware.Template.Core.Domain.Contracts.Repositories;
 using Dibware.Template.Presentation.Web.Modules.Authentication;
 using Dibware.Template.Presentation.Web.Modules.Configuration;
 using Dibware.Web.Security.Principal;
@@ -74,23 +75,22 @@ namespace Dibware.Template.Presentation.Web
         /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         protected void Application_PostAuthenticateRequest(Object sender, EventArgs e)
         {
-            if (!Request.IsAuthenticated) { return; }
-
+            String[] roles;
             var applicationConfiguration =
-                (IApplicationConfiguration)DependencyResolver.Current.GetService(typeof(IApplicationConfiguration));
-            //var roleRepository =
-            //    (IRoleRepository)DependencyResolver.Current.GetService(typeof(IRoleRepository));
+                (IApplicationConfiguration)
+                    DependencyResolver.Current.GetService(typeof (IApplicationConfiguration));
             var identity = HttpContext.Current.User.Identity;
-            var roles = new string[] {};
+            if (Request.IsAuthenticated)
+            {
+                var roleRepository =
+                    (IRoleRepository)DependencyResolver.Current.GetService(typeof(IRoleRepository));
+                roles = roleRepository.GetRoleNamesForUser(identity.Name);
+            }
+            else
+            {
+                roles = new string[] { applicationConfiguration.UnknownUserRoleName };
+            }
             var webIdentity = new WebIdentity(identity, roles);
-
-            //// check if user has no roles, and add default role if they don'e
-            //if (webIdentity.Roles.Length == 0)
-            //{
-            //    Array.Resize(ref webIdentity.Roles, webIdentity.Roles.Length + 1);
-            //    webIdentity.Roles[webIdentity.Roles.Length - 1] = "Unknown";
-            //}
-
             var principal = new WebsitePrincipal(webIdentity)
             {
                 ApplicationConfiguration = applicationConfiguration
