@@ -34,6 +34,14 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>Libraires\Dibware.Web.Security.dll</HintPath>
     </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Libraires\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Libraires\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -46,6 +54,7 @@
     <Compile Include="Contracts\Repositories\Base\IRepository.cs" />
     <Compile Include="Contracts\Repositories\IRoleRepository.cs" />
     <Compile Include="Contracts\Services\ICloneService.cs" />
+    <Compile Include="Contracts\UnitOfWork\IUnitOfWork.cs" />
     <Compile Include="Entities\Base\BaseEntity.cs" />
     <Compile Include="Entities\Base\BaseIdEntity.cs" />
     <Compile Include="Entities\Base\BaseKeyEntity.cs" />
@@ -54,6 +63,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Libraires\Dibware.Web.Security.dll" />
+    <Content Include="Libraires\EntityFramework.dll" />
+    <Content Include="Libraires\EntityFramework.SqlServer.dll" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Entities\Base\BaseGuidEntity.cs" />
