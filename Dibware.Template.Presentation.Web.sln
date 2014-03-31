@@ -20,7 +20,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dibware.Template.Core.Domai
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Documentation", "Documentation", "{AE0BE308-F7E0-4298-B578-F28BF547713E}"
 	ProjectSection(SolutionItems) = preProject
-		..\..\Dib's Documents\Projects\Website Template MVC\UserStories.xlsx = ..\..\Dib's Documents\Projects\Website Template MVC\UserStories.xlsx
+		UserStories.xlsx = UserStories.xlsx
 	EndProjectSection
 EndProject
 Global
