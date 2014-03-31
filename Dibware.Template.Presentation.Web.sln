@@ -18,6 +18,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "02-Core", "02-Core", "{43DC
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dibware.Template.Core.Domain", "Dibware.Template.Core.Domain\Dibware.Template.Core.Domain.csproj", "{9CE3ACA7-1C53-474D-8C51-807C11B45045}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Documentation", "Documentation", "{AE0BE308-F7E0-4298-B578-F28BF547713E}"
+	ProjectSection(SolutionItems) = preProject
+		..\..\Dib's Documents\Projects\Website Template MVC\UserStories.xlsx = ..\..\Dib's Documents\Projects\Website Template MVC\UserStories.xlsx
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
