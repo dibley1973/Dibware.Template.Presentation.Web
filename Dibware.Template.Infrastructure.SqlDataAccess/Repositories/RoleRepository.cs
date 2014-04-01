@@ -1,6 +1,5 @@
 ﻿using Dibware.Helpers.Validation;
 using Dibware.Template.Core.Domain.Contracts.Repositories;
-using Dibware.Template.Core.Domain.Contracts.Repositories.Base;
 using Dibware.Template.Core.Domain.Contracts.UnitOfWork;
 using Dibware.Template.Core.Domain.Entities.Security;
 using Dibware.Template.Infrastructure.SqlDataAccess.Base;
@@ -66,57 +65,80 @@ namespace Dibware.Template.Infrastructure.SqlDataAccess.Repositories
         /// <param name="guid">The unique identifier.</param>
         /// <returns></returns>
         /// <exception cref="NotImplementedException"></exception>
-        new Role GetForGuid(Guid guid)
+        public new Role GetForGuid(Guid guid)
         {
             throw new NotImplementedException();
         }
 
-        Role IRepository<Role>.GetForId(int id)
+        /// <summary>
+        /// Gets for identifier.
+        /// </summary>
+        /// <param name="id">The identifier.</param>
+        /// <returns></returns>
+        /// <exception cref="NotImplementedException"></exception>
+        public new Role GetForId(int id)
         {
             throw new NotImplementedException();
         }
 
-        Role IRepository<Role>.GetForKey(String key)
+        /// <summary>
+        /// Gets for key.
+        /// </summary>
+        /// <param name="key">The key.</param>
+        /// <returns></returns>
+        /// <exception cref="NotImplementedException"></exception>
+        public new Role GetForKey(String key)
         {
             throw new NotImplementedException();
         }
 
-        Role IRepository<Role>.GetForName(String name)
+        /// <summary>
+        /// Gets for name.
+        /// </summary>
+        /// <param name="name">The name.</param>
+        /// <returns></returns>
+        /// <exception cref="NotImplementedException"></exception>
+        public new Role GetForName(String name)
         {
             throw new NotImplementedException();
         }
 
-        ICollection<Role> IRepository<Role>.GetAll()
+        /// <summary>
+        /// Gets all.
+        /// </summary>
+        /// <returns></returns>
+        /// <exception cref="NotImplementedException"></exception>
+        public new ICollection<Role> GetAll()
         {
             throw new NotImplementedException();
         }
 
-        Role IRepository<Role>.Create(Role entity)
+        public new Role Create(Role entity)
         {
             throw new NotImplementedException();
         }
 
-        void IRepository<Role>.Update(Role entity)
+        public new void Update(Role entity)
         {
             throw new NotImplementedException();
         }
 
-        void IRepository<Role>.Delete(Role entity)
+        public new void Delete(Role entity)
         {
             throw new NotImplementedException();
         }
 
-        void IRepository<Role>.Merge(Role persisted, Role modified)
+        public new void Merge(Role persisted, Role modified)
         {
             throw new NotImplementedException();
         }
 
-        void IRepository<Role>.SaveChanges()
+        public new void SaveChanges()
         {
             throw new NotImplementedException();
         }
 
-        void IRepository<Role>.DiscardChanges()
+        public new void DiscardChanges()
         {
             throw new NotImplementedException();
         }

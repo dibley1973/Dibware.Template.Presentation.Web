@@ -90,7 +90,7 @@ namespace Dibware.Template.Infrastructure.SqlDataAccess.Base
         /// <param name="entity">The entity.</param>
         public virtual TEntity Create(TEntity entity)
         {
-            UnitOfWork.Attach<TEntity>(entity);
+            UnitOfWork.Attach(entity);
             return entity;
         }
 
@@ -100,7 +100,7 @@ namespace Dibware.Template.Infrastructure.SqlDataAccess.Base
         /// <param name="entity">The entity.</param>
         public virtual void Update(TEntity entity)
         {
-            UnitOfWork.SetModified<TEntity>(entity);
+            UnitOfWork.SetModified(entity);
         }
 
         /// <summary>
@@ -109,7 +109,7 @@ namespace Dibware.Template.Infrastructure.SqlDataAccess.Base
         /// <param name="entity">The entity.</param>
         public virtual void Delete(TEntity entity)
         {
-            UnitOfWork.Detach<TEntity>(entity);
+            UnitOfWork.Detach(entity);
         }
 
         /// <summary>
@@ -133,7 +133,7 @@ namespace Dibware.Template.Infrastructure.SqlDataAccess.Base
         /// </summary>
         /// <param name="persisted">The persisted.</param>
         /// <param name="modified">The modified.</param>
-        /// <exception cref="System.NotImplementedException"></exception>
+        /// <exception cref="NotImplementedException"></exception>
         public void Merge(TEntity persisted, TEntity modified)
         {
             UnitOfWork.ApplyCurrentValues(persisted, modified);

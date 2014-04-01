@@ -7,8 +7,6 @@ using System.Data.Entity.ModelConfiguration.Conventions;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Dibware.Template.Infrastructure.SqlDataAccess.UnitOfWork
 {
@@ -51,7 +49,7 @@ namespace Dibware.Template.Infrastructure.SqlDataAccess.UnitOfWork
         public IDbSet<TEntity> CreateSet<TEntity>()
             where TEntity : class
         {
-            return base.Set<TEntity>();
+            return Set<TEntity>();
         }
 
         /// <summary>
@@ -62,7 +60,7 @@ namespace Dibware.Template.Infrastructure.SqlDataAccess.UnitOfWork
         public void Attach<TEntity>(TEntity item)
             where TEntity : class
         {
-            base.Set<TEntity>().Add(item);
+            Set<TEntity>().Add(item);
         }
 
         /// <summary>
@@ -73,7 +71,7 @@ namespace Dibware.Template.Infrastructure.SqlDataAccess.UnitOfWork
         public void SetModified<TEntity>(TEntity item)
             where TEntity : class
         {
-            base.Entry<TEntity>(item).State = EntityState.Modified;
+            Entry(item).State = EntityState.Modified;
         }
 
         /// <summary>
@@ -84,7 +82,7 @@ namespace Dibware.Template.Infrastructure.SqlDataAccess.UnitOfWork
         public void Detach<TEntity>(TEntity item)
             where TEntity : class
         {
-            base.Set<TEntity>().Remove(item);
+            Set<TEntity>().Remove(item);
         }
 
         /// <summary>
@@ -100,9 +98,9 @@ namespace Dibware.Template.Infrastructure.SqlDataAccess.UnitOfWork
         /// </summary>
         public void Rollback()
         {
-            base.ChangeTracker.Entries()
-                              .ToList()
-                              .ForEach(entry => entry.State = EntityState.Unchanged);
+            ChangeTracker.Entries()
+                         .ToList()
+                         .ForEach(entry => entry.State = EntityState.Unchanged);
         }
 
         /// <summary>
@@ -111,11 +109,11 @@ namespace Dibware.Template.Infrastructure.SqlDataAccess.UnitOfWork
         /// <typeparam name="TEntity">The type of entity</typeparam>
         /// <param name="original">The original entity</param>
         /// <param name="current">The current entity</param>
-        /// <exception cref="System.NotImplementedException"></exception>
+        /// <exception cref="NotImplementedException"></exception>
         public void ApplyCurrentValues<TEntity>(TEntity original, TEntity current) where TEntity : class
         {
             //if it is not attached, attach original and set current values
-            base.Entry<TEntity>(original).CurrentValues.SetValues(current);
+            Entry(original).CurrentValues.SetValues(current);
         }
 
         /// <summary>
@@ -126,7 +124,7 @@ namespace Dibware.Template.Infrastructure.SqlDataAccess.UnitOfWork
         public int ExecuteStoredProcedure(string procedureName, object parameters)
         {
             var arguments = PrepareSqlArguments(procedureName, parameters);
-            return this.Database.ExecuteSqlCommand(arguments.Item1, arguments.Item2);
+            return Database.ExecuteSqlCommand(arguments.Item1, arguments.Item2);
         }
 
         /// <summary>
@@ -137,7 +135,7 @@ namespace Dibware.Template.Infrastructure.SqlDataAccess.UnitOfWork
         /// <returns></returns>
         public ICollection<T> ExecuteSqlQuery<T>(string sqlQuery) where T : class
         {
-            return this.Database.SqlQuery<T>(sqlQuery).ToList();
+            return Database.SqlQuery<T>(sqlQuery).ToList();
         }
 
         #endregion
