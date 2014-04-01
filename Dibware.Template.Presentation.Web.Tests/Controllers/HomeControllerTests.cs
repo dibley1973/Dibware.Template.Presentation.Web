@@ -1,13 +1,13 @@
-﻿using System;
-using System.Linq;
-using System.Web.Mvc;
-using Dibware.Template.Presentation.Web.Controllers;
+﻿using Dibware.Template.Presentation.Web.Controllers;
 using Dibware.Template.Presentation.Web.Models.Home;
 using Dibware.Template.Presentation.Web.Modules.Authentication;
 using Dibware.Template.Presentation.Web.Resources;
 using Dibware.Template.Presentation.Web.Tests.Helpers;
 using Dibware.Template.Presentation.Web.Tests.Resources;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System;
+using System.Linq;
+using System.Web.Mvc;
 
 namespace Dibware.Template.Presentation.Web.Tests.Controllers
 {
@@ -64,15 +64,15 @@ namespace Dibware.Template.Presentation.Web.Tests.Controllers
             var attributes = methodInfo.GetCustomAttributes(attributeType, true);
 
             // Assert
-            Assert.IsFalse(attributes.Any(), 
-                String.Format(FailedTestMessages.AttributeFoundOnActionMethod, 
-                attributeType, 
-                actionMethodName, 
+            Assert.IsFalse(attributes.Any(),
+                String.Format(FailedTestMessages.AttributeFoundOnActionMethod,
+                attributeType,
+                actionMethodName,
                 viewModelType));
         }
 
         [TestMethod]
-        public void Test_AboutAction_isNotDecoratedWithCliqueAuthorizeAttribute()
+        public void Test_AboutAction_isNotDecoratedWithWebsiteAuthorizeAttribute()
         {
             // Arrange
             var roles = new[] { UserRole.UnknownUser.ToString() };
@@ -87,10 +87,10 @@ namespace Dibware.Template.Presentation.Web.Tests.Controllers
             var attributes = methodInfo.GetCustomAttributes(attributeType, true);
 
             // Assert
-            Assert.IsFalse(attributes.Any(), 
-                String.Format(FailedTestMessages.AttributeFoundOnActionMethod, 
-                attributeType, 
-                actionMethodName, 
+            Assert.IsFalse(attributes.Any(),
+                String.Format(FailedTestMessages.AttributeFoundOnActionMethod,
+                attributeType,
+                actionMethodName,
                 viewModelType));
         }
 
@@ -131,15 +131,15 @@ namespace Dibware.Template.Presentation.Web.Tests.Controllers
             var attributes = methodInfo.GetCustomAttributes(attributeType, true);
 
             // Assert
-            Assert.IsFalse(attributes.Any(), 
-                String.Format(FailedTestMessages.AttributeFoundOnActionMethod, 
-                attributeType, 
-                actionMethodName, 
+            Assert.IsFalse(attributes.Any(),
+                String.Format(FailedTestMessages.AttributeFoundOnActionMethod,
+                attributeType,
+                actionMethodName,
                 viewModelType));
         }
 
         [TestMethod]
-        public void Test_IndexAction_isNotDecoratedWithCliqueAuthorizeAttribute()
+        public void Test_IndexAction_isNotDecoratedWithWebsiteAuthorizeAttribute()
         {
             // Arrange
             var roles = new[] { UserRole.UnknownUser.ToString() };
@@ -154,10 +154,10 @@ namespace Dibware.Template.Presentation.Web.Tests.Controllers
             var attributes = methodInfo.GetCustomAttributes(attributeType, true);
 
             // Assert
-            Assert.IsFalse(attributes.Any(), 
-                String.Format(FailedTestMessages.AttributeFoundOnActionMethod, 
-                attributeType, 
-                actionMethodName, 
+            Assert.IsFalse(attributes.Any(),
+                String.Format(FailedTestMessages.AttributeFoundOnActionMethod,
+                attributeType,
+                actionMethodName,
                 viewModelType));
         }
 

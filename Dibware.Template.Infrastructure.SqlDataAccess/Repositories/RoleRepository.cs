@@ -1,15 +1,16 @@
-﻿using Dibware.Template.Core.Domain.Contracts.Repositories;
-using Dibware.Template.Core.Domain.Contracts.Repositories.Base;
+﻿using Dibware.Helpers.Validation;
+using Dibware.Template.Core.Domain.Contracts.Repositories;
 using Dibware.Template.Core.Domain.Contracts.UnitOfWork;
 using Dibware.Template.Core.Domain.Entities.Security;
 using Dibware.Template.Infrastructure.SqlDataAccess.Base;
+using Dibware.Template.Infrastructure.SqlDataAccess.Resources;
 using Dibware.Web.Security.Providers.Contracts;
 using System;
 using System.Collections.Generic;
 
 namespace Dibware.Template.Infrastructure.SqlDataAccess.Repositories
 {
-    public class RoleRepository : Repository<Role>, IRoleRepository, IRepositoryRoleProviderRepository
+    public class RoleRepository : Repository<Role>, IRoleRepository
     {
         #region Construct
 
@@ -22,123 +23,176 @@ namespace Dibware.Template.Infrastructure.SqlDataAccess.Repositories
 
         #endregion
 
-        #region IRepositoryRoleProviderRepository Members
+        #region IRoleRepository Members
 
-        void IRepositoryRoleProviderRepository.AddUsersToRoles(string[] usernames, string[] roleNames)
+        /// <summary>
+        /// Gets a list of roles for the user specified by username.
+        /// </summary>
+        /// <param name="username">The username.</param>
+        /// <returns></returns>
+        /// <exception cref="NotImplementedException"></exception>
+        IEnumerable<Role> IRoleRepository.GetRoleListForUser(String username)
+        {
+            // Validate dependencies and arguments
+            Guard.InvalidOperation(UnitOfWork == null, ExceptionMessages.UnitOfWorkIsNull);
+            Guard.ArgumentIsNotNullOrEmpty(username, "username");
+
+            throw new NotImplementedException();
+        }
+
+        /// <summary>
+        /// Gets a list of role names for the user specified by username.
+        /// </summary>
+        /// <param name="username">The username.</param>
+        /// <returns></returns>
+        /// <exception cref="NotImplementedException"></exception>
+        IEnumerable<String> IRoleRepository.GetRoleNameListsForUser(String username)
+        {
+            // Validate dependencies and arguments
+            Guard.InvalidOperation(UnitOfWork == null, ExceptionMessages.UnitOfWorkIsNull);
+            Guard.ArgumentIsNotNullOrEmpty(username, "username");
+
+            throw new NotImplementedException();
+        }
+
+        #endregion
+
+        #region IRepository<Role> Members
+
+        /// <summary>
+        /// Gets for unique identifier.
+        /// </summary>
+        /// <param name="guid">The unique identifier.</param>
+        /// <returns></returns>
+        /// <exception cref="NotImplementedException"></exception>
+        public new Role GetForGuid(Guid guid)
         {
             throw new NotImplementedException();
         }
 
-        void IRepositoryRoleProviderRepository.CreateRole(string roleName)
+        /// <summary>
+        /// Gets for identifier.
+        /// </summary>
+        /// <param name="id">The identifier.</param>
+        /// <returns></returns>
+        /// <exception cref="NotImplementedException"></exception>
+        public new Role GetForId(int id)
         {
             throw new NotImplementedException();
         }
 
-        bool IRepositoryRoleProviderRepository.DeleteRole(string roleName, bool throwOnPopulatedRole)
+        /// <summary>
+        /// Gets for key.
+        /// </summary>
+        /// <param name="key">The key.</param>
+        /// <returns></returns>
+        /// <exception cref="NotImplementedException"></exception>
+        public new Role GetForKey(String key)
         {
             throw new NotImplementedException();
         }
 
-        string[] IRepositoryRoleProviderRepository.FindUsersInRole(string roleName, string usernameToMatch)
+        /// <summary>
+        /// Gets for name.
+        /// </summary>
+        /// <param name="name">The name.</param>
+        /// <returns></returns>
+        /// <exception cref="NotImplementedException"></exception>
+        public new Role GetForName(String name)
         {
             throw new NotImplementedException();
         }
 
-        string[] IRepositoryRoleProviderRepository.GetAllRoles()
+        /// <summary>
+        /// Gets all.
+        /// </summary>
+        /// <returns></returns>
+        /// <exception cref="NotImplementedException"></exception>
+        public new ICollection<Role> GetAll()
         {
             throw new NotImplementedException();
         }
 
-        string[] IRepositoryRoleProviderRepository.GetRolesForUser(string username)
+        public new Role Create(Role entity)
         {
             throw new NotImplementedException();
         }
 
-        string[] IRepositoryRoleProviderRepository.GetUsersInRole(string roleName)
+        public new void Update(Role entity)
         {
             throw new NotImplementedException();
         }
 
-        bool IRepositoryRoleProviderRepository.IsUserInRole(string username, string roleName)
+        public new void Delete(Role entity)
         {
             throw new NotImplementedException();
         }
 
-        void IRepositoryRoleProviderRepository.RemoveUsersFromRoles(string[] usernames, string[] roleNames)
+        public new void Merge(Role persisted, Role modified)
         {
             throw new NotImplementedException();
         }
 
-        bool IRepositoryRoleProviderRepository.RoleExists(string roleName)
+        public new void SaveChanges()
+        {
+            throw new NotImplementedException();
+        }
+
+        public new void DiscardChanges()
         {
             throw new NotImplementedException();
         }
 
         #endregion
 
-        #region IRoleRepository Members
+        #region IRepositoryRoleProviderRepository Members
 
-        Role[] IRoleRepository.GetRolesForUser(string username)
+        void IRepositoryRoleProviderRepository.AddUsersToRoles(String[] usernames, String[] roleNames)
         {
             throw new NotImplementedException();
         }
 
-        string[] IRoleRepository.GetRoleNamesForUser(string username)
+        void IRepositoryRoleProviderRepository.CreateRole(String roleName)
         {
             throw new NotImplementedException();
         }
 
-        Role IRepository<Role>.GetForGuid(Guid guid)
+        bool IRepositoryRoleProviderRepository.DeleteRole(String roleName, bool throwOnPopulatedRole)
         {
             throw new NotImplementedException();
         }
 
-        Role IRepository<Role>.GetForId(int id)
+        String[] IRepositoryRoleProviderRepository.FindUsersInRole(String roleName, String usernameToMatch)
         {
             throw new NotImplementedException();
         }
 
-        Role IRepository<Role>.GetForKey(string key)
+        String[] IRepositoryRoleProviderRepository.GetAllRoles()
         {
             throw new NotImplementedException();
         }
 
-        Role IRepository<Role>.GetForName(string name)
+        String[] IRepositoryRoleProviderRepository.GetRolesForUser(String username)
         {
             throw new NotImplementedException();
         }
 
-        ICollection<Role> IRepository<Role>.GetAll()
+        String[] IRepositoryRoleProviderRepository.GetUsersInRole(String roleName)
         {
             throw new NotImplementedException();
         }
 
-        Role IRepository<Role>.Create(Role entity)
+        bool IRepositoryRoleProviderRepository.IsUserInRole(String username, String roleName)
         {
             throw new NotImplementedException();
         }
 
-        void IRepository<Role>.Update(Role entity)
+        void IRepositoryRoleProviderRepository.RemoveUsersFromRoles(String[] usernames, String[] roleNames)
         {
             throw new NotImplementedException();
         }
 
-        void IRepository<Role>.Delete(Role entity)
-        {
-            throw new NotImplementedException();
-        }
-
-        void IRepository<Role>.Merge(Role persisted, Role modified)
-        {
-            throw new NotImplementedException();
-        }
-
-        void IRepository<Role>.SaveChanges()
-        {
-            throw new NotImplementedException();
-        }
-
-        void IRepository<Role>.DiscardChanges()
+        bool IRepositoryRoleProviderRepository.RoleExists(String roleName)
         {
             throw new NotImplementedException();
         }

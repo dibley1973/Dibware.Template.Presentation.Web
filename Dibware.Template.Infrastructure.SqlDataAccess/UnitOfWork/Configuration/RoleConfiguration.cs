@@ -1,11 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.ComponentModel.DataAnnotations.Schema;
+﻿using Dibware.Template.Core.Domain.Entities.Security;
 using System.Data.Entity.ModelConfiguration;
-using Dibware.Template.Core.Domain.Entities.Security;
 
 namespace Dibware.Template.Infrastructure.SqlDataAccess.UnitOfWork.Configuration
 {

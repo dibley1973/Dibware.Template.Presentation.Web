@@ -1,12 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Data.Entity;
+﻿using Dibware.Template.Core.Domain.Entities.Security;
 using Dibware.Template.Infrastructure.SqlDataAccess.UnitOfWork;
 using Dibware.Template.Infrastructure.SqlDataAccessTests.MockData;
-using Dibware.Template.Core.Domain.Entities.Security;
+using System.Data.Entity;
 
 
 namespace Dibware.Template.Infrastructure.SqlDataAccessTests.Initialisers
@@ -30,7 +25,7 @@ namespace Dibware.Template.Infrastructure.SqlDataAccessTests.Initialisers
         /// Seeds the specified database context with roles.
         /// </summary>
         /// <param name="databaseContext">The database context.</param>
-        protected static void SeedRoles(ref WebsiteDbContext databaseContext)
+        private static void SeedRoles(ref WebsiteDbContext databaseContext)
         {
             // Create Roles
             var roleAdmin = new Role
@@ -65,7 +60,7 @@ namespace Dibware.Template.Infrastructure.SqlDataAccessTests.Initialisers
         /// Seeds the specified database context with users.
         /// </summary>
         /// <param name="databaseContext">The database context.</param>
-        protected static void SeedUsers(ref WebsiteDbContext databaseContext)
+        private static void SeedUsers(ref WebsiteDbContext databaseContext)
         {
             //// Create Users
             //var userDave = new User
@@ -73,21 +68,21 @@ namespace Dibware.Template.Infrastructure.SqlDataAccessTests.Initialisers
             //    Guid = UserData.UserDave.Guid,
             //    Password = UserData.UserDave.Password,
             //    Name = UserData.UserDave.Name,
-            //    UserName = UserData.UserDave.UserName
+            //    UserName = UserData.UserDave.Username
             //};
             //var userJane = new User
             //{
             //    Guid = UserData.UserJane.Guid,
             //    Password = UserData.UserJane.Password,
             //    Name = UserData.UserJane.Name,
-            //    UserName = UserData.UserJane.UserName
+            //    UserName = UserData.UserJane.Username
             //};
             //var userPete = new User
             //{
             //    Guid = UserData.UserPete.Guid,
             //    Password = UserData.UserPete.Password,
             //    Name = UserData.UserPete.Name,
-            //    UserName = UserData.UserPete.UserName
+            //    UserName = UserData.UserPete.Username
             //};
 
             //// Add Users

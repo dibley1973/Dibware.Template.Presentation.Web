@@ -8,9 +8,15 @@ namespace Dibware.Template.Infrastructure.SqlDataAccess.Base
 {
     public class Repository<TEntity> : IRepository<TEntity> where TEntity : class
     {
-        #region Private Members
+        #region Properties
 
-        protected IUnitOfWork _unitOfWork;
+        /// <summary>
+        /// Gets the unit of work.
+        /// </summary>
+        /// <value>
+        /// The unit of work.
+        /// </value>
+        protected IUnitOfWork UnitOfWork { get; private set; }
 
         #endregion
 
@@ -20,9 +26,9 @@ namespace Dibware.Template.Infrastructure.SqlDataAccess.Base
         /// Initializes a new instance of the <see cref="Repository{TEntity}"/> class.
         /// </summary>
         /// <param name="unitOfWork">The unit of work.</param>
-        public Repository(IUnitOfWork unitOfWork)
+        protected Repository(IUnitOfWork unitOfWork)
         {
-            _unitOfWork = unitOfWork;
+            UnitOfWork = unitOfWork;
         }
 
         #endregion
@@ -36,7 +42,7 @@ namespace Dibware.Template.Infrastructure.SqlDataAccess.Base
         /// <returns></returns>
         public virtual TEntity GetForId(Int32 id)
         {
-            return _unitOfWork.CreateSet<TEntity>().Find(id);
+            return UnitOfWork.CreateSet<TEntity>().Find(id);
         }
 
         /// <summary>
@@ -46,7 +52,7 @@ namespace Dibware.Template.Infrastructure.SqlDataAccess.Base
         /// <returns></returns>
         public virtual TEntity GetForKey(String key)
         {
-            return _unitOfWork.CreateSet<TEntity>().Find(key);
+            return UnitOfWork.CreateSet<TEntity>().Find(key);
         }
 
         /// <summary>
@@ -56,7 +62,7 @@ namespace Dibware.Template.Infrastructure.SqlDataAccess.Base
         /// <returns></returns>
         public virtual TEntity GetForGuid(Guid guid)
         {
-            return _unitOfWork.CreateSet<TEntity>().Find(guid);
+            return UnitOfWork.CreateSet<TEntity>().Find(guid);
         }
 
         /// <summary>
@@ -66,7 +72,7 @@ namespace Dibware.Template.Infrastructure.SqlDataAccess.Base
         /// <returns></returns>
         public virtual TEntity GetForName(String name)
         {
-            return _unitOfWork.CreateSet<TEntity>().Find(name);
+            return UnitOfWork.CreateSet<TEntity>().Find(name);
         }
 
         /// <summary>
@@ -75,7 +81,7 @@ namespace Dibware.Template.Infrastructure.SqlDataAccess.Base
         /// <returns></returns>
         public virtual ICollection<TEntity> GetAll()
         {
-            return _unitOfWork.CreateSet<TEntity>().ToList();
+            return UnitOfWork.CreateSet<TEntity>().ToList();
         }
 
         /// <summary>
@@ -84,7 +90,7 @@ namespace Dibware.Template.Infrastructure.SqlDataAccess.Base
         /// <param name="entity">The entity.</param>
         public virtual TEntity Create(TEntity entity)
         {
-            _unitOfWork.Attach<TEntity>(entity);
+            UnitOfWork.Attach(entity);
             return entity;
         }
 
@@ -94,7 +100,7 @@ namespace Dibware.Template.Infrastructure.SqlDataAccess.Base
         /// <param name="entity">The entity.</param>
         public virtual void Update(TEntity entity)
         {
-            _unitOfWork.SetModified<TEntity>(entity);
+            UnitOfWork.SetModified(entity);
         }
 
         /// <summary>
@@ -103,7 +109,7 @@ namespace Dibware.Template.Infrastructure.SqlDataAccess.Base
         /// <param name="entity">The entity.</param>
         public virtual void Delete(TEntity entity)
         {
-            _unitOfWork.Detach<TEntity>(entity);
+            UnitOfWork.Detach(entity);
         }
 
         /// <summary>
@@ -111,7 +117,7 @@ namespace Dibware.Template.Infrastructure.SqlDataAccess.Base
         /// </summary>
         public void SaveChanges()
         {
-            _unitOfWork.Commit();
+            UnitOfWork.Commit();
         }
 
         /// <summary>
@@ -119,7 +125,7 @@ namespace Dibware.Template.Infrastructure.SqlDataAccess.Base
         /// </summary>
         public void DiscardChanges()
         {
-            _unitOfWork.Rollback();
+            UnitOfWork.Rollback();
         }
 
         /// <summary>
@@ -127,10 +133,10 @@ namespace Dibware.Template.Infrastructure.SqlDataAccess.Base
         /// </summary>
         /// <param name="persisted">The persisted.</param>
         /// <param name="modified">The modified.</param>
-        /// <exception cref="System.NotImplementedException"></exception>
+        /// <exception cref="NotImplementedException"></exception>
         public void Merge(TEntity persisted, TEntity modified)
         {
-            _unitOfWork.ApplyCurrentValues(persisted, modified);
+            UnitOfWork.ApplyCurrentValues(persisted, modified);
         }
 
         #endregion

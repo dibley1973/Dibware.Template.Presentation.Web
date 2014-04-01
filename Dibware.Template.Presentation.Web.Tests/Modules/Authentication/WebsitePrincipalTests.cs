@@ -56,7 +56,7 @@ namespace Dibware.Template.Presentation.Web.Tests.Modules.Authentication
         #region Tests
 
         [TestMethod]
-        public void Test_CliquePrincipal_InstantiateAndCheckName_ReturnsCorrectName()
+        public void Test_WebsitePrincipal_InstantiateAndCheckName_ReturnsCorrectName()
         {
             // Arrange
             var roles = new[] { UserRole.UnknownUser.ToString() };
@@ -77,7 +77,7 @@ namespace Dibware.Template.Presentation.Web.Tests.Modules.Authentication
         }
 
         [TestMethod]
-        public void Test_CliquePrincipal_IsAdminWhenNotInRole_ResultsInFalse()
+        public void Test_WebsitePrincipal_IsAdminWhenNotInRole_ResultsInFalse()
         {
             // Arrange
             var roles = new[] { UserRole.UnknownUser.ToString() };
@@ -96,7 +96,7 @@ namespace Dibware.Template.Presentation.Web.Tests.Modules.Authentication
         }
 
         [TestMethod]
-        public void Test_CliquePrincipal_IsAdminWhenIsInRole_ResultsInTrue()
+        public void Test_WebsitePrincipal_IsAdminWhenIsInRole_ResultsInTrue()
         {
             // Arrange
             AddRolenamesToMockConfiguration(_appConfigurationMock);
@@ -116,7 +116,7 @@ namespace Dibware.Template.Presentation.Web.Tests.Modules.Authentication
         }
 
         [TestMethod]
-        public void Test_CliquePrincipal_IsMainWhenNotInMainRole_ResultsInFalse()
+        public void Test_WebsitePrincipal_IsMainWhenNotInMainRole_ResultsInFalse()
         {
             // Arrange
             var roles = new[] { UserRole.UnknownUser.ToString() };
@@ -135,7 +135,7 @@ namespace Dibware.Template.Presentation.Web.Tests.Modules.Authentication
         }
 
         [TestMethod]
-        public void Test_CliquePrincipal_IsMainWhenIsInMainRole_ResultsInTrue()
+        public void Test_WebsitePrincipal_IsMainWhenIsInMainRole_ResultsInTrue()
         {
             // Arrange
             AddRolenamesToMockConfiguration(_appConfigurationMock);
@@ -155,7 +155,7 @@ namespace Dibware.Template.Presentation.Web.Tests.Modules.Authentication
         }
 
         [TestMethod]
-        public void Test_CliquePrincipal_IsUnknownWhenNotInRole_ResultsInFalse()
+        public void Test_WebsitePrincipal_IsUnknownWhenNotInRole_ResultsInFalse()
         {
             // Arrange
             var roles = new[] { UserRole.MainUser.ToString() };
@@ -174,7 +174,7 @@ namespace Dibware.Template.Presentation.Web.Tests.Modules.Authentication
         }
 
         [TestMethod]
-        public void Test_CliquePrincipal_IsUnknownWhenIsInRole_ResultsInTrue()
+        public void Test_WebsitePrincipal_IsUnknownWhenIsInRole_ResultsInTrue()
         {
             // Arrange
             AddRolenamesToMockConfiguration(_appConfigurationMock);
@@ -194,7 +194,7 @@ namespace Dibware.Template.Presentation.Web.Tests.Modules.Authentication
         }
 
         [TestMethod]
-        public void Test_CliquePrinciple_SetUserPreferences_GetCorrect()
+        public void Test_WebsitePrinciple_SetUserPreferences_GetCorrect()
         {
 
             // Arrange

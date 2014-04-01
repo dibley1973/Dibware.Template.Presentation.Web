@@ -373,12 +373,6 @@ namespace Dibware.Template.Presentation.Web.Tests.Filters
 
         }
 
-        [TestMethod]
-        public void MyTestMethod()
-        {
-
-        }
-
         #endregion
 
         #endregion

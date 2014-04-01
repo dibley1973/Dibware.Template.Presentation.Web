@@ -39,7 +39,7 @@ namespace Dibware.Template.Infrastructure.SqlDataAccessTests.UnitOfWork
 
         [TestMethod]
         [ExpectedException(typeof(ArgumentNullException))]
-        public void Test_CliqueDbContext_ExecuteStoredProcedureUsingNullProcedureName_ThrowsArgumentNullException()
+        public void Test_WebsiteDbContext_ExecuteStoredProcedureUsingNullProcedureName_ThrowsArgumentNullException()
         {
             // Arrange
 
@@ -52,7 +52,7 @@ namespace Dibware.Template.Infrastructure.SqlDataAccessTests.UnitOfWork
 
         [TestMethod]
         [ExpectedException(typeof(ArgumentNullException))]
-        public void Test_CliqueDbContext_ExecuteStoredProcedureUsingEmptyProcedureName_ThrowsArgumentNullException()
+        public void Test_WebsiteDbContext_ExecuteStoredProcedureUsingEmptyProcedureName_ThrowsArgumentNullException()
         {
             // Arrange
             var procedureName = String.Empty;
@@ -66,7 +66,7 @@ namespace Dibware.Template.Infrastructure.SqlDataAccessTests.UnitOfWork
 
         [TestMethod]
         [ExpectedException(typeof(SqlException))]
-        public void Test_CliqueDbContext_ExecuteStoredProcedureUsingIncorrectProcedureNameNullArgs_ThrowsSqlException()
+        public void Test_WebsiteDbContext_ExecuteStoredProcedureUsingIncorrectProcedureNameNullArgs_ThrowsSqlException()
         {
             // Arrange
             const string procedureName = "IncorrectProcName";
@@ -81,7 +81,7 @@ namespace Dibware.Template.Infrastructure.SqlDataAccessTests.UnitOfWork
         [Ignore] // Needs investigation how to set up
         [TestMethod]
         [ExpectedException(typeof(SqlException))]
-        public void Test_CliqueDbContext_ExecuteStoredProcedureUsingIncorrectProcedureNameWithArgs_ThrowsSqlException()
+        public void Test_WebsiteDbContext_ExecuteStoredProcedureUsingIncorrectProcedureNameWithArgs_ThrowsSqlException()
         {
             //// Arrange
             //const string procedureName = "IncorrectProcName";
@@ -104,7 +104,7 @@ namespace Dibware.Template.Infrastructure.SqlDataAccessTests.UnitOfWork
 
         [TestMethod]
         [ExpectedException(typeof(SqlException))]
-        public void Test_CliqueDbContext_ExecuteSqlQueryUsingIncorrectSql_ThrowsSqlException()
+        public void Test_WebsiteDbContext_ExecuteSqlQueryUsingIncorrectSql_ThrowsSqlException()
         {
             // Arrange
             const string sql = "select moon from monkeys";
