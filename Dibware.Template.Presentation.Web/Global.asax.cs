@@ -78,7 +78,7 @@ namespace Dibware.Template.Presentation.Web
             String[] roles;
             var applicationConfiguration =
                 (IApplicationConfiguration)
-                    DependencyResolver.Current.GetService(typeof (IApplicationConfiguration));
+                    DependencyResolver.Current.GetService(typeof(IApplicationConfiguration));
             var identity = HttpContext.Current.User.Identity;
             if (Request.IsAuthenticated)
             {
@@ -88,7 +88,7 @@ namespace Dibware.Template.Presentation.Web
             }
             else
             {
-                roles = new string[] { applicationConfiguration.UnknownUserRoleName };
+                roles = new[] { applicationConfiguration.UnknownUserRoleName };
             }
             var webIdentity = new WebIdentity(identity, roles);
             var principal = new WebsitePrincipal(webIdentity)
