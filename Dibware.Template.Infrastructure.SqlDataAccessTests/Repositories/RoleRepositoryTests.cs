@@ -1,12 +1,12 @@
-﻿using Dibware.Template.Core.Domain.Entities.Security;
+﻿using Dibware.Template.Core.Domain.Contracts.Repositories;
 using Dibware.Template.Infrastructure.SqlDataAccess.Repositories;
 using Dibware.Template.Infrastructure.SqlDataAccess.UnitOfWork;
 using Dibware.Template.Infrastructure.SqlDataAccessTests.Helpers;
 using Dibware.Template.Infrastructure.SqlDataAccessTests.Initialisers;
+using Dibware.Template.Infrastructure.SqlDataAccessTests.MockData;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Data.Entity;
-using System.Linq;
 
 namespace Dibware.Template.Infrastructure.SqlDataAccessTests.Repositories
 {
@@ -17,7 +17,7 @@ namespace Dibware.Template.Infrastructure.SqlDataAccessTests.Repositories
 
         private WebsiteDbContext _unitOfWork;
 
-        #endregion
+        #endregion Declarations
 
         #region Test Initialise
 
@@ -33,9 +33,73 @@ namespace Dibware.Template.Infrastructure.SqlDataAccessTests.Repositories
             initialiser.InitializeDatabase(_unitOfWork);
         }
 
-        #endregion
+        #endregion Test Initialise
 
         #region Tests
+
+        #region IRoleRepository
+
+        [TestMethod]
+        [ExpectedException(typeof(InvalidOperationException))]
+        public void Test_RoleRepository_GetRoleListForUserWithNullUnitOfWork_ThrowsInvalidOperationException()
+        {
+            // Arrange
+            const String username = UserData.UserDave.Username;
+            var repository = (IRoleRepository)new RoleRepository(null);
+
+            // Act
+            var actualResult = repository.GetRoleListForUser(username);
+
+            // Assert
+            // Exception Thrown
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(NotImplementedException))]
+        public void Test_RoleRepository_GetRoleListForUserWithValidUnitOfWork_ThrowsNotImplementedException()
+        {
+            // Arrange
+            const String username = UserData.UserDave.Username;
+            var repository = (IRoleRepository)new RoleRepository(_unitOfWork);
+
+            // Act
+            var actualResult = repository.GetRoleListForUser(username);
+
+            // Assert
+            // Exception Thrown
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(InvalidOperationException))]
+        public void Test_RoleRepository_GetRoleNameListsForUserWithNullUnitOfWork_ThrowsInvalidOperationException()
+        {
+            // Arrange
+            const String username = UserData.UserDave.Username;
+            var repository = (IRoleRepository)new RoleRepository(null);
+
+            // Act
+            var actualResult = repository.GetRoleNameListsForUser(username);
+
+            // Assert
+            // Exception Thrown
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(NotImplementedException))]
+        public void Test_RoleRepository_GetRoleNameListsForUseWithValidUnitOfWork_ThrowsNotImplementedException()
+        {
+            // Arrange
+            const String username = UserData.UserDave.Username;
+            var repository = (IRoleRepository)new RoleRepository(_unitOfWork);
+
+            // Act
+            var actualResult = repository.GetRoleNameListsForUser(username);
+
+            // Assert
+            // Exception Thrown
+        }
+
+        #endregion IRoleRepository
 
         // Get for GUID returns expected item when GUID exists
         [TestMethod]
@@ -43,7 +107,7 @@ namespace Dibware.Template.Infrastructure.SqlDataAccessTests.Repositories
         public void Test_RoleRepository_GetForGuid_ThrowsNotImplementedException()
         {
             // Arrange
-            var expectedResult = _unitOfWork.CreateSet<Role>().First();
+            //var expectedResult = _unitOfWork.CreateSet<Role>().First();
             var repository = new RoleRepository(_unitOfWork);
 
             // Act
@@ -134,7 +198,7 @@ namespace Dibware.Template.Infrastructure.SqlDataAccessTests.Repositories
         //    var unitOfWork = UnitOfWorkHelper.GetUnitOfWorkEmpty();
         //    initialiser.InitializeDatabase(unitOfWork);
 
-        //    // Arrange            
+        //    // Arrange
         //    var existingEntities = unitOfWork.CreateSet<Role>().ToList();
         //    var repository = new RoleRepository(unitOfWork);
 
@@ -156,7 +220,7 @@ namespace Dibware.Template.Infrastructure.SqlDataAccessTests.Repositories
         //    var unitOfWork = UnitOfWorkHelper.GetUnitOfWorkEmpty();
         //    initialiser.InitializeDatabase(unitOfWork);
 
-        //    // Arrange            
+        //    // Arrange
         //    var existingEntities = unitOfWork.CreateSet<Role>().ToList();
         //    var repository = new RoleRepository(unitOfWork);
         //    const String username = "Bubbles";
@@ -178,7 +242,7 @@ namespace Dibware.Template.Infrastructure.SqlDataAccessTests.Repositories
         //    var unitOfWork = UnitOfWorkHelper.GetUnitOfWorkEmpty();
         //    initialiser.InitializeDatabase(unitOfWork);
 
-        //    // Arrange            
+        //    // Arrange
         //    var existingEntities = unitOfWork.CreateSet<Role>().ToList();
         //    var repository = new RoleRepository(unitOfWork);
         //    const String username = "Bubbles";
@@ -210,7 +274,7 @@ namespace Dibware.Template.Infrastructure.SqlDataAccessTests.Repositories
         //    var createdEntity = repository.Create(newEntity);
         //    repository.SaveChanges();
 
-        //    // Assert            
+        //    // Assert
         //    Assert.AreEqual(_unitOfWork.CreateSet<Role>().ToList().Count, existingEntities.Count + 1);
         //    Assert.IsTrue(createdEntity.Key != String.Empty);
         //}
@@ -219,7 +283,7 @@ namespace Dibware.Template.Infrastructure.SqlDataAccessTests.Repositories
         //[TestMethod]
         //public void Test_RoleRepository_Create3ItemsAndSaving_Creates3NewItems()
         //{
-        //    // Arrange  
+        //    // Arrange
         //    const String key1 = "key-1";
         //    const String key2 = "key-2";
         //    const String key3 = "key-3";
@@ -249,7 +313,7 @@ namespace Dibware.Template.Infrastructure.SqlDataAccessTests.Repositories
         //    var createdEntity3 = repository.Create(newEntity3);
         //    repository.SaveChanges();
 
-        //    // Assert            
+        //    // Assert
         //    Assert.AreEqual(_unitOfWork.CreateSet<Role>().ToList().Count, existingEntities.Count + 3);
         //    Assert.IsTrue(createdEntity1.Key == key1);
         //    Assert.IsTrue(createdEntity2.Key == key2);
@@ -271,7 +335,7 @@ namespace Dibware.Template.Infrastructure.SqlDataAccessTests.Repositories
         //    repository.SaveChanges();
         //    var updatedEntity = repository.GetForKey(existingEntity.Key);
 
-        //    // Assert            
+        //    // Assert
         //    Assert.AreEqual(existingEntity.Name, updatedEntity.Name);
         //}
 
@@ -298,7 +362,7 @@ namespace Dibware.Template.Infrastructure.SqlDataAccessTests.Repositories
         //    var updatedEntity2 = repository.GetForKey(existingEntity2.Key);
         //    var updatedEntity3 = repository.GetForKey(existingEntity3.Key);
 
-        //    // Assert            
+        //    // Assert
         //    Assert.AreEqual(existingEntity1.Name, updatedEntity1.Name);
         //    Assert.AreEqual(existingEntity2.Name, updatedEntity2.Name);
         //    Assert.AreEqual(existingEntity3.Name, updatedEntity3.Name);
@@ -317,7 +381,7 @@ namespace Dibware.Template.Infrastructure.SqlDataAccessTests.Repositories
         //    repository.SaveChanges();
         //    var deletedEntity = repository.GetForKey(existingEntity.Key);
 
-        //    // Assert            
+        //    // Assert
         //    Assert.IsNull(deletedEntity);
         //}
 
@@ -340,7 +404,7 @@ namespace Dibware.Template.Infrastructure.SqlDataAccessTests.Repositories
         //    var deletedEntity2 = repository.GetForKey(existingEntity2.Key);
         //    var deletedEntity3 = repository.GetForKey(existingEntity3.Key);
 
-        //    // Assert            
+        //    // Assert
         //    Assert.IsNull(deletedEntity1);
         //    Assert.IsNull(deletedEntity2);
         //    Assert.IsNull(deletedEntity3);
@@ -366,7 +430,7 @@ namespace Dibware.Template.Infrastructure.SqlDataAccessTests.Repositories
         //    repository.Create(newEntity);
         //    repository.DiscardChanges();
 
-        //    // Assert            
+        //    // Assert
         //    Assert.AreEqual(_unitOfWork.CreateSet<Role>().ToList().Count, existingEntities.Count);
         //    Assert.IsTrue(newEntity.Key == key1);
         //}
@@ -385,7 +449,7 @@ namespace Dibware.Template.Infrastructure.SqlDataAccessTests.Repositories
         //    repository.DiscardChanges();
         //    var notUpdatedEntity = repository.GetForKey(existingEntity.Key);
 
-        //    // Assert            
+        //    // Assert
         //    Assert.AreEqual(existingEntity.Key, notUpdatedEntity.Key);
         //    Assert.AreEqual(existingEntity.Name, notUpdatedEntity.Name);
         //}
@@ -403,7 +467,7 @@ namespace Dibware.Template.Infrastructure.SqlDataAccessTests.Repositories
         //    repository.DiscardChanges();
         //    var notDeletedEntity = repository.GetForKey(existingEntity.Key);
 
-        //    // Assert            
+        //    // Assert
         //    Assert.IsNotNull(notDeletedEntity);
         //    Assert.AreEqual(existingEntity.Key, notDeletedEntity.Key);
         //    Assert.AreEqual(existingEntity.Name, notDeletedEntity.Name);
@@ -431,7 +495,7 @@ namespace Dibware.Template.Infrastructure.SqlDataAccessTests.Repositories
         //    _unitOfWork = UnitOfWorkHelper.GetUnitOfWork();
         //    repository = new RoleRepository(_unitOfWork);
 
-        //    // Assert            
+        //    // Assert
         //    Assert.AreEqual(_unitOfWork.CreateSet<Role>().ToList().Count, existingEntities.Count);
         //    Assert.IsTrue(newEntity.Key == key);
         //}
@@ -453,12 +517,12 @@ namespace Dibware.Template.Infrastructure.SqlDataAccessTests.Repositories
         //    repository = new RoleRepository(_unitOfWork);
         //    var notUpdatedEntity = repository.GetForKey(existingEntity.Key);
 
-        //    // Assert            
+        //    // Assert
         //    Assert.AreEqual(existingEntity.Key, notUpdatedEntity.Key);
         //    Assert.AreNotEqual(existingEntity.Name, notUpdatedEntity.Name);
         //}
 
-        //// Delete with no SaveChanges or rollback does not delete an item        
+        //// Delete with no SaveChanges or rollback does not delete an item
         //[TestMethod]
         //public void Test_RoleRepository_DeleteWithoutSavingOrDiscarding_DoesNotDeleteAnItem()
         //{
@@ -474,7 +538,7 @@ namespace Dibware.Template.Infrastructure.SqlDataAccessTests.Repositories
         //    repository = new RoleRepository(_unitOfWork);
         //    var notDeletedEntity = repository.GetForKey(existingEntity.Key);
 
-        //    // Assert            
+        //    // Assert
         //    Assert.IsNotNull(notDeletedEntity);
         //    Assert.AreEqual(existingEntity.Key, notDeletedEntity.Key);
         //    Assert.AreEqual(existingEntity.Name, notDeletedEntity.Name);
@@ -497,10 +561,10 @@ namespace Dibware.Template.Infrastructure.SqlDataAccessTests.Repositories
         //    modifiedEntity.Name = newName;
         //    repository.Merge(persistedEntity, modifiedEntity);
 
-        //    // Assert            
+        //    // Assert
         //    Assert.AreEqual(newName, persistedEntity.Name);
         //}
 
-        #endregion
+        #endregion Tests
     }
 }

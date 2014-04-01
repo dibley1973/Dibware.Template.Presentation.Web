@@ -17,7 +17,7 @@ namespace Dibware.Template.Infrastructure.SqlDataAccess.UnitOfWork
         #region Construct
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="CliqueDbContext"/> class.
+        /// Initializes a new instance of the <see cref="WebsiteDbContext"/> class.
         /// </summary>
         /// <param name="connectionString">The connection string.</param>
         public WebsiteDbContext(string connectionString)

@@ -69,6 +69,7 @@
     <Compile Include="Initialisers\WebsiteDbContextInitialiser.cs" />
     <Compile Include="Initialisers\WebsiteDbContextInitialiser_Empty.cs" />
     <Compile Include="MockData\RoleData.cs" />
+    <Compile Include="MockData\UserData.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
