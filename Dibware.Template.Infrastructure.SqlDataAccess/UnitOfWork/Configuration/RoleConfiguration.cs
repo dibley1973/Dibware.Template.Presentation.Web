@@ -5,21 +5,27 @@ using System.Text;
 using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity.ModelConfiguration;
+using Dibware.Template.Core.Domain.Entities.Security;
 
 namespace Dibware.Template.Infrastructure.SqlDataAccess.UnitOfWork.Configuration
 {
-    public class RoleConfiguration : EntityTypeConfiguration<String>
+    public class RoleConfiguration : EntityTypeConfiguration<Role>
     {
         public RoleConfiguration()
         {
             ToTable("security.Role");
 
             // Properties
-            HasKey(r => r);
+            HasKey(r => r.Key);
 
             // Id
-            Property(r => r)
-                .HasColumnName("RoleName")
+            Property(r => r.Key)
+                .HasColumnName("RoleKey")
+                .IsRequired()
+                .HasMaxLength(25);
+
+            // Name
+            Property(r => r.Name)
                 .IsRequired()
                 .HasMaxLength(25);
 
@@ -30,13 +36,14 @@ namespace Dibware.Template.Infrastructure.SqlDataAccess.UnitOfWork.Configuration
             MapToStoredProcedures(s => s
                 .Insert(i => i
                     .HasName("Role_Insert")
-                    .Parameter(r => r, "Name"))
-                //.Update(u => u
-                //    .HasName("Role_Update")
-                //    .Parameter(r => r, "Name"))
-                //.Delete(d => d
-                //    .HasName("Role_Delete")
-                //    .Parameter(r => r, "Name"))
+                    .Parameter(r => r.Name, "Name"))
+                .Update(u => u
+                    .HasName("Role_Update")
+                    .Parameter(r => r.Key, "RoleKey")
+                    .Parameter(r => r.Name, "Name"))
+                .Delete(d => d
+                    .HasName("Role_Delete")
+                    .Parameter(r => r.Key, "RoleKey"))
             );
         }
     }

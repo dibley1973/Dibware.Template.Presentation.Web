@@ -5,6 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data.Entity;
 using Dibware.Template.Infrastructure.SqlDataAccess.UnitOfWork;
+using Dibware.Template.Infrastructure.SqlDataAccessTests.MockData;
+using Dibware.Template.Core.Domain.Entities.Security;
 
 
 namespace Dibware.Template.Infrastructure.SqlDataAccessTests.Initialisers
@@ -30,39 +32,33 @@ namespace Dibware.Template.Infrastructure.SqlDataAccessTests.Initialisers
         /// <param name="databaseContext">The database context.</param>
         protected static void SeedRoles(ref WebsiteDbContext databaseContext)
         {
-            //// Create Roles
-            //var roleAdmin = new Role
-            //{
-            //    Key = RoleData.RoleAdmin.Key,
-            //    Name = RoleData.RoleAdmin.Name
-            //};
-            //var rolePrivate = new Role
-            //{
-            //    Key = RoleData.RolePrivate.Key,
-            //    Name = RoleData.RolePrivate.Name
-            //};
-            //var roleOrganisation = new Role
-            //{
-            //    Key = RoleData.RoleOrganisation.Key,
-            //    Name = RoleData.RoleOrganisation.Name
-            //};
-            //var roleBusiness = new Role
-            //{
-            //    Key = RoleData.RoleBusiness.Key,
-            //    Name = RoleData.RoleBusiness.Name
-            //};
-            //var roleUnknown = new Role
-            //{
-            //    Key = RoleData.RoleUnknown.Key,
-            //    Name = RoleData.RoleUnknown.Name
-            //};
+            // Create Roles
+            var roleAdmin = new Role
+            {
+                Key = RoleData.RoleAdmin.Key,
+                Name = RoleData.RoleAdmin.Name
+            };
+            var rolePrivate = new Role
+            {
+                Key = RoleData.RoleMain.Key,
+                Name = RoleData.RoleMain.Name
+            };
+            var roleOrganisation = new Role
+            {
+                Key = RoleData.RoleSuper.Key,
+                Name = RoleData.RoleSuper.Name
+            };
+            var roleUnknown = new Role
+            {
+                Key = RoleData.RoleUnknown.Key,
+                Name = RoleData.RoleUnknown.Name
+            };
 
-            //// Add Roles
-            //databaseContext.Attach(roleAdmin);
-            //databaseContext.Attach(rolePrivate);
-            //databaseContext.Attach(roleOrganisation);
-            //databaseContext.Attach(roleBusiness);
-            //databaseContext.Attach(roleUnknown);
+            // Add Roles
+            databaseContext.Attach(roleAdmin);
+            databaseContext.Attach(rolePrivate);
+            databaseContext.Attach(roleOrganisation);
+            databaseContext.Attach(roleUnknown);
         }
 
         /// <summary>

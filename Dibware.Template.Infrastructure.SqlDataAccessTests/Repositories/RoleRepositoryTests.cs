@@ -1,4 +1,4 @@
-﻿using Dibware.Template.Core.Domain.Contracts.Services;
+﻿using Dibware.Template.Core.Domain.Entities.Security;
 using Dibware.Template.Infrastructure.SqlDataAccess.Repositories;
 using Dibware.Template.Infrastructure.SqlDataAccess.UnitOfWork;
 using Dibware.Template.Infrastructure.SqlDataAccessTests.Helpers;
@@ -37,21 +37,21 @@ namespace Dibware.Template.Infrastructure.SqlDataAccessTests.Repositories
 
         #region Tests
 
-        //// Get for GUID returns expected item when GUID exists
-        //[TestMethod]
-        //[ExpectedException(typeof(NotImplementedException))]
-        //public void Test_RoleRepository_GetForGuid_ThrowsNotImplementedException()
-        //{
-        //    // Arrange
-        //    var expectedResult = _unitOfWork.CreateSet<Role>().First();
-        //    var repository = new RoleRepository(_unitOfWork);
+        // Get for GUID returns expected item when GUID exists
+        [TestMethod]
+        [ExpectedException(typeof(NotImplementedException))]
+        public void Test_RoleRepository_GetForGuid_ThrowsNotImplementedException()
+        {
+            // Arrange
+            var expectedResult = _unitOfWork.CreateSet<Role>().First();
+            var repository = new RoleRepository(_unitOfWork);
 
-        //    // Act
-        //    var actualResult = repository.GetForGuid(new Guid());
+            // Act
+            var actualResult = repository.GetForGuid(new Guid());
 
-        //    // Assert
-        //    // Exception Thrown
-        //}
+            // Assert
+            // Exception Thrown
+        }
 
         //// Get for ID returns expected item when ID exists
         //[TestMethod]

@@ -84,7 +84,7 @@ namespace Dibware.Template.Presentation.Web
             {
                 var roleRepository =
                     (IRoleRepository)DependencyResolver.Current.GetService(typeof(IRoleRepository));
-                roles = roleRepository.GetRolesForUser(identity.Name);
+                roles = roleRepository.GetRoleNamesForUser(identity.Name);
             }
             else
             {
