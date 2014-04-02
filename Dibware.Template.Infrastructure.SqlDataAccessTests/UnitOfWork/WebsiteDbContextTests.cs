@@ -1,10 +1,12 @@
-﻿using Dibware.Template.Infrastructure.SqlDataAccess.UnitOfWork;
+﻿using Dibware.Template.Core.Domain.Entities.Security;
+using Dibware.Template.Infrastructure.SqlDataAccess.UnitOfWork;
 using Dibware.Template.Infrastructure.SqlDataAccessTests.Helpers;
 using Dibware.Template.Infrastructure.SqlDataAccessTests.Initialisers;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Data.Entity;
 using System.Data.SqlClient;
+using System.Linq;
 
 namespace Dibware.Template.Infrastructure.SqlDataAccessTests.UnitOfWork
 {
@@ -34,6 +36,30 @@ namespace Dibware.Template.Infrastructure.SqlDataAccessTests.UnitOfWork
         #endregion
 
         #region Tests
+
+        #region ApplyCurrentValues
+
+        [TestMethod]
+        public void Test_WebsiteDbContext_ApplyCurrentValuesChangingNameProperty_ResultsInNamePropertyChanged()
+        {
+            // Arrange
+            var existingEntity = _unitOfWork.CreateSet<Role>().First();
+            var currentEntity = new Role
+            {
+                Key = existingEntity.Key,
+                Name = "New Name"
+            };
+
+            // Act
+            _unitOfWork.ApplyCurrentValues(existingEntity, currentEntity);
+
+            // Assert
+            Assert.AreEqual(existingEntity.Key, currentEntity.Key);
+            Assert.AreEqual(existingEntity.Name, currentEntity.Name);
+        }
+
+
+        #endregion
 
         #region ExecuteStoredProcedure
 
@@ -78,24 +104,42 @@ namespace Dibware.Template.Infrastructure.SqlDataAccessTests.UnitOfWork
             // Exception thrown
         }
 
-        [Ignore] // Needs investigation how to set up
+        //[Ignore] // Needs investigation how to set up
         [TestMethod]
-        [ExpectedException(typeof(SqlException))]
-        public void Test_WebsiteDbContext_ExecuteStoredProcedureUsingIncorrectProcedureNameWithArgs_ThrowsSqlException()
+        [ExpectedException(typeof(ArgumentException))]
+        public void Test_WebsiteDbContext_ExecuteStoredProcedureUsingIncorrectProcedureNameWithArgs_ThrowsArgumentException()
         {
-            //// Arrange
-            //const string procedureName = "IncorrectProcName";
-            //object[] args =
-            //{
-            //    "buiscuit",
-            //    7
-            //};
+            // Arrange
+            const string procedureName = "IncorrectProcName";
+            object[] args =
+            {
+                "buiscuit",
+                7
+            };
 
-            //// Act
-            //_unitOfWork.ExecuteStoredProcedure(procedureName, args);
+            // Act
+            _unitOfWork.ExecuteStoredProcedure(procedureName, args);
 
-            //// Assert
-            //// Exception thrown
+            // Assert
+            // Exception thrown
+        }
+
+        [TestMethod]
+        public void Test_WebsiteDbContext_ExecuteStoredProcedureUsingValidProcedureNameWithArgs_DoesNotException()
+        {
+            // Arrange
+            const string procedureName = "Role_Insert";
+            var role = new Role
+            {
+                Key = "key",
+                Name = "New Role Name"
+            };
+
+            // Act
+            _unitOfWork.ExecuteStoredProcedure(procedureName, role);
+
+            // Assert
+            // No Exception thrown
         }
 
         #endregion
@@ -114,6 +158,20 @@ namespace Dibware.Template.Infrastructure.SqlDataAccessTests.UnitOfWork
 
             // Assert
             // Exception thrown
+        }
+
+        [TestMethod]
+        public void Test_WebsiteDbContext_ExecuteSqlQueryUsingValidSql_DoesNotThrowException()
+        {
+            // Arrange
+            const Int32 expectedCount = 1;
+            const string sql = "SELECT Top 1 Name FROM security.Role";
+
+            // Act
+            var result = _unitOfWork.ExecuteSqlQuery<String>(sql);
+
+            // Assert
+            Assert.AreEqual(expectedCount, result.Count);
         }
 
         #endregion

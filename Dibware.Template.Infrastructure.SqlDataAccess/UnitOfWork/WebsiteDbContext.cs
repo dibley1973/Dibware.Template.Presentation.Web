@@ -31,10 +31,9 @@ namespace Dibware.Template.Infrastructure.SqlDataAccess.UnitOfWork
             modelBuilder.Conventions
                 .Remove<NavigationPropertyNameForeignKeyDiscoveryConvention>();
 
-
             // Security
             modelBuilder.Configurations.Add(new RoleConfiguration());
-
+            modelBuilder.Configurations.Add(new UserConfiguration());
         }
 
         #endregion
@@ -98,9 +97,10 @@ namespace Dibware.Template.Infrastructure.SqlDataAccess.UnitOfWork
         /// </summary>
         public void Rollback()
         {
-            ChangeTracker.Entries()
-                         .ToList()
-                         .ForEach(entry => entry.State = EntityState.Unchanged);
+            ChangeTracker
+                .Entries()
+                .ToList()
+                .ForEach(entry => entry.State = EntityState.Unchanged);
         }
 
         /// <summary>
@@ -160,8 +160,8 @@ namespace Dibware.Template.Infrastructure.SqlDataAccess.UnitOfWork
             {
                 foreach (PropertyInfo propertyInfo in parameters.GetType().GetProperties())
                 {
-                    String name = "@" + propertyInfo.Name;
-                    Object value = propertyInfo.GetValue(parameters, null);
+                    var name = "@" + propertyInfo.Name;
+                    var value = propertyInfo.GetValue(parameters, null);
 
                     parameterNames.Add(name);
                     parameterParameters.Add(new SqlParameter(name, value ?? DBNull.Value));

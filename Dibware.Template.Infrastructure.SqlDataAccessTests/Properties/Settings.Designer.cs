@@ -37,8 +37,8 @@ namespace Dibware.Template.Infrastructure.SqlDataAccessTests.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=(LocalDB)\\v11.0;AttachDbFilename={0}\\WebsiteTemplate_Test_Empty.mdf;I" +
-            "ntegrated Security=True;Pooling=false")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=(LocalDB)\\Projects;AttachDbFilename={0}\\WebsiteTemplate_Test_Empty.md" +
+            "f;Integrated Security=True;Pooling=false")]
         public string TestConnectionEmpty {
             get {
                 return ((string)(this["TestConnectionEmpty"]));

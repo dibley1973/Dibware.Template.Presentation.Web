@@ -64,10 +64,12 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="Base\RepositoryTests.cs" />
     <Compile Include="Helpers\ThisAssembly.cs" />
     <Compile Include="Helpers\UnitOfWorkHelper.cs" />
     <Compile Include="Initialisers\WebsiteDbContextInitialiser.cs" />
     <Compile Include="Initialisers\WebsiteDbContextInitialiser_Empty.cs" />
+    <Compile Include="MockData\MockRepository.cs" />
     <Compile Include="MockData\RoleData.cs" />
     <Compile Include="MockData\UserData.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

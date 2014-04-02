@@ -12,7 +12,7 @@ namespace Dibware.Template.Infrastructure.SqlDataAccessTests.MockData
         }
         internal static class UserDave
         {
-            public static Guid Guid = new Guid();
+            public static Guid Guid = Guid.NewGuid();
             public const String Username = "Dave01";
             public const String Name = "Dave";
             public const String AccountConfirmationToken = "EABC#";
@@ -25,7 +25,7 @@ namespace Dibware.Template.Infrastructure.SqlDataAccessTests.MockData
         }
         internal static class UserJane
         {
-            public static Guid Guid = new Guid();
+            public static Guid Guid = Guid.NewGuid();
             public const String Username = "Jane02";
             public const String Name = "Jane";
             public const String AccountConfirmationToken = "DFDA#";
@@ -36,7 +36,7 @@ namespace Dibware.Template.Infrastructure.SqlDataAccessTests.MockData
         }
         internal static class UserPete
         {
-            public static Guid Guid = new Guid();
+            public static Guid Guid = Guid.NewGuid();
             public const String Username = "Pete03";
             public const String Name = "Pete";
             public const String AccountConfirmationToken = "FEBC#";

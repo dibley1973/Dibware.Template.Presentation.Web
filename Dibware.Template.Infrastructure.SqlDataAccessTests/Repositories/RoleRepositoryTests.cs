@@ -23,6 +23,18 @@ namespace Dibware.Template.Infrastructure.SqlDataAccessTests.Repositories
 
         public RoleRepositoryTests()
         {
+            //// Initialise unit of work
+            //_unitOfWork = UnitOfWorkHelper.GetUnitOfWork();
+
+            //// Set db initialiser to create an empty database
+            //var initialiser = new WebsiteDbContextInitialiser();
+            //Database.SetInitializer<WebsiteDbContext>(initialiser);
+            //initialiser.InitializeDatabase(_unitOfWork);
+        }
+
+        [TestInitialize]
+        public void TestInit()
+        {
             // Initialise unit of work
             _unitOfWork = UnitOfWorkHelper.GetUnitOfWork();
 
@@ -31,19 +43,6 @@ namespace Dibware.Template.Infrastructure.SqlDataAccessTests.Repositories
             Database.SetInitializer<WebsiteDbContext>(initialiser);
             initialiser.InitializeDatabase(_unitOfWork);
         }
-
-
-        //[TestInitialize]
-        //public void TestInit()
-        //{
-        //    // Initialise unit of work
-        //    _unitOfWork = UnitOfWorkHelper.GetUnitOfWork();
-
-        //    // Set db initialiser to create an empty database
-        //    var initialiser = new WebsiteDbContextInitialiser();
-        //    Database.SetInitializer<WebsiteDbContext>(initialiser);
-        //    initialiser.InitializeDatabase(_unitOfWork);
-        //}
 
         #endregion Test Initialise
 

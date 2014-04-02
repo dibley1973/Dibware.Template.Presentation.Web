@@ -62,33 +62,33 @@ namespace Dibware.Template.Infrastructure.SqlDataAccessTests.Initialisers
         /// <param name="databaseContext">The database context.</param>
         private static void SeedUsers(ref WebsiteDbContext databaseContext)
         {
-            //// Create Users
-            //var userDave = new User
-            //{
-            //    Guid = UserData.UserDave.Guid,
-            //    Password = UserData.UserDave.Password,
-            //    Name = UserData.UserDave.Name,
-            //    UserName = UserData.UserDave.Username
-            //};
-            //var userJane = new User
-            //{
-            //    Guid = UserData.UserJane.Guid,
-            //    Password = UserData.UserJane.Password,
-            //    Name = UserData.UserJane.Name,
-            //    UserName = UserData.UserJane.Username
-            //};
-            //var userPete = new User
-            //{
-            //    Guid = UserData.UserPete.Guid,
-            //    Password = UserData.UserPete.Password,
-            //    Name = UserData.UserPete.Name,
-            //    UserName = UserData.UserPete.Username
-            //};
+            // Create Users
+            var userDave = new User
+            {
+                Guid = UserData.UserDave.Guid,
+                Password = UserData.UserDave.Password,
+                Name = UserData.UserDave.Name,
+                UserName = UserData.UserDave.Username
+            };
+            var userJane = new User
+            {
+                Guid = UserData.UserJane.Guid,
+                Password = UserData.UserJane.Password,
+                Name = UserData.UserJane.Name,
+                UserName = UserData.UserJane.Username
+            };
+            var userPete = new User
+            {
+                Guid = UserData.UserPete.Guid,
+                Password = UserData.UserPete.Password,
+                Name = UserData.UserPete.Name,
+                UserName = UserData.UserPete.Username
+            };
 
-            //// Add Users
-            //databaseContext.Attach(userDave);
-            //databaseContext.Attach(userJane);
-            //databaseContext.Attach(userPete);
+            // Add Users
+            databaseContext.Attach(userDave);
+            databaseContext.Attach(userJane);
+            databaseContext.Attach(userPete);
         }
     }
 }

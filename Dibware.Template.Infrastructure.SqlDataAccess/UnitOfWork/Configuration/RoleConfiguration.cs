@@ -29,14 +29,15 @@ namespace Dibware.Template.Infrastructure.SqlDataAccess.UnitOfWork.Configuration
             // Stored Procs
             MapToStoredProcedures(s => s
                 .Insert(i => i
-                    .HasName("Role_Insert")
+                    .HasName("security.Role_Insert")
+                    .Parameter(r => r.Key, "RoleKey")
                     .Parameter(r => r.Name, "Name"))
                 .Update(u => u
-                    .HasName("Role_Update")
+                    .HasName("security.Role_Update")
                     .Parameter(r => r.Key, "RoleKey")
                     .Parameter(r => r.Name, "Name"))
                 .Delete(d => d
-                    .HasName("Role_Delete")
+                    .HasName("security.Role_Delete")
                     .Parameter(r => r.Key, "RoleKey"))
             );
         }

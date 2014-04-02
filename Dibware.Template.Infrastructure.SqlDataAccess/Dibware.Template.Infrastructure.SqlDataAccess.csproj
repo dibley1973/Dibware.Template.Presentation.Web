@@ -72,6 +72,7 @@
       <DependentUpon>ExceptionMessages.resx</DependentUpon>
     </Compile>
     <Compile Include="UnitOfWork\Configuration\RoleConfiguration.cs" />
+    <Compile Include="UnitOfWork\Configuration\UserConfiguration.cs" />
     <Compile Include="UnitOfWork\WebsiteDbContext.cs" />
   </ItemGroup>
   <ItemGroup>

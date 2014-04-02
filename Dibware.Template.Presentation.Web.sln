@@ -23,13 +23,17 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Documentation", "Documentat
 		UserStories.xlsx = UserStories.xlsx
 	EndProjectSection
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3-Infrastructure", "3-Infrastructure", "{92C9BBDD-F3D1-43C0-9CE2-723FE73CD9CA}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "03-Infrastructure", "03-Infrastructure", "{92C9BBDD-F3D1-43C0-9CE2-723FE73CD9CA}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3.1-SqlDataAccess", "3.1-SqlDataAccess", "{33215F47-87A9-49BF-B9FA-FA4639F4D3DE}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dibware.Template.Infrastructure.SqlDataAccess", "Dibware.Template.Infrastructure.SqlDataAccess\Dibware.Template.Infrastructure.SqlDataAccess.csproj", "{72D64451-15F3-4C29-9A4B-B0146791342C}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dibware.Template.Infrastructure.SqlDataAccessTests", "Dibware.Template.Infrastructure.SqlDataAccessTests\Dibware.Template.Infrastructure.SqlDataAccessTests.csproj", "{451CE30F-F4FF-4EB9-A462-AC08081BFE48}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "04-Database", "04-Database", "{76E96821-C288-47DC-B9C0-49B67130B4F7}"
+EndProject
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "Dibware.Template.Database", "Dibware.Template.Database\Dibware.Template.Database.sqlproj", "{8DE5309C-56E9-46B4-92C6-678A2F90B495}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -57,6 +61,12 @@ Global
 		{451CE30F-F4FF-4EB9-A462-AC08081BFE48}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{451CE30F-F4FF-4EB9-A462-AC08081BFE48}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{451CE30F-F4FF-4EB9-A462-AC08081BFE48}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8DE5309C-56E9-46B4-92C6-678A2F90B495}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8DE5309C-56E9-46B4-92C6-678A2F90B495}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8DE5309C-56E9-46B4-92C6-678A2F90B495}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{8DE5309C-56E9-46B4-92C6-678A2F90B495}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8DE5309C-56E9-46B4-92C6-678A2F90B495}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8DE5309C-56E9-46B4-92C6-678A2F90B495}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -68,5 +78,6 @@ Global
 		{33215F47-87A9-49BF-B9FA-FA4639F4D3DE} = {92C9BBDD-F3D1-43C0-9CE2-723FE73CD9CA}
 		{72D64451-15F3-4C29-9A4B-B0146791342C} = {33215F47-87A9-49BF-B9FA-FA4639F4D3DE}
 		{451CE30F-F4FF-4EB9-A462-AC08081BFE48} = {33215F47-87A9-49BF-B9FA-FA4639F4D3DE}
+		{8DE5309C-56E9-46B4-92C6-678A2F90B495} = {76E96821-C288-47DC-B9C0-49B67130B4F7}
 	EndGlobalSection
 EndGlobal
