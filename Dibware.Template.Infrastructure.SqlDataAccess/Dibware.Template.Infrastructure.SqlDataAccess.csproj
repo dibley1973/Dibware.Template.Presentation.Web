@@ -59,6 +59,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Base\Repository.cs" />
+    <Compile Include="Helpers\DatabaseObjectNameHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -66,10 +67,40 @@
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
     <Compile Include="Repositories\RoleRepository.cs" />
+    <Compile Include="Resources\ColumnNames.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ColumnNames.resx</DependentUpon>
+    </Compile>
     <Compile Include="Resources\ExceptionMessages.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>ExceptionMessages.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\ParameterNames.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ParameterNames.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\StoredProcedureAction1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>StoredProcedureAction.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\StringFormats.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>StringFormats.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\TableNames.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TableNames.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\SchemaNames.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SchemaNames.resx</DependentUpon>
     </Compile>
     <Compile Include="UnitOfWork\Configuration\RoleConfiguration.cs" />
     <Compile Include="UnitOfWork\Configuration\UserConfiguration.cs" />
@@ -95,11 +126,36 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Resources\ColumnNames.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>ColumnNames.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="Resources\ExceptionMessages.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>ExceptionMessages.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="Resources\ParameterNames.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>ParameterNames.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\StoredProcedureAction.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>StoredProcedureAction1.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\StringFormats.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>StringFormats.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\TableNames.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>TableNames.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\SchemaNames.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>SchemaNames.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

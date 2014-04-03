@@ -1,17 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Security.Principal;
-using System.Text;
-using System.Threading.Tasks;
-using Dibware.Template.Presentation.Web.Modules.Authentication;
+﻿using Dibware.Template.Presentation.Web.Modules.Authentication;
 using Dibware.Template.Presentation.Web.Modules.Configuration;
 using Dibware.Template.Presentation.Web.Modules.UserPreferences;
 using Dibware.Template.Presentation.Web.Resources;
 using Dibware.Web.Security.Principal;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
-using Dibware.Helpers;
+using System.Security.Principal;
+using Dibware.Helpers.Validation;
 
 namespace Dibware.Template.Presentation.Web.Tests.Modules.Authentication
 {
@@ -61,7 +56,7 @@ namespace Dibware.Template.Presentation.Web.Tests.Modules.Authentication
             // Arrange
             var roles = new[] { UserRole.UnknownUser.ToString() };
             var identity = (IIdentity)WindowsIdentity.GetCurrent();
-            Dibware.Helpers.Validation.Guard.ArgumentIsNotNull(identity, "identity");
+            Guard.ArgumentIsNotNull(identity, "identity");
             var expectedName = identity.Name;
             var webIdentity = new WebIdentity(identity, roles);
 

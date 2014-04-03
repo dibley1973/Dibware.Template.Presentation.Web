@@ -67,6 +67,7 @@
     <Compile Include="Base\RepositoryTests.cs" />
     <Compile Include="Helpers\ThisAssembly.cs" />
     <Compile Include="Helpers\UnitOfWorkHelper.cs" />
+    <Compile Include="HelperTests\DatabaseObjectNameHelperTests.cs" />
     <Compile Include="Initialisers\WebsiteDbContextInitialiser.cs" />
     <Compile Include="Initialisers\WebsiteDbContextInitialiser_Empty.cs" />
     <Compile Include="MockData\MockRepository.cs" />

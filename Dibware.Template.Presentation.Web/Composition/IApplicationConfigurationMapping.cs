@@ -3,7 +3,7 @@ using Ninject.Modules;
 
 namespace Dibware.Template.Presentation.Web.Composition
 {
-    public class IApplicationConfigurationMapping : NinjectModule
+    public class ApplicationConfigurationContractMapping : NinjectModule
     {
         public override void Load()
         {

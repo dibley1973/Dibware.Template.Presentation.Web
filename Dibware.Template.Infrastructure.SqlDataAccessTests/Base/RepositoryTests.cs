@@ -1,17 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data.Entity;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Dibware.Template.Core.Domain.Contracts.Services;
-using Dibware.Template.Core.Domain.Entities.Security;
-using Dibware.Template.Infrastructure.SqlDataAccess.Base;
+﻿using Dibware.Template.Core.Domain.Entities.Security;
 using Dibware.Template.Infrastructure.SqlDataAccess.UnitOfWork;
 using Dibware.Template.Infrastructure.SqlDataAccessTests.Helpers;
 using Dibware.Template.Infrastructure.SqlDataAccessTests.Initialisers;
 using Dibware.Template.Infrastructure.SqlDataAccessTests.MockData;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System;
+using System.Data.Entity;
+using System.Linq;
 
 namespace Dibware.Template.Infrastructure.SqlDataAccessTests.Base
 {
@@ -34,7 +29,7 @@ namespace Dibware.Template.Infrastructure.SqlDataAccessTests.Base
 
             // Set db initialiser to create an empty database
             var initialiser = new WebsiteDbContextInitialiser();
-            Database.SetInitializer<WebsiteDbContext>(initialiser);
+            Database.SetInitializer(initialiser);
             initialiser.InitializeDatabase(_unitOfWork);
         }
 
@@ -194,12 +189,12 @@ namespace Dibware.Template.Infrastructure.SqlDataAccessTests.Base
         {
             // Set db initialiser to create an empty database
             var initialiser = new WebsiteDbContextInitialiser_Empty();
-            Database.SetInitializer<WebsiteDbContext>(initialiser);
+            Database.SetInitializer(initialiser);
             var unitOfWork = UnitOfWorkHelper.GetUnitOfWorkEmpty();
             initialiser.InitializeDatabase(unitOfWork);
 
             // Arrange            
-            var existingEntities = unitOfWork.CreateSet<Role>().ToList();
+            unitOfWork.CreateSet<Role>();
             var repository = new MockRepository<Role>(unitOfWork);
 
             // Act
@@ -591,7 +586,7 @@ namespace Dibware.Template.Infrastructure.SqlDataAccessTests.Base
             repository.Create(newEntity);
             // Refresh uow/repository
             _unitOfWork = UnitOfWorkHelper.GetUnitOfWork();
-            repository = new MockRepository<Role>(_unitOfWork);
+            //repository = new MockRepository<Role>(_unitOfWork);
 
             // Assert            
             Assert.AreEqual(_unitOfWork.CreateSet<Role>().ToList().Count, existingEntities.Count);

@@ -1,13 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Globalization;
-using System.Linq;
-using System.Security.Principal;
-using System.Web;
-using Dibware.Template.Presentation.Web.Modules.Configuration;
+﻿using Dibware.Template.Presentation.Web.Modules.Configuration;
 using Dibware.Template.Presentation.Web.Modules.UserPreferences;
 using Dibware.Web.Security.Principal;
 using Ninject;
+using System;
+using System.Globalization;
+using System.Security.Principal;
 
 namespace Dibware.Template.Presentation.Web.Modules.Authentication
 {

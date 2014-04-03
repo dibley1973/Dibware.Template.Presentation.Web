@@ -40,7 +40,7 @@ namespace Dibware.Template.Infrastructure.SqlDataAccessTests.Repositories
 
             // Set db initialiser to create an empty database
             var initialiser = new WebsiteDbContextInitialiser();
-            Database.SetInitializer<WebsiteDbContext>(initialiser);
+            Database.SetInitializer(initialiser);
             initialiser.InitializeDatabase(_unitOfWork);
         }
 

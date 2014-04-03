@@ -1,14 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Web;
-using System.Web.Mvc;
-using Dibware.Template.Presentation.Web.Filters;
+﻿using Dibware.Template.Presentation.Web.Filters;
 using Dibware.UnitTesting;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
+using System;
+using System.Web;
+using System.Web.Mvc;
 
 namespace Dibware.Template.Presentation.Web.Tests.Filters
 {

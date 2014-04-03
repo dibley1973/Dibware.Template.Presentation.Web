@@ -1,4 +1,5 @@
-﻿using Dibware.Template.Core.Domain.Contracts.Services;
+﻿using Dibware.Template.Core.Domain.Contracts.Entities.Base;
+using Dibware.Template.Core.Domain.Contracts.Services;
 using System;
 
 namespace Dibware.Template.Core.Domain.Entities.Base
@@ -6,7 +7,7 @@ namespace Dibware.Template.Core.Domain.Entities.Base
     /// <summary>
     /// This is the base that all entities should inherit from.
     /// </summary>
-    public abstract class BaseEntity
+    public abstract class BaseEntity : IBaseEntity
     {
         /// <summary>
         /// Gets or sets the name.

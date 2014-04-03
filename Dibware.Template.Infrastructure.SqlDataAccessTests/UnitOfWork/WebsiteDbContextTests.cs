@@ -128,7 +128,7 @@ namespace Dibware.Template.Infrastructure.SqlDataAccessTests.UnitOfWork
         public void Test_WebsiteDbContext_ExecuteStoredProcedureUsingValidProcedureNameWithArgs_DoesNotException()
         {
             // Arrange
-            const string procedureName = "Role_Insert";
+            const string procedureName = "security.Role_Insert";
             var role = new Role
             {
                 Key = "key",
