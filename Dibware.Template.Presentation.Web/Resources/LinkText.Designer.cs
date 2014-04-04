@@ -77,5 +77,14 @@ namespace Dibware.Template.Presentation.Web.Resources {
                 return ResourceManager.GetString("Home", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Terms.
+        /// </summary>
+        public static string Terms {
+            get {
+                return ResourceManager.GetString("Terms", resourceCulture);
+            }
+        }
     }
 }

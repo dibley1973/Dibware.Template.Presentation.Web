@@ -31,16 +31,16 @@ namespace Dibware.Template.Presentation.Web.Controllers
             return View(ViewNames.Index, model);
         }
 
-        ////
-        //// GET: /Terms/
-        //// No authorisation, anyone can view this.
-        //////[WebsiteAuthorize(UserRole.All)]
-        //[HttpGet]
-        //public ActionResult Terms()
-        //{
-        //    var model = new TermsViewModel();
-        //    return View(ViewNames.Terms, model);
-        //}
+        //
+        // GET: /Terms/
+        // No authorisation, anyone can view this.
+        ////[WebsiteAuthorize(UserRole.All)]
+        [HttpGet]
+        public ActionResult Terms()
+        {
+            var model = new TermsViewModel();
+            return View(ViewNames.Terms, model);
+        }
 
         #endregion
     }
