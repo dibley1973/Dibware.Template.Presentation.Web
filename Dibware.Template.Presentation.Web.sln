@@ -1,6 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
+# Visual Studio Express 2013 for Web
 VisualStudioVersion = 12.0.21005.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dibware.Template.Presentation.Web.Tests", "Dibware.Template.Presentation.Web.Tests\Dibware.Template.Presentation.Web.Tests.csproj", "{5D1F727E-B742-412C-B7FD-F41392334B81}"
@@ -46,6 +46,11 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dibware.Template.Core.Application.Tests", "Dibware.Template.Core.Application.Tests\Dibware.Template.Core.Application.Tests.csproj", "{EF97B279-C40E-4123-AB14-6795ED048676}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{58E63293-0508-473B-8812-F65AD7F465F9}"
+	ProjectSection(SolutionItems) = preProject
+		..\dibware.clique\dibware.clique\Link_Cloning.txt = ..\dibware.clique\dibware.clique\Link_Cloning.txt
+		..\dibware.clique\dibware.clique\Link_ExpectedException.txt = ..\dibware.clique\dibware.clique\Link_ExpectedException.txt
+		..\dibware.clique\dibware.clique\Links_Membership.txt = ..\dibware.clique\dibware.clique\Links_Membership.txt
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -100,12 +105,12 @@ Global
 		{5D1F727E-B742-412C-B7FD-F41392334B81} = {8B18F95B-2F37-4C96-8CEB-8CC77491F627}
 		{12472E1D-D98D-43F8-BE4E-E5935D804F03} = {43DC97A4-5E29-45FF-A80E-9E1CF7C010A4}
 		{FB1F1A5E-B660-4793-A281-E0F51F4C52B4} = {43DC97A4-5E29-45FF-A80E-9E1CF7C010A4}
+		{9CE3ACA7-1C53-474D-8C51-807C11B45045} = {12472E1D-D98D-43F8-BE4E-E5935D804F03}
+		{FCBFD14F-61FC-4728-A240-21585527A48C} = {12472E1D-D98D-43F8-BE4E-E5935D804F03}
 		{33215F47-87A9-49BF-B9FA-FA4639F4D3DE} = {92C9BBDD-F3D1-43C0-9CE2-723FE73CD9CA}
 		{72D64451-15F3-4C29-9A4B-B0146791342C} = {33215F47-87A9-49BF-B9FA-FA4639F4D3DE}
 		{451CE30F-F4FF-4EB9-A462-AC08081BFE48} = {33215F47-87A9-49BF-B9FA-FA4639F4D3DE}
 		{8DE5309C-56E9-46B4-92C6-678A2F90B495} = {76E96821-C288-47DC-B9C0-49B67130B4F7}
-		{9CE3ACA7-1C53-474D-8C51-807C11B45045} = {12472E1D-D98D-43F8-BE4E-E5935D804F03}
-		{FCBFD14F-61FC-4728-A240-21585527A48C} = {12472E1D-D98D-43F8-BE4E-E5935D804F03}
 		{E123F4A6-35DC-4E93-A6A3-FCC2D8475D60} = {FB1F1A5E-B660-4793-A281-E0F51F4C52B4}
 		{EF97B279-C40E-4123-AB14-6795ED048676} = {FB1F1A5E-B660-4793-A281-E0F51F4C52B4}
 	EndGlobalSection

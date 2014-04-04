@@ -14,6 +14,7 @@ using System.Web.Http;
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
+using Dibware.Web.Security.Providers.Contracts;
 
 namespace Dibware.Template.Presentation.Web
 {
@@ -28,6 +29,11 @@ namespace Dibware.Template.Presentation.Web
 
             // Load mapping configuration
             Mapper.Initialize(x => GetMappingConfiguration(Mapper.Configuration));
+
+            // Prepare the membership provider
+            var membershipProvider =
+                    (IRepositoryMembershipProviderRepository)DependencyResolver.Current.GetService(typeof(IRepositoryMembershipProviderRepository));
+
 
             // Register model binders
 

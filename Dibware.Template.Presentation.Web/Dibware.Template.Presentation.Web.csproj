@@ -124,6 +124,7 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>Libraries\WebGrease.dll</HintPath>
     </Reference>
+    <Reference Include="WebMatrix.WebData, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_Data\WebsiteDatabase.mdf" />
@@ -190,6 +191,8 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Composition\IApplicationConfigurationMapping.cs" />
+    <Compile Include="Composition\ProviderMappings.cs" />
+    <Compile Include="Composition\RepositoryMapping.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\Base\BaseController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -261,6 +264,10 @@
     <ProjectReference Include="..\Dibware.Template.Core.Domain\Dibware.Template.Core.Domain.csproj">
       <Project>{9ce3aca7-1c53-474d-8c51-807c11b45045}</Project>
       <Name>Dibware.Template.Core.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Dibware.Template.Infrastructure.SqlDataAccess\Dibware.Template.Infrastructure.SqlDataAccess.csproj">
+      <Project>{72d64451-15f3-4c29-9a4b-b0146791342c}</Project>
+      <Name>Dibware.Template.Infrastructure.SqlDataAccess</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
