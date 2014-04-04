@@ -123,4 +123,7 @@
   <data name="Index" xml:space="preserve">
     <value>Index</value>
   </data>
+  <data name="Terms" xml:space="preserve">
+    <value>Terms</value>
+  </data>
 </root>

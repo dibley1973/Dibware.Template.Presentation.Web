@@ -164,6 +164,9 @@
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Home\About.cshtml" />
+    <Content Include="Views\Home\Terms.cshtml" />
+    <Content Include="UnauthorizedUser.sitemap" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -177,7 +180,9 @@
     <Content Include="assets\themes\black-and-white\bootstrap-theme.min.css" />
     <Content Include="assets\themes\black-and-white\bootstrap.css" />
     <Content Include="assets\themes\black-and-white\bootstrap.min.css" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
@@ -185,6 +190,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Composition\IApplicationConfigurationMapping.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\Base\BaseController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Filters\CompressAttribute.cs" />
@@ -198,6 +204,7 @@
     <Compile Include="Models\Error\ErrorViewModel.cs" />
     <Compile Include="Models\Home\AboutViewModel.cs" />
     <Compile Include="Models\Home\IndexViewModel.cs" />
+    <Compile Include="Models\Home\TermsViewModel.cs" />
     <Compile Include="Modules\Authentication\IWebsitePrincipal.cs" />
     <Compile Include="Modules\Authentication\WebsiteAuthorizeAttribute.cs" />
     <Compile Include="Modules\Authentication\WebsitePrincipal.cs" />

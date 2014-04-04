@@ -11,8 +11,8 @@ namespace Dibware.Template.Presentation.Web.Controllers
 
         //
         // GET: /About/
-        //No authorisation, anyone can view this.
-        //[WebsiteAuthoriz(UserRole.All)]
+        // No authorisation, anyone can view this.
+        ////[WebsiteAuthoriz(UserRole.All)]
         [HttpGet]
         public ActionResult About()
         {
@@ -22,14 +22,25 @@ namespace Dibware.Template.Presentation.Web.Controllers
 
         //
         // GET: /Home/
-        //No authorisation, anyone can view this.
-        //[WebsiteAuthorize(UserRole.All)]
+        // No authorisation, anyone can view this.
+        ////[WebsiteAuthorize(UserRole.All)]
         [HttpGet]
         public ActionResult Index()
         {
             var model = new IndexViewModel();
             return View(ViewNames.Index, model);
         }
+
+        ////
+        //// GET: /Terms/
+        //// No authorisation, anyone can view this.
+        //////[WebsiteAuthorize(UserRole.All)]
+        //[HttpGet]
+        //public ActionResult Terms()
+        //{
+        //    var model = new TermsViewModel();
+        //    return View(ViewNames.Terms, model);
+        //}
 
         #endregion
     }
