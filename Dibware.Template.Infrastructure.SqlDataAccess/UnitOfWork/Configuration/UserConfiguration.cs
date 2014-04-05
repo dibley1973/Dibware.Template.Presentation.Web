@@ -1,8 +1,8 @@
-﻿using System;
-using System.Data.Entity.ModelConfiguration;
-using Dibware.Template.Core.Domain.Entities.Security;
+﻿using Dibware.Template.Core.Domain.Entities.Security;
 using Dibware.Template.Infrastructure.SqlDataAccess.Helpers;
 using Dibware.Template.Infrastructure.SqlDataAccess.Resources;
+using System;
+using System.Data.Entity.ModelConfiguration;
 
 namespace Dibware.Template.Infrastructure.SqlDataAccess.UnitOfWork.Configuration
 {
@@ -77,6 +77,18 @@ namespace Dibware.Template.Infrastructure.SqlDataAccess.UnitOfWork.Configuration
                         SchemaNames.Security,
                         TableNames.User,
                         StoredProcedureAction.Update
+                    );
+            }
+        }
+
+        private static String ValidateUserStoredProcedure
+        {
+            get
+            {
+                return DatabaseObjectNameHelper.GetFullStoredProcedureName(
+                        SchemaNames.Security,
+                        TableNames.User,
+                        StoredProcedureAction.ValidateUser
                     );
             }
         }

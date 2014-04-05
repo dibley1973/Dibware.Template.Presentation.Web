@@ -49,7 +49,7 @@ namespace Dibware.Template.Presentation.Web.Tests.Controllers
         }
 
         [TestMethod]
-        public void Test_AboutAction_isNotDecoratedWithAuthorizeAttribute()
+        public void Test_AboutAction_IsNotDecoratedWithAuthorizeAttribute()
         {
             // Arrange
             var roles = new[] { UserRole.UnknownUser.ToString() };
@@ -72,7 +72,7 @@ namespace Dibware.Template.Presentation.Web.Tests.Controllers
         }
 
         [TestMethod]
-        public void Test_AboutAction_isNotDecoratedWithWebsiteAuthorizeAttribute()
+        public void Test_AboutAction_IsNotDecoratedWithWebsiteAuthorizeAttribute()
         {
             // Arrange
             var roles = new[] { UserRole.UnknownUser.ToString() };
@@ -116,7 +116,7 @@ namespace Dibware.Template.Presentation.Web.Tests.Controllers
         }
 
         [TestMethod]
-        public void Test_IndexAction_isNotDecoratedWithAuthorizeAttribute()
+        public void Test_IndexAction_IsNotDecoratedWithAuthorizeAttribute()
         {
             // Arrange
             var roles = new[] { UserRole.UnknownUser.ToString() };
@@ -139,7 +139,7 @@ namespace Dibware.Template.Presentation.Web.Tests.Controllers
         }
 
         [TestMethod]
-        public void Test_IndexAction_isNotDecoratedWithWebsiteAuthorizeAttribute()
+        public void Test_IndexAction_IsNotDecoratedWithWebsiteAuthorizeAttribute()
         {
             // Arrange
             var roles = new[] { UserRole.UnknownUser.ToString() };

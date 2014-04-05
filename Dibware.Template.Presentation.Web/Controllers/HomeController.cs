@@ -13,7 +13,7 @@ namespace Dibware.Template.Presentation.Web.Controllers
         //
         // GET: /About/
         // No authorisation, anyone can view this.
-        [WebsiteAuthorize(UserRole.All)]
+        //[WebsiteAuthorize(UserRole.All)]
         [HttpGet]
         public ActionResult About()
         {

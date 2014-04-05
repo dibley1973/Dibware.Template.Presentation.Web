@@ -86,5 +86,14 @@ namespace Dibware.Template.Infrastructure.SqlDataAccess.Resources {
                 return ResourceManager.GetString("Update", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ValidateUser.
+        /// </summary>
+        internal static string ValidateUser {
+            get {
+                return ResourceManager.GetString("ValidateUser", resourceCulture);
+            }
+        }
     }
 }
