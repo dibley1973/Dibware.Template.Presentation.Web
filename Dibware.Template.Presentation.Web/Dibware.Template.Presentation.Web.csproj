@@ -57,11 +57,28 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>Libraries\Dibware.Web.Security.dll</HintPath>
     </Reference>
+    <Reference Include="DotNetOpenAuth.AspNet, Version=4.1.0.0, Culture=neutral, PublicKeyToken=2780ccd10d57b246, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Libraries\DotNetOpenAuth.AspNet.dll</HintPath>
+    </Reference>
+    <Reference Include="DotNetOpenAuth.Core, Version=4.1.0.0, Culture=neutral, PublicKeyToken=2780ccd10d57b246, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Libraries\DotNetOpenAuth.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Libraries\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Libraries\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="LowercaseRoutesMVC, Version=1.0.3.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>Libraries\LowercaseRoutesMVC.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Web.WebPages.OAuth, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
     <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>Libraries\Newtonsoft.Json.dll</HintPath>
@@ -142,6 +159,11 @@
     <Content Include="assets\js\jquery-1.8.2.min.js" />
     <Content Include="assets\js\jquery-ui-1.8.24.js" />
     <Content Include="assets\js\jquery-ui-1.8.24.min.js" />
+    <None Include="assets\js\jquery.validate-vsdoc.js" />
+    <Content Include="assets\js\jquery.validate.js" />
+    <Content Include="assets\js\jquery.validate.min.js" />
+    <Content Include="assets\js\jquery.validate.unobtrusive.js" />
+    <Content Include="assets\js\jquery.validate.unobtrusive.min.js" />
     <Content Include="assets\js\modernizr-2.6.2.js" />
     <Content Include="assets\themes\grey\bootstrap-theme.css" />
     <Content Include="assets\themes\grey\bootstrap.css" />
@@ -153,6 +175,10 @@
     <Content Include="Libraries\Dibware.Helpers.dll" />
     <Content Include="Libraries\Dibware.System.Extensions.dll" />
     <Content Include="Libraries\Dibware.Web.Security.dll" />
+    <Content Include="Libraries\DotNetOpenAuth.AspNet.dll" />
+    <Content Include="Libraries\DotNetOpenAuth.Core.dll" />
+    <Content Include="Libraries\EntityFramework.dll" />
+    <Content Include="Libraries\EntityFramework.SqlServer.dll" />
     <Content Include="Libraries\LowercaseRoutesMVC.dll" />
     <Content Include="Libraries\Newtonsoft.Json.dll" />
     <Content Include="Libraries\Ninject.dll" />
@@ -168,6 +194,9 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Terms.cshtml" />
     <Content Include="UnauthorizedUser.sitemap" />
+    <Content Include="Views\Account\Login.cshtml" />
+    <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
+    <Content Include="Views\Account\Register.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -193,6 +222,7 @@
     <Compile Include="Composition\IApplicationConfigurationMapping.cs" />
     <Compile Include="Composition\ProviderMappings.cs" />
     <Compile Include="Composition\RepositoryMapping.cs" />
+    <Compile Include="Composition\UnitOfWorkMapping.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\Base\BaseController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -203,6 +233,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Account\IndexViewModel.cs" />
+    <Compile Include="Models\Account\LoginModel.cs" />
+    <Compile Include="Models\Account\RegisterModel.cs" />
     <Compile Include="Models\Base\BaseViewModel.cs" />
     <Compile Include="Models\Error\ErrorViewModel.cs" />
     <Compile Include="Models\Home\AboutViewModel.cs" />
@@ -213,6 +246,7 @@
     <Compile Include="Modules\Authentication\WebsitePrincipal.cs" />
     <Compile Include="Modules\Configuration\ApplicationConfiguration.cs" />
     <Compile Include="Modules\Configuration\IApplicationConfiguration.cs" />
+    <Compile Include="Modules\ProviderInitialization\ProviderInitializationHttpModule.cs" />
     <Compile Include="Modules\UserPreferences\IUserPreferenceData.cs" />
     <Compile Include="Modules\UserPreferences\UserPreferenceData.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -227,6 +261,11 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>ConfigurationKeys.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\ConnectionStringKeys.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ConnectionStringKeys.resx</DependentUpon>
     </Compile>
     <Compile Include="Resources\ExceptionMessages.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -279,6 +318,10 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>ConfigurationKeys.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="Resources\ConnectionStringKeys.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>ConnectionStringKeys.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="Resources\ExceptionMessages.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>ExceptionMessages.Designer.cs</LastGenOutput>
@@ -304,6 +347,7 @@
       <LastGenOutput>ViewNames.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

@@ -1,5 +1,6 @@
 ﻿using Dibware.Template.Presentation.Web.Controllers.Base;
 using Dibware.Template.Presentation.Web.Models.Home;
+using Dibware.Template.Presentation.Web.Modules.Authentication;
 using Dibware.Template.Presentation.Web.Resources;
 using System.Web.Mvc;
 
@@ -12,7 +13,7 @@ namespace Dibware.Template.Presentation.Web.Controllers
         //
         // GET: /About/
         // No authorisation, anyone can view this.
-        ////[WebsiteAuthoriz(UserRole.All)]
+        [WebsiteAuthorize(UserRole.All)]
         [HttpGet]
         public ActionResult About()
         {

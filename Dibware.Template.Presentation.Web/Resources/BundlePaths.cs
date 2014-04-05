@@ -17,6 +17,8 @@ namespace Dibware.Template.Presentation.Web.Resources
             public const String Bootstrap = @"~/bundles/bootstrap/js";
             public const String JQuery = @"~/bundles/jquery";
             public const String JQueryUi = @"~/bundles/jqueryui";
+            public const String JQueryUnobtrusive = @"~/bundles/jqueryunobtrusive";
+            public const String JQueryVal = @"~/bundles/jqueryval";
             public const String Modernizr = @"~/bundles/modernizr";
         }
 

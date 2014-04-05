@@ -19,6 +19,14 @@ namespace Dibware.Template.Presentation.Web
                 AssetPaths.Js.JQueryUiPath
             ));
 
+            bundles.Add(new ScriptBundle(BundlePaths.Scripts.JQueryUnobtrusive).Include(
+                AssetPaths.Js.JQueryUnobtrusivePath
+            ));
+
+            bundles.Add(new ScriptBundle(BundlePaths.Scripts.JQueryVal).Include(
+                AssetPaths.Js.JQueryValPath
+            ));
+
             bundles.Add(new ScriptBundle(BundlePaths.Scripts.Bootstrap).Include(
                 AssetPaths.Js.BootstrapMinPath
             ));

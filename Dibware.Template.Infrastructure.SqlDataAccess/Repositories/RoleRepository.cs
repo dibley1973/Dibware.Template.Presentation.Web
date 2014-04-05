@@ -57,7 +57,7 @@ namespace Dibware.Template.Infrastructure.SqlDataAccess.Repositories
 
         #endregion
 
-        #region IRepository<Role> Members
+        #region Repository<Role> Members
 
         /// <summary>
         /// Gets for unique identifier.

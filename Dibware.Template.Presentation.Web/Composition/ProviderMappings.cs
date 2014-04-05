@@ -16,6 +16,10 @@ namespace Dibware.Template.Presentation.Web.Composition
             Bind<IRepositoryMembershipProvider>()
                 .To<RepositoryMembershipProvider>()
                 .InThreadScope();
+
+            Bind<IRepositoryRoleProvider>()
+                .To<RepositoryRoleProvider>()
+                .InThreadScope();
         }
     }
 }

@@ -76,11 +76,17 @@ namespace Dibware.Template.Presentation.Web.Modules.Authentication
         {
             Guard.ArgumentIsNotNull(httpContext, "httpContext");
 
-            // If user is not authenticates, return false regardless!
-            if (!httpContext.User.Identity.IsAuthenticated)
-            {
-                return false;
-            }
+            //// Check wha
+            //var isCheckingForNonAuthorisedRole = (_allowedRole != (_allowedRole | UserRole.AllAuthorised));
+            //if (isCheckingForNonAuthorisedRole)
+            //{
+            //}
+
+            //// If user is not authenticated, return false regardless!
+            //if (!httpContext.User.Identity.IsAuthenticated)
+            //{
+            //    return false;
+            //}
 
             //// see if the user is in any of the mapped roles.
             //var result = EnumHelper.GetAllSelectedItems<UserRole>(_allowedRole)

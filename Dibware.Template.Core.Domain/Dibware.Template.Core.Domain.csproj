@@ -62,6 +62,7 @@
     <Compile Include="Contracts\Entities\IEntityClonable.cs" />
     <Compile Include="Contracts\Repositories\Base\IRepository.cs" />
     <Compile Include="Contracts\Repositories\IRoleRepository.cs" />
+    <Compile Include="Contracts\Repositories\IUserRepository.cs" />
     <Compile Include="Contracts\Services\IAccountStatusService.cs" />
     <Compile Include="Contracts\Services\ICloneService.cs" />
     <Compile Include="Contracts\UnitOfWork\IUnitOfWork.cs" />

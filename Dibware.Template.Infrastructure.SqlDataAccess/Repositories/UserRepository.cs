@@ -1,0 +1,51 @@
+﻿using Dibware.Template.Core.Domain.Contracts.Repositories;
+using Dibware.Template.Core.Domain.Contracts.UnitOfWork;
+using Dibware.Template.Core.Domain.Entities.Security;
+using Dibware.Template.Infrastructure.SqlDataAccess.Base;
+using Dibware.Web.Security.Providers.Contracts;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Dibware.Template.Infrastructure.SqlDataAccess.Repositories
+{
+    public class UserRepository : Repository<User>, IUserRepository
+    {
+        #region Construct
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="RoleRepository"/> class.
+        /// </summary>
+        /// <param name="unitOfWork">The unit of work.</param>
+        public UserRepository(IUnitOfWork unitOfWork)
+            : base(unitOfWork) { }
+
+        #endregion
+
+        #region IUserRepository Members
+        
+        #endregion
+
+        #region Repository<User> Members
+        
+        #endregion
+
+        #region IRepositoryMembershipProviderRepository Members
+
+        /// <summary>
+        /// Validates the user.
+        /// </summary>
+        /// <param name="username">The username.</param>
+        /// <param name="password">The password.</param>
+        /// <returns></returns>
+        /// <exception cref="System.NotImplementedException"></exception>
+        bool IRepositoryMembershipProviderRepository.ValidateUser(string username, string password)
+        {
+            throw new NotImplementedException();
+        }
+        
+        #endregion
+    }
+}

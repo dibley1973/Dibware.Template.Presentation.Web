@@ -50,6 +50,10 @@ namespace Dibware.Template.Presentation.Web.Resources
             public const String JQueryPath = Prefixes.JsPrefix + JQuery;
             public const String JQueryUi = @"jquery-ui-{version}.js";
             public const String JQueryUiPath = Prefixes.JsPrefix + JQueryUi;
+            public const String JQueryVal = @"jquery.validate*";
+            public const String JQueryValPath = Prefixes.JsPrefix + JQueryVal;
+            public const String JQueryUnobtrusive = @"jquery.unobtrusive*";
+            public const String JQueryUnobtrusivePath = Prefixes.JsPrefix + JQueryUnobtrusive;
             public const String Modernizr = @"modernizr-*";
             public const String ModernizrPath = Prefixes.JsPrefix + Modernizr;
         }
