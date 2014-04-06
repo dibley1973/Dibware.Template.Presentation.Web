@@ -1,0 +1,4 @@
+
+Security is hard, insecurity is easy – demonstrating a simple misconfiguration risk
+http://www.troyhunt.com/2013/05/security-is-hard-insecurity-is-easy.html
+

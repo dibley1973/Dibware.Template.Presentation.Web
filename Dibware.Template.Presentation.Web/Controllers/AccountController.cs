@@ -44,7 +44,7 @@ namespace Dibware.Template.Presentation.Web.Controllers
         [AllowAnonymous]
         public ActionResult Login(String returnUrl)
         {
-            var model = new LoginModel();
+            var model = new LoginViewModel();
             ViewBag.ReturnUrl = returnUrl;
             return View(model);
         }
@@ -54,7 +54,7 @@ namespace Dibware.Template.Presentation.Web.Controllers
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
-        public ActionResult Login(LoginModel model, String returnUrl)
+        public ActionResult Login(LoginViewModel model, String returnUrl)
         {
             if (ModelState.IsValid && WebSecurity.Login(model.UserName, model.Password, persistCookie: model.RememberMe))
             {
@@ -71,7 +71,7 @@ namespace Dibware.Template.Presentation.Web.Controllers
         [AllowAnonymous]
         public ActionResult Register()
         {
-            var model = new RegisterModel();
+            var model = new RegisterViewModel();
             return View(model);
         }
 
@@ -81,7 +81,7 @@ namespace Dibware.Template.Presentation.Web.Controllers
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
-        public ActionResult Register(RegisterModel model)
+        public ActionResult Register(RegisterViewModel model)
         {
             if (ModelState.IsValid)
             {

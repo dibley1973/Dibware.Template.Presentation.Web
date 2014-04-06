@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Dibware.Template.Presentation.Web.Models.Account
 {
-    public class LoginModel : BaseViewModel
+    public class LoginViewModel : BaseViewModel
     {
         [Required]
         [Display(Name = "User name")]

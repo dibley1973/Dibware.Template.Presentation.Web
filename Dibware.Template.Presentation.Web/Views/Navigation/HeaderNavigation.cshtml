@@ -1,0 +1,9 @@
+﻿@using Dibware.Template.Presentation.Web.Models.Navigation
+@model HeaderNavigationViewModel
+
+<ul class="nav navbar-nav">
+@foreach (var item in Model.NavigationItems)
+{
+  <li><a href="@item.Url" title="@item.Description">@item.Title</a></li>
+}
+</ul>

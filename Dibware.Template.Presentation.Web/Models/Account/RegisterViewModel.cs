@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Dibware.Template.Presentation.Web.Models.Account
 {
-    public class RegisterModel : BaseViewModel
+    public class RegisterViewModel : BaseViewModel
     {
         [Required]
         [Display(Name = "User name")]

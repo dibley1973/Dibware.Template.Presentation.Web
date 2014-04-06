@@ -193,10 +193,13 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Terms.cshtml" />
-    <Content Include="UnauthorizedUser.sitemap" />
+    <Content Include="UnauthorizedUser.sitemap">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Views\Account\Login.cshtml" />
     <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
     <Content Include="Views\Account\Register.cshtml" />
+    <Content Include="Views\Navigation\HeaderNavigation.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -226,6 +229,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\Base\BaseController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\NavigationController.cs" />
     <Compile Include="Filters\CompressAttribute.cs" />
     <Compile Include="Filters\CustomHandleErrorAttribute.cs" />
     <Compile Include="Filters\HandleErrorForAjaxRequestAttribute.cs" />
@@ -234,13 +238,15 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Account\IndexViewModel.cs" />
-    <Compile Include="Models\Account\LoginModel.cs" />
-    <Compile Include="Models\Account\RegisterModel.cs" />
+    <Compile Include="Models\Account\LoginViewModel.cs" />
+    <Compile Include="Models\Account\RegisterViewModel.cs" />
     <Compile Include="Models\Base\BaseViewModel.cs" />
     <Compile Include="Models\Error\ErrorViewModel.cs" />
     <Compile Include="Models\Home\AboutViewModel.cs" />
     <Compile Include="Models\Home\IndexViewModel.cs" />
     <Compile Include="Models\Home\TermsViewModel.cs" />
+    <Compile Include="Models\Navigation\HeaderNavigationViewModel.cs" />
+    <Compile Include="Models\Navigation\NavigationItem.cs" />
     <Compile Include="Modules\Authentication\IWebsitePrincipal.cs" />
     <Compile Include="Modules\Authentication\WebsiteAuthorizeAttribute.cs" />
     <Compile Include="Modules\Authentication\WebsitePrincipal.cs" />
@@ -281,6 +287,11 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>MetaTagData.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\PromptText.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PromptText.resx</DependentUpon>
     </Compile>
     <Compile Include="Resources\RequestHeaders.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -333,6 +344,10 @@
     <EmbeddedResource Include="Resources\MetaTagData.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>MetaTagData.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\PromptText.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>PromptText.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Resources\RequestHeaders.resx">
       <Generator>ResXFileCodeGenerator</Generator>

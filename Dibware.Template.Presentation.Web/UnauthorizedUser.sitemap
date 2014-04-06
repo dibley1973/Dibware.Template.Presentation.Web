@@ -1,7 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <siteMap xmlns="http://schemas.microsoft.com/AspNet/SiteMap-File-1.0" >
-  <siteMapNode url="~/" title="Home"  description="">
-    <siteMapNode url="" title=""  description="" />
-    <siteMapNode url="" title=""  description="" />
+  <siteMapNode resourceKey="/" url="~/" title="Root"  description="The root node">
+    <siteMapNode resourceKey="home" url="~/home/index" title="Home" description="The website homepage" />
+    <siteMapNode resourceKey="home" url="~/home/about" title="About" description="Information about this website" />
+    <siteMapNode resourceKey="home" url="~/home/terms" title="Terms" description="Information about the terms and conditions for the website" />
+    <siteMapNode resourceKey="account" url="~/account/login" title="Login" description="Log into your account" />
   </siteMapNode>
 </siteMap>
