@@ -8,8 +8,6 @@ using Dibware.Web.Security.Providers.Contracts;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Dibware.Template.Infrastructure.SqlDataAccess.Repositories
 {
@@ -27,14 +25,24 @@ namespace Dibware.Template.Infrastructure.SqlDataAccess.Repositories
         #endregion
 
         #region IUserRepository Members
-        
+
         #endregion
 
         #region Repository<User> Members
-        
+
         #endregion
 
         #region IRepositoryMembershipProviderRepository Members
+
+
+        public string CreateUserAndAccount(String userName, String password,
+            Boolean requireConfirmation, IDictionary<String, Object> values)
+        {
+            
+            
+            
+            throw new NotImplementedException();
+        }
 
         /// <summary>
         /// Validates the user.
@@ -52,7 +60,7 @@ namespace Dibware.Template.Infrastructure.SqlDataAccess.Repositories
 
             return result != null;
         }
-        
+
         #endregion
     }
 }
