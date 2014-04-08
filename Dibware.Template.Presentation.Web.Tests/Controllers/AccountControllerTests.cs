@@ -1,14 +1,13 @@
-﻿using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Dibware.Template.Presentation.Web.Controllers;
-using Dibware.Template.Presentation.Web.Tests.Helpers;
-using Dibware.Template.Presentation.Web.Resources;
+﻿using Dibware.Template.Presentation.Web.Controllers;
 using Dibware.Template.Presentation.Web.Models.Account;
 using Dibware.Template.Presentation.Web.Modules.Authentication;
-
+using Dibware.Template.Presentation.Web.Resources;
+using Dibware.Template.Presentation.Web.Tests.Helpers;
+using Dibware.Template.Presentation.Web.Tests.Resources;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System;
 using System.Linq;
 using System.Web.Mvc;
-using Dibware.Template.Presentation.Web.Tests.Resources;
 
 namespace Dibware.Template.Presentation.Web.Tests.Controllers
 {
@@ -18,10 +17,10 @@ namespace Dibware.Template.Presentation.Web.Tests.Controllers
         #region Initialisation
 
         /// <summary>
-        /// Setups the home controller.
+        /// Setups the Account controller.
         /// </summary>
         /// <returns></returns>
-        private static AccountController SetupHomeController(String[] roles)
+        private static AccountController SetupAccountController(String[] roles)
         {
             var controller =
                 ControllerHelper.SetUpController<AccountController>(roles);
@@ -37,7 +36,7 @@ namespace Dibware.Template.Presentation.Web.Tests.Controllers
         {
             // Arrange
             var roles = new[] { UserRole.UnknownUser.ToString() };
-            var controller = SetupHomeController(roles);
+            var controller = SetupAccountController(roles);
             var expectedResultType = typeof(ViewResult);
             const String expectedViewName = "Index";
 
@@ -54,7 +53,7 @@ namespace Dibware.Template.Presentation.Web.Tests.Controllers
         {
             // Arrange
             var roles = new[] { UserRole.UnknownUser.ToString() };
-            var controller = SetupHomeController(roles);
+            var controller = SetupAccountController(roles);
             var controllerType = controller.GetType();
             var viewModelType = typeof(IndexViewModel);
             var attributeType = typeof(AuthorizeAttribute);
@@ -77,7 +76,7 @@ namespace Dibware.Template.Presentation.Web.Tests.Controllers
         {
             // Arrange
             var roles = new[] { UserRole.UnknownUser.ToString() };
-            var controller = SetupHomeController(roles);
+            var controller = SetupAccountController(roles);
             var controllerType = controller.GetType();
             var viewModelType = typeof(IndexViewModel);
             var attributeType = typeof(WebsiteAuthorizeAttribute);
@@ -104,7 +103,7 @@ namespace Dibware.Template.Presentation.Web.Tests.Controllers
         {
             // Arrange
             var roles = new[] { UserRole.UnknownUser.ToString() };
-            var controller = SetupHomeController(roles);
+            var controller = SetupAccountController(roles);
             var expectedResultType = typeof(ViewResult);
             const String returnUrl = "~/home/index";
             const String expectedViewName = "Login";
@@ -123,7 +122,7 @@ namespace Dibware.Template.Presentation.Web.Tests.Controllers
             // Arrange
             const String actionMethodName = "Login";
             var roles = new[] { UserRole.UnknownUser.ToString() };
-            var controller = SetupHomeController(roles);
+            var controller = SetupAccountController(roles);
             var controllerType = controller.GetType();
             var viewModelType = typeof(LoginViewModel);
             var attributeType = typeof(AuthorizeAttribute);
@@ -147,7 +146,7 @@ namespace Dibware.Template.Presentation.Web.Tests.Controllers
             // Arrange
             const String actionMethodName = "Login";
             var roles = new[] { UserRole.UnknownUser.ToString() };
-            var controller = SetupHomeController(roles);
+            var controller = SetupAccountController(roles);
             var controllerType = controller.GetType();
             var viewModelType = typeof(LoginViewModel);
             var attributeType = typeof(WebsiteAuthorizeAttribute);
@@ -173,10 +172,10 @@ namespace Dibware.Template.Presentation.Web.Tests.Controllers
         public void Test_RegisterAction_ReturnsRegisterView()
         {
             // Arrange
-            var roles = new[] { UserRole.UnknownUser.ToString() };
-            var controller = SetupHomeController(roles);
-            var expectedResultType = typeof(ViewResult);
             const String expectedViewName = "Register";
+            var roles = new[] { UserRole.UnknownUser.ToString() };
+            var controller = SetupAccountController(roles);
+            var expectedResultType = typeof(ViewResult);
 
             // Act
             var result = controller.Register();
@@ -192,11 +191,11 @@ namespace Dibware.Template.Presentation.Web.Tests.Controllers
             // Arrange
             const String actionMethodName = "Register";
             var roles = new[] { UserRole.UnknownUser.ToString() };
-            var controller = SetupHomeController(roles);
+            var controller = SetupAccountController(roles);
             var controllerType = controller.GetType();
             var viewModelType = typeof(RegisterViewModel);
             var attributeType = typeof(AuthorizeAttribute);
-            Type[] parameterTypes = { typeof(String) };
+            Type[] parameterTypes = new Type[] { };
 
             // Act
             var methodInfo = controllerType.GetMethod(actionMethodName, parameterTypes);
@@ -216,11 +215,11 @@ namespace Dibware.Template.Presentation.Web.Tests.Controllers
             // Arrange
             const String actionMethodName = "Register";
             var roles = new[] { UserRole.UnknownUser.ToString() };
-            var controller = SetupHomeController(roles);
+            var controller = SetupAccountController(roles);
             var controllerType = controller.GetType();
             var viewModelType = typeof(RegisterViewModel);
             var attributeType = typeof(WebsiteAuthorizeAttribute);
-            Type[] parameterTypes = { typeof(String) };
+            Type[] parameterTypes = new Type[] { };
 
             // Act
             var methodInfo = controllerType.GetMethod(actionMethodName, parameterTypes);

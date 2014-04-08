@@ -22,7 +22,7 @@ namespace Dibware.Template.Presentation.Web.Resources {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class ConfigurationKeys {
+    public class ConfigurationKeys {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
@@ -36,7 +36,7 @@ namespace Dibware.Template.Presentation.Web.Resources {
         ///   Returns the cached ResourceManager instance used by this class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Resources.ResourceManager ResourceManager {
+        public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
                     global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Dibware.Template.Presentation.Web.Resources.ConfigurationKeys", typeof(ConfigurationKeys).Assembly);
@@ -51,7 +51,7 @@ namespace Dibware.Template.Presentation.Web.Resources {
         ///   resource lookups using this strongly typed resource class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Globalization.CultureInfo Culture {
+        public static global::System.Globalization.CultureInfo Culture {
             get {
                 return resourceCulture;
             }
@@ -63,7 +63,7 @@ namespace Dibware.Template.Presentation.Web.Resources {
         /// <summary>
         ///   Looks up a localized string similar to ApplicationEnvironment.
         /// </summary>
-        internal static string ApplicationEnvironment {
+        public static string ApplicationEnvironment {
             get {
                 return ResourceManager.GetString("ApplicationEnvironment", resourceCulture);
             }
@@ -72,7 +72,7 @@ namespace Dibware.Template.Presentation.Web.Resources {
         /// <summary>
         ///   Looks up a localized string similar to ApplicationTitle.
         /// </summary>
-        internal static string ApplicationTitle {
+        public static string ApplicationTitle {
             get {
                 return ResourceManager.GetString("ApplicationTitle", resourceCulture);
             }
@@ -81,7 +81,7 @@ namespace Dibware.Template.Presentation.Web.Resources {
         /// <summary>
         ///   Looks up a localized string similar to ApplicationVersion.
         /// </summary>
-        internal static string ApplicationVersion {
+        public static string ApplicationVersion {
             get {
                 return ResourceManager.GetString("ApplicationVersion", resourceCulture);
             }
@@ -90,7 +90,7 @@ namespace Dibware.Template.Presentation.Web.Resources {
         /// <summary>
         ///   Looks up a localized string similar to BrandName.
         /// </summary>
-        internal static string BrandName {
+        public static string BrandName {
             get {
                 return ResourceManager.GetString("BrandName", resourceCulture);
             }
@@ -99,7 +99,7 @@ namespace Dibware.Template.Presentation.Web.Resources {
         /// <summary>
         ///   Looks up a localized string similar to DefaultThemeName.
         /// </summary>
-        internal static string DefaultThemeName {
+        public static string DefaultThemeName {
             get {
                 return ResourceManager.GetString("DefaultThemeName", resourceCulture);
             }
@@ -108,7 +108,7 @@ namespace Dibware.Template.Presentation.Web.Resources {
         /// <summary>
         ///   Looks up a localized string similar to RoleName_AdministratorUser.
         /// </summary>
-        internal static string RoleName_AdministratorUser {
+        public static string RoleName_AdministratorUser {
             get {
                 return ResourceManager.GetString("RoleName_AdministratorUser", resourceCulture);
             }
@@ -117,7 +117,7 @@ namespace Dibware.Template.Presentation.Web.Resources {
         /// <summary>
         ///   Looks up a localized string similar to RoleName_MainUser.
         /// </summary>
-        internal static string RoleName_MainUser {
+        public static string RoleName_MainUser {
             get {
                 return ResourceManager.GetString("RoleName_MainUser", resourceCulture);
             }
@@ -126,7 +126,7 @@ namespace Dibware.Template.Presentation.Web.Resources {
         /// <summary>
         ///   Looks up a localized string similar to RoleName_SuperUser.
         /// </summary>
-        internal static string RoleName_SuperUser {
+        public static string RoleName_SuperUser {
             get {
                 return ResourceManager.GetString("RoleName_SuperUser", resourceCulture);
             }
@@ -135,7 +135,7 @@ namespace Dibware.Template.Presentation.Web.Resources {
         /// <summary>
         ///   Looks up a localized string similar to RoleName_UnknownUser.
         /// </summary>
-        internal static string RoleName_UnknownUser {
+        public static string RoleName_UnknownUser {
             get {
                 return ResourceManager.GetString("RoleName_UnknownUser", resourceCulture);
             }

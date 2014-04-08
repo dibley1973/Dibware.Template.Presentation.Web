@@ -26,22 +26,22 @@ namespace Dibware.Template.Infrastructure.SqlDataAccessTests.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=(LocalDB)\\v11.0;AttachDbFilename={0}\\WebsiteTemplate_Test.mdf;Integra" +
-            "ted Security=True;Pooling=false")]
-        public string TestConnection {
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=(LocalDB)\\Projects;AttachDbFilename={0}\\WebsiteTemplate_Test_Empty.md" +
+            "f;Integrated Security=True;Pooling=false")]
+        public string TestConnectionEmpty {
             get {
-                return ((string)(this["TestConnection"]));
+                return ((string)(this["TestConnectionEmpty"]));
             }
         }
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=(LocalDB)\\Projects;AttachDbFilename={0}\\WebsiteTemplate_Test_Empty.md" +
-            "f;Integrated Security=True;Pooling=false")]
-        public string TestConnectionEmpty {
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=(LocalDB)\\Projects;AttachDbFilename={0}\\WebsiteTemplate_Test.mdf;Inte" +
+            "grated Security=True;Pooling=false")]
+        public string TestConnection {
             get {
-                return ((string)(this["TestConnectionEmpty"]));
+                return ((string)(this["TestConnection"]));
             }
         }
     }

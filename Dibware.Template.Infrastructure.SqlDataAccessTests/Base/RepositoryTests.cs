@@ -1,4 +1,6 @@
-﻿using Dibware.Template.Core.Domain.Entities.Security;
+﻿using Dibware.Template.Core.Application.Services;
+using Dibware.Template.Core.Domain.Contracts.Services;
+using Dibware.Template.Core.Domain.Entities.Security;
 using Dibware.Template.Infrastructure.SqlDataAccess.UnitOfWork;
 using Dibware.Template.Infrastructure.SqlDataAccessTests.Helpers;
 using Dibware.Template.Infrastructure.SqlDataAccessTests.Initialisers;
@@ -704,21 +706,21 @@ namespace Dibware.Template.Infrastructure.SqlDataAccessTests.Base
         [TestMethod]
         public void Test_CreateSaveThenLoadCopyModifyNameAndMerge_ResultsIn_NewNameForPersistedKeyBasedItem()
         {
-            //// Arrange
-            //const string newName = "BuiscuitEater";
-            //var cloneService = (ICloneService)new DeepCopyCloneService();
-            //var repository = new MockRepository<Role>(_unitOfWork);
-            //var newEntity = _unitOfWork.CreateSet<Role>().First();
+            // Arrange
+            const string newName = "BuiscuitEater";
+            var cloneService = (ICloneService)new DeepCopyCloneService();
+            var repository = new MockRepository<Role>(_unitOfWork);
+            var newEntity = _unitOfWork.CreateSet<Role>().First();
 
-            //// Act
-            //repository.SaveChanges();
-            //var persistedEntity = repository.GetForKey(newEntity.Key);
-            //var modifiedEntity = persistedEntity.Clone<Role>(cloneService);
-            //modifiedEntity.Name = newName;
-            //repository.Merge(persistedEntity, modifiedEntity);
+            // Act
+            repository.SaveChanges();
+            var persistedEntity = repository.GetForKey(newEntity.Key);
+            var modifiedEntity = persistedEntity.Clone<Role>(cloneService);
+            modifiedEntity.Name = newName;
+            repository.Merge(persistedEntity, modifiedEntity);
 
-            //// Assert            
-            //Assert.AreEqual(newName, persistedEntity.Name);
+            // Assert            
+            Assert.AreEqual(newName, persistedEntity.Name);
         }
 
         #endregion

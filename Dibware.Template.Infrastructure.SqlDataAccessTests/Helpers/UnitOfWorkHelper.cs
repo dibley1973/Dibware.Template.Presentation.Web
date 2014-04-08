@@ -1,5 +1,5 @@
-﻿using System;
-using Dibware.Template.Infrastructure.SqlDataAccess.UnitOfWork;
+﻿using Dibware.Template.Infrastructure.SqlDataAccess.UnitOfWork;
+using System;
 
 namespace Dibware.Template.Infrastructure.SqlDataAccessTests.Helpers
 {
@@ -22,6 +22,8 @@ namespace Dibware.Template.Infrastructure.SqlDataAccessTests.Helpers
         {
             var folderPath = ThisAssembly.GetProjectDirectory();
             AppendDatabaseFolder(ref folderPath);
+
+            folderPath = @"C:\temp\";
             var connectionStringFormatString = Properties.Settings.Default.TestConnection;
             var connectionString = String.Format(connectionStringFormatString, folderPath);
             return new WebsiteDbContext(connectionString);
@@ -35,6 +37,8 @@ namespace Dibware.Template.Infrastructure.SqlDataAccessTests.Helpers
         {
             var folderPath = ThisAssembly.GetProjectDirectory();
             AppendDatabaseFolder(ref folderPath);
+
+            folderPath = @"C:\temp\";
             var connectionStringFormatString = Properties.Settings.Default.TestConnectionEmpty;
             var connectionString = String.Format(connectionStringFormatString, folderPath);
             return new WebsiteDbContext(connectionString);

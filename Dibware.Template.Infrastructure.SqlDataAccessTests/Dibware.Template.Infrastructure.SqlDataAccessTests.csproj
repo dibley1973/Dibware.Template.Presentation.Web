@@ -96,6 +96,10 @@
     <Content Include="Libraries\EntityFramework.SqlServer.dll" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Dibware.Template.Core.Application\Dibware.Template.Core.Application.csproj">
+      <Project>{e123f4a6-35dc-4e93-a6a3-fcc2d8475d60}</Project>
+      <Name>Dibware.Template.Core.Application</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Dibware.Template.Core.Domain\Dibware.Template.Core.Domain.csproj">
       <Project>{9ce3aca7-1c53-474d-8c51-807c11b45045}</Project>
       <Name>Dibware.Template.Core.Domain</Name>
@@ -105,9 +109,7 @@
       <Name>Dibware.Template.Infrastructure.SqlDataAccess</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Database\" />
-  </ItemGroup>
+  <ItemGroup />
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
       <ItemGroup>
