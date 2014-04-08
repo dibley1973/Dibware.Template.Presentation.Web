@@ -280,6 +280,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>LinkText.resx</DependentUpon>
     </Compile>
+    <Compile Include="Resources\MembershipCreateStatusErrorMessages.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MembershipCreateStatusErrorMessages.resx</DependentUpon>
+    </Compile>
     <Compile Include="Resources\MetaTagData.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -337,6 +342,10 @@
     <EmbeddedResource Include="Resources\LinkText.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>LinkText.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\MembershipCreateStatusErrorMessages.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>MembershipCreateStatusErrorMessages.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Resources\MetaTagData.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>

@@ -74,6 +74,7 @@
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Net.Http.WebRequest" />
     <Reference Include="System.Web" />
+    <Reference Include="System.Web.ApplicationServices" />
     <Reference Include="System.Web.Http, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
     <Reference Include="System.Web.Http.WebHost, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
     <Reference Include="System.Web.Mvc, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
@@ -96,6 +97,7 @@
     <Compile Include="Filters\GlobalFilterTests.cs" />
     <Compile Include="Filters\ManageBaseViewModelAttributeTest.cs" />
     <Compile Include="Filters\WebsiteAuthorizeAttributeTests.cs" />
+    <Compile Include="HelperTests\MembershipHelperTests.cs" />
     <Compile Include="Mocks\MockBaseViewModel.cs" />
     <Compile Include="Mocks\MockWebsiteAuthorizeAttribute.cs" />
     <Compile Include="Models\Base\BaseViewModelTests.cs" />

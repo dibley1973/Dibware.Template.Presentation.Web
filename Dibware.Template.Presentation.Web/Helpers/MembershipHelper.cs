@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Dibware.Template.Presentation.Web.Resources;
+using System;
 using System.Web.Security;
 
 namespace Dibware.Template.Presentation.Web.Helpers
@@ -10,41 +11,41 @@ namespace Dibware.Template.Presentation.Web.Helpers
         /// </summary>
         /// <param name="createStatus">The create status.</param>
         /// <returns></returns>
-        internal static String ConvertErrorCodeToString(MembershipCreateStatus createStatus)
+        public static String ConvertErrorCodeToString(MembershipCreateStatus createStatus)
         {
             // See http://go.microsoft.com/fwlink/?LinkID=177550 for
             // a full list of status codes.
             switch (createStatus)
             {
                 case MembershipCreateStatus.DuplicateUserName:
-                    return "User name already exists. Please enter a different user name.";
+                    return MembershipCreateStatusErrorMessages.DuplicateUserName;
 
                 case MembershipCreateStatus.DuplicateEmail:
-                    return "A user name for that e-mail address already exists. Please enter a different e-mail address.";
+                    return MembershipCreateStatusErrorMessages.DuplicateEmail;
 
                 case MembershipCreateStatus.InvalidPassword:
-                    return "The password provided is invalid. Please enter a valid password value.";
+                    return MembershipCreateStatusErrorMessages.InvalidPassword;
 
                 case MembershipCreateStatus.InvalidEmail:
-                    return "The e-mail address provided is invalid. Please check the value and try again.";
+                    return MembershipCreateStatusErrorMessages.InvalidEmail;
 
                 case MembershipCreateStatus.InvalidAnswer:
-                    return "The password retrieval answer provided is invalid. Please check the value and try again.";
+                    return MembershipCreateStatusErrorMessages.InvalidAnswer;
 
                 case MembershipCreateStatus.InvalidQuestion:
-                    return "The password retrieval question provided is invalid. Please check the value and try again.";
+                    return MembershipCreateStatusErrorMessages.InvalidQuestion;
 
                 case MembershipCreateStatus.InvalidUserName:
-                    return "The user name provided is invalid. Please check the value and try again.";
+                    return MembershipCreateStatusErrorMessages.InvalidUserName;
 
                 case MembershipCreateStatus.ProviderError:
-                    return "The authentication provider returned an error. Please verify your entry and try again. If the problem persists, please contact your system administrator.";
+                    return MembershipCreateStatusErrorMessages.ProviderError;
 
                 case MembershipCreateStatus.UserRejected:
-                    return "The user creation request has been canceled. Please verify your entry and try again. If the problem persists, please contact your system administrator.";
+                    return MembershipCreateStatusErrorMessages.UserRejected;
 
                 default:
-                    return "An unknown error occurred. Please verify your entry and try again. If the problem persists, please contact your system administrator.";
+                    return MembershipCreateStatusErrorMessages.Default;
             }
         }
     }
