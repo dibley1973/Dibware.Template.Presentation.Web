@@ -95,5 +95,14 @@ namespace Dibware.Template.Infrastructure.SqlDataAccess.Resources {
                 return ResourceManager.GetString("RoleKey", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to UserName.
+        /// </summary>
+        internal static string UserName {
+            get {
+                return ResourceManager.GetString("UserName", resourceCulture);
+            }
+        }
     }
 }

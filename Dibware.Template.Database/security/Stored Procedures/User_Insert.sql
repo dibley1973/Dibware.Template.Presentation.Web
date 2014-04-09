@@ -1,10 +1,9 @@
 ﻿CREATE PROCEDURE [security].[User_Insert]
     @UserGuid [uniqueidentifier],
-    @Password [nvarchar](50),
     @UserName [nvarchar](max),
-    @Name [nvarchar](50)
+    @Name [nvarchar](max)
 AS
 BEGIN
-    INSERT [security].[User]([UserGuid], [Password], [UserName], [Name])
-    VALUES (@UserGuid, @Password, @UserName, @Name)
+    INSERT [security].[User]([UserGuid], [UserName], [Name])
+    VALUES (@UserGuid, @UserName, @Name)
 END

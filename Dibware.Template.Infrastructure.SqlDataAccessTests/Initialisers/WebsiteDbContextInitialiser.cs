@@ -66,21 +66,21 @@ namespace Dibware.Template.Infrastructure.SqlDataAccessTests.Initialisers
             var userDave = new User
             {
                 Guid = UserData.UserDave.Guid,
-                Password = UserData.UserDave.Password,
+                //Password = UserData.UserDave.Password,
                 Name = UserData.UserDave.Name,
                 UserName = UserData.UserDave.Username
             };
             var userJane = new User
             {
                 Guid = UserData.UserJane.Guid,
-                Password = UserData.UserJane.Password,
+                //Password = UserData.UserJane.Password,
                 Name = UserData.UserJane.Name,
                 UserName = UserData.UserJane.Username
             };
             var userPete = new User
             {
                 Guid = UserData.UserPete.Guid,
-                Password = UserData.UserPete.Password,
+                //Password = UserData.UserPete.Password,
                 Name = UserData.UserPete.Name,
                 UserName = UserData.UserPete.Username
             };

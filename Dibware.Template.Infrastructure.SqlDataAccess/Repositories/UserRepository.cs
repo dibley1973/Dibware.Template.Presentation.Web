@@ -38,9 +38,9 @@ namespace Dibware.Template.Infrastructure.SqlDataAccess.Repositories
         public string CreateUserAndAccount(String userName, String password,
             Boolean requireConfirmation, IDictionary<String, Object> values)
         {
-            
-            
-            
+
+
+
             throw new NotImplementedException();
         }
 
@@ -54,10 +54,10 @@ namespace Dibware.Template.Infrastructure.SqlDataAccess.Repositories
         bool IRepositoryMembershipProviderRepository.ValidateUser(String username, String password)
         {
             Guard.InvalidOperation((UnitOfWork == null), ExceptionMessages.UnitOfWorkIsNull);
-
-            var result = UnitOfWork.CreateSet<User>()
-                .FirstOrDefault(u => u.UserName.ToLower() == username.ToLower() && u.Password.ToLower() == password.ToLower());
-
+            //var result = UnitOfWork.CreateSet<User>()
+            //    .FirstOrDefault(u => u.UserName.ToLower() == username.ToLower() && u.Password.ToLower() == password.ToLower());
+            var users = UnitOfWork.CreateSet<User>();
+            var result = users.FirstOrDefault(u => u.UserName.ToLower() == username.ToLower());
             return result != null;
         }
 

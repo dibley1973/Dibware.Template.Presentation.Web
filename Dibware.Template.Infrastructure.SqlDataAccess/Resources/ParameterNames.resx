@@ -129,4 +129,7 @@
   <data name="RoleKey" xml:space="preserve">
     <value>RoleKey</value>
   </data>
+  <data name="UserName" xml:space="preserve">
+    <value>UserName</value>
+  </data>
 </root>

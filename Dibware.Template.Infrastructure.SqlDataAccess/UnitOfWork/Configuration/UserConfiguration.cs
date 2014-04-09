@@ -109,15 +109,21 @@ namespace Dibware.Template.Infrastructure.SqlDataAccess.UnitOfWork.Configuration
                 .HasColumnName(ColumnNames.UserGuid)
                 .IsRequired();
 
-            // Password
-            Property(r => r.Password)
-                .IsRequired()
-                .HasMaxLength(50);
+            //// Password
+            //Property(r => r.Password)
+            //    .IsRequired()
+            //    .HasMaxLength(50);
 
             // Name
             Property(r => r.Name)
                 .IsRequired()
-                .HasMaxLength(50);
+                .IsMaxLength();
+                //.HasMaxLength(50);
+
+            // Password
+            Property(r => r.UserName)
+                .IsRequired()
+                .IsMaxLength();
 
             // Relationships
             // TODO: To complete when other tables exist.
@@ -126,13 +132,15 @@ namespace Dibware.Template.Infrastructure.SqlDataAccess.UnitOfWork.Configuration
             MapToStoredProcedures(s => s
                 .Insert(i => i
                     .HasName(UserInsertStoredProcedureName)
-                    .Parameter(r => r.Password, ParameterNames.Password)
-                    .Parameter(r => r.Name, ParameterNames.Name))
+                    //.Parameter(r => r.Password, ParameterNames.Password)
+                    .Parameter(r => r.Name, ParameterNames.Name)
+                    .Parameter(r => r.UserName, ParameterNames.UserName))
                 .Update(u => u
                     .HasName(UserUpdateStoredProcedureName)
                     .Parameter(r => r.Guid, ParameterNames.Guid)
-                    .Parameter(r => r.Password, ParameterNames.Password)
-                    .Parameter(r => r.Name, ParameterNames.Name))
+                    //.Parameter(r => r.Password, ParameterNames.Password)
+                    .Parameter(r => r.Name, ParameterNames.Name)
+                    .Parameter(r => r.UserName, ParameterNames.UserName))
                 .Delete(d => d
                     .HasName(UserDeleteStoredProcedureName)
                     .Parameter(r => r.Guid, ParameterNames.Guid))

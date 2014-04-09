@@ -8,48 +8,48 @@
 <hgroup class="title">
   <h1>@ViewBag.Title.</h1>
 </hgroup>
-
-<section id="loginForm">
-  <div class="modal-content">
-    <div class="modal-header">
-        <h1 class="text-center">Use a local account to log in.</h1>
-    </div>
-    <div class="modal-body">
-      @*<form class="form col-md-12 center-block">*@
-      @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form col-md-12 center-block" }))
-      {
-        @Html.AntiForgeryToken()
-        @Html.ValidationSummary(true)
-        <div class="form-group">
-          @Html.TextBoxFor(m => m.UserName, new { @class="form-control input-lg", @placeholder=@PromptText.Username})
-          @Html.ValidationMessageFor(m => m.UserName)
+  <section id="loginForm">
+    @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form col-md-12 center-block" }))
+    {
+    @*<form class="form col-md-12 center-block">*@
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="text-center">Log in normally.</h1>
         </div>
-        <div class="form-group">
-          @Html.PasswordFor(m => m.Password, new { @class="form-control input-lg", @placeholder=@PromptText.Password})
-          @Html.ValidationMessageFor(m => m.Password)
+        <div class="modal-body">
+          @Html.AntiForgeryToken()
+          @Html.ValidationSummary(true)
+          <div class="form-group">
+            @Html.TextBoxFor(m => m.UserName, new { @class = "form-control input-lg", @placeholder = @PromptText.Username })
+            @Html.ValidationMessageFor(m => m.UserName)
+          </div>
+          <div class="form-group">
+            @Html.PasswordFor(m => m.Password, new { @class = "form-control input-lg", @placeholder = @PromptText.Password })
+            @Html.ValidationMessageFor(m => m.Password)
+          </div>
+          <div class="checkbox">
+            @Html.LabelFor(m => m.RememberMe, new { @class = "checkbox" })
+            @Html.CheckBoxFor(m => m.RememberMe)
+          </div>
+          <div class="form-group">
+            <button class="btn btn-primary btn-lg btn-block">Sign In</button>
+            <span class="pull-right">@Html.ActionLink("Register", "Register") if you don't have an account.</span>
+            <span><a href="#">Need help?</a></span>
+          </div>
+          More stufff
         </div>
-        <div class="checkbox">
-          @Html.LabelFor(m => m.RememberMe, new { @class = "checkbox" })
-          @Html.CheckBoxFor(m => m.RememberMe)
-        </div>
-        <div class="form-group">
-          <button class="btn btn-primary btn-lg btn-block">Sign In</button>
-          <span class="pull-right">@Html.ActionLink("Register", "Register") if you don't have an account.</span>
-          <span><a href="#">Need help?</a></span>
-        </div>
+      </div> <!-- /.modal-content -->
       }
-      @*</form>*@
-    </div>
-  </div> <!-- /.modal-content -->
-</section>
-<p>&nbsp;</p>
-<section class="social" id="socialLoginForm">
-  <div class="modal-content">
-    <div class="modal-header">
-      <h1 class="text-center">Use another service to log in.</h1>
-    </div>  <!-- /.modal-header -->
-    <div class="modal-body">
-      @Html.Action("ExternalLoginsList", new { ReturnUrl = ViewBag.ReturnUrl })
-    </div>  <!-- /.modal-body -->
-  </div> <!-- /.modal-content -->
-</section>
+    @*</form>*@
+  </section>
+  <p>&nbsp;</p>
+  <section class="social" id="socialLoginForm">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="text-center">Use another service to log in.</h1>
+      </div>  <!-- /.modal-header -->
+      <div class="modal-body">
+        @Html.Action("ExternalLoginsList", new { ReturnUrl = ViewBag.ReturnUrl })
+      </div>  <!-- /.modal-body -->
+    </div> <!-- /.modal-content -->
+  </section>
