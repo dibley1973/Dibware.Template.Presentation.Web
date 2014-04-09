@@ -48,26 +48,26 @@
     <VardecimalStorageFormatOn>True</VardecimalStorageFormatOn>
     <SupplementalLoggingOn>False</SupplementalLoggingOn>
     <CompatibilityMode>110</CompatibilityMode>
-    <AnsiNullDefault>True</AnsiNullDefault>
-    <AnsiNulls>True</AnsiNulls>
-    <AnsiPadding>True</AnsiPadding>
-    <AnsiWarnings>True</AnsiWarnings>
-    <ArithAbort>True</ArithAbort>
-    <ConcatNullYieldsNull>True</ConcatNullYieldsNull>
-    <QuotedIdentifier>True</QuotedIdentifier>
+    <AnsiNullDefault>False</AnsiNullDefault>
+    <AnsiNulls>False</AnsiNulls>
+    <AnsiPadding>False</AnsiPadding>
+    <AnsiWarnings>False</AnsiWarnings>
+    <ArithAbort>False</ArithAbort>
+    <ConcatNullYieldsNull>False</ConcatNullYieldsNull>
+    <QuotedIdentifier>False</QuotedIdentifier>
     <NumericRoundAbort>False</NumericRoundAbort>
     <RecursiveTriggersEnabled>False</RecursiveTriggersEnabled>
     <DatabaseChaining>False</DatabaseChaining>
     <DatabaseState>ONLINE</DatabaseState>
     <CloseCursorOnCommitEnabled>False</CloseCursorOnCommitEnabled>
-    <DefaultCursor>LOCAL</DefaultCursor>
+    <DefaultCursor>GLOBAL</DefaultCursor>
     <AutoClose>False</AutoClose>
     <AutoCreateStatistics>True</AutoCreateStatistics>
-    <AutoShrink>False</AutoShrink>
+    <AutoShrink>True</AutoShrink>
     <AutoUpdateStatistics>True</AutoUpdateStatistics>
     <TornPageDetection>False</TornPageDetection>
     <DatabaseAccess>MULTI_USER</DatabaseAccess>
-    <Recovery>FULL</Recovery>
+    <Recovery>SIMPLE</Recovery>
     <EnableFullTextSearch>True</EnableFullTextSearch>
     <DefaultFilegroup>PRIMARY</DefaultFilegroup>
     <CreateProjectFromDatabaseCompleted>True</CreateProjectFromDatabaseCompleted>
@@ -127,5 +127,7 @@
     <Build Include="security\UnauthorisedRole.sql" />
     <Build Include="security\AppUnauthorisedUser.sql" />
     <Build Include="security\Tables\OAuthMembership.sql" />
+    <Build Include="security\AppUnauthorisedLogin.sql" />
+    <Build Include="security\RoleMemberships.sql" />
   </ItemGroup>
 </Project>
