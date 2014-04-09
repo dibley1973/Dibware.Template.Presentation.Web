@@ -122,10 +122,10 @@
     <Build Include="security\Stored Procedures\Role_Update.sql" />
     <Build Include="security\Stored Procedures\Role_Insert.sql" />
     <Build Include="security\security.sql" />
-    <Build Include="dbo\Tables\OAuthMembership.sql" />
     <Build Include="security\Tables\UsersInRoles.sql" />
     <Build Include="security\Tables\Membership.sql" />
     <Build Include="security\UnauthorisedRole.sql" />
     <Build Include="security\AppUnauthorisedUser.sql" />
+    <Build Include="security\Tables\OAuthMembership.sql" />
   </ItemGroup>
 </Project>

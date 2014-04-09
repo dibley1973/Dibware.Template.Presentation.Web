@@ -86,6 +86,9 @@ namespace Dibware.Template.Presentation.Web
             var kernel = new StandardKernel();
             kernel.Load(Assembly.GetExecutingAssembly());
 
+
+
+
             //Tell ASP.NET MVC 3 to use our Ninject DI Container
             DependencyResolver.SetResolver(new NinjectDependencyResolver(kernel));
 
