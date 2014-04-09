@@ -140,5 +140,24 @@ namespace Dibware.Template.Infrastructure.SqlDataAccess.Base
         }
 
         #endregion
+
+        #region Methods
+
+        /// <summary>
+        /// Executes the stored procedure.
+        /// </summary>
+        /// <param name="procedureName">Name of the procedure.</param>
+        /// <param name="parameters">The parameters.</param>
+        public Int32 ExecuteStoredProcedure(String procedureName, params object[] parameters)
+        {
+            return UnitOfWork.ExecuteStoredProcedure(procedureName, parameters);
+        }
+
+        //public IEnumerable<T> ExecWithStoreProcedure(string query, params object[] parameters)
+        //{
+        //    return UnitOfWork.ExecuteSqlQuery<T>(query, parameters);
+        //}
+
+        #endregion
     }
 }
