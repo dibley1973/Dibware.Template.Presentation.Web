@@ -125,5 +125,7 @@
     <Build Include="dbo\Tables\OAuthMembership.sql" />
     <Build Include="security\Tables\UsersInRoles.sql" />
     <Build Include="security\Tables\Membership.sql" />
+    <Build Include="security\UnauthorisedRole.sql" />
+    <Build Include="security\AppUnauthorisedUser.sql" />
   </ItemGroup>
 </Project>
