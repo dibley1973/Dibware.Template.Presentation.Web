@@ -30,6 +30,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Dibware.EF.Extensions, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Libraires\Dibware.EF.Extensions.dll</HintPath>
+    </Reference>
     <Reference Include="Dibware.Helpers, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\Dibware.Template.Core.Application\Libraries\Dibware.Helpers.dll</HintPath>
@@ -83,6 +87,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Libraires\Dibware.EF.Extensions.dll" />
     <Content Include="Libraires\Dibware.Helpers.dll" />
     <Content Include="Libraires\Dibware.Web.Security.dll" />
     <Content Include="Libraires\EntityFramework.dll" />

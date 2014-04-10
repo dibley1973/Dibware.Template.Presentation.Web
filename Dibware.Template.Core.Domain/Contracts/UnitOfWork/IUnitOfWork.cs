@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using Dibware.EF.Extensions.Contracts;
+using System.Collections.Generic;
 using System.Data.Entity;
 
 namespace Dibware.Template.Core.Domain.Contracts.UnitOfWork
@@ -39,7 +40,11 @@ namespace Dibware.Template.Core.Domain.Contracts.UnitOfWork
         /// <typeparam name="TEntity">The type of entity</typeparam>
         /// <param name="original">The original entity</param>
         /// <param name="current">The current entity</param>
-        void ApplyCurrentValues<TEntity>(TEntity original, TEntity current) where TEntity : class;
+        void ApplyCurrentValues<TEntity>(TEntity original, TEntity current) 
+            where TEntity : class;
+
+        IEnumerable<TResult> ExecuteStoredProcedure<TResult>(IStoredProcedure<TResult> procedure) 
+            where TResult : class;
 
         /// <summary>
         /// Executes the stored procedure.
