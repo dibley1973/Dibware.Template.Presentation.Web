@@ -46,7 +46,7 @@ namespace Dibware.Template.Infrastructure.SqlDataAccessTests.Repositories
             // Arrange
             const String username = UserData.UserDave.Username;
             const String password = UserData.UserDave.Password;
-            var repository = (IUserRepository)new UserRepository(null);
+            var repository = (IMembershipRepository)new MembershipRepository(null);
 
             // Act
             var actualResult = repository.ValidateUser(username, password);
@@ -61,7 +61,7 @@ namespace Dibware.Template.Infrastructure.SqlDataAccessTests.Repositories
             // Arrange
             const String username = UserData.UserDave.Username;
             const String password = UserData.UserDave.Password;
-            var repository = (IUserRepository)new UserRepository(_unitOfWork);
+            var repository = (IMembershipRepository)new MembershipRepository(_unitOfWork);
 
             // Act
             var actualResult = repository.ValidateUser(username, password);
@@ -76,7 +76,7 @@ namespace Dibware.Template.Infrastructure.SqlDataAccessTests.Repositories
             // Arrange
             const String username = UserData.UserDave.Username;
             const String password = UserData.UserJane.Password;
-            var repository = (IUserRepository)new UserRepository(_unitOfWork);
+            var repository = (IMembershipRepository)new MembershipRepository(_unitOfWork);
 
             // Act
             var actualResult = repository.ValidateUser(username, password);

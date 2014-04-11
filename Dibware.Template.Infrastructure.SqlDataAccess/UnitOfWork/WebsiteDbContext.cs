@@ -1,4 +1,6 @@
-﻿using Dibware.Template.Core.Domain.Contracts.UnitOfWork;
+﻿using Dibware.EF.Extensions;
+using Dibware.EF.Extensions.Contracts;
+using Dibware.Template.Core.Domain.Contracts.UnitOfWork;
 using Dibware.Template.Infrastructure.SqlDataAccess.UnitOfWork.Configuration;
 using System;
 using System.Collections.Generic;
@@ -7,8 +9,6 @@ using System.Data.Entity.ModelConfiguration.Conventions;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Reflection;
-using Dibware.EF.Extensions;
-using Dibware.EF.Extensions.Contracts;
 
 namespace Dibware.Template.Infrastructure.SqlDataAccess.UnitOfWork
 {
@@ -112,22 +112,23 @@ namespace Dibware.Template.Infrastructure.SqlDataAccess.UnitOfWork
         /// <param name="original">The original entity</param>
         /// <param name="current">The current entity</param>
         /// <exception cref="NotImplementedException"></exception>
-        public void ApplyCurrentValues<TEntity>(TEntity original, TEntity current) 
+        public void ApplyCurrentValues<TEntity>(TEntity original, TEntity current)
             where TEntity : class
         {
             //if it is not attached, attach original and set current values
             Entry(original).CurrentValues.SetValues(current);
         }
 
-        //public IEnumerable<TResult> ExecuteStoredProcedure<TResult>(EF.Extensions.Contracts.IStoredProcedure<TResult> procedure) where TResult : class
-        //{
-        //    return Database.ExecuteStoredProcedure<TResult>(procedure);
-        //}
-
-        public IEnumerable<TResult> ExecuteStoredProcedure<TResult>(IStoredProcedure<TResult> procedure) 
+        /// <summary>
+        /// Executes the stored procedure.
+        /// </summary>
+        /// <typeparam name="TResult">The type of the result expected.</typeparam>
+        /// <param name="storedProcedure">The stored procedure.</param>
+        /// <returns></returns>
+        public IEnumerable<TResult> ExecuteStoredProcedure<TResult>(IStoredProcedure<TResult> storedProcedure)
             where TResult : class
         {
-            return Database.ExecuteStoredProcedure<TResult>(procedure);
+            return Database.ExecuteStoredProcedure<TResult>(storedProcedure);
         }
 
         /// <summary>

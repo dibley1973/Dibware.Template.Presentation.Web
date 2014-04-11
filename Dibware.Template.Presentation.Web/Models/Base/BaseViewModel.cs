@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using Dibware.System.Extensions;
+using Dibware.Extensions.System;
 
 namespace Dibware.Template.Presentation.Web.Models.Base
 {

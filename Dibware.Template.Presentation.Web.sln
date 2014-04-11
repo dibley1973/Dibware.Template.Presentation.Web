@@ -33,8 +33,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dibware.Template.Infrastruc
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "04-Database", "04-Database", "{76E96821-C288-47DC-B9C0-49B67130B4F7}"
 EndProject
-Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "Dibware.Template.Database", "Dibware.Template.Database\Dibware.Template.Database.sqlproj", "{8DE5309C-56E9-46B4-92C6-678A2F90B495}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "02.01-Domain", "02.01-Domain", "{12472E1D-D98D-43F8-BE4E-E5935D804F03}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "02.02-Application", "02.02-Application", "{FB1F1A5E-B660-4793-A281-E0F51F4C52B4}"
@@ -52,6 +50,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		Link_Security.txt = Link_Security.txt
 		..\dibware.clique\dibware.clique\Links_Membership.txt = ..\dibware.clique\dibware.clique\Links_Membership.txt
 	EndProjectSection
+EndProject
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "Dibware.Template.Database", "Dibware.Template.Database\Dibware.Template.Database.sqlproj", "{8DE5309C-56E9-46B4-92C6-678A2F90B495}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -79,12 +79,6 @@ Global
 		{451CE30F-F4FF-4EB9-A462-AC08081BFE48}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{451CE30F-F4FF-4EB9-A462-AC08081BFE48}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{451CE30F-F4FF-4EB9-A462-AC08081BFE48}.Release|Any CPU.Build.0 = Release|Any CPU
-		{8DE5309C-56E9-46B4-92C6-678A2F90B495}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{8DE5309C-56E9-46B4-92C6-678A2F90B495}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{8DE5309C-56E9-46B4-92C6-678A2F90B495}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
-		{8DE5309C-56E9-46B4-92C6-678A2F90B495}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{8DE5309C-56E9-46B4-92C6-678A2F90B495}.Release|Any CPU.Build.0 = Release|Any CPU
-		{8DE5309C-56E9-46B4-92C6-678A2F90B495}.Release|Any CPU.Deploy.0 = Release|Any CPU
 		{FCBFD14F-61FC-4728-A240-21585527A48C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{FCBFD14F-61FC-4728-A240-21585527A48C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FCBFD14F-61FC-4728-A240-21585527A48C}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -97,6 +91,12 @@ Global
 		{EF97B279-C40E-4123-AB14-6795ED048676}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EF97B279-C40E-4123-AB14-6795ED048676}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EF97B279-C40E-4123-AB14-6795ED048676}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8DE5309C-56E9-46B4-92C6-678A2F90B495}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8DE5309C-56E9-46B4-92C6-678A2F90B495}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8DE5309C-56E9-46B4-92C6-678A2F90B495}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{8DE5309C-56E9-46B4-92C6-678A2F90B495}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8DE5309C-56E9-46B4-92C6-678A2F90B495}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8DE5309C-56E9-46B4-92C6-678A2F90B495}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

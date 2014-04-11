@@ -28,3 +28,8 @@ BEGIN
 	);
 	Select @Result;
 END
+GO
+GRANT EXECUTE
+    ON OBJECT::[security].[Membership_ValidateUser] TO [UnauthorisedRole]
+    AS [dbo];
+

@@ -1,10 +1,10 @@
 ﻿CREATE PROCEDURE [security].[User_Update]
     @Guid [uniqueidentifier],
-    @UserName [nvarchar](max),
+    @Username [nvarchar](max),
     @Name [nvarchar](max)
 AS
 BEGIN
     UPDATE [security].[User]
-    SET [UserName] = @UserName, [Name] = @Name
+    SET [Username] = @Username, [Name] = @Name
     WHERE ([UserGuid] = @Guid)
 END

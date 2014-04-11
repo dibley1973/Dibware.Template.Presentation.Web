@@ -34,13 +34,13 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>Libraries\Dibware.EF.Extensions.dll</HintPath>
     </Reference>
+    <Reference Include="Dibware.Extensions, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Libraries\Dibware.Extensions.dll</HintPath>
+    </Reference>
     <Reference Include="Dibware.Helpers, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>Libraries\Dibware.Helpers.dll</HintPath>
-    </Reference>
-    <Reference Include="Dibware.System.Extensions, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>Libraries\Dibware.System.Extensions.dll</HintPath>
     </Reference>
     <Reference Include="Dibware.Web.Security">
       <HintPath>..\..\Dibware.Web.Security\Dibware.Web.Security\bin\Release\Dibware.Web.Security.dll</HintPath>
@@ -71,7 +71,7 @@
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
     <Compile Include="Repositories\RoleRepository.cs" />
-    <Compile Include="Repositories\UserRepository.cs" />
+    <Compile Include="Repositories\MembershipRepository.cs" />
     <Compile Include="Resources\ColumnNames.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -107,15 +107,15 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>SchemaNames.resx</DependentUpon>
     </Compile>
-    <Compile Include="StoredProcedures\Membership\ValidateUser.cs" />
+    <Compile Include="StoredProcedures\Membership\ValidateUserStoredProcedure.cs" />
     <Compile Include="UnitOfWork\Configuration\RoleConfiguration.cs" />
     <Compile Include="UnitOfWork\Configuration\UserConfiguration.cs" />
     <Compile Include="UnitOfWork\WebsiteDbContext.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Libraries\Dibware.EF.Extensions.dll" />
+    <Content Include="Libraries\Dibware.Extensions.dll" />
     <Content Include="Libraries\Dibware.Helpers.dll" />
-    <Content Include="Libraries\Dibware.System.Extensions.dll" />
     <Content Include="Libraries\EntityFramework.dll" />
     <Content Include="Libraries\EntityFramework.SqlServer.dll" />
   </ItemGroup>

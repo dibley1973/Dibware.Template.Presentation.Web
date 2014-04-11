@@ -43,7 +43,13 @@ namespace Dibware.Template.Core.Domain.Contracts.UnitOfWork
         void ApplyCurrentValues<TEntity>(TEntity original, TEntity current) 
             where TEntity : class;
 
-        IEnumerable<TResult> ExecuteStoredProcedure<TResult>(IStoredProcedure<TResult> procedure) 
+        /// <summary>
+        /// Executes the specified stored procedure.
+        /// </summary>
+        /// <typeparam name="TResult">The type of the result expected.</typeparam>
+        /// <param name="storedProcedure">The stored procedure.</param>
+        /// <returns></returns>
+        IEnumerable<TResult> ExecuteStoredProcedure<TResult>(IStoredProcedure<TResult> storedProcedure) 
             where TResult : class;
 
         /// <summary>

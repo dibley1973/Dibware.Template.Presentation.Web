@@ -45,13 +45,13 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>Libraries\AutoMapper.dll</HintPath>
     </Reference>
+    <Reference Include="Dibware.Extensions, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Libraries\Dibware.Extensions.dll</HintPath>
+    </Reference>
     <Reference Include="Dibware.Helpers, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>Libraries\Dibware.Helpers.dll</HintPath>
-    </Reference>
-    <Reference Include="Dibware.System.Extensions, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>Libraries\Dibware.System.Extensions.dll</HintPath>
     </Reference>
     <Reference Include="Dibware.Web.Security, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -168,8 +168,8 @@
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Libraries\AutoMapper.dll" />
+    <Content Include="Libraries\Dibware.Extensions.dll" />
     <Content Include="Libraries\Dibware.Helpers.dll" />
-    <Content Include="Libraries\Dibware.System.Extensions.dll" />
     <Content Include="Libraries\Dibware.Web.Security.dll" />
     <Content Include="Libraries\DotNetOpenAuth.AspNet.dll" />
     <Content Include="Libraries\DotNetOpenAuth.Core.dll" />

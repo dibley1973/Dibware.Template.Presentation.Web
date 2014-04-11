@@ -65,8 +65,8 @@
     <Compile Include="Contracts\Entities\Base\IBaseKeyEntity.cs" />
     <Compile Include="Contracts\Entities\IEntityClonable.cs" />
     <Compile Include="Contracts\Repositories\Base\IRepository.cs" />
+    <Compile Include="Contracts\Repositories\IMembershipRepository.cs" />
     <Compile Include="Contracts\Repositories\IRoleRepository.cs" />
-    <Compile Include="Contracts\Repositories\IUserRepository.cs" />
     <Compile Include="Contracts\Services\IAccountStatusService.cs" />
     <Compile Include="Contracts\Services\ICloneService.cs" />
     <Compile Include="Contracts\UnitOfWork\IUnitOfWork.cs" />
@@ -88,6 +88,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Libraires\Dibware.EF.Extensions.dll" />
+    <Content Include="Libraires\Dibware.Extensions.dll" />
     <Content Include="Libraires\Dibware.Helpers.dll" />
     <Content Include="Libraires\Dibware.Web.Security.dll" />
     <Content Include="Libraires\EntityFramework.dll" />

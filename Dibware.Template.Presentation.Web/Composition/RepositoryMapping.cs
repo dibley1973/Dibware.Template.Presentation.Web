@@ -16,7 +16,7 @@ namespace Dibware.Template.Presentation.Web.Composition
             // Bind the Interface for the Repository for the
             // RepositoryMembershipProvider to an implementation
             Bind<IRepositoryMembershipProviderRepository>()
-                .To<UserRepository>()
+                .To<MembershipRepository>()
                 .InRequestScope();
 
             // Bind the Interface for the Repository for the
