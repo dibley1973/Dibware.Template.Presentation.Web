@@ -69,6 +69,7 @@
     <Compile Include="Contracts\Repositories\IRoleRepository.cs" />
     <Compile Include="Contracts\Services\IAccountStatusService.cs" />
     <Compile Include="Contracts\Services\ICloneService.cs" />
+    <Compile Include="Contracts\Services\IEncryptorService.cs" />
     <Compile Include="Contracts\UnitOfWork\IUnitOfWork.cs" />
     <Compile Include="Contracts\Entities\IAccount.cs" />
     <Compile Include="Entities\Accounting\AccountStatusChangeRule.cs" />

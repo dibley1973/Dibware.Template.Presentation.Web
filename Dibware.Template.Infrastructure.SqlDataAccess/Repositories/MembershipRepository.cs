@@ -66,5 +66,11 @@ namespace Dibware.Template.Infrastructure.SqlDataAccess.Repositories
         // Ref:
         //  http://www.lucbos.net/2012/03/calling-stored-procedure-with-entity.html
         //  https://github.com/LucBos/GenericExtensionsEFCF
+
+
+        public string GetPasswordSalt(string username)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
