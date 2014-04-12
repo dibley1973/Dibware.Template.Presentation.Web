@@ -8,7 +8,7 @@ namespace Dibware.Template.Infrastructure.SqlDataAccess.StoredProcedures.Members
     /// <summary>
     /// Represents the security.Membership_ValidateUser stored procedure
     /// </summary>
-    public class ValidateUserStoredProcedure : BaseStoredProcedure<String>, IStoredProcedure<Boolean>
+    public class ValidateUserStoredProcedure : BaseStoredProcedure<Boolean>, IStoredProcedure<Boolean>
     {
         public const String ProcedureName = @"Membership_ValidateUser";
         public const String ProcedureSchema = @"security";

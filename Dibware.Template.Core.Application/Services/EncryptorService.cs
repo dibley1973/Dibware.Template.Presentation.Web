@@ -8,7 +8,7 @@ using System.Security.Cryptography;
 
 namespace Dibware.Template.Core.Application.Services
 {
-    public class EncryptorService : IEncryptorService
+    public class EncryptorService : IPasswordService
     {
         // REf:
         // https://crackstation.net/hashing-security.htm
@@ -28,7 +28,7 @@ namespace Dibware.Template.Core.Application.Services
         /// </summary>
         /// <param name="password">The password to hash.</param>
         /// <returns>The hash of the password.</returns>
-        public string CreateHash(string password)
+        public String CreateHash(String password)
         {
             // Generate a random salt
             RNGCryptoServiceProvider csprng = new RNGCryptoServiceProvider();
@@ -48,11 +48,11 @@ namespace Dibware.Template.Core.Application.Services
         /// <param name="password">The password to check.</param>
         /// <param name="correctHash">A hash of the correct password.</param>
         /// <returns>True if the password is correct. False otherwise.</returns>
-        public static bool ValidatePassword(string password, string correctHash)
+        public Boolean ValidatePassword(String password, String correctHash)
         {
             // Extract the parameters from the hash
             char[] delimiter = { ':' };
-            string[] split = correctHash.Split(delimiter);
+            String[] split = correctHash.Split(delimiter);
             int iterations = Int32.Parse(split[ITERATION_INDEX]);
             byte[] salt = Convert.FromBase64String(split[SALT_INDEX]);
             byte[] hash = Convert.FromBase64String(split[PBKDF2_INDEX]);
@@ -113,11 +113,14 @@ namespace Dibware.Template.Core.Application.Services
         /// <param name="iterations">The PBKDF2 iteration count.</param>
         /// <param name="outputBytes">The length of the hash to generate, in bytes.</param>
         /// <returns>A hash of the password.</returns>
-        private static byte[] PBKDF2(string password, byte[] salt, int iterations, int outputBytes)
+        private static byte[] PBKDF2(String password, byte[] salt, int iterations, int outputBytes)
         {
             Rfc2898DeriveBytes pbkdf2 = new Rfc2898DeriveBytes(password, salt);
             pbkdf2.IterationCount = iterations;
             return pbkdf2.GetBytes(outputBytes);
         }
+
+
+        
     }
 }

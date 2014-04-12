@@ -1,5 +1,4 @@
-﻿using Dibware.Extensions.System;
-using Dibware.Helpers.Validation;
+﻿using Dibware.Helpers.Validation;
 using Dibware.Template.Core.Domain.Contracts.Repositories;
 using Dibware.Template.Core.Domain.Contracts.UnitOfWork;
 using Dibware.Template.Core.Domain.Entities.Security;
@@ -39,10 +38,28 @@ namespace Dibware.Template.Infrastructure.SqlDataAccess.Repositories
         public string CreateUserAndAccount(String userName, String password,
             Boolean requireConfirmation, IDictionary<String, Object> values)
         {
-
+            // Ensure we have a UnitOfWork
+            Guard.InvalidOperation((UnitOfWork == null), ExceptionMessages.UnitOfWorkIsNull);
 
 
             throw new NotImplementedException();
+        }
+
+
+        /// <summary>
+        /// Gets the hashed password.
+        /// </summary>
+        /// <param name="username">The username.</param>
+        /// <returns></returns>
+        /// <exception cref="System.NotImplementedException"></exception>
+        public String GetHashedPassword(string username)
+        {
+            // Ensure we have a UnitOfWork
+            Guard.InvalidOperation((UnitOfWork == null), ExceptionMessages.UnitOfWorkIsNull);
+
+            var procedure = new GetHashedPasswordStoredProcedure(username);
+            var returnValue = UnitOfWork.ExecuteStoredProcedure<String>(procedure).SingleOrDefault();
+            return returnValue;
         }
 
         /// <summary>
@@ -54,11 +71,14 @@ namespace Dibware.Template.Infrastructure.SqlDataAccess.Repositories
         /// <exception cref="System.NotImplementedException"></exception>
         bool IRepositoryMembershipProviderRepository.ValidateUser(String username, String password)
         {
-            Guard.InvalidOperation((UnitOfWork == null), ExceptionMessages.UnitOfWorkIsNull);
+            throw new NotImplementedException();
 
-            var procedure = new ValidateUserStoredProcedure(username, password);
-            var iReturnValue = UnitOfWork.ExecuteStoredProcedure<String>(procedure).SingleOrDefault();
-            return iReturnValue.HasValue();
+            // Ensure we have a UnitOfWork
+            //Guard.InvalidOperation((UnitOfWork == null), ExceptionMessages.UnitOfWorkIsNull);
+
+            //var procedure = new ValidateUserStoredProcedure(username, password);
+            //var returnValue = UnitOfWork.ExecuteStoredProcedure<Boolean>(procedure).SingleOrDefault();
+            //return returnValue.HasValue();
         }
 
         #endregion
@@ -68,9 +88,6 @@ namespace Dibware.Template.Infrastructure.SqlDataAccess.Repositories
         //  https://github.com/LucBos/GenericExtensionsEFCF
 
 
-        public string GetPasswordSalt(string username)
-        {
-            throw new NotImplementedException();
-        }
+
     }
 }
