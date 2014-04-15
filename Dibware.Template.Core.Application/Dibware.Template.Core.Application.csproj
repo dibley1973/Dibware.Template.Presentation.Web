@@ -55,7 +55,7 @@
     </Compile>
     <Compile Include="Services\AccountStatusService.cs" />
     <Compile Include="Services\DeepCopyCloneService.cs" />
-    <Compile Include="Services\EncryptorService.cs" />
+    <Compile Include="Services\PasswordService.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Dibware.Template.Core.Domain\Dibware.Template.Core.Domain.csproj">

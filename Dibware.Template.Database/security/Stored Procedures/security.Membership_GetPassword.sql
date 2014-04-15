@@ -19,6 +19,11 @@ BEGIN
 	FROM			[security].[Membership] [m]
 	JOIN			[security].[User] [u]
 	ON				[m].[UserGuid] = [u].UserGuid
-	WHERE			[u].[UserName] = @Username;
+	WHERE			[u].[Username] = @Username;
 
 END
+GO
+GRANT EXECUTE
+    ON OBJECT::[security].[Membership_GetPassword] TO [UnauthorisedRole]
+    AS [dbo];
+

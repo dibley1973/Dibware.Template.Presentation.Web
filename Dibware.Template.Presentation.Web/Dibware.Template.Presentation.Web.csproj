@@ -221,6 +221,7 @@
     <Compile Include="Composition\IApplicationConfigurationMapping.cs" />
     <Compile Include="Composition\ProviderMappings.cs" />
     <Compile Include="Composition\RepositoryMapping.cs" />
+    <Compile Include="Composition\ServiceMapping.cs" />
     <Compile Include="Composition\UnitOfWorkMapping.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\Base\BaseController.cs" />
@@ -313,6 +314,10 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Dibware.Template.Core.Application\Dibware.Template.Core.Application.csproj">
+      <Project>{e123f4a6-35dc-4e93-a6a3-fcc2d8475d60}</Project>
+      <Name>Dibware.Template.Core.Application</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Dibware.Template.Core.Domain\Dibware.Template.Core.Domain.csproj">
       <Project>{9ce3aca7-1c53-474d-8c51-807c11b45045}</Project>
       <Name>Dibware.Template.Core.Domain</Name>

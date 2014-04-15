@@ -1,12 +1,54 @@
 Dibware.Template.Presentation.Web
 =================================
 
-A C# ASP.net 4.5, MVC 4 web template 
+A C# ASP.net 4.5, MVC 4 web template, using Domain Driven Development, IOC patteerens
 
 ## A WORK IN PROGRESS!!!
+This is very much a work in progress. Check back soon for more updates. 
+Feel free to branch or assist if the project looks helpeful to you.
+
+### Feature MusCoW
+#### Must have
+* Sql Membership, Roles, Account mamangement
+* Registration and Login
+* Error Logging module
+* Dated Terms and conditions module
+* Contact Form module
+* Notifications module
+* Add more tests!
+#### Could have
+* Change contact form to a ticket based system
+* Add more tests!
+#### Would have
+* Add more tests!
 
 ## Architecture
-* Based strongly on an architecture devised by by John collinson
+* Based strongly on an DDD architecture devised by by John collinson
+### Layers
+* Presentation 
+    * Web
+* Core
+    * Domain
+    * Application
+* Infrastructure
+    * SqlDataAccess
+* Database
+
+## Prerequisit DLLs
+* AutoMapper
+* Dibware.Extensions.dll
+* Dibware.Helpers.dll
+* Dibware.Web.Security.dll
+* Dibware.Web.Security.dll
+* DotNetOpenAuth.Core.dll
+* EntityFramework.dll
+* EntityFramework.SqlServer.dll
+* LowercaseRoutesMVC.dll
+* Newtonsoft.Json.dll
+* Ninject.dll
+* Ninject.Web.Mvc.dll
+* System.Web.Optimization.dll
+* WebGrease.dll
 
 ## Git Commits
 * Name your commits in the following format YYYYMMDD-HHMM-IINN COMMENT

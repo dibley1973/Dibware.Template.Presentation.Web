@@ -132,6 +132,12 @@
   <data name="DefaultThemeName" xml:space="preserve">
     <value>DefaultThemeName</value>
   </data>
+  <data name="HashByteSize" xml:space="preserve">
+    <value>HashByteSize</value>
+  </data>
+  <data name="PBKDF2Iterations" xml:space="preserve">
+    <value>PBKDF2Iterations</value>
+  </data>
   <data name="RoleName_AdministratorUser" xml:space="preserve">
     <value>RoleName_AdministratorUser</value>
   </data>
@@ -143,5 +149,8 @@
   </data>
   <data name="RoleName_UnknownUser" xml:space="preserve">
     <value>RoleName_UnknownUser</value>
+  </data>
+  <data name="SaltByteSize" xml:space="preserve">
+    <value>SaltByteSize</value>
   </data>
 </root>

@@ -106,6 +106,24 @@ namespace Dibware.Template.Presentation.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to HashByteSize.
+        /// </summary>
+        public static string HashByteSize {
+            get {
+                return ResourceManager.GetString("HashByteSize", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to PBKDF2Iterations.
+        /// </summary>
+        public static string PBKDF2Iterations {
+            get {
+                return ResourceManager.GetString("PBKDF2Iterations", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to RoleName_AdministratorUser.
         /// </summary>
         public static string RoleName_AdministratorUser {
@@ -138,6 +156,15 @@ namespace Dibware.Template.Presentation.Web.Resources {
         public static string RoleName_UnknownUser {
             get {
                 return ResourceManager.GetString("RoleName_UnknownUser", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to SaltByteSize.
+        /// </summary>
+        public static string SaltByteSize {
+            get {
+                return ResourceManager.GetString("SaltByteSize", resourceCulture);
             }
         }
     }

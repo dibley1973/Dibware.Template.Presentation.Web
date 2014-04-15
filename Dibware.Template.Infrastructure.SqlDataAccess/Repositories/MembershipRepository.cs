@@ -45,7 +45,6 @@ namespace Dibware.Template.Infrastructure.SqlDataAccess.Repositories
             throw new NotImplementedException();
         }
 
-
         /// <summary>
         /// Gets the hashed password.
         /// </summary>
