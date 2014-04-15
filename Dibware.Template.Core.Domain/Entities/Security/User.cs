@@ -7,7 +7,6 @@ namespace Dibware.Template.Core.Domain.Entities.Security
     /// </summary>
     public class User : BaseGuidEntity
     {
-
         /// <summary>
         /// Gets or sets the user name.
         /// </summary>

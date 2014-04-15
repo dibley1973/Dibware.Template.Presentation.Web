@@ -47,6 +47,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Base\DataService.cs" />
+    <Compile Include="Exceptions\ServiceException.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Resources\ExceptionMessages.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -55,6 +57,7 @@
     </Compile>
     <Compile Include="Services\AccountStatusService.cs" />
     <Compile Include="Services\DeepCopyCloneService.cs" />
+    <Compile Include="Services\ErrorService.cs" />
     <Compile Include="Services\PasswordService.cs" />
   </ItemGroup>
   <ItemGroup>
