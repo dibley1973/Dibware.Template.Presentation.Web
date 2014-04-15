@@ -57,7 +57,7 @@ namespace Dibware.Template.Infrastructure.SqlDataAccess.Repositories
             // Ensure we have a UnitOfWork
             Guard.InvalidOperation((UnitOfWork == null), ExceptionMessages.UnitOfWorkIsNull);
 
-            var procedure = new GetHashedPasswordStoredProcedure(username);
+            var procedure = new GetPasswordStoredProcedure(username);
             var returnValue = UnitOfWork.ExecuteStoredProcedure<String>(procedure).SingleOrDefault();
             return returnValue;
         }

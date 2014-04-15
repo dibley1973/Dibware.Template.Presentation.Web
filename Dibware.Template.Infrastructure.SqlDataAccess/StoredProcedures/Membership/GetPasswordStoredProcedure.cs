@@ -8,16 +8,16 @@ namespace Dibware.Template.Infrastructure.SqlDataAccess.StoredProcedures.Members
     /// <summary>
     /// Represents the security.Membership_GetHashedPassword stored procedure
     /// </summary>
-    public class GetHashedPasswordStoredProcedure : BaseStoredProcedure<String>, IStoredProcedure<String>
+    public class GetPasswordStoredProcedure : BaseStoredProcedure<String>, IStoredProcedure<String>
     {
-        public const String ProcedureName = @"Membership_GetHashedPassword";
+        public const String ProcedureName = @"Membership_GetPassword";
         public const String ProcedureSchema = @"security";
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="GetHashedPasswordStoredProcedure"/> class.
+        /// Initializes a new instance of the <see cref="GetPasswordStoredProcedure"/> class.
         /// </summary>
         /// <param name="username">The username.</param>
-        public GetHashedPasswordStoredProcedure(String username)
+        public GetPasswordStoredProcedure(String username)
             : base(ProcedureSchema, ProcedureName, new Dictionary<String, Object>()
                 {
                     { "username", username }

@@ -107,7 +107,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>SchemaNames.resx</DependentUpon>
     </Compile>
-    <Compile Include="StoredProcedures\Membership\GetHashedPasswordStoredProcedure.cs" />
+    <Compile Include="StoredProcedures\Membership\GetPasswordStoredProcedure.cs" />
     <Compile Include="StoredProcedures\Membership\ValidateUserStoredProcedure.cs" />
     <Compile Include="UnitOfWork\Configuration\RoleConfiguration.cs" />
     <Compile Include="UnitOfWork\Configuration\UserConfiguration.cs" />
@@ -117,6 +117,7 @@
     <Content Include="Libraries\Dibware.EF.Extensions.dll" />
     <Content Include="Libraries\Dibware.Extensions.dll" />
     <Content Include="Libraries\Dibware.Helpers.dll" />
+    <Content Include="Libraries\Dibware.Web.Security.dll" />
     <Content Include="Libraries\EntityFramework.dll" />
     <Content Include="Libraries\EntityFramework.SqlServer.dll" />
   </ItemGroup>
