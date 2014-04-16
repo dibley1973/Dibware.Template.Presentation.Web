@@ -1,6 +1,8 @@
-﻿using Dibware.Template.Core.Domain.Entities.Security;
+﻿using Dibware.Template.Core.Domain.Entities.Application;
+using Dibware.Template.Core.Domain.Entities.Security;
 using Dibware.Template.Infrastructure.SqlDataAccess.UnitOfWork;
 using Dibware.Template.Infrastructure.SqlDataAccessTests.MockData;
+using System;
 using System.Data.Entity;
 
 
@@ -14,11 +16,41 @@ namespace Dibware.Template.Infrastructure.SqlDataAccessTests.Initialisers
         /// <param name="databaseContext">The database context.</param>
         protected override void Seed(WebsiteDbContext databaseContext)
         {
+            SeedErrors(ref databaseContext);
             SeedRoles(ref databaseContext);
             SeedUsers(ref databaseContext);
 
             // Commit attachments
             databaseContext.Commit();
+        }
+
+        /// <summary>
+        /// Seeds the specified database context with Errors.
+        /// </summary>
+        /// <param name="databaseContext">The database context.</param>
+        private void SeedErrors(ref WebsiteDbContext databaseContext)
+        {
+            // Create Errors
+            var error1 = new Error
+            (
+                ErrorData.NullReferenceError.Message,
+                ErrorData.NullReferenceError.Source,
+                ErrorData.NullReferenceError.Message,
+                UserData.UserDave.Username,
+                DateTime.Today.AddDays(-4)
+            );
+            var error2 = new Error
+            (
+                ErrorData.InvalidOperationError.Message,
+                ErrorData.InvalidOperationError.Source,
+                ErrorData.InvalidOperationError.Message,
+                UserData.UserJane.Username,
+                DateTime.Today.AddDays(-3)
+            );
+
+            // Add Errors
+            databaseContext.Attach(error1);
+            databaseContext.Attach(error2);
         }
 
         /// <summary>

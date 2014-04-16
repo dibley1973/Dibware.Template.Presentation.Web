@@ -50,9 +50,7 @@ namespace Dibware.Template.Core.Domain.Entities.Application
             Username = username;
             TimeStamp = timeStamp;
         }
-        
+
         #endregion
-
-
     }
 }

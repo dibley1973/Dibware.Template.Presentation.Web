@@ -70,6 +70,7 @@
     <Compile Include="HelperTests\DatabaseObjectNameHelperTests.cs" />
     <Compile Include="Initialisers\WebsiteDbContextInitialiser.cs" />
     <Compile Include="Initialisers\WebsiteDbContextInitialiser_Empty.cs" />
+    <Compile Include="MockData\ErrorData.cs" />
     <Compile Include="MockData\MockRepository.cs" />
     <Compile Include="MockData\RoleData.cs" />
     <Compile Include="MockData\UserData.cs" />
@@ -79,6 +80,7 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
+    <Compile Include="Repositories\ErrorRepositoryTests.cs" />
     <Compile Include="Repositories\RoleRepositoryTests.cs" />
     <Compile Include="Repositories\UserRepositoryTests.cs" />
     <Compile Include="UnitOfWork\WebsiteDbContextTests.cs" />
