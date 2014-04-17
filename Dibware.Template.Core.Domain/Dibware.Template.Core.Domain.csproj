@@ -61,8 +61,12 @@
   <ItemGroup>
     <Compile Include="Contracts\Entities\Base\IBaseEntity.cs" />
     <Compile Include="Contracts\Entities\Base\IBaseGuidEntity.cs" />
+    <Compile Include="Contracts\Entities\Base\IBaseGuidNameEntity.cs" />
     <Compile Include="Contracts\Entities\Base\IBaseIdEntity.cs" />
+    <Compile Include="Contracts\Entities\Base\IBaseIdNameEntity.cs" />
     <Compile Include="Contracts\Entities\Base\IBaseKeyEntity.cs" />
+    <Compile Include="Contracts\Entities\Base\IBaseKeyNameEntity.cs" />
+    <Compile Include="Contracts\Entities\Base\IBaseNameEntity.cs" />
     <Compile Include="Contracts\Entities\IEntityClonable.cs" />
     <Compile Include="Contracts\Repositories\Base\IRepository.cs" />
     <Compile Include="Contracts\Repositories\IErrorRepository.cs" />
@@ -78,8 +82,12 @@
     <Compile Include="Entities\Accounting\AccountStatusChangeRule.cs" />
     <Compile Include="Entities\Application\Error.cs" />
     <Compile Include="Entities\Base\BaseEntity.cs" />
+    <Compile Include="Entities\Base\BaseGuidNameEntity.cs" />
     <Compile Include="Entities\Base\BaseIdEntity.cs" />
+    <Compile Include="Entities\Base\BaseIdNameEntity.cs" />
     <Compile Include="Entities\Base\BaseKeyEntity.cs" />
+    <Compile Include="Entities\Base\BaseKeyNameEntity.cs" />
+    <Compile Include="Entities\Base\BaseNameEntity.cs" />
     <Compile Include="Entities\Security\Role.cs" />
     <Compile Include="Entities\Security\User.cs" />
     <Compile Include="Enumerations\AccountStatuscs.cs" />
@@ -110,6 +118,9 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>ExceptionMessages.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Contracts\Entities\Base\IBaseEntityDiagram.cd" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

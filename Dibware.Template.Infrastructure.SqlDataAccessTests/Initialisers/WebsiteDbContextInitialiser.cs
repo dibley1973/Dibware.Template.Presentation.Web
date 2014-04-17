@@ -38,7 +38,10 @@ namespace Dibware.Template.Infrastructure.SqlDataAccessTests.Initialisers
                 ErrorData.NullReferenceError.Message,
                 UserData.UserDave.Username,
                 DateTime.Today.AddDays(-4)
-            );
+            )
+            {
+                Id = 1
+            };
             var error2 = new Error
             (
                 ErrorData.InvalidOperationError.Message,
@@ -46,7 +49,10 @@ namespace Dibware.Template.Infrastructure.SqlDataAccessTests.Initialisers
                 ErrorData.InvalidOperationError.Message,
                 UserData.UserJane.Username,
                 DateTime.Today.AddDays(-3)
-            );
+            )
+            {
+                Id = 2
+            };
 
             // Add Errors
             databaseContext.Attach(error1);

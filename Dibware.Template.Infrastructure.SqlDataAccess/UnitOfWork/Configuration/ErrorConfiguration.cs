@@ -104,13 +104,27 @@ namespace Dibware.Template.Infrastructure.SqlDataAccess.UnitOfWork.Configuration
                 .HasColumnName(ColumnNames.ErrorId)
                 .IsRequired();
 
-            // Name
-            Property(e => e.Name)
+            // Message
+            Property(e => e.Message)
                 .IsRequired()
-                .HasMaxLength(25);
+                .IsMaxLength();
+
+            // Source
+            Property(e => e.Source)
+                .IsRequired()
+                .IsMaxLength();
+
+            // StackTrace
+            Property(e => e.StackTrace)
+                .IsRequired()
+                .IsMaxLength();
+
+            // TimeStamp
+            Property(e => e.TimeStamp)
+                .IsRequired();
 
             // Relationships
-            // TODO: To complete when other tables exist.
+            // None
 
             // Stored Procs
             MapToStoredProcedures(s => s

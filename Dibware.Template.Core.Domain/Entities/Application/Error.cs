@@ -10,14 +10,44 @@ namespace Dibware.Template.Core.Domain.Entities.Application
     {
         #region Properties
 
+        /// <summary>
+        /// Gets or sets the message.
+        /// </summary>
+        /// <value>
+        /// The message.
+        /// </value>
         public String Message { get; set; }
 
+        /// <summary>
+        /// Gets or sets the source.
+        /// </summary>
+        /// <value>
+        /// The source.
+        /// </value>
         public String Source { get; set; }
 
+        /// <summary>
+        /// Gets or sets the stack trace.
+        /// </summary>
+        /// <value>
+        /// The stack trace.
+        /// </value>
         public String StackTrace { get; set; }
 
+        /// <summary>
+        /// Gets or sets the username.
+        /// </summary>
+        /// <value>
+        /// The username.
+        /// </value>
         public String Username { get; set; }
 
+        /// <summary>
+        /// Gets or sets the time stamp.
+        /// </summary>
+        /// <value>
+        /// The time stamp.
+        /// </value>
         public DateTime TimeStamp { get; set; }
 
         #endregion 

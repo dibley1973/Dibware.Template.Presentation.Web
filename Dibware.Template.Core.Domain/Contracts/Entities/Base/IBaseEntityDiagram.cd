@@ -1,0 +1,102 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Interface Name="Dibware.Template.Core.Domain.Contracts.Entities.Base.IBaseEntity" Collapsed="true">
+    <Position X="2.75" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Contracts\Entities\Base\IBaseEntity.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Dibware.Template.Core.Domain.Contracts.Entities.Base.IBaseGuidEntity" Collapsed="true">
+    <Position X="1" Y="2.75" Width="1.5" />
+    <InheritanceLine Type="Dibware.Template.Core.Domain.Contracts.Entities.Base.IBaseEntity" ManuallyRouted="true" FixedFromPoint="true">
+      <Path>
+        <Point X="3.062" Y="1.691" />
+        <Point X="3.062" Y="2.375" />
+        <Point X="1.75" Y="2.375" />
+        <Point X="1.75" Y="2.75" />
+      </Path>
+    </InheritanceLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Contracts\Entities\Base\IBaseGuidEntity.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Dibware.Template.Core.Domain.Contracts.Entities.Base.IBaseGuidNameEntity" Collapsed="true">
+    <Position X="1" Y="4" Width="1.5" />
+    <InheritanceLine Type="Dibware.Template.Core.Domain.Contracts.Entities.Base.IBaseNameEntity" FixedFromPoint="true">
+      <Path>
+        <Point X="3" Y="6" />
+        <Point X="3" Y="5.195" />
+        <Point X="1.75" Y="5.195" />
+        <Point X="1.75" Y="4.82" />
+      </Path>
+    </InheritanceLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Contracts\Entities\Base\IBaseGuidNameEntity.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Dibware.Template.Core.Domain.Contracts.Entities.Base.IBaseIdEntity" Collapsed="true">
+    <Position X="2.75" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Contracts\Entities\Base\IBaseIdEntity.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Dibware.Template.Core.Domain.Contracts.Entities.Base.IBaseIdNameEntity" Collapsed="true">
+    <Position X="2.75" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Contracts\Entities\Base\IBaseIdNameEntity.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Dibware.Template.Core.Domain.Contracts.Entities.Base.IBaseKeyEntity" Collapsed="true">
+    <Position X="4.5" Y="2.75" Width="1.5" />
+    <InheritanceLine Type="Dibware.Template.Core.Domain.Contracts.Entities.Base.IBaseEntity" ManuallyRouted="true" FixedFromPoint="true">
+      <Path>
+        <Point X="3.812" Y="1.691" />
+        <Point X="3.812" Y="2.323" />
+        <Point X="5.25" Y="2.323" />
+        <Point X="5.25" Y="2.75" />
+      </Path>
+    </InheritanceLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Contracts\Entities\Base\IBaseKeyEntity.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Dibware.Template.Core.Domain.Contracts.Entities.Base.IBaseKeyNameEntity" Collapsed="true">
+    <Position X="4.5" Y="4" Width="1.5" />
+    <InheritanceLine Type="Dibware.Template.Core.Domain.Contracts.Entities.Base.IBaseNameEntity" ManuallyRouted="true" FixedFromPoint="true">
+      <Path>
+        <Point X="3.75" Y="6" />
+        <Point X="3.75" Y="5.175" />
+        <Point X="5.25" Y="5.175" />
+        <Point X="5.25" Y="4.82" />
+      </Path>
+    </InheritanceLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Contracts\Entities\Base\IBaseKeyNameEntity.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Dibware.Template.Core.Domain.Contracts.Entities.Base.IBaseNameEntity" Collapsed="true">
+    <Position X="2.75" Y="6" Width="1.5" />
+    <InheritanceLine Type="Dibware.Template.Core.Domain.Contracts.Entities.Base.IBaseEntity" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="4" Y="1.691" />
+        <Point X="4" Y="1.969" />
+        <Point X="6.74" Y="1.969" />
+        <Point X="6.74" Y="5.487" />
+        <Point X="4" Y="5.487" />
+        <Point X="4" Y="6" />
+      </Path>
+    </InheritanceLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Contracts\Entities\Base\IBaseNameEntity.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

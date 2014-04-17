@@ -1,7 +1,5 @@
 ﻿using Dibware.Template.Core.Domain.Contracts.Entities.Base;
 using Dibware.Template.Core.Domain.Contracts.Services;
-using System;
-using System.Data.Entity.Core.Objects.DataClasses;
 
 namespace Dibware.Template.Core.Domain.Entities.Base
 {
@@ -10,14 +8,6 @@ namespace Dibware.Template.Core.Domain.Entities.Base
     /// </summary>
     public abstract class BaseEntity : IBaseEntity
     {
-        /// <summary>
-        /// Gets or sets the name.
-        /// </summary>
-        /// <value>
-        /// The name.
-        /// </value>
-        public String Name { get; set; }
-
         /// <summary>
         /// Clones this instance using the specified service.
         /// </summary>

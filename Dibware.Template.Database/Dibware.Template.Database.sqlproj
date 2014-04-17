@@ -111,6 +111,7 @@
     <Folder Include="security\Stored Procedures\" />
     <Folder Include="dbo\" />
     <Folder Include="dbo\Tables\" />
+    <Folder Include="DacPacs" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="security\Tables\User.sql" />
@@ -142,10 +143,19 @@
     <RefactorLog Include="Dibware.Template.Database.refactorlog" />
   </ItemGroup>
   <ItemGroup>
-    <ArtifactReference Include="..\..\..\Program Files %28x86)\Microsoft Visual Studio 12.0\Common7\IDE\Extensions\Microsoft\SQLDB\Extensions\SqlServer\110\SqlSchemas\master.dacpac">
-      <HintPath>..\..\..\Program Files (x86)\Microsoft Visual Studio 12.0\Common7\IDE\Extensions\Microsoft\SQLDB\Extensions\SqlServer\110\SqlSchemas\master.dacpac</HintPath>
+    <None Include="DacPacs\master.dacpac" />
+  </ItemGroup>
+  <ItemGroup>
+    <ArtifactReference Include="DacPacs\master.dacpac">
+      <HintPath>DacPacs\master.dacpac</HintPath>
       <SuppressMissingDependenciesErrors>False</SuppressMissingDependenciesErrors>
-      <DatabaseVariableLiteralValue>master</DatabaseVariableLiteralValue>
+      <DatabaseSqlCmdVariable>master</DatabaseSqlCmdVariable>
     </ArtifactReference>
+  </ItemGroup>
+  <ItemGroup>
+    <SqlCmdVariable Include="master">
+      <DefaultValue>master</DefaultValue>
+      <Value>$(SqlCmdVar__1)</Value>
+    </SqlCmdVariable>
   </ItemGroup>
 </Project>

@@ -6,5 +6,5 @@ namespace Dibware.Template.Core.Domain.Tests.Mocks
     /// Used as we cannot create an instance of
     /// the abstract BaseEntity class for testing
     /// </summary>
-    public class MockBaseEntity : BaseIdEntity { }
+    public class MockBaseEntity : BaseIdNameEntity { }
 }
