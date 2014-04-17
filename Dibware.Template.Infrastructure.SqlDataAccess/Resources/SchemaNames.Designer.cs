@@ -63,9 +63,9 @@ namespace Dibware.Template.Infrastructure.SqlDataAccess.Resources {
         /// <summary>
         ///   Looks up a localized string similar to application.
         /// </summary>
-        internal static string Aplication {
+        internal static string Application {
             get {
-                return ResourceManager.GetString("Aplication", resourceCulture);
+                return ResourceManager.GetString("Application", resourceCulture);
             }
         }
         

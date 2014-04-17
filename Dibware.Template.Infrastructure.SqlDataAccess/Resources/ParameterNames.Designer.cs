@@ -61,11 +61,29 @@ namespace Dibware.Template.Infrastructure.SqlDataAccess.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to ErrorId.
+        /// </summary>
+        internal static string ErrorId {
+            get {
+                return ResourceManager.GetString("ErrorId", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Guid.
         /// </summary>
         internal static string Guid {
             get {
                 return ResourceManager.GetString("Guid", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Message.
+        /// </summary>
+        internal static string Message {
+            get {
+                return ResourceManager.GetString("Message", resourceCulture);
             }
         }
         
@@ -97,11 +115,38 @@ namespace Dibware.Template.Infrastructure.SqlDataAccess.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to UserName.
+        ///   Looks up a localized string similar to Source.
         /// </summary>
-        internal static string UserName {
+        internal static string Source {
             get {
-                return ResourceManager.GetString("UserName", resourceCulture);
+                return ResourceManager.GetString("Source", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to StackTrace.
+        /// </summary>
+        internal static string StackTrace {
+            get {
+                return ResourceManager.GetString("StackTrace", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to TimeStamp.
+        /// </summary>
+        internal static string TimeStamp {
+            get {
+                return ResourceManager.GetString("TimeStamp", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Username.
+        /// </summary>
+        internal static string Username {
+            get {
+                return ResourceManager.GetString("Username", resourceCulture);
             }
         }
     }

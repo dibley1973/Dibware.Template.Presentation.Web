@@ -1,6 +1,7 @@
 ﻿using Dibware.Template.Core.Domain.Contracts.Entities.Base;
 using Dibware.Template.Core.Domain.Contracts.Services;
 using System;
+using System.Data.Entity.Core.Objects.DataClasses;
 
 namespace Dibware.Template.Core.Domain.Entities.Base
 {

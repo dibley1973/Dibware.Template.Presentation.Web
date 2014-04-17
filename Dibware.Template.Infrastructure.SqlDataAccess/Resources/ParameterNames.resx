@@ -117,8 +117,14 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="ErrorId" xml:space="preserve">
+    <value>ErrorId</value>
+  </data>
   <data name="Guid" xml:space="preserve">
     <value>Guid</value>
+  </data>
+  <data name="Message" xml:space="preserve">
+    <value>Message</value>
   </data>
   <data name="Name" xml:space="preserve">
     <value>Name</value>
@@ -129,7 +135,16 @@
   <data name="RoleKey" xml:space="preserve">
     <value>RoleKey</value>
   </data>
-  <data name="UserName" xml:space="preserve">
-    <value>UserName</value>
+  <data name="Source" xml:space="preserve">
+    <value>Source</value>
+  </data>
+  <data name="StackTrace" xml:space="preserve">
+    <value>StackTrace</value>
+  </data>
+  <data name="TimeStamp" xml:space="preserve">
+    <value>TimeStamp</value>
+  </data>
+  <data name="Username" xml:space="preserve">
+    <value>Username</value>
   </data>
 </root>

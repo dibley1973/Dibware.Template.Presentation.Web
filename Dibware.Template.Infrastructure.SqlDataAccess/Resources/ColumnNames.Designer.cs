@@ -61,6 +61,15 @@ namespace Dibware.Template.Infrastructure.SqlDataAccess.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to ErrorId.
+        /// </summary>
+        internal static string ErrorId {
+            get {
+                return ResourceManager.GetString("ErrorId", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to RoleKey.
         /// </summary>
         internal static string RoleKey {

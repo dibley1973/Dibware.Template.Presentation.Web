@@ -11,10 +11,10 @@ namespace Dibware.Template.Infrastructure.SqlDataAccess.UnitOfWork.Configuration
         #region Properties
 
         /// <summary>
-        /// Gets the role table name.
+        /// Gets the User table name.
         /// </summary>
         /// <value>
-        /// The role table.
+        /// The User table.
         /// </value>
         private static String UserTableFullName
         {
@@ -28,10 +28,10 @@ namespace Dibware.Template.Infrastructure.SqlDataAccess.UnitOfWork.Configuration
         }
 
         /// <summary>
-        /// Gets the name of the role Delete stored procedure.
+        /// Gets the name of the User Delete stored procedure.
         /// </summary>
         /// <value>
-        /// The role Delete stored procedure.
+        /// The User Delete stored procedure.
         /// </value>
         private static String UserDeleteStoredProcedureName
         {
@@ -46,10 +46,10 @@ namespace Dibware.Template.Infrastructure.SqlDataAccess.UnitOfWork.Configuration
         }
 
         /// <summary>
-        /// Gets the name of the role Insert stored procedure.
+        /// Gets the name of the User Insert stored procedure.
         /// </summary>
         /// <value>
-        /// The role Insert stored procedure.
+        /// The User Insert stored procedure.
         /// </value>
         private static String UserInsertStoredProcedureName
         {
@@ -64,10 +64,10 @@ namespace Dibware.Template.Infrastructure.SqlDataAccess.UnitOfWork.Configuration
         }
 
         /// <summary>
-        /// Gets the name of the role Update stored procedure.
+        /// Gets the name of the User Update stored procedure.
         /// </summary>
         /// <value>
-        /// The role Update stored procedure.
+        /// The User Update stored procedure.
         /// </value>
         private static String UserUpdateStoredProcedureName
         {
@@ -134,13 +134,13 @@ namespace Dibware.Template.Infrastructure.SqlDataAccess.UnitOfWork.Configuration
                     .HasName(UserInsertStoredProcedureName)
                     //.Parameter(r => r.Password, ParameterNames.Password)
                     .Parameter(r => r.Name, ParameterNames.Name)
-                    .Parameter(r => r.UserName, ParameterNames.UserName))
+                    .Parameter(r => r.UserName, ParameterNames.Username))
                 .Update(u => u
                     .HasName(UserUpdateStoredProcedureName)
                     .Parameter(r => r.Guid, ParameterNames.Guid)
                     //.Parameter(r => r.Password, ParameterNames.Password)
                     .Parameter(r => r.Name, ParameterNames.Name)
-                    .Parameter(r => r.UserName, ParameterNames.UserName))
+                    .Parameter(r => r.UserName, ParameterNames.Username))
                 .Delete(d => d
                     .HasName(UserDeleteStoredProcedureName)
                     .Parameter(r => r.Guid, ParameterNames.Guid))
