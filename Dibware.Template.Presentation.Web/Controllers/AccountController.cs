@@ -5,6 +5,7 @@ using Dibware.Template.Presentation.Web.Modules.Authentication;
 using Dibware.Template.Presentation.Web.Resources;
 using Microsoft.Web.WebPages.OAuth;
 using System;
+using System.Configuration;
 using System.Security.Policy;
 using System.Web.Mvc;
 using System.Web.Security;
@@ -89,8 +90,21 @@ namespace Dibware.Template.Presentation.Web.Controllers
                 // Attempt to register the user
                 try
                 {
-                    WebSecurity.CreateUserAndAccount(model.UserName, model.Password);
+                    // Get the flag for is a confirmation token is required from the web.config.
+                    var requireConfirmationToken =
+                        Convert.ToBoolean(
+                            ConfigurationManager.AppSettings[ConfigurationKeys.RequireConfirmationToken]);
+
+                    // try and create the user's account
+                    WebSecurity.CreateUserAndAccount(
+                        model.UserName,
+                        model.Password,
+                        propertyValues: null,
+                        requireConfirmationToken: requireConfirmationToken);
+
+                    // Log the user in
                     WebSecurity.Login(model.UserName, model.Password);
+
                     return RedirectToAction("Index", "Home");
                 }
                 catch (MembershipCreateUserException e)

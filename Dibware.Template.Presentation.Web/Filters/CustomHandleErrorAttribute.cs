@@ -1,23 +1,50 @@
 ﻿using Dibware.Template.Core.Domain.Contracts.Services;
 using Dibware.Template.Presentation.Web.Controllers.Base;
 using Dibware.Template.Presentation.Web.Models.Error;
-using Ninject;
+using Dibware.Template.Presentation.Web.Resources;
 using System;
 using System.Web;
 using System.Web.Mvc;
 
 namespace Dibware.Template.Presentation.Web.Filters
 {
-    public sealed class CustomHandleErrorAttribute : HandleErrorAttribute
+    public class CustomHandleErrorAttribute : HandleErrorAttribute
     {
+        //private IErrorService _errorService = null;
+
         /// <summary>
-        /// Gets or sets the error service.
+        /// Gets the error service.
         /// </summary>
         /// <value>
         /// The error service.
         /// </value>
-        [Inject]
-        public IErrorService ErrorService { get; set; }
+        //[Inject]
+        public IErrorService ErrorService { get; private set; }
+        //{
+        //    get { return _errorService; }
+        //    set { _errorService = value; }
+        //}
+
+        /// <summary>
+        /// Gets a value indicating whether to show detailed error messages.
+        /// </summary>
+        /// <value>
+        /// <c>true</c> if to show detailed error messages; otherwise, <c>false</c>.
+        /// </value>
+        public Boolean ShowDetailedErrorMessages { get; private set; }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="CustomHandleErrorAttribute"/> class.
+        /// </summary>
+        /// <param name="errorService">The error service.</param>
+        /// <param name="showDetailedErrorMessages">if set to <c>true</c> [show detailed error messages].</param>
+        public CustomHandleErrorAttribute(
+            IErrorService errorService,
+            Boolean showDetailedErrorMessages)
+        {
+            ErrorService = errorService;
+            ShowDetailedErrorMessages = showDetailedErrorMessages;
+        }
 
         /// <summary>
         /// Called when an exception occurs.
@@ -37,18 +64,22 @@ namespace Dibware.Template.Presentation.Web.Filters
                 // Log the error
                 LogException(exception, username);
 
-                // Create error model
+                // determine what sort of message we need to display to the user
+                var errorMessage = GetErrorMessage(
+                    exception, username,
+                    ShowDetailedErrorMessages);
+
+                // Create error view model
                 var model = new ErrorViewModel
                 {
-                    Exception = exception
+                    PageTitle = PageTitles.Error,
+                    PageSubTitle = PageSubTitles.ErroOccurredWhileProcessingAction,
+                    ErrorMessage = errorMessage
                 };
 
                 // Fill that base view model with some data
                 var controller = (BaseController)filterContext.Controller;
                 controller.FillBaseViewModel(model);
-
-                // Set the view name
-                model.PageTitle = "Error";
 
                 // Set the result
                 filterContext.Result = new ViewResult
@@ -66,6 +97,22 @@ namespace Dibware.Template.Presentation.Web.Filters
         }
 
         /// <summary>
+        /// Gets the error message.
+        /// </summary>
+        /// <param name="exception">The exception.</param>
+        /// <param name="username">The username.</param>
+        /// <param name="ShowDetailedErrorMessages">if set to <c>true</c> [show detailed error messages].</param>
+        /// <returns></returns>
+        private static String GetErrorMessage(Exception exception,
+            String username, Boolean ShowDetailedErrorMessages)
+        {
+            var friendlyMessageFormat = WarningText.FriendlyErrorMessageFormat;
+            var detailedMessageText = (ShowDetailedErrorMessages ? exception.Message : String.Empty);
+            var fullMessage = String.Format(friendlyMessageFormat, username, detailedMessageText);
+            return fullMessage;
+        }
+
+        /// <summary>
         /// Logs the exception.
         /// </summary>
         /// <param name="exception">The exception.</param>
@@ -79,8 +126,7 @@ namespace Dibware.Template.Presentation.Web.Filters
                     ErrorService.LogException(exception, username);
                 }
             }
-            //catch (Exception) {}  // fail gracefully
-            finally { }
+            catch (Exception) { }  // fail gracefully
         }
     }
 }

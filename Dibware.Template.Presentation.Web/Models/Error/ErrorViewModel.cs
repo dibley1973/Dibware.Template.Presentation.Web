@@ -5,6 +5,12 @@ namespace Dibware.Template.Presentation.Web.Models.Error
 {
     public class ErrorViewModel : BaseViewModel
     {
-        public Exception Exception { get; set; }
+        /// <summary>
+        /// Gets or sets the error message.
+        /// </summary>
+        /// <value>
+        /// The error message.
+        /// </value>
+        public String ErrorMessage { get; set; }
     }
 }

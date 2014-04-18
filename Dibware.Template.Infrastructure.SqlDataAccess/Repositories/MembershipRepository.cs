@@ -5,7 +5,6 @@ using Dibware.Template.Core.Domain.Entities.Security;
 using Dibware.Template.Infrastructure.SqlDataAccess.Base;
 using Dibware.Template.Infrastructure.SqlDataAccess.Resources;
 using Dibware.Template.Infrastructure.SqlDataAccess.StoredProcedures.Membership;
-using Dibware.Web.Security.Providers.Contracts;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -35,50 +34,69 @@ namespace Dibware.Template.Infrastructure.SqlDataAccess.Repositories
 
         #region IRepositoryMembershipProviderRepository Members
 
-        public string CreateUserAndAccount(String userName, String password,
+        public String CreateUserAndAccount(String username, String password,
             Boolean requireConfirmation, IDictionary<String, Object> values)
         {
             // Ensure we have a UnitOfWork
             Guard.InvalidOperation((UnitOfWork == null), ExceptionMessages.UnitOfWorkIsNull);
 
+            // Get the user's name if set
+            String name =
+                (values.ContainsKey(DictionaryKeys.Name)) ?
+                (String)values[DictionaryKeys.Name] :
+                username;
 
-            throw new NotImplementedException();
+            // Get the confirmation token if set
+            String confirmationToken =
+                (values.ContainsKey(DictionaryKeys.ConfirmationToken) && requireConfirmation) ?
+                (String)values[DictionaryKeys.ConfirmationToken] :
+                String.Empty;
+
+            var procedure = new CreateUserAndACreateUserAndMembershipStoredProcedure(
+                username,
+                name,
+                password,
+                confirmationToken
+            );
+            var results = UnitOfWork.ExecuteStoredProcedure<String>(procedure);
+            var userGuid = results.SingleOrDefault();
+            return confirmationToken;
         }
 
         /// <summary>
-        /// Gets the hashed password.
+        /// Gets the hashed password for the specified username
         /// </summary>
-        /// <param name="username">The username.</param>
+        /// <param name="username"></param>
         /// <returns></returns>
-        /// <exception cref="System.NotImplementedException"></exception>
-        public String GetHashedPassword(string username)
+        public String GetHashedPasswordForUser(string username)
         {
             // Ensure we have a UnitOfWork
             Guard.InvalidOperation((UnitOfWork == null), ExceptionMessages.UnitOfWorkIsNull);
 
             var procedure = new GetPasswordStoredProcedure(username);
-            var returnValue = UnitOfWork.ExecuteStoredProcedure<String>(procedure).SingleOrDefault();
+            var results = UnitOfWork.ExecuteStoredProcedure<String>(procedure);
+            var returnValue = results.SingleOrDefault();
             return returnValue;
         }
 
-        /// <summary>
-        /// Validates the user.
-        /// </summary>
-        /// <param name="username">The username.</param>
-        /// <param name="password">The password.</param>
-        /// <returns></returns>
-        /// <exception cref="System.NotImplementedException"></exception>
-        bool IRepositoryMembershipProviderRepository.ValidateUser(String username, String password)
-        {
-            throw new NotImplementedException();
+        ///// <summary>
+        ///// Validates the user.
+        ///// </summary>
+        ///// <param name="username">The username.</param>
+        ///// <param name="password">The password.</param>
+        ///// <returns></returns>
+        ///// <exception cref="System.NotImplementedException"></exception>
+        //bool IRepositoryMembershipProviderRepository.ValidateUser(String username, String password)
+        //{
+        //    throw new NotImplementedException();
 
-            // Ensure we have a UnitOfWork
-            //Guard.InvalidOperation((UnitOfWork == null), ExceptionMessages.UnitOfWorkIsNull);
+        //    // Ensure we have a UnitOfWork
+        //    //Guard.InvalidOperation((UnitOfWork == null), ExceptionMessages.UnitOfWorkIsNull);
 
-            //var procedure = new ValidateUserStoredProcedure(username, password);
-            //var returnValue = UnitOfWork.ExecuteStoredProcedure<Boolean>(procedure).SingleOrDefault();
-            //return returnValue.HasValue();
-        }
+        //    //var procedure = new ValidateUserStoredProcedure(username, password);
+        //    //var returnValue = UnitOfWork.ExecuteStoredProcedure<Boolean>(procedure).SingleOrDefault();
+        //    //return returnValue.HasValue();
+        //}
 
         #endregion
 

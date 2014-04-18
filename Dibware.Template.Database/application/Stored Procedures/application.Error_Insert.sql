@@ -18,3 +18,8 @@ BEGIN
     FROM [application].[Error] AS t0
     WHERE @@ROWCOUNT > 0 AND t0.[ErrorId] = @ErrorId
 END
+GO
+GRANT EXECUTE
+    ON OBJECT::[application].[Error_Insert] TO [UnauthorisedRole]
+    AS [dbo];
+

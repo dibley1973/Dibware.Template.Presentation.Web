@@ -39,54 +39,54 @@ namespace Dibware.Template.Infrastructure.SqlDataAccessTests.Repositories
 
         #region IRepositoryMembershipProviderRepository Tests
 
-        [Ignore]
-        [TestMethod]
-        [ExpectedException(typeof(InvalidOperationException))]
-        public void Test_ValidateUserWithNullUnitOfWork_ThrowsInvalidOperationException()
-        {
-            // Arrange
-            const String username = UserData.UserDave.Username;
-            const String password = UserData.UserDave.Password;
-            var repository = (IMembershipRepository)new MembershipRepository(null);
+        //[Ignore]
+        //[TestMethod]
+        //[ExpectedException(typeof(InvalidOperationException))]
+        //public void Test_ValidateUserWithNullUnitOfWork_ThrowsInvalidOperationException()
+        //{
+        //    // Arrange
+        //    const String username = UserData.UserDave.Username;
+        //    const String password = UserData.UserDave.Password;
+        //    var repository = (IMembershipRepository)new MembershipRepository(null);
 
-            // Act
-            var actualResult = repository.ValidateUser(username, password);
+        //    // Act
+        //    var actualResult = repository.ValidateUser(username, password);
 
-            // Assert
-            // Exception thrown
-        }
+        //    // Assert
+        //    // Exception thrown
+        //}
 
-        [Ignore]
-        [TestMethod]
-        public void Test_ValidateUserWithValidUsernameAndPasswordCombination_ReturnsTrue()
-        {
-            // Arrange
-            const String username = UserData.UserDave.Username;
-            const String password = UserData.UserDave.Password;
-            var repository = (IMembershipRepository)new MembershipRepository(_unitOfWork);
+        //[Ignore]
+        //[TestMethod]
+        //public void Test_ValidateUserWithValidUsernameAndPasswordCombination_ReturnsTrue()
+        //{
+        //    // Arrange
+        //    const String username = UserData.UserDave.Username;
+        //    const String password = UserData.UserDave.Password;
+        //    var repository = (IMembershipRepository)new MembershipRepository(_unitOfWork);
 
-            // Act
-            var actualResult = repository.ValidateUser(username, password);
+        //    // Act
+        //    var actualResult = repository.ValidateUser(username, password);
 
-            // Assert
-            Assert.IsTrue(actualResult);
-        }
+        //    // Assert
+        //    Assert.IsTrue(actualResult);
+        //}
 
-        [Ignore]
-        [TestMethod]
-        public void Test_ValidateUserWithInvalidUsernameAndPasswordCombination_ReturnsFalse()
-        {
-            // Arrange
-            const String username = UserData.UserDave.Username;
-            const String password = UserData.UserJane.Password;
-            var repository = (IMembershipRepository)new MembershipRepository(_unitOfWork);
+        //[Ignore]
+        //[TestMethod]
+        //public void Test_ValidateUserWithInvalidUsernameAndPasswordCombination_ReturnsFalse()
+        //{
+        //    // Arrange
+        //    const String username = UserData.UserDave.Username;
+        //    const String password = UserData.UserJane.Password;
+        //    var repository = (IMembershipRepository)new MembershipRepository(_unitOfWork);
 
-            // Act
-            var actualResult = repository.ValidateUser(username, password);
+        //    // Act
+        //    var actualResult = repository.ValidateUser(username, password);
 
-            // Assert
-            Assert.IsFalse(actualResult);
-        }
+        //    // Assert
+        //    Assert.IsFalse(actualResult);
+        //}
 
         #endregion
 

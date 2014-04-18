@@ -117,13 +117,7 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="ConfirmPassword" xml:space="preserve">
-    <value>Confirm Password</value>
-  </data>
-  <data name="Password" xml:space="preserve">
-    <value>Password</value>
-  </data>
-  <data name="Username" xml:space="preserve">
-    <value>Username</value>
+  <data name="FriendlyErrorMessageFormat" xml:space="preserve">
+    <value>Ermahgad {0}! It seems an error has occurred! The tame code monkeys have been informed and will get right on to it. In the mean time please try again but if the issue persists please try a different action. Thank you for your patience. {1}</value>
   </data>
 </root>

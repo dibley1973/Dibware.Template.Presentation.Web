@@ -78,6 +78,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ColumnNames.resx</DependentUpon>
     </Compile>
+    <Compile Include="Resources\DictionaryKeys.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DictionaryKeys.resx</DependentUpon>
+    </Compile>
     <Compile Include="Resources\ExceptionMessages.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -108,6 +113,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>SchemaNames.resx</DependentUpon>
     </Compile>
+    <Compile Include="StoredProcedures\Membership\CreateUserAndAccountStoredProcedure.cs" />
     <Compile Include="StoredProcedures\Membership\GetPasswordStoredProcedure.cs" />
     <Compile Include="StoredProcedures\Membership\ValidateUserStoredProcedure.cs" />
     <Compile Include="UnitOfWork\Configuration\ErrorConfiguration.cs" />
@@ -140,6 +146,10 @@
     <EmbeddedResource Include="Resources\ColumnNames.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>ColumnNames.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\DictionaryKeys.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>DictionaryKeys.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Resources\ExceptionMessages.resx">
       <Generator>ResXFileCodeGenerator</Generator>

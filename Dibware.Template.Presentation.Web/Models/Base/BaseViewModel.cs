@@ -1,6 +1,6 @@
-﻿using System;
+﻿using Dibware.Extensions.System;
+using System;
 using System.Collections.Generic;
-using Dibware.Extensions.System;
 
 namespace Dibware.Template.Presentation.Web.Models.Base
 {
@@ -78,6 +78,14 @@ namespace Dibware.Template.Presentation.Web.Models.Base
         /// The page title.
         /// </value>
         public String PageTitle { get; set; }
+
+        /// <summary>
+        /// Gets or sets the page sub title.
+        /// </summary>
+        /// <value>
+        /// The page sub title.
+        /// </value>
+        public String PageSubTitle { get; set; }
 
         #endregion Site Map
 

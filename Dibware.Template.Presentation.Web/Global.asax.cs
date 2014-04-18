@@ -1,12 +1,17 @@
 ﻿using AutoMapper;
 using Dibware.Template.Core.Domain.Contracts.Repositories;
+using Dibware.Template.Core.Domain.Contracts.Services;
+using Dibware.Template.Presentation.Web.Filters;
 using Dibware.Template.Presentation.Web.Modules.Authentication;
 using Dibware.Template.Presentation.Web.Modules.Configuration;
+using Dibware.Template.Presentation.Web.Resources;
 using Dibware.Web.Security.Principal;
 using Ninject;
 using Ninject.Web.Common;
 using Ninject.Web.Mvc;
+using Ninject.Web.Mvc.FilterBindingSyntax;
 using System;
+using System.Configuration;
 using System.Linq;
 using System.Reflection;
 using System.Web;
@@ -61,14 +66,14 @@ namespace Dibware.Template.Presentation.Web
             // Load mapping configuration
             Mapper.Initialize(x => GetMappingConfiguration(Mapper.Configuration));
 
+            // Register any model binders
 
-
-            // Register model binders
-
-            // Register validators
+            // Register any validators
             //DataAnnotationsModelValidatorProvider.RegisterAdapter(typeof(RequiredIfAttribute), typeof(RequiredIfValidator));
 
+            // Register areas
             AreaRegistration.RegisterAllAreas();
+
             WebApiConfig.Register(GlobalConfiguration.Configuration);
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
@@ -83,11 +88,9 @@ namespace Dibware.Template.Presentation.Web
         /// </returns>
         protected override IKernel CreateKernel()
         {
+            // Get the kernel and load it with teh current assembly
             var kernel = new StandardKernel();
             kernel.Load(Assembly.GetExecutingAssembly());
-
-
-
 
             //Tell ASP.NET MVC 3 to use our Ninject DI Container
             DependencyResolver.SetResolver(new NinjectDependencyResolver(kernel));
@@ -97,6 +100,9 @@ namespace Dibware.Template.Presentation.Web
 
             // Register any Providers
             RegisterProviders(kernel);
+
+            // Bind any filters that require dependenccy injection
+            RegisterGlobalFiltersRequiringInjection(kernel);
 
             // Return the new kernal
             return kernel;
@@ -118,7 +124,7 @@ namespace Dibware.Template.Presentation.Web
         /// <summary>
         /// Registers the providers for dependencey injection.
         /// </summary>
-        /// <param name="kernel">The kernel.</param>
+        /// <param name="kernel">The Ninject kernel.</param>
         private void RegisterProviders(StandardKernel kernel)
         {
             kernel.Inject(Membership.Provider);
@@ -128,10 +134,41 @@ namespace Dibware.Template.Presentation.Web
         // <summary>
         /// Registers the providers for dependencey injection.
         /// </summary>
-        /// <param name="kernel">The kernel.</param>
+        /// <param name="kernel">The Ninject kernel.</param>
         private static void RegisterServices(IKernel kernel)
         {
-            // Nothing doing yet...
+            // No services required here yet...
+        }
+
+        /// <summary>
+        /// Registers any global filters that require dependcy injection.
+        /// </summary>
+        /// <param name="kernel">The Ninject kernel.</param>
+        private static void RegisterGlobalFiltersRequiringInjection(IKernel kernel)
+        {
+            RegsisterCustomHandleErrorAttribute(kernel);
+        }
+
+        /// <summary>
+        /// Regsisters the custom handle error attribute.
+        /// </summary>
+        /// <param name="kernel">The Ninject kernel.</param>
+        private static void RegsisterCustomHandleErrorAttribute(IKernel kernel)
+        {
+            // Get the implementation for the ErrorService
+            IErrorService errorService =
+                (IErrorService)DependencyResolver.Current
+                    .GetService(typeof(IErrorService));
+
+            // get the configuration value for if detailed error
+            // messages should be shown or not.
+            Boolean showDetailedErrorMesages = Convert.ToBoolean(
+                ConfigurationManager.AppSettings[ConfigurationKeys.ShowDetailedErroMessages]);
+
+            // Bind the CustomHandleErrorAttribute
+            kernel.BindFilter<CustomHandleErrorAttribute>(FilterScope.Global, 0)
+                .WithConstructorArgument("errorService", errorService)
+                .WithConstructorArgument("showDetailedErrorMessages", showDetailedErrorMesages);
         }
     }
 }

@@ -97,6 +97,15 @@ namespace Dibware.Template.Presentation.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to ConfirmationTokenLength.
+        /// </summary>
+        public static string ConfirmationTokenLength {
+            get {
+                return ResourceManager.GetString("ConfirmationTokenLength", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to DefaultThemeName.
         /// </summary>
         public static string DefaultThemeName {
@@ -120,6 +129,15 @@ namespace Dibware.Template.Presentation.Web.Resources {
         public static string PBKDF2Iterations {
             get {
                 return ResourceManager.GetString("PBKDF2Iterations", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to RequireConfirmationToken.
+        /// </summary>
+        public static string RequireConfirmationToken {
+            get {
+                return ResourceManager.GetString("RequireConfirmationToken", resourceCulture);
             }
         }
         
@@ -165,6 +183,15 @@ namespace Dibware.Template.Presentation.Web.Resources {
         public static string SaltByteSize {
             get {
                 return ResourceManager.GetString("SaltByteSize", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ShowDetailedErroMessages.
+        /// </summary>
+        public static string ShowDetailedErroMessages {
+            get {
+                return ResourceManager.GetString("ShowDetailedErroMessages", resourceCulture);
             }
         }
     }

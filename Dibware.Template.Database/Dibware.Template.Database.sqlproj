@@ -147,15 +147,15 @@
       <QuotedIdentifier>On</QuotedIdentifier>
     </Build>
     <Build Include="security\application.sql" />
-    <Build Include="dbo\Stored Procedures\dbo.Error_Update.sql">
-      <AnsiNulls>On</AnsiNulls>
-      <QuotedIdentifier>On</QuotedIdentifier>
-    </Build>
     <Build Include="application\Stored Procedures\application.Error_Insert.sql">
       <AnsiNulls>On</AnsiNulls>
       <QuotedIdentifier>On</QuotedIdentifier>
     </Build>
     <Build Include="application\Stored Procedures\application.Error_Delete.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="security\Stored Procedures\security.Membership_CreateUserAndMembership .sql">
       <AnsiNulls>On</AnsiNulls>
       <QuotedIdentifier>On</QuotedIdentifier>
     </Build>

@@ -129,6 +129,9 @@
   <data name="BrandName" xml:space="preserve">
     <value>BrandName</value>
   </data>
+  <data name="ConfirmationTokenLength" xml:space="preserve">
+    <value>ConfirmationTokenLength</value>
+  </data>
   <data name="DefaultThemeName" xml:space="preserve">
     <value>DefaultThemeName</value>
   </data>
@@ -137,6 +140,9 @@
   </data>
   <data name="PBKDF2Iterations" xml:space="preserve">
     <value>PBKDF2Iterations</value>
+  </data>
+  <data name="RequireConfirmationToken" xml:space="preserve">
+    <value>RequireConfirmationToken</value>
   </data>
   <data name="RoleName_AdministratorUser" xml:space="preserve">
     <value>RoleName_AdministratorUser</value>
@@ -152,5 +158,8 @@
   </data>
   <data name="SaltByteSize" xml:space="preserve">
     <value>SaltByteSize</value>
+  </data>
+  <data name="ShowDetailedErroMessages" xml:space="preserve">
+    <value>ShowDetailedErroMessages</value>
   </data>
 </root>

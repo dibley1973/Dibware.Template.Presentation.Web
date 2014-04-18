@@ -13,21 +13,43 @@ namespace Dibware.Template.Presentation.Web.Composition
         /// </summary>
         public override void Load()
         {
+            #region ErrorRepository
+
+            // Bind the Interface for the ErrorRepository to an implementation
+            Bind<IErrorRepository>()
+                .To<ErrorRepository>()
+                .InRequestScope();
+
+            #endregion
+
+            #region RepositoryMemberShipProvider Repository
+
             // Bind the Interface for the Repository for the
             // RepositoryMembershipProvider to an implementation
             Bind<IRepositoryMembershipProviderRepository>()
                 .To<MembershipRepository>()
                 .InRequestScope();
 
+            #endregion
+
+            #region RepositoryRoleProvider Repository
+
             // Bind the Interface for the Repository for the
-            // RepositoryMembershipProvider to an implementation
+            // RepositoryRoleProvider to an implementation
             Bind<IRepositoryRoleProviderRepository>()
                 .To<RoleRepository>()
                 .InRequestScope();
 
+            #endregion
+
+            #region RoleRepository
+
+            // Bind the Interface for the RoleRepository to an implementation
             Bind<IRoleRepository>()
                 .To<RoleRepository>()
                 .InRequestScope();
+
+            #endregion
         }
     }
 }

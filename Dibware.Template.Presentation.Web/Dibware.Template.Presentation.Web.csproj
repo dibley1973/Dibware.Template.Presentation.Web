@@ -291,6 +291,16 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>MetaTagData.resx</DependentUpon>
     </Compile>
+    <Compile Include="Resources\PageSubTitles.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PageSubTitles.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\PageTitles.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PageTitles.resx</DependentUpon>
+    </Compile>
     <Compile Include="Resources\PromptText.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -311,6 +321,11 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>ViewNames.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\WarningText.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>WarningText.resx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -356,6 +371,14 @@
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>MetaTagData.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="Resources\PageSubTitles.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>PageSubTitles.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\PageTitles.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>PageTitles.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="Resources\PromptText.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>PromptText.Designer.cs</LastGenOutput>
@@ -371,6 +394,10 @@
     <EmbeddedResource Include="Resources\ViewNames.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>ViewNames.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\WarningText.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>WarningText.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

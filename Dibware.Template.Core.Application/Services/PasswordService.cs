@@ -1,6 +1,7 @@
 ﻿using Dibware.Template.Core.Domain.Contracts.Services;
 using System;
 using System.Security.Cryptography;
+using System.Text;
 
 namespace Dibware.Template.Core.Application.Services
 {
@@ -18,38 +19,36 @@ namespace Dibware.Template.Core.Application.Services
         #region Declarations
 
         // The following constants may be changed without breaking existing hashes.
-        //public const int SALT_BYTE_SIZE = 24;
-        //public const int HASH_BYTE_SIZE = 24;
-        //public const int PBKDF2_ITERATIONS = 1000;
+        //public const Int32 SALT_BYTE_SIZE = 24;
+        //public const Int32 HASH_BYTE_SIZE = 24;
+        //public const Int32 PBKDF2_ITERATIONS = 1000;
 
         private readonly char[] DELIMITER = { ':' };
-        private const int ITERATION_INDEX = 0;
-        private const int SALT_INDEX = 1;
-        private const int PBKDF2_INDEX = 2;
+        private const Int32 DELIMITER_INDEX = 0;
+        private const Int32 ITERATION_INDEX = 0;
+        private const Int32 SALT_INDEX = 1;
+        private const Int32 PBKDF2_INDEX = 2;
+        private static Random _random = new Random((int)DateTime.Now.Ticks); //thanks to McAden
 
         #endregion
 
         #region Constructors
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="PasswordService"/> class.
+        /// Initializes a new instance of the <see cref="PasswordService" /> class.
         /// </summary>
-        /// <param name="hashByteSize">
-        /// Size in bytes of the hash. May be changed without breaking existing hashes.
-        /// </param>
-        /// <param name="saltByteSize">
-        /// Size in bytes of the salt. May be changed without breaking existing hashes.
-        /// </param>
-        /// <param name="pbkdf2Iterations">
-        /// The number of PBKDF2 iterations to use. May be changed 
-        /// without breaking existing hashes.
-        /// </param>
+        /// <param name="hashByteSize">Size in Bytes of the hash. May be changed without breaking existing hashes.</param>
+        /// <param name="saltByteSize">Size in Bytes of the salt. May be changed without breaking existing hashes.</param>
+        /// <param name="pbkdf2Iterations">The number of PBKDF2 iterations to use. May be changed
+        /// without breaking existing hashes.</param>
+        /// <param name="confirmationTokenLength">Length in characters of the confirmation token.</param>
         public PasswordService(Int32 hashByteSize, Int32 saltByteSize,
-            Int32 pbkdf2Iterations)
+            Int32 pbkdf2Iterations, Int32 confirmationTokenLength)
         {
             HashByteSize = hashByteSize;
             SaltByteSize = saltByteSize;
             PBKDF2Iterations = pbkdf2Iterations;
+            ConfirmationTokenLength = confirmationTokenLength;
         }
 
         #endregion
@@ -57,18 +56,26 @@ namespace Dibware.Template.Core.Application.Services
         #region Properties
 
         /// <summary>
-        /// Gets or sets the size in bytes of the hash.
+        /// Gets or sets the length of the confirmation token.
         /// </summary>
         /// <value>
-        /// The size of the hash byte.
+        /// The length of the confirmation token.
+        /// </value>
+        private Int32 ConfirmationTokenLength { get; set; }
+
+        /// <summary>
+        /// Gets or sets the size in Bytes of the hash.
+        /// </summary>
+        /// <value>
+        /// The size of the hash Byte.
         /// </value>
         private Int32 HashByteSize { get; set; }
 
         /// <summary>
-        /// Gets or sets the size in bytes of the salt.
+        /// Gets or sets the size in Bytes of the salt.
         /// </summary>
         /// <value>
-        /// The size of the salt byte.
+        /// The size of the salt Byte.
         /// </value>
         private Int32 SaltByteSize { get; set; }
 
@@ -92,17 +99,19 @@ namespace Dibware.Template.Core.Application.Services
         /// <returns>The hash of the password.</returns>
         public String CreateHash(String password)
         {
+            var delimiter = DELIMITER[DELIMITER_INDEX].ToString();
+
             // Generate a random salt
             RNGCryptoServiceProvider csprng = new RNGCryptoServiceProvider();
-            byte[] salt = new byte[SaltByteSize];
+            Byte[] salt = new Byte[SaltByteSize];
             csprng.GetBytes(salt);
 
             // Hash the password and encode the parameters
-            byte[] hash = PBKDF2(password, salt, PBKDF2Iterations, HashByteSize);
+            Byte[] hash = PBKDF2(password, salt, PBKDF2Iterations, HashByteSize);
             return PBKDF2Iterations +
-                DELIMITER.ToString() +
+                delimiter +
                 Convert.ToBase64String(salt) +
-                DELIMITER.ToString() +
+                delimiter +
                 Convert.ToBase64String(hash);
         }
 
@@ -116,28 +125,59 @@ namespace Dibware.Template.Core.Application.Services
         {
             // Extract the parameters from the hash
             String[] split = correctHash.Split(DELIMITER);
-            int iterations = Int32.Parse(split[ITERATION_INDEX]);
-            byte[] salt = Convert.FromBase64String(split[SALT_INDEX]);
-            byte[] hash = Convert.FromBase64String(split[PBKDF2_INDEX]);
-            byte[] testHash = PBKDF2(password, salt, iterations, hash.Length);
+            Int32 iterations = Int32.Parse(split[ITERATION_INDEX]);
+            Byte[] salt = Convert.FromBase64String(split[SALT_INDEX]);
+            Byte[] hash = Convert.FromBase64String(split[PBKDF2_INDEX]);
+            Byte[] testHash = PBKDF2(password, salt, iterations, hash.Length);
 
             return SlowEquals(hash, testHash);
         }
 
         /// <summary>
-        /// Compares two byte arrays in length-constant time. This comparison
+        /// Creates the confirmation token.
+        /// </summary>
+        /// <returns></returns>
+        public String CreateConfirmationToken()
+        {
+            return GetRandomString(ConfirmationTokenLength);
+        }
+
+        /// <summary>
+        /// Randoms the string.
+        /// </summary>
+        /// <param name="size">The size.</param>
+        /// <ref>
+        /// http://stackoverflow.com/questions/1122483/random-string-generator-returning-same-string
+        /// </ref>
+        /// <returns></returns>
+        private String GetRandomString(Int32 size)
+        {
+            StringBuilder builder = new StringBuilder();
+            char ch;
+            for (Int32 i = 0; i < size; i++)
+            {
+                ch = Convert.ToChar(Convert.ToInt32(Math.Floor(26 * _random.NextDouble() + 65)));
+                builder.Append(ch);
+            }
+
+            return builder.ToString();
+        }
+
+
+        /// <summary>
+        /// Compares two Byte arrays in length-constant time. This comparison
         /// method is used so that password hashes cannot be extracted from
         /// on-line systems using a timing attack and then attacked off-line.
         /// </summary>
-        /// <param name="a">The first byte array.</param>
-        /// <param name="b">The second byte array.</param>
-        /// <returns>True if both byte arrays are equal. False otherwise.</returns>
-        private static Boolean SlowEquals(byte[] a, byte[] b)
+        /// <param name="a">The first Byte array.</param>
+        /// <param name="b">The second Byte array.</param>
+        /// <returns>True if both Byte arrays are equal. False otherwise.</returns>
+        private static Boolean SlowEquals(Byte[] a, Byte[] b)
         {
-            uint diff = (uint)a.Length ^ (uint)b.Length;
-            for (int i = 0; i < a.Length && i < b.Length; i++)
+            UInt32 diff = (UInt32)a.Length ^ (UInt32)b.Length;
+            for (Int32 i = 0; i < a.Length && i < b.Length; i++)
             {
-                diff |= (uint)(a[i] ^ b[i]);
+                diff |= (UInt32)(a[i] ^ b[i]);
             }
             return diff == 0;
         }
@@ -148,9 +188,9 @@ namespace Dibware.Template.Core.Application.Services
         /// <param name="password">The password to hash.</param>
         /// <param name="salt">The salt.</param>
         /// <param name="iterations">The PBKDF2 iteration count.</param>
-        /// <param name="outputBytes">The length of the hash to generate, in bytes.</param>
+        /// <param name="outputBytes">The length of the hash to generate, in Bytes.</param>
         /// <returns>A hash of the password.</returns>
-        private static byte[] PBKDF2(String password, byte[] salt, Int32 iterations, Int32 outputBytes)
+        private static Byte[] PBKDF2(String password, Byte[] salt, Int32 iterations, Int32 outputBytes)
         {
             Rfc2898DeriveBytes pbkdf2 = new Rfc2898DeriveBytes(password, salt);
             pbkdf2.IterationCount = iterations;
