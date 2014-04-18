@@ -50,9 +50,14 @@ namespace Dibware.Template.Core.Domain.Entities.Application
         /// </value>
         public DateTime TimeStamp { get; set; }
 
-        #endregion 
+        #endregion
 
         #region Constructors
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Error"/> class.
+        /// </summary>
+        public Error() { }
 
         /// <summary>
         /// Creates a new instance of the Error object
@@ -71,8 +76,9 @@ namespace Dibware.Template.Core.Domain.Entities.Application
         /// <param name="stackTrace">The stacktrace of the error encounted.</param>
         /// <param name="username">The name of the user who encountered the Exception.</param>
         /// <param name="timeStamp">The timestamp when the Exception was encountered.</param>
-        public Error(String message, String source, String stackTrace, 
+        public Error(String message, String source, String stackTrace,
             String username, DateTime timeStamp)
+            : this()
         {
             Message = message;
             Source = source;

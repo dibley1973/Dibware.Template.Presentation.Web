@@ -39,6 +39,7 @@ namespace Dibware.Template.Infrastructure.SqlDataAccessTests.Repositories
 
         #region IRepositoryMembershipProviderRepository Tests
 
+        [Ignore]
         [TestMethod]
         [ExpectedException(typeof(InvalidOperationException))]
         public void Test_ValidateUserWithNullUnitOfWork_ThrowsInvalidOperationException()
@@ -55,6 +56,7 @@ namespace Dibware.Template.Infrastructure.SqlDataAccessTests.Repositories
             // Exception thrown
         }
 
+        [Ignore]
         [TestMethod]
         public void Test_ValidateUserWithValidUsernameAndPasswordCombination_ReturnsTrue()
         {
@@ -70,6 +72,7 @@ namespace Dibware.Template.Infrastructure.SqlDataAccessTests.Repositories
             Assert.IsTrue(actualResult);
         }
 
+        [Ignore]
         [TestMethod]
         public void Test_ValidateUserWithInvalidUsernameAndPasswordCombination_ReturnsFalse()
         {

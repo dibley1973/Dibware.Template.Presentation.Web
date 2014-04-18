@@ -1,5 +1,6 @@
 ﻿using Dibware.Template.Core.Application.Services;
 using Dibware.Template.Core.Domain.Contracts.Services;
+using Dibware.Template.Core.Domain.Entities.Application;
 using Dibware.Template.Core.Domain.Entities.Security;
 using Dibware.Template.Infrastructure.SqlDataAccess.UnitOfWork;
 using Dibware.Template.Infrastructure.SqlDataAccessTests.Helpers;
@@ -41,7 +42,7 @@ namespace Dibware.Template.Infrastructure.SqlDataAccessTests.Base
 
         // Get for GUID returns expected item when GUID exists
         [TestMethod]
-        public void Test_GetForGuid_ReturnsExpectedGuidBasedItemWhenGuidExists()
+        public void Test_BaseRepository_GetForGuid_ReturnsExpectedGuidBasedItemWhenGuidExists()
         {
             // Arrange
             var expectedResult = _unitOfWork.CreateSet<User>().First();
@@ -59,7 +60,7 @@ namespace Dibware.Template.Infrastructure.SqlDataAccessTests.Base
         // Get for ID returns expected item when ID exists
         [Ignore] // need to reinstate this once a suitable entity can be used.
         [TestMethod]
-        public void Test_GetForId_ReturnsExpectedIdBasedItemWhenIdExists()
+        public void Test_BaseRepository_GetForId_ReturnsExpectedIdBasedItemWhenIdExists()
         {
             //// Arrange
             //var expectedResult = _unitOfWork.CreateSet<MockIdEntity>().First();
@@ -76,7 +77,7 @@ namespace Dibware.Template.Infrastructure.SqlDataAccessTests.Base
 
         // Get for KEY returns expected item when KEY exists
         [TestMethod]
-        public void Test_GetForKey_ReturnsExpectedKeyBasedItemWhenKeyExists()
+        public void Test_BaseRepository_GetForKey_ReturnsExpectedKeyBasedItemWhenKeyExists()
         {
             // Arrange
             var expectedResult = _unitOfWork.CreateSet<Role>().First();
@@ -94,7 +95,7 @@ namespace Dibware.Template.Infrastructure.SqlDataAccessTests.Base
         // Get for GUID returns null when expected GUID does not exist
         [Ignore] // need to reinstate this once a suitable entity can be used.
         [TestMethod]
-        public void Test_GetForId_ReturnsNullWhenGuidDoesNotExist()
+        public void Test_BaseRepository_GetForId_ReturnsNullWhenGuidDoesNotExist()
         {
             //// Arrange
             //var repository = new MockRepository<MockIdEntity>(_unitOfWork);
@@ -109,7 +110,7 @@ namespace Dibware.Template.Infrastructure.SqlDataAccessTests.Base
         // Get for ID returns null when expected id does not exist
         [Ignore] // need to reinstate this once a suitable entity can be used.
         [TestMethod]
-        public void Test_GetForId_ReturnsNullWhenIdDoesNotExist()
+        public void Test_BaseRepository_GetForId_ReturnsNullWhenIdDoesNotExist()
         {
             //// Arrange
             //var repository = new MockRepository<MockIdEntity>(_unitOfWork);
@@ -123,7 +124,7 @@ namespace Dibware.Template.Infrastructure.SqlDataAccessTests.Base
 
         // Get for ID returns null when expected id does not exist
         [TestMethod]
-        public void Test_GetForId_ReturnsNullWhenKeyDoesNotExist()
+        public void Test_BaseRepository_GetForId_ReturnsNullWhenKeyDoesNotExist()
         {
             // Arrange
             const string key = "spongbob"; // Key will not exist..
@@ -136,34 +137,45 @@ namespace Dibware.Template.Infrastructure.SqlDataAccessTests.Base
             Assert.IsNull(actualResult);
         }
 
-        // Get all returns all expected items when items exist
-        [Ignore] // need to reinstate this once a suitable entity can be used.
         [TestMethod]
-        public void Test_GetAll_ReturnsAllExpectedIdBasedItemsWhenItemsExist()
+        [ExpectedException(typeof(InvalidOperationException))]
+        public void Test_BaseRepository_GetAllWithNullUnitOfWork_ThrowsInvalidOperationException()
         {
-            //// Arrange
-            //var expectedEntities = _unitOfWork.CreateSet<MockIdEntity>().ToList();
-            //var repository = new MockRepository<MockIdEntity>(_unitOfWork);
+            // Arrange
+            var repository = new MockRepository<Error>(null);
 
-            //// Act
-            //var results = repository.GetAll();
+            // Act
+            var actualResult = repository.GetAll();
 
-            //// Assert
-            //Assert.IsNotNull(results);
-            //Assert.AreEqual(results.Count, expectedEntities.Count);
+            // Assert
+            // Exception Thrown
+        }
 
-            //// Verify first exclusionCategory is equal to expected
-            //Assert.AreEqual(results.First().Id, expectedEntities.First().Id);
-            //Assert.AreEqual(results.First().Name, expectedEntities.First().Name);
+        // Get all returns all expected items when items exist
+        [TestMethod]
+        public void Test_BaseRepository_GetAll_ReturnsAllExpectedIdBasedItemsWhenItemsExist()
+        {
+            // Arrange
+            var expectedEntities = _unitOfWork.CreateSet<Error>().ToList();
+            var repository = new MockRepository<Error>(_unitOfWork);
 
-            //// Verify last exclusionCategory is equal to expected
-            //Assert.AreEqual(results.Last().Id, expectedEntities.Last().Id);
-            //Assert.AreEqual(results.Last().Name, expectedEntities.Last().Name);
+            // Act
+            var results = repository.GetAll();
+
+            // Assert
+            Assert.IsNotNull(results);
+            Assert.AreEqual(results.Count, expectedEntities.Count);
+
+            // Verify first exclusionCategory is equal to expected
+            Assert.AreEqual(results.First().Id, expectedEntities.First().Id);
+
+            // Verify last exclusionCategory is equal to expected
+            Assert.AreEqual(results.Last().Id, expectedEntities.Last().Id);
         }
 
         // Get all returns all expected key-base items when items exist
         [TestMethod]
-        public void Test_GetAll_ReturnsAllExpectedKeyBasedItemsWhenItemsExist()
+        public void Test_BaseRepository_GetAll_ReturnsAllExpectedKeyBasedItemsWhenItemsExist()
         {
             // Arrange
             var expectedEntities = _unitOfWork.CreateSet<Role>().ToList();
@@ -187,7 +199,7 @@ namespace Dibware.Template.Infrastructure.SqlDataAccessTests.Base
 
         // Get all returns empty list when no items exist
         [TestMethod]
-        public void Test_GetAll_ReturnsEmptyListWhenNoItemsExist()
+        public void Test_BaseRepository_GetAll_ReturnsEmptyListWhenNoItemsExist()
         {
             // Set db initialiser to create an empty database
             var initialiser = new WebsiteDbContextInitialiser_Empty();
@@ -209,7 +221,7 @@ namespace Dibware.Template.Infrastructure.SqlDataAccessTests.Base
 
         // Create and SaveChanges creates a new item
         [TestMethod]
-        public void Test_CreateAndSaving_CreatesANewItem()
+        public void Test_BaseRepository_CreateAndSaving_CreatesANewItem()
         {
             // Arrange
             const String newKey = "elephant";
@@ -236,7 +248,7 @@ namespace Dibware.Template.Infrastructure.SqlDataAccessTests.Base
 
         // Create 3 items and SaveChanges creates 3 items
         [TestMethod]
-        public void Test_Create3ItemsAndSaving_Creates3NewItems()
+        public void Test_BaseRepository_Create3ItemsAndSaving_Creates3NewItems()
         {
             // Arrange      
             const String newKey1 = "banana";
@@ -280,7 +292,7 @@ namespace Dibware.Template.Infrastructure.SqlDataAccessTests.Base
 
         // Update and SaveChanges updates an item
         [TestMethod]
-        public void Test_UpdateAndSaving_UpdatesAnItem()
+        public void Test_BaseRepository_UpdateAndSaving_UpdatesAnItem()
         {
             // Arrange
 
@@ -299,7 +311,7 @@ namespace Dibware.Template.Infrastructure.SqlDataAccessTests.Base
 
         // Update 3 items and SaveChanges updates 3 items
         [TestMethod]
-        public void Test_Update3ItemsAndSaving_Updates3Items()
+        public void Test_BaseRepository_Update3ItemsAndSaving_Updates3Items()
         {
             // Arrange
             var repository = new MockRepository<Role>(_unitOfWork);
@@ -328,7 +340,7 @@ namespace Dibware.Template.Infrastructure.SqlDataAccessTests.Base
         // Delete and SaveChanges deletes an item
         [Ignore] // need to reinstate this once a suitable entity can be used.
         [TestMethod]
-        public void Test_DeleteAndSaving_DeletesAnIdBasedItem()
+        public void Test_BaseRepository_DeleteAndSaving_DeletesAnIdBasedItem()
         {
             //// Arrange
             //var repository = new MockRepository<MockIdEntity>(_unitOfWork);
@@ -345,7 +357,7 @@ namespace Dibware.Template.Infrastructure.SqlDataAccessTests.Base
 
         // Delete and SaveChanges deletes an item
         [TestMethod]
-        public void Test_DeleteAndSaving_DeletesAKeyBasedItem()
+        public void Test_BaseRepository_DeleteAndSaving_DeletesAKeyBasedItem()
         {
             // Arrange
             var repository = new MockRepository<Role>(_unitOfWork);
@@ -363,7 +375,7 @@ namespace Dibware.Template.Infrastructure.SqlDataAccessTests.Base
         // Delete 3 items and SaveChanges deletes 3 items
         [Ignore] // need to reinstate this once a suitable entity can be used.
         [TestMethod]
-        public void Test_Delete3ItemsAndSaving_Deletes3IdBasedItems()
+        public void Test_BaseRepository_Delete3ItemsAndSaving_Deletes3IdBasedItems()
         {
             //// Arrange
             //var repository = new MockRepository<MockIdEntity>(_unitOfWork);
@@ -389,7 +401,7 @@ namespace Dibware.Template.Infrastructure.SqlDataAccessTests.Base
         // Delete 3 items and SaveChanges deletes 3 items
         [Ignore] // need to reinstate this once a suitable entity can be used.
         [TestMethod]
-        public void Test_Delete3ItemsAndSaving_Deletes3KeyBasedItems()
+        public void Test_BaseRepository_Delete3ItemsAndSaving_Deletes3KeyBasedItems()
         {
             // Arrange
             var repository = new MockRepository<Role>(_unitOfWork);
@@ -415,7 +427,7 @@ namespace Dibware.Template.Infrastructure.SqlDataAccessTests.Base
         // Create and rollback does not create a new item
         [Ignore] // need to reinstate this once a suitable entity can be used.
         [TestMethod]
-        public void Test_CreateAndDiscarding_DoesNotCreateANewIdItem()
+        public void Test_BaseRepository_CreateAndDiscarding_DoesNotCreateANewIdItem()
         {
             //// Arrange
             //Int32 id = -1;
@@ -441,7 +453,7 @@ namespace Dibware.Template.Infrastructure.SqlDataAccessTests.Base
 
         // Create and rollback does not create a new item
         [TestMethod]
-        public void Test_CreateAndDiscarding_DoesNotCreateANewKeyItem()
+        public void Test_BaseRepository_CreateAndDiscarding_DoesNotCreateANewKeyItem()
         {
             // Arrange
             const String newKey = "bananas";
@@ -468,7 +480,7 @@ namespace Dibware.Template.Infrastructure.SqlDataAccessTests.Base
         // Update and rollback does not update an item
         [Ignore] // need to reinstate this once a suitable entity can be used.
         [TestMethod]
-        public void Test_UpdateAndDiscarding_DoesNotUpdateAnIdbasedItem()
+        public void Test_BaseRepository_UpdateAndDiscarding_DoesNotUpdateAnIdbasedItem()
         {
             //// Arrange
             //var repository = new MockRepository<MockIdEntity>(_unitOfWork);
@@ -487,7 +499,7 @@ namespace Dibware.Template.Infrastructure.SqlDataAccessTests.Base
 
         // Update and rollback does not update an item
         [TestMethod]
-        public void Test_UpdateAndDiscarding_DoesNotUpdateAKeyBasedItem()
+        public void Test_BaseRepository_UpdateAndDiscarding_DoesNotUpdateAKeyBasedItem()
         {
             // Arrange
             var repository = new MockRepository<Role>(_unitOfWork);
@@ -507,7 +519,7 @@ namespace Dibware.Template.Infrastructure.SqlDataAccessTests.Base
         // Delete and rollback does not delete an item
         [Ignore] // need to reinstate this once a suitable entity can be used.
         [TestMethod]
-        public void Test_DeleteAndDiscarding_DoesNotDeleteAnBasedItem()
+        public void Test_BaseRepository_DeleteAndDiscarding_DoesNotDeleteAnBasedItem()
         {
             //// Arrange
             //var repository = new MockRepository<MockIdEntity>(_unitOfWork);
@@ -526,7 +538,7 @@ namespace Dibware.Template.Infrastructure.SqlDataAccessTests.Base
 
         // Delete and rollback does not delete an item
         [TestMethod]
-        public void Test_DeleteAndDiscarding_DoesNotDeleteAnKeyBasedItem()
+        public void Test_BaseRepository_DeleteAndDiscarding_DoesNotDeleteAnKeyBasedItem()
         {
             // Arrange
             var repository = new MockRepository<Role>(_unitOfWork);
@@ -546,7 +558,7 @@ namespace Dibware.Template.Infrastructure.SqlDataAccessTests.Base
         // Create with no SaveChanges or rollback does not create an item
         [Ignore] // need to reinstate this once a suitable entity can be used.
         [TestMethod]
-        public void Test_CreateWithoutSavingOrDiscarding_DoesNotCreateANewIdBAsedItem()
+        public void Test_BaseRepository_CreateWithoutSavingOrDiscarding_DoesNotCreateANewIdBAsedItem()
         {
             //// Arrange
             //var existingEntities = _unitOfWork.CreateSet<MockIdEntity>().ToList();
@@ -571,7 +583,7 @@ namespace Dibware.Template.Infrastructure.SqlDataAccessTests.Base
 
         // Create with no SaveChanges or rollback does not create an item
         [TestMethod]
-        public void Test_CreateWithoutSavingOrDiscarding_DoesNotCreateANewKeyBasedItem()
+        public void Test_BaseRepository_CreateWithoutSavingOrDiscarding_DoesNotCreateANewKeyBasedItem()
         {
             // Arrange
             var existingEntities = _unitOfWork.CreateSet<Role>().ToList();
@@ -597,7 +609,7 @@ namespace Dibware.Template.Infrastructure.SqlDataAccessTests.Base
         // Update with no SaveChanges or rollback does not update an item
         [Ignore] // need to reinstate this once a suitable entity can be used.
         [TestMethod]
-        public void Test_UpdateWithoutSavingOrDiscarding_DoesNotUpdateAnIdBasedItem()
+        public void Test_BaseRepository_UpdateWithoutSavingOrDiscarding_DoesNotUpdateAnIdBasedItem()
         {
             //// Arrange
             //var repository = new MockRepository<MockIdEntity>(_unitOfWork);
@@ -618,7 +630,7 @@ namespace Dibware.Template.Infrastructure.SqlDataAccessTests.Base
 
         // Update with no SaveChanges or rollback does not update an item
         [TestMethod]
-        public void Test_UpdateWithoutSavingOrDiscarding_DoesNotUpdateAKeyBasedItem()
+        public void Test_BaseRepository_UpdateWithoutSavingOrDiscarding_DoesNotUpdateAKeyBasedItem()
         {
             // Arrange
 
@@ -641,7 +653,7 @@ namespace Dibware.Template.Infrastructure.SqlDataAccessTests.Base
         // Delete with no SaveChanges or rollback does not delete an item        
         [Ignore] // need to reinstate this once a suitable entity can be used.
         [TestMethod]
-        public void Test_DeleteWithoutSavingOrDiscarding_DoesNotDeleteAnIdBasedItemItem()
+        public void Test_BaseRepository_DeleteWithoutSavingOrDiscarding_DoesNotDeleteAnIdBasedItemItem()
         {
             //// Arrange
             //var repository = new MockRepository<MockIdEntity>(_unitOfWork);
@@ -662,7 +674,7 @@ namespace Dibware.Template.Infrastructure.SqlDataAccessTests.Base
 
         // Delete with no SaveChanges or rollback does not delete an item        
         [TestMethod]
-        public void Test_DeleteWithoutSavingOrDiscarding_DoesNotDeleteAKeyBasedItem()
+        public void Test_BaseRepository_DeleteWithoutSavingOrDiscarding_DoesNotDeleteAKeyBasedItem()
         {
             // Arrange
             var repository = new MockRepository<Role>(_unitOfWork);
@@ -683,7 +695,7 @@ namespace Dibware.Template.Infrastructure.SqlDataAccessTests.Base
 
         [Ignore] // need to reinstate this once a suitable entity can be used.
         [TestMethod]
-        public void Test_CreateSaveThenLoadCopyModifyNameAndMerge_ResultsIn_NewNameForPersistedIdBasedItem()
+        public void Test_BaseRepository_CreateSaveThenLoadCopyModifyNameAndMerge_ResultsIn_NewNameForPersistedIdBasedItem()
         {
             //// Arrange
             //const string newName = "BuiscuitEater";
@@ -704,7 +716,7 @@ namespace Dibware.Template.Infrastructure.SqlDataAccessTests.Base
 
 
         [TestMethod]
-        public void Test_CreateSaveThenLoadCopyModifyNameAndMerge_ResultsIn_NewNameForPersistedKeyBasedItem()
+        public void Test_BaseRepository_CreateSaveThenLoadCopyModifyNameAndMerge_ResultsIn_NewNameForPersistedKeyBasedItem()
         {
             // Arrange
             const string newName = "BuiscuitEater";

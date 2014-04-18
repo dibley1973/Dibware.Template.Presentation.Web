@@ -13,6 +13,6 @@ namespace Dibware.Template.Core.Domain.Entities.Security
         /// <value>
         /// The user name.
         /// </value>
-        public string UserName { get; set; }
+        public string Username { get; set; }
     }
 }

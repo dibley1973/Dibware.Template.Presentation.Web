@@ -2,11 +2,8 @@
 using Dibware.Template.Infrastructure.SqlDataAccess.Helpers;
 using Dibware.Template.Infrastructure.SqlDataAccess.Resources;
 using System;
-using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity.ModelConfiguration;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Dibware.Template.Infrastructure.SqlDataAccess.UnitOfWork.Configuration
 {
@@ -102,7 +99,7 @@ namespace Dibware.Template.Infrastructure.SqlDataAccess.UnitOfWork.Configuration
             // Id
             Property(e => e.Id)
                 .HasColumnName(ColumnNames.ErrorId)
-                .IsRequired();
+                .HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
 
             // Message
             Property(e => e.Message)
@@ -130,11 +127,10 @@ namespace Dibware.Template.Infrastructure.SqlDataAccess.UnitOfWork.Configuration
             MapToStoredProcedures(s => s
                 .Insert(i => i
                     .HasName(ErrorInsertStoredProcedureName)
-                    .Parameter(e => e.Id, ParameterNames.ErrorId)
                     .Parameter(e => e.Message, ParameterNames.Message)
                     .Parameter(e => e.Source, ParameterNames.Source)
                     .Parameter(e => e.StackTrace, ParameterNames.StackTrace)
-                    .Parameter(e => e.Username, ParameterNames.Source)
+                    .Parameter(e => e.Username, ParameterNames.Username)
                     .Parameter(e => e.TimeStamp, ParameterNames.TimeStamp))
                 //.Update(u => u
                 //    .HasName(ErrorUpdateStoredProcedureName)

@@ -121,7 +121,7 @@ namespace Dibware.Template.Infrastructure.SqlDataAccess.UnitOfWork.Configuration
                 //.HasMaxLength(50);
 
             // Password
-            Property(r => r.UserName)
+            Property(r => r.Username)
                 .IsRequired()
                 .IsMaxLength();
 
@@ -134,13 +134,13 @@ namespace Dibware.Template.Infrastructure.SqlDataAccess.UnitOfWork.Configuration
                     .HasName(UserInsertStoredProcedureName)
                     //.Parameter(r => r.Password, ParameterNames.Password)
                     .Parameter(r => r.Name, ParameterNames.Name)
-                    .Parameter(r => r.UserName, ParameterNames.Username))
+                    .Parameter(r => r.Username, ParameterNames.Username))
                 .Update(u => u
                     .HasName(UserUpdateStoredProcedureName)
                     .Parameter(r => r.Guid, ParameterNames.Guid)
                     //.Parameter(r => r.Password, ParameterNames.Password)
                     .Parameter(r => r.Name, ParameterNames.Name)
-                    .Parameter(r => r.UserName, ParameterNames.Username))
+                    .Parameter(r => r.Username, ParameterNames.Username))
                 .Delete(d => d
                     .HasName(UserDeleteStoredProcedureName)
                     .Parameter(r => r.Guid, ParameterNames.Guid))

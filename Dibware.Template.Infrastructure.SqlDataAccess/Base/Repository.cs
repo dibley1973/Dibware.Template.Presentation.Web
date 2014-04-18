@@ -1,5 +1,7 @@
-﻿using Dibware.Template.Core.Domain.Contracts.Repositories.Base;
+﻿using Dibware.Helpers.Validation;
+using Dibware.Template.Core.Domain.Contracts.Repositories.Base;
 using Dibware.Template.Core.Domain.Contracts.UnitOfWork;
+using Dibware.Template.Infrastructure.SqlDataAccess.Resources;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -42,6 +44,9 @@ namespace Dibware.Template.Infrastructure.SqlDataAccess.Base
         /// <returns></returns>
         public virtual TEntity GetForId(Int32 id)
         {
+            // Ensure we have a UnitOfWork
+            Guard.InvalidOperation((UnitOfWork == null), ExceptionMessages.UnitOfWorkIsNull);
+
             return UnitOfWork.CreateSet<TEntity>().Find(id);
         }
 
@@ -52,6 +57,9 @@ namespace Dibware.Template.Infrastructure.SqlDataAccess.Base
         /// <returns></returns>
         public virtual TEntity GetForKey(String key)
         {
+            // Ensure we have a UnitOfWork
+            Guard.InvalidOperation((UnitOfWork == null), ExceptionMessages.UnitOfWorkIsNull);
+
             return UnitOfWork.CreateSet<TEntity>().Find(key);
         }
 
@@ -62,6 +70,9 @@ namespace Dibware.Template.Infrastructure.SqlDataAccess.Base
         /// <returns></returns>
         public virtual TEntity GetForGuid(Guid guid)
         {
+            // Ensure we have a UnitOfWork
+            Guard.InvalidOperation((UnitOfWork == null), ExceptionMessages.UnitOfWorkIsNull);
+
             return UnitOfWork.CreateSet<TEntity>().Find(guid);
         }
 
@@ -72,6 +83,9 @@ namespace Dibware.Template.Infrastructure.SqlDataAccess.Base
         /// <returns></returns>
         public virtual TEntity GetForName(String name)
         {
+            // Ensure we have a UnitOfWork
+            Guard.InvalidOperation((UnitOfWork == null), ExceptionMessages.UnitOfWorkIsNull);
+
             return UnitOfWork.CreateSet<TEntity>().Find(name);
         }
 
@@ -81,6 +95,9 @@ namespace Dibware.Template.Infrastructure.SqlDataAccess.Base
         /// <returns></returns>
         public virtual ICollection<TEntity> GetAll()
         {
+            // Ensure we have a UnitOfWork
+            Guard.InvalidOperation((UnitOfWork == null), ExceptionMessages.UnitOfWorkIsNull);
+
             return UnitOfWork.CreateSet<TEntity>().ToList();
         }
 
@@ -90,6 +107,9 @@ namespace Dibware.Template.Infrastructure.SqlDataAccess.Base
         /// <param name="entity">The entity.</param>
         public virtual TEntity Create(TEntity entity)
         {
+            // Ensure we have a UnitOfWork
+            Guard.InvalidOperation((UnitOfWork == null), ExceptionMessages.UnitOfWorkIsNull);
+
             UnitOfWork.Attach(entity);
             return entity;
         }
@@ -100,6 +120,9 @@ namespace Dibware.Template.Infrastructure.SqlDataAccess.Base
         /// <param name="entity">The entity.</param>
         public virtual void Update(TEntity entity)
         {
+            // Ensure we have a UnitOfWork
+            Guard.InvalidOperation((UnitOfWork == null), ExceptionMessages.UnitOfWorkIsNull);
+
             UnitOfWork.SetModified(entity);
         }
 
@@ -109,6 +132,9 @@ namespace Dibware.Template.Infrastructure.SqlDataAccess.Base
         /// <param name="entity">The entity.</param>
         public virtual void Delete(TEntity entity)
         {
+            // Ensure we have a UnitOfWork
+            Guard.InvalidOperation((UnitOfWork == null), ExceptionMessages.UnitOfWorkIsNull);
+
             UnitOfWork.Detach(entity);
         }
 
@@ -117,6 +143,9 @@ namespace Dibware.Template.Infrastructure.SqlDataAccess.Base
         /// </summary>
         public void SaveChanges()
         {
+            // Ensure we have a UnitOfWork
+            Guard.InvalidOperation((UnitOfWork == null), ExceptionMessages.UnitOfWorkIsNull);
+
             UnitOfWork.Commit();
         }
 
@@ -125,6 +154,9 @@ namespace Dibware.Template.Infrastructure.SqlDataAccess.Base
         /// </summary>
         public void DiscardChanges()
         {
+            // Ensure we have a UnitOfWork
+            Guard.InvalidOperation((UnitOfWork == null), ExceptionMessages.UnitOfWorkIsNull);
+
             UnitOfWork.Rollback();
         }
 
@@ -136,6 +168,9 @@ namespace Dibware.Template.Infrastructure.SqlDataAccess.Base
         /// <exception cref="NotImplementedException"></exception>
         public void Merge(TEntity persisted, TEntity modified)
         {
+            // Ensure we have a UnitOfWork
+            Guard.InvalidOperation((UnitOfWork == null), ExceptionMessages.UnitOfWorkIsNull);
+
             UnitOfWork.ApplyCurrentValues(persisted, modified);
         }
 

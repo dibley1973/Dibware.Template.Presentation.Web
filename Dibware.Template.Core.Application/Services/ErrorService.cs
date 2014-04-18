@@ -3,10 +3,6 @@ using Dibware.Template.Core.Domain.Contracts.Repositories;
 using Dibware.Template.Core.Domain.Contracts.Services;
 using Dibware.Template.Core.Domain.Entities.Application;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Dibware.Template.Core.Application.Services
 {
@@ -28,6 +24,31 @@ namespace Dibware.Template.Core.Application.Services
             : base(errorRepository)
         {
             //this._errorRepository = errorRepository;
+        }
+
+        #endregion
+
+        #region IErrorService Members
+
+        /// <summary>
+        /// Logs the error.
+        /// </summary>
+        /// <param name="error">The error.</param>
+        /// <exception cref="System.NotImplementedException"></exception>
+        public void LogError(Error error)
+        {
+            base.AddNew(error);
+        }
+
+        /// <summary>
+        /// Logs the specified exception.
+        /// </summary>
+        /// <param name="ex">The exception.</param>
+        /// <param name="username">The username who the exception happend to.</param>
+        public void LogException(Exception ex, String username)
+        {
+            var error = new Error(ex, username, DateTime.Now);
+            LogError(error);
         }
 
         #endregion

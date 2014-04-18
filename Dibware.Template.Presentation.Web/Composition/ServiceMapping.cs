@@ -1,4 +1,5 @@
 ﻿using Dibware.Template.Core.Application.Services;
+using Dibware.Template.Core.Domain.Contracts.Services;
 using Dibware.Template.Presentation.Web.Resources;
 using Dibware.Web.Security.Providers.Contracts;
 using Ninject.Modules;
@@ -18,6 +19,10 @@ namespace Dibware.Template.Presentation.Web.Composition
                 .WithConstructorArgument("hashByteSize", Convert.ToInt32(ConfigurationManager.AppSettings[ConfigurationKeys.HashByteSize]))
                 .WithConstructorArgument("saltByteSize", Convert.ToInt32(ConfigurationManager.AppSettings[ConfigurationKeys.SaltByteSize]))
                 .WithConstructorArgument("pbkdf2Iterations", Convert.ToInt32(ConfigurationManager.AppSettings[ConfigurationKeys.PBKDF2Iterations]));
+
+            Bind<IErrorService>()
+                .To<ErrorService>()
+                .InRequestScope();
         }
     }
 }

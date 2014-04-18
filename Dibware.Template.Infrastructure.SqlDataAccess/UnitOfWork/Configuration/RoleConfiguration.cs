@@ -104,7 +104,7 @@ namespace Dibware.Template.Infrastructure.SqlDataAccess.UnitOfWork.Configuration
             // Name
             Property(r => r.Name)
                 .IsRequired()
-                .HasMaxLength(25);
+                .HasMaxLength(256);
 
             // Relationships
             // TODO: To complete when other tables exist.

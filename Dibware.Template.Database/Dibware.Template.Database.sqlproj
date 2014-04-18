@@ -112,6 +112,10 @@
     <Folder Include="dbo\" />
     <Folder Include="dbo\Tables\" />
     <Folder Include="DacPacs" />
+    <Folder Include="application\" />
+    <Folder Include="application\Tables\" />
+    <Folder Include="dbo\Stored Procedures\" />
+    <Folder Include="application\Stored Procedures\" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="security\Tables\User.sql" />
@@ -135,6 +139,23 @@
       <QuotedIdentifier>On</QuotedIdentifier>
     </Build>
     <Build Include="security\Stored Procedures\security.Membership_GetPassword.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="application\Tables\application.Error.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="security\application.sql" />
+    <Build Include="dbo\Stored Procedures\dbo.Error_Update.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="application\Stored Procedures\application.Error_Insert.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="application\Stored Procedures\application.Error_Delete.sql">
       <AnsiNulls>On</AnsiNulls>
       <QuotedIdentifier>On</QuotedIdentifier>
     </Build>
