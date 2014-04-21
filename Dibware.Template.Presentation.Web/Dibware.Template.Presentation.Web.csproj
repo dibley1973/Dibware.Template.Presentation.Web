@@ -271,6 +271,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ConnectionStringKeys.resx</DependentUpon>
     </Compile>
+    <Compile Include="Resources\DictionaryKeys.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DictionaryKeys.resx</DependentUpon>
+    </Compile>
     <Compile Include="Resources\ExceptionMessages.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -317,6 +322,11 @@
       <DependentUpon>ResponseHeaders.resx</DependentUpon>
     </Compile>
     <Compile Include="Resources\UserRole.cs" />
+    <Compile Include="Resources\ValidationMessages.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ValidationMessages.resx</DependentUpon>
+    </Compile>
     <Compile Include="Resources\ViewNames.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -355,6 +365,10 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>ConnectionStringKeys.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="Resources\DictionaryKeys.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>DictionaryKeys.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="Resources\ExceptionMessages.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>ExceptionMessages.Designer.cs</LastGenOutput>
@@ -390,6 +404,10 @@
     <EmbeddedResource Include="Resources\ResponseHeaders.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>ResponseHeaders.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\ValidationMessages.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>ValidationMessages.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Resources\ViewNames.resx">
       <Generator>ResXFileCodeGenerator</Generator>

@@ -5,6 +5,8 @@
     [StackTrace] NVARCHAR (MAX) NOT NULL,
     [Username]   NVARCHAR (MAX) NULL,
     [TimeStamp]  DATETIME       NOT NULL,
-    CONSTRAINT [PK_application.Error] PRIMARY KEY CLUSTERED ([ErrorId] ASC)
+    CONSTRAINT [PK_Error_ErrorId] PRIMARY KEY CLUSTERED ([ErrorId] ASC)
 );
+
+
 

@@ -2,8 +2,10 @@
     [UserGuid] UNIQUEIDENTIFIER NOT NULL,
     [Username] NVARCHAR (MAX)   NOT NULL,
     [Name]     NVARCHAR (MAX)   NOT NULL,
-    CONSTRAINT [PK_security.User] PRIMARY KEY CLUSTERED ([UserGuid] ASC)
+    CONSTRAINT [PK_User_UserGuid] PRIMARY KEY CLUSTERED ([UserGuid] ASC)
 );
+
+
 
 
 

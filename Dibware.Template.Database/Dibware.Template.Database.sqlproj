@@ -116,6 +116,7 @@
     <Folder Include="application\Tables\" />
     <Folder Include="dbo\Stored Procedures\" />
     <Folder Include="application\Stored Procedures\" />
+    <Folder Include="user" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="security\Tables\User.sql" />
@@ -155,9 +156,14 @@
       <AnsiNulls>On</AnsiNulls>
       <QuotedIdentifier>On</QuotedIdentifier>
     </Build>
-    <Build Include="security\Stored Procedures\security.Membership_CreateUserAndMembership .sql">
+    <Build Include="security\Stored Procedures\security.Membership_CreateUserMembershipAndAccount.sql">
       <AnsiNulls>On</AnsiNulls>
       <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="user\dbo.Account.sql" />
+    <Build Include="security\user.sql" />
+    <Build Include="application\Tables\application.Configuration.sql">
+      <AnsiNulls>Off</AnsiNulls>
     </Build>
   </ItemGroup>
   <ItemGroup>

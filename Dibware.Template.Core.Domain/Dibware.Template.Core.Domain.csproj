@@ -92,6 +92,7 @@
     <Compile Include="Entities\Security\User.cs" />
     <Compile Include="Enumerations\AccountStatuscs.cs" />
     <Compile Include="Enumerations\AccountType.cs" />
+    <Compile Include="Exceptions\ValidationException.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Resources\ExceptionMessages.Designer.cs">
       <AutoGen>True</AutoGen>

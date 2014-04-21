@@ -8,9 +8,9 @@ namespace Dibware.Template.Infrastructure.SqlDataAccess.StoredProcedures.Members
     /// <summary>
     /// Represents the security.Membership_CreateUserAndAccount stored procedure
     /// </summary>
-    public class CreateUserAndACreateUserAndMembershipStoredProcedure : BaseStoredProcedure<String>, IStoredProcedure<String>
+    public class CreateUserMembershipAndAccountStoredProcedure : BaseStoredProcedure<String>, IStoredProcedure<String>
     {
-        public const String ProcedureName = @"Membership_CreateUserAndMembership";
+        public const String ProcedureName = @"Membership_CreateUserMembershipAndAccount";
         public const String ProcedureSchema = @"security";
 
         /// <summary>
@@ -20,16 +20,18 @@ namespace Dibware.Template.Infrastructure.SqlDataAccess.StoredProcedures.Members
         /// <param name="name">The name.</param>
         /// <param name="password">The password.</param>
         /// <param name="confirmationToken">The confirmation token.</param>
-        public CreateUserAndACreateUserAndMembershipStoredProcedure(
+        public CreateUserMembershipAndAccountStoredProcedure(
             String username,
             String name,
             String password,
+            String emailAddress,
             String confirmationToken)
             : base(ProcedureSchema, ProcedureName, new Dictionary<String, Object>()
                 {
                     { "username", username },
                     { "name", name },
                     { "password", password },
+                    { "emailAddress", emailAddress },
                     { "confirmationToken", confirmationToken }
                 })
         { }

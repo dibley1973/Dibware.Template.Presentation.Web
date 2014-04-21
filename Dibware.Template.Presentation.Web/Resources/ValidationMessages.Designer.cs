@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Dibware.Template.Infrastructure.SqlDataAccess.Resources {
+namespace Dibware.Template.Presentation.Web.Resources {
     using System;
     
     
@@ -22,14 +22,14 @@ namespace Dibware.Template.Infrastructure.SqlDataAccess.Resources {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class ExceptionMessages {
+    internal class ValidationMessages {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
         private static global::System.Globalization.CultureInfo resourceCulture;
         
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal ExceptionMessages() {
+        internal ValidationMessages() {
         }
         
         /// <summary>
@@ -39,7 +39,7 @@ namespace Dibware.Template.Infrastructure.SqlDataAccess.Resources {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Dibware.Template.Infrastructure.SqlDataAccess.Resources.ExceptionMessages", typeof(ExceptionMessages).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Dibware.Template.Presentation.Web.Resources.ValidationMessages", typeof(ValidationMessages).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -61,20 +61,11 @@ namespace Dibware.Template.Infrastructure.SqlDataAccess.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to An email address must be supplied.
+        ///   Looks up a localized string similar to Your password has not met the required complexity.
         /// </summary>
-        internal static string EmailAddressMustBeSupplied {
+        internal static string PasswordNotMetRequiredComplexity {
             get {
-                return ResourceManager.GetString("EmailAddressMustBeSupplied", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to UnitOfWork must not be null.
-        /// </summary>
-        internal static string UnitOfWorkIsNull {
-            get {
-                return ResourceManager.GetString("UnitOfWorkIsNull", resourceCulture);
+                return ResourceManager.GetString("PasswordNotMetRequiredComplexity", resourceCulture);
             }
         }
     }

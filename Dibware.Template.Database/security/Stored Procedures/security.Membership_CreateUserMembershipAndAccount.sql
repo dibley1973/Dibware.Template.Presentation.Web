@@ -1,14 +1,16 @@
 ﻿-- =============================================
--- Author:		Duane Wingett
--- Create date: 20140418-1506
--- Description:	Creates a new user and account
+-- Author:		    Duane Wingett
+-- Create date:     20140418-1506
+-- Updated date:    20140421-0341
+-- Description:	    Creates a new user, membership and account
 -- =============================================
-CREATE PROCEDURE [security].[Membership_CreateUserAndMembership ]
+CREATE PROCEDURE [security].[Membership_CreateUserMembershipAndAccount]
 (
-	@Username varchar(max)
-,	@Name varchar(max)
-,   @Password varchar(128)
-,	@ConfirmationToken varchar(128) 
+	@Username           varchar(max)
+,	@Name               varchar(max)
+,   @Password           varchar(128)
+,   @EmailAddress       varchar(max)
+,	@ConfirmationToken  varchar(128) 
 )
 AS
 BEGIN
@@ -27,6 +29,24 @@ BEGIN
     BEGIN
         RAISERROR (
             N'Username %s already exists. Please choose another username.',
+            16, -- Severity,
+            1,  -- State,
+            @Username
+        )
+        RETURN -1
+    END
+
+	-- Then check if that email address exists
+    -- and if it does throw an error
+    IF EXISTS
+    (
+        SELECT  1
+        FROM    [user].[Account]
+        WHERE   [EmailAddress] = @EmailAddress
+    )
+    BEGIN
+        RAISERROR (
+            N'Email address %s already exists in the system. Please choose another email address.',
             16, -- Severity,
             1,  -- State,
             @Username
@@ -83,6 +103,34 @@ BEGIN
         ,   null            -- Never set
         );
 
+        -- Load up some default values for the user account
+        DECLARE @InitialAccountStatus   int;
+        DECLARE @DefaultAccountType     int;
+
+        SELECT TOP 1                -- Should only ever be one row anyway!
+            @InitialAccountStatus   = [InitialAccountStatus]
+        ,   @DefaultAccountType     = [DefaultAccountType]
+        FROM
+            [application].[Configuration]
+
+        -- Create account details
+        INSERT INTO [user].Account
+        (
+            [UserGuid]
+        ,   [EmailAddress]
+        ,   [AccountStatus]
+        ,   [LastAccountStatusChangedDate]
+        ,   [AccountType]
+        )
+        VALUES
+        (
+            @UserGuid
+        ,   @EmailAddress
+        ,   @InitialAccountStatus
+        ,   null
+        ,   @DefaultAccountType
+        );
+
         SELECT @UserGuid;
 
         COMMIT TRANSACTION
@@ -119,6 +167,6 @@ BEGIN
 END
 GO
 GRANT EXECUTE
-    ON OBJECT::[security].[Membership_CreateUserAndMembership ] TO [UnauthorisedRole]
+    ON OBJECT::[security].[Membership_CreateUserMembershipAndAccount] TO [UnauthorisedRole]
     AS [dbo];
 

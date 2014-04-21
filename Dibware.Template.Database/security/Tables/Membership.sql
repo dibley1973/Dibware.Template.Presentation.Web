@@ -9,9 +9,11 @@
     [PasswordChangedDate]                     DATETIME         NULL,
     [PasswordVerificationToken]               NVARCHAR (128)   NULL,
     [PasswordVerificationTokenExpirationDate] DATETIME         NULL,
-    PRIMARY KEY CLUSTERED ([UserGuid] ASC),
+    CONSTRAINT [PK_Membership_UserGuid] PRIMARY KEY CLUSTERED ([UserGuid] ASC),
     CONSTRAINT [FK_User_Membership] FOREIGN KEY ([UserGuid]) REFERENCES [security].[User] ([UserGuid])
 );
+
+
 
 
 
