@@ -138,6 +138,12 @@
   <data name="HashByteSize" xml:space="preserve">
     <value>HashByteSize</value>
   </data>
+  <data name="MinRequiredNonAlphanumericCharacters" xml:space="preserve">
+    <value>MinRequiredNonAlphanumericCharacters</value>
+  </data>
+  <data name="MinRequiredPasswordLength" xml:space="preserve">
+    <value>MinRequiredPasswordLength</value>
+  </data>
   <data name="PBKDF2Iterations" xml:space="preserve">
     <value>PBKDF2Iterations</value>
   </data>

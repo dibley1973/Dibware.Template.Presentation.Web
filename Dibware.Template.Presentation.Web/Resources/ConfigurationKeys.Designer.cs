@@ -124,6 +124,24 @@ namespace Dibware.Template.Presentation.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to MinRequiredNonAlphanumericCharacters.
+        /// </summary>
+        public static string MinRequiredNonAlphanumericCharacters {
+            get {
+                return ResourceManager.GetString("MinRequiredNonAlphanumericCharacters", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to MinRequiredPasswordLength.
+        /// </summary>
+        public static string MinRequiredPasswordLength {
+            get {
+                return ResourceManager.GetString("MinRequiredPasswordLength", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to PBKDF2Iterations.
         /// </summary>
         public static string PBKDF2Iterations {

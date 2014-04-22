@@ -21,7 +21,9 @@ namespace Dibware.Template.Presentation.Web.Composition
                 .WithConstructorArgument("hashByteSize", Convert.ToInt32(ConfigurationManager.AppSettings[ConfigurationKeys.HashByteSize]))
                 .WithConstructorArgument("saltByteSize", Convert.ToInt32(ConfigurationManager.AppSettings[ConfigurationKeys.SaltByteSize]))
                 .WithConstructorArgument("pbkdf2Iterations", Convert.ToInt32(ConfigurationManager.AppSettings[ConfigurationKeys.PBKDF2Iterations]))
-                .WithConstructorArgument("confirmationTokenLength", Convert.ToInt32(ConfigurationManager.AppSettings[ConfigurationKeys.ConfirmationTokenLength]));
+                .WithConstructorArgument("confirmationTokenLength", Convert.ToInt32(ConfigurationManager.AppSettings[ConfigurationKeys.ConfirmationTokenLength]))
+                .WithConstructorArgument("minRequiredPasswordLength", Convert.ToInt32(ConfigurationManager.AppSettings[ConfigurationKeys.MinRequiredPasswordLength]))
+                .WithConstructorArgument("minRequiredNonAlphanumericCharacters", Convert.ToInt32(ConfigurationManager.AppSettings[ConfigurationKeys.MinRequiredNonAlphanumericCharacters]));
 
             Bind<IErrorService>()
                 .To<ErrorService>()

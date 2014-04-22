@@ -43,12 +43,15 @@ namespace Dibware.Template.Core.Application.Services
         /// without breaking existing hashes.</param>
         /// <param name="confirmationTokenLength">Length in characters of the confirmation token.</param>
         public PasswordService(Int32 hashByteSize, Int32 saltByteSize,
-            Int32 pbkdf2Iterations, Int32 confirmationTokenLength)
+            Int32 pbkdf2Iterations, Int32 confirmationTokenLength,
+            Int32 minRequiredPasswordLength, Int32 minRequiredNonAlphanumericCharacters)
         {
             HashByteSize = hashByteSize;
             SaltByteSize = saltByteSize;
             PBKDF2Iterations = pbkdf2Iterations;
             ConfirmationTokenLength = confirmationTokenLength;
+            MinRequiredPasswordLength = minRequiredPasswordLength;
+            MinRequiredNonAlphanumericCharacters = minRequiredNonAlphanumericCharacters;
         }
 
         #endregion
@@ -70,6 +73,16 @@ namespace Dibware.Template.Core.Application.Services
         /// The size of the hash Byte.
         /// </value>
         private Int32 HashByteSize { get; set; }
+
+        /// <summary>
+        /// Gets or sets the minimum password length
+        /// </summary>
+        public Int32 MinRequiredPasswordLength { get; set; }
+
+        /// <summary>
+        /// Gets or sets the minimum required non alphanumeric characters
+        /// </summary>
+        public Int32 MinRequiredNonAlphanumericCharacters { get; set; }
 
         /// <summary>
         /// Gets or sets the size in Bytes of the salt.
