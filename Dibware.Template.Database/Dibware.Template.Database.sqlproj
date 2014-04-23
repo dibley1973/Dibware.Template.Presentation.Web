@@ -166,7 +166,7 @@
     <Build Include="application\Tables\application.Configuration.sql">
       <AnsiNulls>Off</AnsiNulls>
     </Build>
-    <Build Include="security\Tables\security.PasswordStrengthRules.sql">
+    <Build Include="security\Tables\security.PasswordStrengthRule.sql">
       <AnsiNulls>On</AnsiNulls>
       <QuotedIdentifier>On</QuotedIdentifier>
     </Build>

@@ -71,6 +71,7 @@
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
     <Compile Include="Repositories\ErrorRepository.cs" />
+    <Compile Include="Repositories\PasswordStrengthRuleRepository.cs" />
     <Compile Include="Repositories\RoleRepository.cs" />
     <Compile Include="Repositories\MembershipRepository.cs" />
     <Compile Include="Resources\ColumnNames.Designer.cs">

@@ -52,6 +52,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Data.Linq" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -71,6 +72,7 @@
     <Compile Include="Contracts\Repositories\Base\IRepository.cs" />
     <Compile Include="Contracts\Repositories\IErrorRepository.cs" />
     <Compile Include="Contracts\Repositories\IMembershipRepository.cs" />
+    <Compile Include="Contracts\Repositories\IPasswordStrengthRuleRepository.cs" />
     <Compile Include="Contracts\Repositories\IRoleRepository.cs" />
     <Compile Include="Contracts\Services\IAccountStatusService.cs" />
     <Compile Include="Contracts\Services\ICloneService.cs" />
@@ -88,6 +90,7 @@
     <Compile Include="Entities\Base\BaseKeyEntity.cs" />
     <Compile Include="Entities\Base\BaseKeyNameEntity.cs" />
     <Compile Include="Entities\Base\BaseNameEntity.cs" />
+    <Compile Include="Entities\Security\PasswordStrengthRule.cs" />
     <Compile Include="Entities\Security\Role.cs" />
     <Compile Include="Entities\Security\User.cs" />
     <Compile Include="Enumerations\AccountStatuscs.cs" />
@@ -122,6 +125,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Contracts\Entities\Base\IBaseEntityDiagram.cd" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
