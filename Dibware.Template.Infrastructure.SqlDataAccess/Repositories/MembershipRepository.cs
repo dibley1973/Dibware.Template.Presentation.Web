@@ -94,6 +94,11 @@ namespace Dibware.Template.Infrastructure.SqlDataAccess.Repositories
             return returnValue;
         }
 
+        public string GetPasswordStrengthRegularExpression()
+        {
+            throw new NotImplementedException();
+        }
+
         ///// <summary>
         ///// Validates the user.
         ///// </summary>
@@ -118,6 +123,7 @@ namespace Dibware.Template.Infrastructure.SqlDataAccess.Repositories
         // Ref:
         //  http://www.lucbos.net/2012/03/calling-stored-procedure-with-entity.html
         //  https://github.com/LucBos/GenericExtensionsEFCF
+
 
 
 

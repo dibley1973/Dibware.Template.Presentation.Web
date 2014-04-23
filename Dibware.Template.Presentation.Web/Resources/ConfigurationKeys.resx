@@ -144,6 +144,9 @@
   <data name="MinRequiredPasswordLength" xml:space="preserve">
     <value>MinRequiredPasswordLength</value>
   </data>
+  <data name="PasswordStrengthRegularExpression" xml:space="preserve">
+    <value>PasswordStrengthRegularExpression</value>
+  </data>
   <data name="PBKDF2Iterations" xml:space="preserve">
     <value>PBKDF2Iterations</value>
   </data>

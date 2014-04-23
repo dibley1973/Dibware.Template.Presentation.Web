@@ -23,7 +23,8 @@ namespace Dibware.Template.Presentation.Web.Composition
                 .WithConstructorArgument("pbkdf2Iterations", Convert.ToInt32(ConfigurationManager.AppSettings[ConfigurationKeys.PBKDF2Iterations]))
                 .WithConstructorArgument("confirmationTokenLength", Convert.ToInt32(ConfigurationManager.AppSettings[ConfigurationKeys.ConfirmationTokenLength]))
                 .WithConstructorArgument("minRequiredPasswordLength", Convert.ToInt32(ConfigurationManager.AppSettings[ConfigurationKeys.MinRequiredPasswordLength]))
-                .WithConstructorArgument("minRequiredNonAlphanumericCharacters", Convert.ToInt32(ConfigurationManager.AppSettings[ConfigurationKeys.MinRequiredNonAlphanumericCharacters]));
+                .WithConstructorArgument("minRequiredNonAlphanumericCharacters", Convert.ToInt32(ConfigurationManager.AppSettings[ConfigurationKeys.MinRequiredNonAlphanumericCharacters]))
+                .WithConstructorArgument("passwordStrengthRegularExpression", ConfigurationManager.AppSettings[ConfigurationKeys.PasswordStrengthRegularExpression]);
 
             Bind<IErrorService>()
                 .To<ErrorService>()

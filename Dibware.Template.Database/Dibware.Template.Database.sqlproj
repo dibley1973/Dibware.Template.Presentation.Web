@@ -117,6 +117,7 @@
     <Folder Include="dbo\Stored Procedures\" />
     <Folder Include="application\Stored Procedures\" />
     <Folder Include="user" />
+    <Folder Include="PostDeploymentScripts" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="security\Tables\User.sql" />
@@ -165,12 +166,17 @@
     <Build Include="application\Tables\application.Configuration.sql">
       <AnsiNulls>Off</AnsiNulls>
     </Build>
+    <Build Include="security\Tables\security.PasswordStrengthRules.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
   </ItemGroup>
   <ItemGroup>
     <RefactorLog Include="Dibware.Template.Database.refactorlog" />
   </ItemGroup>
   <ItemGroup>
     <None Include="DacPacs\master.dacpac" />
+    <PostDeploy Include="PostDeploymentScripts\security.PasswordStrengthRules.Data.sql" />
   </ItemGroup>
   <ItemGroup>
     <ArtifactReference Include="DacPacs\master.dacpac">

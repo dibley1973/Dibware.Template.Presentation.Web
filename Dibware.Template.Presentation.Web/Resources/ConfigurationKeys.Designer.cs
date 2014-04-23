@@ -142,6 +142,15 @@ namespace Dibware.Template.Presentation.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to PasswordStrengthRegularExpression.
+        /// </summary>
+        public static string PasswordStrengthRegularExpression {
+            get {
+                return ResourceManager.GetString("PasswordStrengthRegularExpression", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to PBKDF2Iterations.
         /// </summary>
         public static string PBKDF2Iterations {

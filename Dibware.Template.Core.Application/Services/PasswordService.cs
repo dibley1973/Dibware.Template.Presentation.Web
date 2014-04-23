@@ -18,11 +18,6 @@ namespace Dibware.Template.Core.Application.Services
 
         #region Declarations
 
-        // The following constants may be changed without breaking existing hashes.
-        //public const Int32 SALT_BYTE_SIZE = 24;
-        //public const Int32 HASH_BYTE_SIZE = 24;
-        //public const Int32 PBKDF2_ITERATIONS = 1000;
-
         private readonly char[] DELIMITER = { ':' };
         private const Int32 DELIMITER_INDEX = 0;
         private const Int32 ITERATION_INDEX = 0;
@@ -44,7 +39,8 @@ namespace Dibware.Template.Core.Application.Services
         /// <param name="confirmationTokenLength">Length in characters of the confirmation token.</param>
         public PasswordService(Int32 hashByteSize, Int32 saltByteSize,
             Int32 pbkdf2Iterations, Int32 confirmationTokenLength,
-            Int32 minRequiredPasswordLength, Int32 minRequiredNonAlphanumericCharacters)
+            Int32 minRequiredPasswordLength, Int32 minRequiredNonAlphanumericCharacters,
+            String passwordStrengthRegularExpression)
         {
             HashByteSize = hashByteSize;
             SaltByteSize = saltByteSize;
@@ -52,6 +48,7 @@ namespace Dibware.Template.Core.Application.Services
             ConfirmationTokenLength = confirmationTokenLength;
             MinRequiredPasswordLength = minRequiredPasswordLength;
             MinRequiredNonAlphanumericCharacters = minRequiredNonAlphanumericCharacters;
+            PasswordStrengthRegularExpression = passwordStrengthRegularExpression;
         }
 
         #endregion
@@ -75,14 +72,19 @@ namespace Dibware.Template.Core.Application.Services
         private Int32 HashByteSize { get; set; }
 
         /// <summary>
-        /// Gets or sets the minimum password length
+        /// Gets the minimum password length
         /// </summary>
-        public Int32 MinRequiredPasswordLength { get; set; }
+        public Int32 MinRequiredPasswordLength { get; private set; }
 
         /// <summary>
-        /// Gets or sets the minimum required non alphanumeric characters
+        /// Gets the minimum required non alphanumeric characters
         /// </summary>
-        public Int32 MinRequiredNonAlphanumericCharacters { get; set; }
+        public Int32 MinRequiredNonAlphanumericCharacters { get; private set; }
+
+        /// <summary>
+        /// Gets the regular expression for the password strength
+        /// </summary>
+        public String PasswordStrengthRegularExpression { get; private set; }
 
         /// <summary>
         /// Gets or sets the size in Bytes of the salt.
