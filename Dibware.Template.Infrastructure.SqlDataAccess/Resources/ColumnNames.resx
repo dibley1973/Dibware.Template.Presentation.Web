@@ -120,6 +120,9 @@
   <data name="ErrorId" xml:space="preserve">
     <value>ErrorId</value>
   </data>
+  <data name="PasswordStrengthRuleId" xml:space="preserve">
+    <value>Id</value>
+  </data>
   <data name="RoleKey" xml:space="preserve">
     <value>RoleKey</value>
   </data>

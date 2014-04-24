@@ -25,7 +25,10 @@ namespace Dibware.Template.Infrastructure.SqlDataAccess.Repositories
 
         #region IPasswordStrengthRuleRepository Members
 
-
+        public IEnumerable<String> GetAllRuleRegularExpressions()
+        {
+            throw new NotImplementedException();
+        }
 
         #endregion
     }

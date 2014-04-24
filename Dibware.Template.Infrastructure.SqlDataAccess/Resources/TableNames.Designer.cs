@@ -70,6 +70,15 @@ namespace Dibware.Template.Infrastructure.SqlDataAccess.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to PasswordStrengthRule.
+        /// </summary>
+        internal static string PasswordStrengthRule {
+            get {
+                return ResourceManager.GetString("PasswordStrengthRule", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Role.
         /// </summary>
         internal static string Role {

@@ -12,6 +12,11 @@ namespace Dibware.Template.Core.Domain.Entities.Security
         /// Gets or sets the description
         /// </summary>
         public String Description { get; set; }
+        
+        /// <summary>
+        /// Gets or sets the notes
+        /// </summary>
+        public String Notes { get; set; }
 
         /// <summary>
         /// Gets or sets the regular expression

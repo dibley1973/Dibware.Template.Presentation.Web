@@ -10,5 +10,6 @@ namespace Dibware.Template.Core.Domain.Contracts.Repositories
 {
     public interface IPasswordStrengthRuleRepository : IRepository<PasswordStrengthRule>
     {
+        IEnumerable<String> GetAllRuleRegularExpressions();
     }
 }

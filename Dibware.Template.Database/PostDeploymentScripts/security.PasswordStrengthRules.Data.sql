@@ -14,24 +14,25 @@
 -- Reference Data for PasswordStrengthRules 
 MERGE INTO [security].[PasswordStrengthRules] AS Target 
 USING (VALUES 
-  (1,N'(?=^.{8,25}$)', N'Password length range from 8 to 25, the numbers are adjustable'), 
-  (2,N'(?=(?:.*?[!@#$%*()_+^&}{:;?.]){1})', N'At least 1 special characters (!@#$%*()_+^&}{:;?.}), the number is adjustable '), 
-  (3,N'(?=(?:.*?\d){2})', N'At least 2 digits, the number is adjustable'), 
-  (4,N'(?=.*[a-z])', N'Characters a-z'), 
-  (5,N'(?=(?:.*?[A-Z]){2})', N'At least 2 upper case characters, the number is adjustable') 
+  (1,N'(?=^.{8,25}$)', N'Password length range from 8 to 25', N'The numbers are adjustable'), 
+  (2,N'(?=(?:.*?[!@#$%*()_+^&}{:;?.]){1})', N'At least 1 special characters (!@#$%*()_+^&}{:;?.})', N'This number is adjustable'), 
+  (3,N'(?=(?:.*?\d){2})', N'At least 2 digits', N'This number is adjustable'), 
+  (4,N'(?=.*[a-z])', N'Characters a-z', N''), 
+  (5,N'(?=(?:.*?[A-Z]){2})', N'At least 2 upper case characters', N'Thise number is adjustable') 
 ) 
-AS Source ([Id],[RegularExpression], [Description]) 
+AS Source ([Id],[RegularExpression], [Description], [Notes]) 
 ON Target.Id = Source.Id 
 -- update matched rows 
 WHEN MATCHED THEN 
 	UPDATE SET 
-		[RegularExpression] = Source.[RegularExpression],
-		[Description] = Source.[Description]
+		[RegularExpression] = Source.[RegularExpression]
+	,	[Description] = Source.[Description]
+	,	[Notes] = Source.[Notes]
 
 -- insert new rows 
 WHEN NOT MATCHED BY TARGET THEN 
-	INSERT ([RegularExpression], [Description]) 
-	VALUES ([RegularExpression], [Description]) 
+	INSERT ([RegularExpression], [Description], [Notes]) 
+	VALUES ([RegularExpression], [Description], [Notes]) 
 
 -- delete rows that are in the target but not the source 
 WHEN NOT MATCHED BY SOURCE THEN 

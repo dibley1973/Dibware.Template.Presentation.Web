@@ -5,6 +5,7 @@ using Dibware.Template.Infrastructure.SqlDataAccess.UnitOfWork.Configuration;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.Data.Entity.Validation;
 using System.Data.Entity.ModelConfiguration.Conventions;
 using System.Data.SqlClient;
 using System.Linq;
@@ -35,6 +36,7 @@ namespace Dibware.Template.Infrastructure.SqlDataAccess.UnitOfWork
 
             // Security
             modelBuilder.Configurations.Add(new ErrorConfiguration());
+            modelBuilder.Configurations.Add(new PasswordStrengthRuleConfiguration());
             modelBuilder.Configurations.Add(new RoleConfiguration());
             modelBuilder.Configurations.Add(new UserConfiguration());
         }
@@ -92,7 +94,18 @@ namespace Dibware.Template.Infrastructure.SqlDataAccess.UnitOfWork
         /// </summary>
         public void Commit()
         {
-            base.SaveChanges();
+            try
+            {
+                base.SaveChanges();
+            }
+            catch(DbEntityValidationException dbException)
+            {
+                throw dbException;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
 
         /// <summary>

@@ -72,6 +72,7 @@
     <Compile Include="Initialisers\WebsiteDbContextInitialiser_Empty.cs" />
     <Compile Include="MockData\ErrorData.cs" />
     <Compile Include="MockData\MockRepository.cs" />
+    <Compile Include="MockData\PasswordStrengthRuleData.cs" />
     <Compile Include="MockData\RoleData.cs" />
     <Compile Include="MockData\UserData.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -81,6 +82,7 @@
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
     <Compile Include="Repositories\ErrorRepositoryTests.cs" />
+    <Compile Include="Repositories\PasswordStrengthRuleRepositoryTests.cs" />
     <Compile Include="Repositories\RoleRepositoryTests.cs" />
     <Compile Include="Repositories\UserRepositoryTests.cs" />
     <Compile Include="UnitOfWork\WebsiteDbContextTests.cs" />

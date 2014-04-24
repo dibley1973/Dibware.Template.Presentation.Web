@@ -118,6 +118,7 @@
     <Compile Include="StoredProcedures\Membership\GetPasswordStoredProcedure.cs" />
     <Compile Include="StoredProcedures\Membership\ValidateUserStoredProcedure.cs" />
     <Compile Include="UnitOfWork\Configuration\ErrorConfiguration.cs" />
+    <Compile Include="UnitOfWork\Configuration\PasswordStrengthRuleConfiguration.cs" />
     <Compile Include="UnitOfWork\Configuration\RoleConfiguration.cs" />
     <Compile Include="UnitOfWork\Configuration\UserConfiguration.cs" />
     <Compile Include="UnitOfWork\WebsiteDbContext.cs" />
