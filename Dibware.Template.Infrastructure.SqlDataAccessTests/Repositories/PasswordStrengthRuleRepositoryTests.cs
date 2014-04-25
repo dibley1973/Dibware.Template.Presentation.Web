@@ -34,7 +34,7 @@ namespace Dibware.Template.Infrastructure.SqlDataAccessTests.Repositories
             initialiser.InitializeDatabase(_unitOfWork);
         }
 
-        #endregion Test 
+        #endregion Test
 
         #region Tests
 
@@ -69,6 +69,26 @@ namespace Dibware.Template.Infrastructure.SqlDataAccessTests.Repositories
         }
 
         [TestMethod]
+        public void Test_PasswordStrengthRuleRepository_GetAllRulesAsRegularExpressionWithValidUnitOfWork_ResultsIn_AllRulesRegularExpressionsReturned()
+        {
+            // Arrange
+            //const Int32 expectedCount = 5;
+            var repository = (IPasswordStrengthRuleRepository)new PasswordStrengthRuleRepository(_unitOfWork);
+
+            // Act
+            var allRegexString = repository.GetAllRulesAsRegularExpression();
+            //var allRegexString = results.Aggregate((current, next) => current + next);
+
+            // Assert
+            // Assert.AreEqual(expectedCount, results.Count());
+            Assert.IsTrue(allRegexString.Contains(PasswordStrengthRuleData.Rule1.RegularExpression));
+            Assert.IsTrue(allRegexString.Contains(PasswordStrengthRuleData.Rule2.RegularExpression));
+            Assert.IsTrue(allRegexString.Contains(PasswordStrengthRuleData.Rule3.RegularExpression));
+            Assert.IsTrue(allRegexString.Contains(PasswordStrengthRuleData.Rule4.RegularExpression));
+            Assert.IsTrue(allRegexString.Contains(PasswordStrengthRuleData.Rule5.RegularExpression));
+        }
+
+        [TestMethod]
         public void Test_PasswordStrengthRuleRepository_GetAllRuleRegularExpressionsWithValidUnitOfWork_ResultsIn_AllRulesRegularExpressionsReturned()
         {
             // Arrange
@@ -80,12 +100,14 @@ namespace Dibware.Template.Infrastructure.SqlDataAccessTests.Repositories
             var allRegexString = results.Aggregate((current, next) => current + next);
 
             // Assert
+            Assert.AreEqual(expectedCount, results.Count());
             Assert.IsTrue(allRegexString.Contains(PasswordStrengthRuleData.Rule1.RegularExpression));
             Assert.IsTrue(allRegexString.Contains(PasswordStrengthRuleData.Rule2.RegularExpression));
             Assert.IsTrue(allRegexString.Contains(PasswordStrengthRuleData.Rule3.RegularExpression));
             Assert.IsTrue(allRegexString.Contains(PasswordStrengthRuleData.Rule4.RegularExpression));
             Assert.IsTrue(allRegexString.Contains(PasswordStrengthRuleData.Rule5.RegularExpression));
         }
+
         #endregion
 
         #endregion

@@ -1,12 +1,11 @@
-﻿using Dibware.Template.Core.Domain.Contracts.Repositories;
+﻿using Dibware.Extensions.System.Collections;
+using Dibware.Template.Core.Domain.Contracts.Repositories;
 using Dibware.Template.Core.Domain.Contracts.UnitOfWork;
 using Dibware.Template.Core.Domain.Entities.Security;
 using Dibware.Template.Infrastructure.SqlDataAccess.Base;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Dibware.Template.Infrastructure.SqlDataAccess.Repositories
 {
@@ -25,9 +24,26 @@ namespace Dibware.Template.Infrastructure.SqlDataAccess.Repositories
 
         #region IPasswordStrengthRuleRepository Members
 
+        /// <summary>
+        /// Gets all rules as a regular expression.
+        /// </summary>
+        /// <returns></returns>
+        public String GetAllRulesAsRegularExpression()
+        {
+            var rules = GetAllRuleRegularExpressions();
+            var expression = rules.AppendAll();
+            return expression;
+        }
+
+        /// <summary>
+        /// Gets all of the individual password rule regular expressions.
+        /// </summary>
+        /// <returns></returns>
         public IEnumerable<String> GetAllRuleRegularExpressions()
         {
-            throw new NotImplementedException();
+            var rules = UnitOfWork.CreateSet<PasswordStrengthRule>();
+            var rulesRegularExpressions = rules.Select(r => r.RegularExpression);
+            return rulesRegularExpressions;
         }
 
         #endregion

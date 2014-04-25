@@ -61,6 +61,15 @@ namespace Dibware.Template.Core.Application.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Password strength rule repository must not be null..
+        /// </summary>
+        internal static string PasswordStrengthRuleRepositoryMustNotBeNull {
+            get {
+                return ResourceManager.GetString("PasswordStrengthRuleRepositoryMustNotBeNull", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Rules must not be empty.
         /// </summary>
         internal static string RulesNotEmpty {

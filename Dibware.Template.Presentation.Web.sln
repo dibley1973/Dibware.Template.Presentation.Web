@@ -45,10 +45,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dibware.Template.Core.Appli
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{58E63293-0508-473B-8812-F65AD7F465F9}"
 	ProjectSection(SolutionItems) = preProject
+		Dibware.Template.Sitemap.vsdx = Dibware.Template.Sitemap.vsdx
 		..\dibware.clique\dibware.clique\Link_Cloning.txt = ..\dibware.clique\dibware.clique\Link_Cloning.txt
 		..\dibware.clique\dibware.clique\Link_ExpectedException.txt = ..\dibware.clique\dibware.clique\Link_ExpectedException.txt
 		Link_Security.txt = Link_Security.txt
 		..\dibware.clique\dibware.clique\Links_Membership.txt = ..\dibware.clique\dibware.clique\Links_Membership.txt
+		UserStories.xlsx = UserStories.xlsx
 	EndProjectSection
 EndProject
 Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "Dibware.Template.Database", "Dibware.Template.Database\Dibware.Template.Database.sqlproj", "{8DE5309C-56E9-46B4-92C6-678A2F90B495}"

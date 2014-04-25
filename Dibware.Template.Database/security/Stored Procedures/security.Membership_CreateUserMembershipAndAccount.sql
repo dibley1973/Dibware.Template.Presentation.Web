@@ -58,22 +58,31 @@ BEGIN
         BEGIN TRANSACTION
 
         -- Create a new GUID for the user
-	    DECLARE	@UserGuid uniqueidentifier;
-	    SET		@UserGuid = NEWID();
+	    DECLARE	@UserGuid UNIQUEIDENTIFIER;
+	    --SET		@UserGuid = NEWID();
+
+        DECLARE @OutPutTable TABLE (
+            UserGuid uniqueidentifier
+        )
 
 	    -- Create user details
 	    INSERT INTO [security].[User]
 		(
-            [UserGuid]
-		,   [Username]
+            --[UserGuid]
+		    [Username]
 		,   [Name]
         )
+        OUTPUT inserted.UserGuid INTO @OutPutTable
 	    VALUES
 		(
-            @UserGuid
-		,   @Username
+            --@UserGuid
+		    @Username
 		,   @Name
         );
+
+        -- Get identity of the newly inserted record
+        --SET @UserGuid = SCOPE_IDENTITY();
+        SELECT @UserGuid = UserGuid FROM @OutPutTable;
 
         -- Create membership details
         INSERT INTO [security].[Membership]

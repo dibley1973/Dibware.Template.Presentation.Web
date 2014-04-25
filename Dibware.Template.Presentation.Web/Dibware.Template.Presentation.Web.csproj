@@ -45,7 +45,7 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>Libraries\AutoMapper.dll</HintPath>
     </Reference>
-    <Reference Include="Dibware.Extensions, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="Dibware.Extensions, Version=1.0.0.9406, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>Libraries\Dibware.Extensions.dll</HintPath>
     </Reference>

@@ -9,6 +9,7 @@ using Dibware.Template.Infrastructure.SqlDataAccess.StoredProcedures.Membership;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 
 namespace Dibware.Template.Infrastructure.SqlDataAccess.Repositories
 {
@@ -96,8 +97,25 @@ namespace Dibware.Template.Infrastructure.SqlDataAccess.Repositories
 
         public string GetPasswordStrengthRegularExpression()
         {
+
+
+
+            var regularExpressionBuilder = new StringBuilder();
+            regularExpressionBuilder.Append("");
+            regularExpressionBuilder.Append("");
+            regularExpressionBuilder.Append("");
+
+            return regularExpressionBuilder.ToString();
+
             throw new NotImplementedException();
         }
+
+
+
+        //private IEnumerable<String> GetAllRuleRegularExpressions()
+        //{
+        //    throw new NotImplementedException();
+        //}
 
         ///// <summary>
         ///// Validates the user.
@@ -123,6 +141,7 @@ namespace Dibware.Template.Infrastructure.SqlDataAccess.Repositories
         // Ref:
         //  http://www.lucbos.net/2012/03/calling-stored-procedure-with-entity.html
         //  https://github.com/LucBos/GenericExtensionsEFCF
+
 
 
 

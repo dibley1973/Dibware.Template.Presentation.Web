@@ -34,6 +34,10 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>Libraires\Dibware.EF.Extensions.dll</HintPath>
     </Reference>
+    <Reference Include="Dibware.Extensions, Version=1.0.0.37886, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Libraires\Dibware.Extensions.dll</HintPath>
+    </Reference>
     <Reference Include="Dibware.Helpers, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\Dibware.Template.Core.Application\Libraries\Dibware.Helpers.dll</HintPath>

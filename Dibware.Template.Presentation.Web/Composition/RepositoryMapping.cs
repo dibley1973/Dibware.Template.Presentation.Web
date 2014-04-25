@@ -50,6 +50,15 @@ namespace Dibware.Template.Presentation.Web.Composition
                 .InRequestScope();
 
             #endregion
+
+            #region PasswordStrengthRuleRepository
+
+            // Bind the Interface for the PasswordStrengthRuleRepository to an implementation
+            Bind<IPasswordStrengthRuleRepository>()
+                .To<PasswordStrengthRuleRepository>()
+                .InRequestScope();
+
+            #endregion
         }
     }
 }

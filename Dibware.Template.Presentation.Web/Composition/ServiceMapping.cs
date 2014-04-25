@@ -13,6 +13,20 @@ namespace Dibware.Template.Presentation.Web.Composition
     {
         public override void Load()
         {
+            //// Bind the Interface for the IRepositoryMembershipProviderPasswordService
+            //// to a valid implementation
+            //Bind<IRepositoryMembershipProviderPasswordService>()
+            //    .To<PasswordService>()
+            //    .InRequestScope()
+            //    .WithConstructorArgument("hashByteSize", Convert.ToInt32(ConfigurationManager.AppSettings[ConfigurationKeys.HashByteSize]))
+            //    .WithConstructorArgument("saltByteSize", Convert.ToInt32(ConfigurationManager.AppSettings[ConfigurationKeys.SaltByteSize]))
+            //    .WithConstructorArgument("pbkdf2Iterations", Convert.ToInt32(ConfigurationManager.AppSettings[ConfigurationKeys.PBKDF2Iterations]))
+            //    .WithConstructorArgument("confirmationTokenLength", Convert.ToInt32(ConfigurationManager.AppSettings[ConfigurationKeys.ConfirmationTokenLength]))
+            //    .WithConstructorArgument("minRequiredPasswordLength", Convert.ToInt32(ConfigurationManager.AppSettings[ConfigurationKeys.MinRequiredPasswordLength]))
+            //    .WithConstructorArgument("minRequiredNonAlphanumericCharacters", Convert.ToInt32(ConfigurationManager.AppSettings[ConfigurationKeys.MinRequiredNonAlphanumericCharacters]))
+            //    .WithConstructorArgument("passwordStrengthRegularExpression", ConfigurationManager.AppSettings[ConfigurationKeys.PasswordStrengthRegularExpression]);
+
+
             // Bind the Interface for the IRepositoryMembershipProviderPasswordService
             // to a valid implementation
             Bind<IRepositoryMembershipProviderPasswordService>()
@@ -23,8 +37,10 @@ namespace Dibware.Template.Presentation.Web.Composition
                 .WithConstructorArgument("pbkdf2Iterations", Convert.ToInt32(ConfigurationManager.AppSettings[ConfigurationKeys.PBKDF2Iterations]))
                 .WithConstructorArgument("confirmationTokenLength", Convert.ToInt32(ConfigurationManager.AppSettings[ConfigurationKeys.ConfirmationTokenLength]))
                 .WithConstructorArgument("minRequiredPasswordLength", Convert.ToInt32(ConfigurationManager.AppSettings[ConfigurationKeys.MinRequiredPasswordLength]))
-                .WithConstructorArgument("minRequiredNonAlphanumericCharacters", Convert.ToInt32(ConfigurationManager.AppSettings[ConfigurationKeys.MinRequiredNonAlphanumericCharacters]))
-                .WithConstructorArgument("passwordStrengthRegularExpression", ConfigurationManager.AppSettings[ConfigurationKeys.PasswordStrengthRegularExpression]);
+                .WithConstructorArgument("minRequiredNonAlphanumericCharacters", Convert.ToInt32(ConfigurationManager.AppSettings[ConfigurationKeys.MinRequiredNonAlphanumericCharacters]));
+            //.WithConstructorArgument("passwordStrengthRuleRepository", context => context.Kernel.Get<IPasswordStrengthRuleRepository>(;
+            //.WithConstructorArgument("passwordStrengthRuleRepository", Kernel.Get<IPasswordStrengthRuleRepository>());
+
 
             Bind<IErrorService>()
                 .To<ErrorService>()

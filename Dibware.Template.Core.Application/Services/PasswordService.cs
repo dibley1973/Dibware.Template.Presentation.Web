@@ -1,7 +1,11 @@
-﻿using Dibware.Template.Core.Domain.Contracts.Services;
+﻿using Dibware.Helpers.Validation;
+using Dibware.Template.Core.Application.Resources;
+using Dibware.Template.Core.Domain.Contracts.Repositories;
+using Dibware.Template.Core.Domain.Contracts.Services;
 using System;
 using System.Security.Cryptography;
 using System.Text;
+using System.Linq;
 
 namespace Dibware.Template.Core.Application.Services
 {
@@ -29,26 +33,56 @@ namespace Dibware.Template.Core.Application.Services
 
         #region Constructors
 
+        ///// <summary>
+        ///// Initializes a new instance of the <see cref="PasswordService" /> class.
+        ///// </summary>
+        ///// <param name="hashByteSize">Size in Bytes of the hash. May be changed without breaking existing hashes.</param>
+        ///// <param name="saltByteSize">Size in Bytes of the salt. May be changed without breaking existing hashes.</param>
+        ///// <param name="pbkdf2Iterations">The number of PBKDF2 iterations to use. May be changed
+        ///// without breaking existing hashes.</param>
+        ///// <param name="confirmationTokenLength">Length in characters of the confirmation token.</param>
+        ///// <param name="minRequiredPasswordLength">Minimum length of the required password.</param>
+        ///// <param name="minRequiredNonAlphanumericCharacters">The minimum required non alphanumeric characters.</param>
+        ///// <param name="passwordStrengthRegularExpression">The password strength regular expression.</param>
+        //public PasswordService(
+        //    Int32 hashByteSize, Int32 saltByteSize,
+        //    Int32 pbkdf2Iterations, Int32 confirmationTokenLength,
+        //    Int32 minRequiredPasswordLength, 
+        //    Int32 minRequiredNonAlphanumericCharacters,
+        //    String passwordStrengthRegularExpression)
+        //{
+        //    Initialise(hashByteSize, saltByteSize,
+        //    pbkdf2Iterations, confirmationTokenLength,
+        //    minRequiredPasswordLength, 
+        //    minRequiredNonAlphanumericCharacters,
+        //    passwordStrengthRegularExpression);
+        //}
+
         /// <summary>
         /// Initializes a new instance of the <see cref="PasswordService" /> class.
         /// </summary>
+        /// <param name="passwordStrengthRuleRepository">The password strength rule repository.</param>
         /// <param name="hashByteSize">Size in Bytes of the hash. May be changed without breaking existing hashes.</param>
         /// <param name="saltByteSize">Size in Bytes of the salt. May be changed without breaking existing hashes.</param>
         /// <param name="pbkdf2Iterations">The number of PBKDF2 iterations to use. May be changed
         /// without breaking existing hashes.</param>
         /// <param name="confirmationTokenLength">Length in characters of the confirmation token.</param>
-        public PasswordService(Int32 hashByteSize, Int32 saltByteSize,
+        /// <param name="minRequiredPasswordLength">Minimum length of the required password.</param>
+        /// <param name="minRequiredNonAlphanumericCharacters">The minimum required non alphanumeric characters.</param>
+        public PasswordService(
+            IPasswordStrengthRuleRepository passwordStrengthRuleRepository,
+            Int32 hashByteSize, Int32 saltByteSize,
             Int32 pbkdf2Iterations, Int32 confirmationTokenLength,
-            Int32 minRequiredPasswordLength, Int32 minRequiredNonAlphanumericCharacters,
-            String passwordStrengthRegularExpression)
+            Int32 minRequiredPasswordLength,
+            Int32 minRequiredNonAlphanumericCharacters)
         {
+            PasswordStrengthRuleRepository = passwordStrengthRuleRepository;
             HashByteSize = hashByteSize;
             SaltByteSize = saltByteSize;
             PBKDF2Iterations = pbkdf2Iterations;
             ConfirmationTokenLength = confirmationTokenLength;
             MinRequiredPasswordLength = minRequiredPasswordLength;
             MinRequiredNonAlphanumericCharacters = minRequiredNonAlphanumericCharacters;
-            PasswordStrengthRegularExpression = passwordStrengthRegularExpression;
         }
 
         #endregion
@@ -84,7 +118,21 @@ namespace Dibware.Template.Core.Application.Services
         /// <summary>
         /// Gets the regular expression for the password strength
         /// </summary>
-        public String PasswordStrengthRegularExpression { get; private set; }
+        public String PasswordStrengthRegularExpression
+        { 
+            get
+            {
+                return GetPasswordStrengthRegularExpression(PasswordStrengthRuleRepository);
+            }
+        }
+
+        /// <summary>
+        /// Gets or sets the password strength rule repository.
+        /// </summary>
+        /// <value>
+        /// The password strength rule repository.
+        /// </value>
+        private IPasswordStrengthRuleRepository PasswordStrengthRuleRepository { get; set; }
 
         /// <summary>
         /// Gets or sets the size in Bytes of the salt.
@@ -129,6 +177,32 @@ namespace Dibware.Template.Core.Application.Services
                 delimiter +
                 Convert.ToBase64String(hash);
         }
+
+        /// <summary>
+        /// Gets the password strength regular expression using the specified IPasswordStrengthRuleRepository.
+        /// </summary>
+        /// <param name="passwordStrengthRuleRepository">The password strength rule repository.</param>
+        /// <returns></returns>
+        public static String GetPasswordStrengthRegularExpression(IPasswordStrengthRuleRepository passwordStrengthRuleRepository)
+        {
+            // Validate arguments
+            Guard.ArgumentIsNotNull(passwordStrengthRuleRepository, "passwordStrengthRuleRepository");
+
+            var result = passwordStrengthRuleRepository.GetAllRulesAsRegularExpression();
+            return result;
+        }
+
+        ///// <summary>
+        ///// Gets the password strength regular expression.
+        ///// </summary>
+        ///// <returns></returns>
+        //public String GetPasswordStrengthRegularExpression()
+        //{
+        //    Guard.InvalidOperation(
+        //        (PasswordStrengthRuleRepository == null), 
+        //        ExceptionMessages.PasswordStrengthRuleRepositoryMustNotBeNull)
+        //    throw new NotImplementedException();
+        //}
 
         /// <summary>
         /// Validates a password given a hash of the correct one.

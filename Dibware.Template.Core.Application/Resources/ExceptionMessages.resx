@@ -117,6 +117,9 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="PasswordStrengthRuleRepositoryMustNotBeNull" xml:space="preserve">
+    <value>Password strength rule repository must not be null.</value>
+  </data>
   <data name="RulesNotEmpty" xml:space="preserve">
     <value>Rules must not be empty</value>
   </data>

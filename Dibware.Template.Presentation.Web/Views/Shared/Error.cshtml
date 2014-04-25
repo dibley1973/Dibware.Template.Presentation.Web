@@ -3,9 +3,8 @@
 @*@{
     ViewBag.Title = "Error";
 }*@
-
-<hgroup>
-    <h1>@Model.PageTitle</h1>
-    <h2>@Model.PageSubTitle</h2>
-</hgroup>
-<p>@Model.ErrorMessage</p>
+<div class="hero-unit">
+  <h1>@Model.PageTitle</h1>
+  <h4>@Model.PageSubTitle</h4>
+  <p>@Model.ErrorMessage</p>
+</div>

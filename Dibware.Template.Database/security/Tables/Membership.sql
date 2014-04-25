@@ -9,8 +9,10 @@
     [PasswordChangedDate]                     DATETIME         NULL,
     [PasswordVerificationToken]               NVARCHAR (128)   NULL,
     [PasswordVerificationTokenExpirationDate] DATETIME         NULL,
-    CONSTRAINT [PK_Membership_UserGuid] PRIMARY KEY CLUSTERED ([UserGuid] ASC),
-    CONSTRAINT [FK_User_Membership] FOREIGN KEY ([UserGuid]) REFERENCES [security].[User] ([UserGuid])
+    CONSTRAINT [PK_Membership_UserGuid] PRIMARY KEY NONCLUSTERED ([UserGuid] ASC),
+    CONSTRAINT [FK_User_Membership]     FOREIGN KEY ([UserGuid]) 
+                                        REFERENCES [security].[User] ([UserGuid])
+                                        ON DELETE CASCADE
 );
 
 
