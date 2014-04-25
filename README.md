@@ -15,10 +15,13 @@ Feel free to branch or assist if the project looks helpeful to you.
 * Dated Terms and conditions module
 * Contact Form module
 * Notifications module
+* About page
 * Add more tests!
+
 #### Could have
 * Change contact form to a ticket based system
 * Add more tests!
+
 #### Would have
 * Add more tests!
 
