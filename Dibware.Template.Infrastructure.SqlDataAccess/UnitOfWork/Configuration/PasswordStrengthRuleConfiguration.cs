@@ -1,5 +1,4 @@
-﻿using Dibware.Template.Core.Domain.Entities.Application;
-using Dibware.Template.Core.Domain.Entities.Security;
+﻿using Dibware.Template.Core.Domain.Entities.Security;
 using Dibware.Template.Infrastructure.SqlDataAccess.Helpers;
 using Dibware.Template.Infrastructure.SqlDataAccess.Resources;
 using System;
@@ -23,7 +22,7 @@ namespace Dibware.Template.Infrastructure.SqlDataAccess.UnitOfWork.Configuration
             get
             {
                 return DatabaseObjectNameHelper.GetFullTableName(
-                    SchemaNames.Application,
+                    SchemaNames.Security,
                     TableNames.PasswordStrengthRule
                 );
             }
@@ -40,7 +39,7 @@ namespace Dibware.Template.Infrastructure.SqlDataAccess.UnitOfWork.Configuration
             get
             {
                 return DatabaseObjectNameHelper.GetFullStoredProcedureName(
-                        SchemaNames.Application,
+                        SchemaNames.Security,
                         TableNames.PasswordStrengthRule,
                         StoredProcedureAction.Delete
                 );
@@ -58,7 +57,7 @@ namespace Dibware.Template.Infrastructure.SqlDataAccess.UnitOfWork.Configuration
             get
             {
                 return DatabaseObjectNameHelper.GetFullStoredProcedureName(
-                        SchemaNames.Application,
+                        SchemaNames.Security,
                         TableNames.PasswordStrengthRule,
                         StoredProcedureAction.Insert
                 );
@@ -76,7 +75,7 @@ namespace Dibware.Template.Infrastructure.SqlDataAccess.UnitOfWork.Configuration
             get
             {
                 return DatabaseObjectNameHelper.GetFullStoredProcedureName(
-                        SchemaNames.Application,
+                        SchemaNames.Security,
                         TableNames.PasswordStrengthRule,
                         StoredProcedureAction.Update
                 );

@@ -12,27 +12,30 @@
 */
 
 -- Reference Data for PasswordStrengthRules 
-MERGE INTO [security].[PasswordStrengthRules] AS Target 
+MERGE INTO [security].[PasswordStrengthRule] AS Target 
 USING (VALUES 
-  (1,N'(?=^.{8,25}$)', N'Password length range from 8 to 25', N'The numbers are adjustable'), 
-  (2,N'(?=(?:.*?[!@#$%*()_+^&}{:;?.]){1})', N'At least 1 special characters (!@#$%*()_+^&}{:;?.})', N'This number is adjustable'), 
-  (3,N'(?=(?:.*?\d){2})', N'At least 2 digits', N'This number is adjustable'), 
-  (4,N'(?=.*[a-z])', N'Characters a-z', N''), 
-  (5,N'(?=(?:.*?[A-Z]){2})', N'At least 2 upper case characters', N'Thise number is adjustable') 
+  (1,1,N'^', N'The start of the sequence', N''),
+  (2,2,N'(?=^.{8,25}$)', N'Password length range from 8 to 25', N'The numbers are adjustable'), 
+  (3,3,N'(?=(?:.*?[!@#$%*()_+^&}{:;?.]){1})', N'At least 1 special characters (!@#$%*()_+^&}{:;?.})', N'This number is adjustable'), 
+  (4,4,N'(?=(?:.*?\d){2})', N'At least 2 digits', N'This number is adjustable'), 
+  (5,5,N'(?=.*[a-z])', N'Characters a-z', N''), 
+  (6,6,N'(?=(?:.*?[A-Z]){2})', N'At least 2 upper case characters', N'This number is adjustable'),
+  (7,7,N'[0-9a-zA-Z!@#$%*()_+^&]*$', N'The start of the sequence can have any chars', N'')
 ) 
-AS Source ([Id],[RegularExpression], [Description], [Notes]) 
+AS Source ([Id], [Sequence], [RegularExpression], [Description], [Notes]) 
 ON Target.Id = Source.Id 
 -- update matched rows 
 WHEN MATCHED THEN 
 	UPDATE SET 
-		[RegularExpression] = Source.[RegularExpression]
+		[Sequence] = Source.[Sequence]
+	,   [RegularExpression] = Source.[RegularExpression]
 	,	[Description] = Source.[Description]
 	,	[Notes] = Source.[Notes]
 
 -- insert new rows 
 WHEN NOT MATCHED BY TARGET THEN 
-	INSERT ([RegularExpression], [Description], [Notes]) 
-	VALUES ([RegularExpression], [Description], [Notes]) 
+	INSERT ([Sequence], [RegularExpression], [Description], [Notes]) 
+	VALUES ([Sequence], [RegularExpression], [Description], [Notes]) 
 
 -- delete rows that are in the target but not the source 
 WHEN NOT MATCHED BY SOURCE THEN 

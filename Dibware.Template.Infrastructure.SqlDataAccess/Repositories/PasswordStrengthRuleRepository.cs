@@ -41,8 +41,11 @@ namespace Dibware.Template.Infrastructure.SqlDataAccess.Repositories
         /// <returns></returns>
         public IEnumerable<String> GetAllRuleRegularExpressions()
         {
-            var rules = UnitOfWork.CreateSet<PasswordStrengthRule>();
-            var rulesRegularExpressions = rules.Select(r => r.RegularExpression);
+            //var rules = GetAll();
+            //var rules = UnitOfWork.CreateSet<PasswordStrengthRule>();
+            //var rulesRegularExpressions = rules.Select(r => r.RegularExpression);
+            var rulesRegularExpressions = GetAll().Select(r => r.RegularExpression).ToList();
+            //var rulesRegularExpressions = UnitOfWork.CreateSet<PasswordStrengthRule>().Select(r => r.RegularExpression).ToList();
             return rulesRegularExpressions;
         }
 
