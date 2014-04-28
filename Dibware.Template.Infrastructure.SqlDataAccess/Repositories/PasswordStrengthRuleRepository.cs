@@ -39,13 +39,16 @@ namespace Dibware.Template.Infrastructure.SqlDataAccess.Repositories
         /// Gets all of the individual password rule regular expressions.
         /// </summary>
         /// <returns></returns>
-        public IEnumerable<String> GetAllRuleRegularExpressions()
+        public List<String> GetAllRuleRegularExpressions()
         {
             //var rules = GetAll();
             //var rules = UnitOfWork.CreateSet<PasswordStrengthRule>();
             //var rulesRegularExpressions = rules.Select(r => r.RegularExpression);
-            var rulesRegularExpressions = GetAll().Select(r => r.RegularExpression).ToList();
-            //var rulesRegularExpressions = UnitOfWork.CreateSet<PasswordStrengthRule>().Select(r => r.RegularExpression).ToList();
+            //var rulesRegularExpressions = GetAll().Select(r => r.RegularExpression).ToList();
+            var rulesRegularExpressions = UnitOfWork.CreateSet<PasswordStrengthRule>()
+                /*.OrderBy(expression => expression.Sequence)*/
+                .Select(rule => rule.RegularExpression)
+                .ToList();
             return rulesRegularExpressions;
         }
 

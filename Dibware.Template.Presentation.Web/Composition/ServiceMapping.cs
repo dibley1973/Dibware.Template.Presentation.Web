@@ -13,6 +13,10 @@ namespace Dibware.Template.Presentation.Web.Composition
     {
         public override void Load()
         {
+            // Bind the Interface for the ILookupService to a valid implementation
+            Bind<ILookupService>()
+                .To<LookupService>();
+
             //// Bind the Interface for the IRepositoryMembershipProviderPasswordService
             //// to a valid implementation
             //Bind<IRepositoryMembershipProviderPasswordService>()

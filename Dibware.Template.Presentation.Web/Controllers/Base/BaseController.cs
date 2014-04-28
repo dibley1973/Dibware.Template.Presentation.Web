@@ -10,7 +10,7 @@ using System.Web.Mvc;
 namespace Dibware.Template.Presentation.Web.Controllers.Base
 {
     /// <summary>
-    /// This is the controller that holds all common implemntations
+    /// This is the controller that holds all common implementations
     /// and which all other controllers should inherit from.
     /// </summary>
     public class BaseController : Controller

@@ -12,10 +12,9 @@ namespace Dibware.Template.Presentation.Web
             // Currently:
             //      CustomHandleErrorAttribute
 
-            //filters.Add(new HandleErrorAttribute());
-            //filters.Add(new CompressAttribute()); // Needs attention as masks errors!
-            filters.Add(new HandleErrorForAjaxRequestAttribute());
+            filters.Add(new HandleErrorAttribute());
             //filters.Add(new CustomHandleErrorAttribute()); //; See note above
+            filters.Add(new HandleErrorForAjaxRequestAttribute());
             filters.Add(new ManageBaseViewModelAttribute());
 
             // filters.Add(new RemoveWhiteSpaceAttribute());

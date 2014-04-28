@@ -1,4 +1,7 @@
-﻿using Dibware.Template.Presentation.Web.Controllers.Base;
+﻿using Dibware.Extensions.System.Collections;
+using Dibware.Template.Core.Domain.Contracts.Services;
+using Dibware.Template.Core.Domain.Entities.Security;
+using Dibware.Template.Presentation.Web.Controllers.Base;
 using Dibware.Template.Presentation.Web.Helpers;
 using Dibware.Template.Presentation.Web.Models.Account;
 using Dibware.Template.Presentation.Web.Modules.Authentication;
@@ -7,6 +10,7 @@ using Microsoft.Web.WebPages.OAuth;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
+using System.Linq;
 using System.Security.Policy;
 using System.Text.RegularExpressions;
 using System.Web.Helpers;
@@ -16,11 +20,22 @@ using WebMatrix.WebData;
 
 namespace Dibware.Template.Presentation.Web.Controllers
 {
-    public class AccountController : BaseController
+    public class AccountController : BaseControllerWithDataLookup
     {
         #region Reference
 
         // http://stackoverflow.com/questions/669175/unit-testing-asp-net-mvc-authorize-attribute-to-verify-redirect-to-login-page
+
+        #endregion
+
+        #region Constructors
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="AccountController"/> class.
+        /// </summary>
+        /// <param name="lookupService">The lookup service.</param>
+        public AccountController(ILookupService lookupService)
+            : base(lookupService) { }
 
         #endregion
 
@@ -51,7 +66,7 @@ namespace Dibware.Template.Presentation.Web.Controllers
         {
             var model = new LoginViewModel();
             ViewBag.ReturnUrl = returnUrl;
-            return View(model);
+            return View(ViewNames.Login, model);
         }
 
         //
@@ -68,7 +83,7 @@ namespace Dibware.Template.Presentation.Web.Controllers
 
             // If we got this far, something failed, redisplay form
             ModelState.AddModelError("", "The user name or password provided is incorrect.");
-            return View(model);
+            return View(ViewNames.Login, model);
         }
 
         //
@@ -77,7 +92,7 @@ namespace Dibware.Template.Presentation.Web.Controllers
         public ActionResult Register()
         {
             var model = new RegisterViewModel();
-            return View(model);
+            return View(ViewNames.Register, model);
         }
 
         //
@@ -98,7 +113,14 @@ namespace Dibware.Template.Presentation.Web.Controllers
                     // the membership provider
                     if (!CheckPasswordComplexity(Membership.Provider, model.Password))
                     {
-                        ModelState.AddModelError("Email Address", ValidationMessages.PasswordNotMetRequiredComplexity);
+                        ModelState.AddModelError("Password", ValidationMessages.PasswordNotMetRequiredComplexity);
+
+                        var passwordRules = LookupService.FindAll<PasswordStrengthRule>();
+                        var descriptions = passwordRules.Select(r => r.Description);
+
+                        Action<String> action = s => ModelState.AddModelError("Password", s);
+                        descriptions.ForEach(action);
+
                         return View(model);
                     }
 
@@ -151,7 +173,7 @@ namespace Dibware.Template.Presentation.Web.Controllers
             }
 
             // If we got this far, something failed, redisplay form
-            return View(model);
+            return View(ViewNames.Register, model);
         }
 
         #endregion

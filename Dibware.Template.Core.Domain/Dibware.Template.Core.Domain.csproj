@@ -82,6 +82,7 @@
     <Compile Include="Contracts\Services\ICloneService.cs" />
     <Compile Include="Contracts\Services\IDataService.cs" />
     <Compile Include="Contracts\Services\IErrorService.cs" />
+    <Compile Include="Contracts\Services\ILookupService.cs" />
     <Compile Include="Contracts\Services\IPasswordService.cs" />
     <Compile Include="Contracts\UnitOfWork\IUnitOfWork.cs" />
     <Compile Include="Contracts\Entities\IAccount.cs" />

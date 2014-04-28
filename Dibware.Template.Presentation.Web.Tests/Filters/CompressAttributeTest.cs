@@ -110,52 +110,9 @@ namespace Dibware.Template.Presentation.Web.Tests.Filters
             ////Assert.AreEqual(originalLength, newlength);
         }
 
-        [Ignore]
-        [TestMethod]
-        public void Test_AcceptedEncodingIsGzip_ResultsIn_SomeCompression()
-        {
-            // Arrange
-            var attribute = SetupCompressAttribute();
-            var originalLength = _actionExecutingContextMock.Object.HttpContext.Response.OutputStream.Length;
-            // Act
-            attribute.OnActionExecuting(_actionExecutingContextMock.Object);
-            var newLength = _actionExecutingContextMock.Object.HttpContext.Response.OutputStream.Length;
-
-            // Assert
-            Assert.IsNull(_actionExecutingContextMock.Object.Result);
-            IntegerAssert.IsLessThan(newLength, originalLength);
-        }
-
-        [Ignore]
-        [TestMethod]
-        public void Test_AcceptedEncodingIsDeflate_ResultsIn_SomeCompression()
-        {
-            // Arrange
-            var attribute = SetupCompressAttribute();
-            var originalLength = _actionExecutingContextMock.Object.HttpContext.Response.OutputStream.Length;
-            // Act
-            attribute.OnActionExecuting(_actionExecutingContextMock.Object);
-            var newLength = _actionExecutingContextMock.Object.HttpContext.Response.OutputStream.Length;
-
-            // Assert
-            Assert.IsNull(_actionExecutingContextMock.Object.Result);
-            IntegerAssert.IsLessThan(newLength, originalLength);
-        }
-
         #endregion
 
         #region Methods : Private
-
-        /// <summary>
-        /// Setups the compress attribute.
-        /// </summary>
-        /// <returns></returns>
-        private CompressAttribute SetupCompressAttribute()
-        {
-            var attribute = new CompressAttribute();
-            return attribute;
-        }
-
 
         #endregion
     }

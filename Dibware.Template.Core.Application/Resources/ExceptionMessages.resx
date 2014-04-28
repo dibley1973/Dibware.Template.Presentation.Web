@@ -120,6 +120,9 @@
   <data name="PasswordStrengthRuleRepositoryMustNotBeNull" xml:space="preserve">
     <value>Password strength rule repository must not be null.</value>
   </data>
+  <data name="RepositoryTypeError" xml:space="preserve">
+    <value>LookupService requires all repositories to inherit from IRepository&lt;T&gt;</value>
+  </data>
   <data name="RulesNotEmpty" xml:space="preserve">
     <value>Rules must not be empty</value>
   </data>

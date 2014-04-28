@@ -70,6 +70,15 @@ namespace Dibware.Template.Core.Application.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to LookupService requires all repositories to inherit from IRepository&lt;T&gt;.
+        /// </summary>
+        internal static string RepositoryTypeError {
+            get {
+                return ResourceManager.GetString("RepositoryTypeError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Rules must not be empty.
         /// </summary>
         internal static string RulesNotEmpty {

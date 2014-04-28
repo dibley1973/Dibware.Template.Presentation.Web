@@ -35,7 +35,7 @@ namespace Dibware.Template.Presentation.Web.Tests.Filters
             FilterConfig.RegisterGlobalFilters(_filters);
 
             // Assert
-            Assert.AreEqual(5, _filters.Count);
+            Assert.AreEqual(2, _filters.Count);
         }
 
         [TestMethod]
@@ -43,20 +43,6 @@ namespace Dibware.Template.Presentation.Web.Tests.Filters
         {
             // Arrange
             const String filterFullName = "System.Web.Mvc.HandleErrorAttribute";
-
-            // Act
-            FilterConfig.RegisterGlobalFilters(_filters);
-            var filter = _filters.First(f => f.Instance.GetType().FullName == filterFullName);
-
-            // Assert
-            Assert.IsNotNull(filter);
-        }
-
-        [TestMethod]
-        public void Test_GlobalFilters_ContainsCompressAttribute()
-        {
-            // Arrange
-            const String filterFullName = "Dibware.Template.Presentation.Web.Filters.CompressAttribute";
 
             // Act
             FilterConfig.RegisterGlobalFilters(_filters);
@@ -94,6 +80,7 @@ namespace Dibware.Template.Presentation.Web.Tests.Filters
             Assert.IsNotNull(filter);
         }
 
+        [Ignore]    // As the CustomErrorHandler attribute requires DI so is not registered in "RegisterGlobalFilters"
         [TestMethod]
         public void Test_GlobalFilters_ContainsCustomHandleErrorAttribute()
         {

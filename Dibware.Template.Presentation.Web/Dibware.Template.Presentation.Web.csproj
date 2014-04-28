@@ -225,9 +225,9 @@
     <Compile Include="Composition\UnitOfWorkMapping.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\Base\BaseController.cs" />
+    <Compile Include="Controllers\Base\BaseControllerWithDataLookup.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\NavigationController.cs" />
-    <Compile Include="Filters\CompressAttribute.cs" />
     <Compile Include="Filters\CustomHandleErrorAttribute.cs" />
     <Compile Include="Filters\HandleErrorForAjaxRequestAttribute.cs" />
     <Compile Include="Filters\ManageBaseViewModelAttribute.cs" />
@@ -409,6 +409,7 @@
     <EmbeddedResource Include="Resources\ValidationMessages.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>ValidationMessages.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Resources\ViewNames.resx">
       <Generator>ResXFileCodeGenerator</Generator>

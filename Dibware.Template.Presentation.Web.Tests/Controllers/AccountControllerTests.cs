@@ -105,7 +105,7 @@ namespace Dibware.Template.Presentation.Web.Tests.Controllers
             var roles = new[] { UserRole.UnknownUser.ToString() };
             var controller = SetupAccountController(roles);
             var expectedResultType = typeof(ViewResult);
-            const String returnUrl = "~/home/index";
+            const String returnUrl = "~/account/login";
             const String expectedViewName = "Login";
 
             // Act

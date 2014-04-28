@@ -22,6 +22,16 @@ namespace Dibware.Template.Presentation.Web.Composition
 
             #endregion
 
+            #region IMembershipRepository
+
+            // Bind the Interface for the Repository for the
+            // RepositoryMembershipProvider to an implementation
+            Bind<IMembershipRepository>()
+                .To<MembershipRepository>()
+                .InRequestScope();
+
+            #endregion
+
             #region RepositoryMemberShipProvider Repository
 
             // Bind the Interface for the Repository for the

@@ -31,7 +31,7 @@ namespace Dibware.Template.Infrastructure.SqlDataAccess.Repositories
         /// <param name="username">The username.</param>
         /// <returns></returns>
         /// <exception cref="NotImplementedException"></exception>
-        IEnumerable<Role> IRoleRepository.GetRoleListForUser(String username)
+        List<Role> IRoleRepository.GetRoleListForUser(String username)
         {
             // Validate dependencies and arguments
             Guard.InvalidOperation(UnitOfWork == null, ExceptionMessages.UnitOfWorkIsNull);
@@ -46,7 +46,7 @@ namespace Dibware.Template.Infrastructure.SqlDataAccess.Repositories
         /// <param name="username">The username.</param>
         /// <returns></returns>
         /// <exception cref="NotImplementedException"></exception>
-        IEnumerable<String> IRoleRepository.GetRoleNameListsForUser(String username)
+        List<String> IRoleRepository.GetRoleNameListsForUser(String username)
         {
             // Validate dependencies and arguments
             Guard.InvalidOperation(UnitOfWork == null, ExceptionMessages.UnitOfWorkIsNull);

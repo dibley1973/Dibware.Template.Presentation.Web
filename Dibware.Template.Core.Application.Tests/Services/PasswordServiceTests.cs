@@ -80,7 +80,7 @@ namespace Dibware.Template.Core.Application.Tests.Services
 
             _passwordStrengthRuleRepository
                 .Setup(r => r.GetAllRuleRegularExpressions())
-                .Returns(_allRulesList.Select(r => r.RegularExpression));
+                .Returns(_allRulesList.Select(r => r.RegularExpression).ToList());
 
             _passwordService = new PasswordService(
                 _passwordStrengthRuleRepository.Object,

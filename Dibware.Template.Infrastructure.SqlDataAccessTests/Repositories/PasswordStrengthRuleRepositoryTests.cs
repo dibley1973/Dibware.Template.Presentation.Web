@@ -55,10 +55,10 @@ namespace Dibware.Template.Infrastructure.SqlDataAccessTests.Repositories
         }
 
         [TestMethod]
-        public void Test_PasswordStrengthRuleRepository_GetAllWithValidUnitOfWork_ResultsIn_AllRulesReturned()
+        public void Test_PasswordStrengthRuleRepository_GetAllWithValidUnitOfWork_ResultsIn_CorrectCountOfAllRulesReturned()
         {
             // Arrange
-            const Int32 expectedCount = 5;
+            const Int32 expectedCount = 7;
             var repository = (IPasswordStrengthRuleRepository)new PasswordStrengthRuleRepository(_unitOfWork);
 
             // Act
@@ -72,7 +72,6 @@ namespace Dibware.Template.Infrastructure.SqlDataAccessTests.Repositories
         public void Test_PasswordStrengthRuleRepository_GetAllRulesAsRegularExpressionWithValidUnitOfWork_ResultsIn_AllRulesRegularExpressionsReturned()
         {
             // Arrange
-            //const Int32 expectedCount = 5;
             var repository = (IPasswordStrengthRuleRepository)new PasswordStrengthRuleRepository(_unitOfWork);
 
             // Act
@@ -80,19 +79,20 @@ namespace Dibware.Template.Infrastructure.SqlDataAccessTests.Repositories
             //var allRegexString = results.Aggregate((current, next) => current + next);
 
             // Assert
-            // Assert.AreEqual(expectedCount, results.Count());
             Assert.IsTrue(allRegexString.Contains(PasswordStrengthRuleData.Rule1.RegularExpression));
             Assert.IsTrue(allRegexString.Contains(PasswordStrengthRuleData.Rule2.RegularExpression));
             Assert.IsTrue(allRegexString.Contains(PasswordStrengthRuleData.Rule3.RegularExpression));
             Assert.IsTrue(allRegexString.Contains(PasswordStrengthRuleData.Rule4.RegularExpression));
             Assert.IsTrue(allRegexString.Contains(PasswordStrengthRuleData.Rule5.RegularExpression));
+            Assert.IsTrue(allRegexString.Contains(PasswordStrengthRuleData.Rule6.RegularExpression));
+            Assert.IsTrue(allRegexString.Contains(PasswordStrengthRuleData.Rule7.RegularExpression));
         }
 
         [TestMethod]
         public void Test_PasswordStrengthRuleRepository_GetAllRuleRegularExpressionsWithValidUnitOfWork_ResultsIn_AllRulesRegularExpressionsReturned()
         {
             // Arrange
-            const Int32 expectedCount = 5;
+            const Int32 expectedCount = 7;
             var repository = (IPasswordStrengthRuleRepository)new PasswordStrengthRuleRepository(_unitOfWork);
 
             // Act
@@ -106,6 +106,8 @@ namespace Dibware.Template.Infrastructure.SqlDataAccessTests.Repositories
             Assert.IsTrue(allRegexString.Contains(PasswordStrengthRuleData.Rule3.RegularExpression));
             Assert.IsTrue(allRegexString.Contains(PasswordStrengthRuleData.Rule4.RegularExpression));
             Assert.IsTrue(allRegexString.Contains(PasswordStrengthRuleData.Rule5.RegularExpression));
+            Assert.IsTrue(allRegexString.Contains(PasswordStrengthRuleData.Rule6.RegularExpression));
+            Assert.IsTrue(allRegexString.Contains(PasswordStrengthRuleData.Rule7.RegularExpression));
         }
 
         #endregion

@@ -17,6 +17,6 @@ namespace Dibware.Template.Core.Domain.Contracts.Repositories
         /// Gets all of the individual password rule regular expressions.
         /// </summary>
         /// <returns></returns>
-        IEnumerable<String> GetAllRuleRegularExpressions();
+        List<String> GetAllRuleRegularExpressions();
     }
 }

@@ -66,6 +66,7 @@ namespace Dibware.Template.Infrastructure.SqlDataAccessTests.Initialisers
             var rule1 = new PasswordStrengthRule
             {
                 Id = PasswordStrengthRuleData.Rule1.Id,
+                Sequence = PasswordStrengthRuleData.Rule1.Sequence,
                 RegularExpression = PasswordStrengthRuleData.Rule1.RegularExpression,
                 Description = PasswordStrengthRuleData.Rule1.Description,
                 Notes = PasswordStrengthRuleData.Rule1.Notes
@@ -73,6 +74,7 @@ namespace Dibware.Template.Infrastructure.SqlDataAccessTests.Initialisers
             var rule2 = new PasswordStrengthRule()
             {
                 Id = PasswordStrengthRuleData.Rule2.Id,
+                Sequence = PasswordStrengthRuleData.Rule2.Sequence,
                 RegularExpression = PasswordStrengthRuleData.Rule2.RegularExpression,
                 Description = PasswordStrengthRuleData.Rule2.Description,
                 Notes = PasswordStrengthRuleData.Rule2.Notes
@@ -80,6 +82,7 @@ namespace Dibware.Template.Infrastructure.SqlDataAccessTests.Initialisers
             var rule3 = new PasswordStrengthRule
             {
                 Id = PasswordStrengthRuleData.Rule3.Id,
+                Sequence = PasswordStrengthRuleData.Rule3.Sequence,
                 RegularExpression = PasswordStrengthRuleData.Rule3.RegularExpression,
                 Description = PasswordStrengthRuleData.Rule3.Description,
                 Notes = PasswordStrengthRuleData.Rule3.Notes
@@ -87,6 +90,7 @@ namespace Dibware.Template.Infrastructure.SqlDataAccessTests.Initialisers
             var rule4 = new PasswordStrengthRule
             {
                 Id = PasswordStrengthRuleData.Rule4.Id,
+                Sequence = PasswordStrengthRuleData.Rule5.Sequence,
                 RegularExpression = PasswordStrengthRuleData.Rule4.RegularExpression,
                 Description = PasswordStrengthRuleData.Rule4.Description,
                 Notes = PasswordStrengthRuleData.Rule4.Notes
@@ -94,9 +98,26 @@ namespace Dibware.Template.Infrastructure.SqlDataAccessTests.Initialisers
             var rule5 = new PasswordStrengthRule
             {
                 Id = PasswordStrengthRuleData.Rule5.Id,
+                Sequence = PasswordStrengthRuleData.Rule5.Sequence,
                 RegularExpression = PasswordStrengthRuleData.Rule5.RegularExpression,
                 Description = PasswordStrengthRuleData.Rule5.Description,
                 Notes = PasswordStrengthRuleData.Rule5.Notes
+            };
+            var rule6 = new PasswordStrengthRule
+            {
+                Id = PasswordStrengthRuleData.Rule6.Id,
+                Sequence = PasswordStrengthRuleData.Rule6.Sequence,
+                RegularExpression = PasswordStrengthRuleData.Rule6.RegularExpression,
+                Description = PasswordStrengthRuleData.Rule6.Description,
+                Notes = PasswordStrengthRuleData.Rule6.Notes
+            };
+            var rule7 = new PasswordStrengthRule
+            {
+                Id = PasswordStrengthRuleData.Rule7.Id,
+                Sequence = PasswordStrengthRuleData.Rule7.Sequence,
+                RegularExpression = PasswordStrengthRuleData.Rule7.RegularExpression,
+                Description = PasswordStrengthRuleData.Rule7.Description,
+                Notes = PasswordStrengthRuleData.Rule7.Notes
             };
 
             // Add Errors
@@ -105,6 +126,8 @@ namespace Dibware.Template.Infrastructure.SqlDataAccessTests.Initialisers
             databaseContext.Attach(rule3);
             databaseContext.Attach(rule4);
             databaseContext.Attach(rule5);
+            databaseContext.Attach(rule6);
+            databaseContext.Attach(rule7);
         }
 
         /// <summary>

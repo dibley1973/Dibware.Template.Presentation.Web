@@ -13,13 +13,13 @@ namespace Dibware.Template.Core.Domain.Contracts.Repositories
         /// </summary>
         /// <param name="username">The username.</param>
         /// <returns></returns>
-        IEnumerable<Role> GetRoleListForUser(String username);
+        List<Role> GetRoleListForUser(String username);
 
         /// <summary>
         /// Gets a list of role names for the user specified by username.
         /// </summary>
         /// <param name="username">The username.</param>
         /// <returns></returns>
-        IEnumerable<String> GetRoleNameListsForUser(String username);
+        List<String> GetRoleNameListsForUser(String username);
     }
 }
