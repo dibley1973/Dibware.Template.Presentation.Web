@@ -1,11 +1,14 @@
 Dibware.Template.Presentation.Web
 =================================
 
-A C# ASP.net 4.5, MVC 4 web template, using Domain Driven Development, IOC patteerens
+A C# ASP.net 4.5, MVC 4 web template, using Domain Driven Development, IOC patterns. using Ninject for DI.
+The aim of this project is to build a template that can be used as a starting point for any future web based projects. 
 
 ## A WORK IN PROGRESS!!!
 This is very much a work in progress. Check back soon for more updates. 
-Feel free to branch or assist if the project looks helpeful to you.
+
+## Branching, Copy Assist 
+Feel free to branch, copy or assist if the project looks helpeful to you.
 
 ### Feature MusCoW
 #### Must have
