@@ -44,11 +44,11 @@ namespace Dibware.Template.Infrastructure.SqlDataAccess.Repositories
             //var rules = GetAll();
             //var rules = UnitOfWork.CreateSet<PasswordStrengthRule>();
             //var rulesRegularExpressions = rules.Select(r => r.RegularExpression);
-            //var rulesRegularExpressions = GetAll().Select(r => r.RegularExpression).ToList();
-            var rulesRegularExpressions = UnitOfWork.CreateSet<PasswordStrengthRule>()
-                /*.OrderBy(expression => expression.Sequence)*/
-                .Select(rule => rule.RegularExpression)
-                .ToList();
+            var rulesRegularExpressions = GetAll().Select(r => r.RegularExpression).ToList();
+            //var rulesRegularExpressions = UnitOfWork.CreateSet<PasswordStrengthRule>()
+            //    /*.OrderBy(expression => expression.Sequence)*/
+            //    .Select(rule => rule.RegularExpression)
+            //    .ToList();
             return rulesRegularExpressions;
         }
 

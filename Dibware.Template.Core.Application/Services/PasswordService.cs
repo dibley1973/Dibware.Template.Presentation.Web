@@ -1,11 +1,9 @@
 ﻿using Dibware.Helpers.Validation;
-using Dibware.Template.Core.Application.Resources;
 using Dibware.Template.Core.Domain.Contracts.Repositories;
 using Dibware.Template.Core.Domain.Contracts.Services;
 using System;
 using System.Security.Cryptography;
 using System.Text;
-using System.Linq;
 
 namespace Dibware.Template.Core.Application.Services
 {
@@ -83,11 +81,15 @@ namespace Dibware.Template.Core.Application.Services
             ConfirmationTokenLength = confirmationTokenLength;
             MinRequiredPasswordLength = minRequiredPasswordLength;
             MinRequiredNonAlphanumericCharacters = minRequiredNonAlphanumericCharacters;
+            PasswordStrengthRegularExpression = GetPasswordStrengthRegularExpression(PasswordStrengthRuleRepository);
         }
 
         #endregion
 
         #region Properties
+
+
+
 
         /// <summary>
         /// Gets or sets the length of the confirmation token.
@@ -118,13 +120,7 @@ namespace Dibware.Template.Core.Application.Services
         /// <summary>
         /// Gets the regular expression for the password strength
         /// </summary>
-        public String PasswordStrengthRegularExpression
-        { 
-            get
-            {
-                return GetPasswordStrengthRegularExpression(PasswordStrengthRuleRepository);
-            }
-        }
+        public String PasswordStrengthRegularExpression { get; private set; }
 
         /// <summary>
         /// Gets or sets the password strength rule repository.
