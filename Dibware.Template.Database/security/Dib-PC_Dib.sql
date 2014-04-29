@@ -1,0 +1,3 @@
+﻿CREATE LOGIN [Dib-PC\Dib]
+    FROM WINDOWS;
+
