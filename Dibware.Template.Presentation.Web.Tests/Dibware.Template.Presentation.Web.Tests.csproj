@@ -103,7 +103,9 @@
     <Compile Include="Filters\GlobalFilterTests.cs" />
     <Compile Include="Filters\ManageBaseViewModelAttributeTest.cs" />
     <Compile Include="Filters\WebsiteAuthorizeAttributeTests.cs" />
+    <Compile Include="Helpers\MockServiceHelper.cs" />
     <Compile Include="HelperTests\MembershipHelperTests.cs" />
+    <Compile Include="MockData\PasswordStrengthRuleData.cs" />
     <Compile Include="Mocks\MockBaseViewModel.cs" />
     <Compile Include="Mocks\MockWebsiteAuthorizeAttribute.cs" />
     <Compile Include="Models\Base\BaseViewModelTests.cs" />
@@ -145,6 +147,10 @@
     <Folder Include="Extensions\" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Dibware.Template.Core.Domain\Dibware.Template.Core.Domain.csproj">
+      <Project>{9ce3aca7-1c53-474d-8c51-807c11b45045}</Project>
+      <Name>Dibware.Template.Core.Domain</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Dibware.Template.Presentation.Web\Dibware.Template.Presentation.Web.csproj">
       <Project>{8ec2c9b7-cace-42d2-a6bf-5d4cbc2cea67}</Project>
       <Name>Dibware.Template.Presentation.Web</Name>

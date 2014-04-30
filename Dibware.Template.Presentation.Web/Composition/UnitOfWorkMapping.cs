@@ -18,6 +18,24 @@ namespace Dibware.Template.Presentation.Web.Composition
                     "connectionString",
                     ConfigurationManager.ConnectionStrings[ConnectionStringKeys.UnauthorisedUser]
                         .ConnectionString);
+
+            // Objects that explicitly need a DB context for the life of the request
+            Bind<IUnitOfWorkInRequestScope>()
+                .To<WebsiteDbContext>()
+                .InRequestScope()
+                .WithConstructorArgument(
+                    "connectionString",
+                    ConfigurationManager.ConnectionStrings[ConnectionStringKeys.UnauthorisedUser]
+                        .ConnectionString);
+
+            // Objects that specificall need a DB context for the life of the application
+            Bind<IUnitOfWorkInApplicationScope>()
+                .To<WebsiteDbContext>()
+                .InSingletonScope()
+                .WithConstructorArgument(
+                    "connectionString",
+                    ConfigurationManager.ConnectionStrings[ConnectionStringKeys.UnauthorisedUser]
+                        .ConnectionString);
         }
     }
 }

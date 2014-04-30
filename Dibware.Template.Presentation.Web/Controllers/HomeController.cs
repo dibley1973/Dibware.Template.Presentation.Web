@@ -1,6 +1,5 @@
 ﻿using Dibware.Template.Presentation.Web.Controllers.Base;
 using Dibware.Template.Presentation.Web.Models.Home;
-using Dibware.Template.Presentation.Web.Modules.Authentication;
 using Dibware.Template.Presentation.Web.Resources;
 using System.Web.Mvc;
 

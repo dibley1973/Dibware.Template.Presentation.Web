@@ -21,7 +21,7 @@ namespace Dibware.Template.Infrastructure.SqlDataAccess.Repositories
         /// Initializes a new instance of the <see cref="RoleRepository"/> class.
         /// </summary>
         /// <param name="unitOfWork">The unit of work.</param>
-        public MembershipRepository(IUnitOfWork unitOfWork)
+        public MembershipRepository(IUnitOfWorkInApplicationScope unitOfWork)
             : base(unitOfWork) { }
 
         #endregion
@@ -75,7 +75,7 @@ namespace Dibware.Template.Infrastructure.SqlDataAccess.Repositories
                 confirmationToken
             );
             var results = UnitOfWork.ExecuteStoredProcedure<String>(procedure);
-            var userGuid = results.SingleOrDefault();
+            //var userGuid = results.SingleOrDefault();
             return confirmationToken;
         }
 

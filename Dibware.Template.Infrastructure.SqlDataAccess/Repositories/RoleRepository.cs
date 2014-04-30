@@ -18,7 +18,7 @@ namespace Dibware.Template.Infrastructure.SqlDataAccess.Repositories
         /// Initializes a new instance of the <see cref="RoleRepository"/> class.
         /// </summary>
         /// <param name="unitOfWork">The unit of work.</param>
-        public RoleRepository(IUnitOfWork unitOfWork)
+        public RoleRepository(IUnitOfWorkInApplicationScope unitOfWork)
             : base(unitOfWork) { }
 
         #endregion

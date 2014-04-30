@@ -233,6 +233,59 @@ namespace Dibware.Template.Presentation.Web.Tests.Controllers
                 viewModelType));
         }
 
+        [TestMethod]
+        public void Test_RegisterAction_PasswordWithoutSymbol_ReturnsInvalidModelState()
+        {
+            // Arrange
+            var roles = new[] { UserRole.UnknownUser.ToString() };
+            var controller = SetupAccountController(roles);
+            var expectedResultType = typeof(ViewResult);
+            var model = new RegisterViewModel();
+            model.Password = "bonkersBONKERS12";
+
+            // Act
+            var result = controller.Register(model);
+
+            // Assert
+            Assert.IsFalse(controller.ModelState.IsValid);
+            Assert.IsTrue(controller.ModelState.Keys.Contains("Password"));
+        }
+
+        [TestMethod]
+        public void Test_RegisterAction_PasswordWithoutUpperCase_ReturnsInvalidModelState()
+        {
+            // Arrange
+            var roles = new[] { UserRole.UnknownUser.ToString() };
+            var controller = SetupAccountController(roles);
+            var expectedResultType = typeof(ViewResult);
+            var model = new RegisterViewModel();
+            model.Password = "bonkers12bonkers|";
+
+            // Act
+            var result = controller.Register(model);
+
+            // Assert
+            Assert.IsFalse(controller.ModelState.IsValid);
+            Assert.IsTrue(controller.ModelState.Keys.Contains("Password"));
+        }
+
+        [TestMethod]
+        public void Test_RegisterAction_WithValidPassword_AddsModelStateErrors()
+        {
+            // Arrange
+            var roles = new[] { UserRole.UnknownUser.ToString() };
+            var controller = SetupAccountController(roles);
+            var expectedResultType = typeof(ViewResult);
+            var model = new RegisterViewModel();
+            model.Password = "1234QWERqwer#";
+
+            // Act
+            var result = controller.Register(model);
+
+            // Assert
+            Assert.IsTrue(controller.ModelState.IsValid);
+        }
+
         #endregion Register
 
 

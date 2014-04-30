@@ -133,10 +133,18 @@ namespace Dibware.Template.Presentation.Web.Controllers
                     propertyValues.Add(DictionaryKeys.EmailAddress, model.EmailAddress);
 
                     // try and create the user's account
+                    //String confirmationToken = WebSecurity.CreateUserAndAccount(
+                    //    model.UserName,
+                    //    model.Password,
+                    //    propertyValues: propertyValues,
+                    //    requireConfirmationToken: requireConfirmationToken);
+
+                    // really odd. If you do it the way of above, then the 
+                    // property values get nested!
                     String confirmationToken = WebSecurity.CreateUserAndAccount(
                         model.UserName,
                         model.Password,
-                        propertyValues: propertyValues,
+                        propertyValues: new { EmailAddress = model.EmailAddress },
                         requireConfirmationToken: requireConfirmationToken);
 
                     if (requireConfirmationToken)

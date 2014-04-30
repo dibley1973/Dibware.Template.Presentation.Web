@@ -86,6 +86,8 @@
     <Compile Include="Contracts\Services\IPasswordService.cs" />
     <Compile Include="Contracts\UnitOfWork\IUnitOfWork.cs" />
     <Compile Include="Contracts\Entities\IAccount.cs" />
+    <Compile Include="Contracts\UnitOfWork\IUnitOfWorkInApplicationScope.cs" />
+    <Compile Include="Contracts\UnitOfWork\IUnitOfWorkInRequestScope.cs" />
     <Compile Include="Entities\Accounting\AccountStatusChangeRule.cs" />
     <Compile Include="Entities\Application\Error.cs" />
     <Compile Include="Entities\Base\BaseEntity.cs" />

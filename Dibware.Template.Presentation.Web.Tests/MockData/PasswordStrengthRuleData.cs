@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Dibware.Template.Core.Application.Tests.MockData
+namespace Dibware.Template.Presentation.Web.Tests.MockData
 {
     public static class PasswordStrengthRuleData
     {

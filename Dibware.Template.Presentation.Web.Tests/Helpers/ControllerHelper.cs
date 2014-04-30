@@ -1,4 +1,6 @@
-﻿using Dibware.Template.Presentation.Web.Modules.Authentication;
+﻿using Dibware.Template.Core.Domain.Contracts.Services;
+using Dibware.Template.Presentation.Web.Controllers.Base;
+using Dibware.Template.Presentation.Web.Modules.Authentication;
 using Dibware.Template.Presentation.Web.Modules.Configuration;
 using Dibware.Template.Presentation.Web.Tests.Resources;
 using Dibware.Web.Security.Principal;
@@ -33,7 +35,18 @@ namespace Dibware.Template.Presentation.Web.Tests.Helpers
 
             // Now create the controller
             var builder = new TestControllerBuilder();
-            var controller = (T)Activator.CreateInstance(controllerType);
+            T controller;
+            if (controllerType.IsSubclassOf(typeof(BaseControllerWithDataLookup)))
+            {
+                Mock<ILookupService> lookupServiceMock = MockServiceHelper.GetLookupServiceMock();
+                controller = (T)Activator.CreateInstance(controllerType, lookupServiceMock.Object);
+            }
+            else
+            {
+                controller = (T)Activator.CreateInstance(controllerType);
+            }
+
+            //var controller = (T)Activator.CreateInstance(controllerType);
             builder.InitializeController(controller as Controller);
 
             // Mock user principal

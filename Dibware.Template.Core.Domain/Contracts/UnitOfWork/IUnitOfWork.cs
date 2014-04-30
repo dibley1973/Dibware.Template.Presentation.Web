@@ -9,7 +9,7 @@ namespace Dibware.Template.Core.Domain.Contracts.UnitOfWork
         /// <summary>
         /// Creates the set.
         /// </summary>
-        /// <typeparam name="TEntity">The type of the entity.</typeparam>
+        /// <typeoublic param name="TEntity">The type of the entity.</typeparam>
         /// <returns></returns>
         IDbSet<TEntity> CreateSet<TEntity>() where TEntity : class;
 
@@ -40,7 +40,7 @@ namespace Dibware.Template.Core.Domain.Contracts.UnitOfWork
         /// <typeparam name="TEntity">The type of entity</typeparam>
         /// <param name="original">The original entity</param>
         /// <param name="current">The current entity</param>
-        void ApplyCurrentValues<TEntity>(TEntity original, TEntity current) 
+        void ApplyCurrentValues<TEntity>(TEntity original, TEntity current)
             where TEntity : class;
 
         /// <summary>
@@ -49,7 +49,7 @@ namespace Dibware.Template.Core.Domain.Contracts.UnitOfWork
         /// <typeparam name="TResult">The type of the result expected.</typeparam>
         /// <param name="storedProcedure">The stored procedure.</param>
         /// <returns></returns>
-        IEnumerable<TResult> ExecuteStoredProcedure<TResult>(IStoredProcedure<TResult> storedProcedure) 
+        IEnumerable<TResult> ExecuteStoredProcedure<TResult>(IStoredProcedure<TResult> storedProcedure)
             where TResult : class;
 
         /// <summary>
