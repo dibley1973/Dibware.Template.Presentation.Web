@@ -117,16 +117,10 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="PasswordEmpty" xml:space="preserve">
-    <value>Your password is empty</value>
+  <data name="Account" xml:space="preserve">
+    <value>Account</value>
   </data>
-  <data name="PasswordMinNonAlphaNumericNotMet" xml:space="preserve">
-    <value>Your password does not have the minimum required number of non-alphanumeric characters</value>
-  </data>
-  <data name="PasswordNotMetRequiredComplexity" xml:space="preserve">
-    <value>Your password has not met the required complexity</value>
-  </data>
-  <data name="PasswordToShort" xml:space="preserve">
-    <value>Your password is less than required length</value>
+  <data name="Home" xml:space="preserve">
+    <value>Home</value>
   </data>
 </root>

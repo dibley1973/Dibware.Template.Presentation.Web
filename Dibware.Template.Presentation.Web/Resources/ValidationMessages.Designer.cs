@@ -61,11 +61,38 @@ namespace Dibware.Template.Presentation.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Your password is empty.
+        /// </summary>
+        internal static string PasswordEmpty {
+            get {
+                return ResourceManager.GetString("PasswordEmpty", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Your password does not have the minimum required number of non-alphanumeric characters.
+        /// </summary>
+        internal static string PasswordMinNonAlphaNumericNotMet {
+            get {
+                return ResourceManager.GetString("PasswordMinNonAlphaNumericNotMet", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Your password has not met the required complexity.
         /// </summary>
         internal static string PasswordNotMetRequiredComplexity {
             get {
                 return ResourceManager.GetString("PasswordNotMetRequiredComplexity", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Your password is less than required length.
+        /// </summary>
+        internal static string PasswordToShort {
+            get {
+                return ResourceManager.GetString("PasswordToShort", resourceCulture);
             }
         }
     }

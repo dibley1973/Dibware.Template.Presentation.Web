@@ -272,6 +272,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ConnectionStringKeys.resx</DependentUpon>
     </Compile>
+    <Compile Include="Resources\ControllerNames.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ControllerNames.resx</DependentUpon>
+    </Compile>
     <Compile Include="Resources\DictionaryKeys.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -365,6 +370,10 @@
     <EmbeddedResource Include="Resources\ConnectionStringKeys.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>ConnectionStringKeys.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\ControllerNames.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>ControllerNames.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Resources\DictionaryKeys.resx">
       <Generator>ResXFileCodeGenerator</Generator>
