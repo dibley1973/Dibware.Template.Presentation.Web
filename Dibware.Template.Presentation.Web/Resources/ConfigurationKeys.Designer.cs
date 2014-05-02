@@ -61,6 +61,15 @@ namespace Dibware.Template.Presentation.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to ApplicationDomain.
+        /// </summary>
+        public static string ApplicationDomain {
+            get {
+                return ResourceManager.GetString("ApplicationDomain", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to ApplicationEnvironment.
         /// </summary>
         public static string ApplicationEnvironment {

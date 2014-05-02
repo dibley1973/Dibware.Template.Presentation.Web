@@ -234,6 +234,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Helpers\EmailContentHelper.cs" />
+    <Compile Include="Helpers\EmailHelper.cs" />
+    <Compile Include="Helpers\LinkHelper.cs" />
     <Compile Include="Helpers\MembershipHelper.cs" />
     <Compile Include="HtmlHelpers\BootstrapValidationSummary.cs" />
     <Compile Include="Models\Account\IndexViewModel.cs" />
@@ -255,6 +258,11 @@
     <Compile Include="Modules\UserPreferences\IUserPreferenceData.cs" />
     <Compile Include="Modules\UserPreferences\UserPreferenceData.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Resources\ActionMethods.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ActionMethods.resx</DependentUpon>
+    </Compile>
     <Compile Include="Resources\AssetPaths.cs" />
     <Compile Include="Resources\BundlePaths.cs" />
     <Compile Include="Resources\CompressionEncoding.Designer.cs">
@@ -281,6 +289,16 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>DictionaryKeys.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\Emailing\BodyTextHtml.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BodyTextHtml.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\Emailing\SubjectText.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SubjectText.resx</DependentUpon>
     </Compile>
     <Compile Include="Resources\ExceptionMessages.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -359,6 +377,10 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Resources\ActionMethods.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>ActionMethods.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="Resources\CompressionEncoding.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>CompressionEncoding.Designer.cs</LastGenOutput>
@@ -378,6 +400,14 @@
     <EmbeddedResource Include="Resources\DictionaryKeys.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>DictionaryKeys.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Emailing\BodyTextHtml.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>BodyTextHtml.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Emailing\SubjectText.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>SubjectText.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Resources\ExceptionMessages.resx">
       <Generator>ResXFileCodeGenerator</Generator>

@@ -120,6 +120,9 @@
   <data name="ControllerDoesNotInheritFromBaseControllerFormat" xml:space="preserve">
     <value>The controller you have created of type {0} does not inherit from the base controller</value>
   </data>
+  <data name="ErrorSendingMail" xml:space="preserve">
+    <value>An error occurred sending an email</value>
+  </data>
   <data name="ModelDoesNotInheritFromBaseViewModelFormat" xml:space="preserve">
     <value>The model you have supplied of type {0} does not inherit from the base view model</value>
   </data>

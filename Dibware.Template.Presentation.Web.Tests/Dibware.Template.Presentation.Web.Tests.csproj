@@ -105,6 +105,8 @@
     <Compile Include="Filters\WebsiteAuthorizeAttributeTests.cs" />
     <Compile Include="Helpers\MockServiceHelper.cs" />
     <Compile Include="HelperTests\MembershipHelperTests.cs" />
+    <Compile Include="HelperTests\EmailHelperTest.cs" />
+    <Compile Include="MockData\EmailHelperData.cs" />
     <Compile Include="MockData\PasswordStrengthRuleData.cs" />
     <Compile Include="Mocks\MockBaseViewModel.cs" />
     <Compile Include="Mocks\MockWebsiteAuthorizeAttribute.cs" />

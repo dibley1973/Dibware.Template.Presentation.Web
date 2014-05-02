@@ -7,11 +7,9 @@ using Dibware.Template.Presentation.Web.Modules.Authentication;
 using Dibware.Template.Presentation.Web.Resources;
 using Microsoft.Web.WebPages.OAuth;
 using System;
-using System.Collections.Generic;
 using System.Configuration;
 using System.Security.Policy;
 using System.Text.RegularExpressions;
-using System.Web.Helpers;
 using System.Web.Mvc;
 using System.Web.Security;
 using WebMatrix.WebData;
@@ -38,6 +36,70 @@ namespace Dibware.Template.Presentation.Web.Controllers
         #endregion
 
         #region Actions
+
+        //
+        // GET: /Account/ConfirmAccount
+        [AllowAnonymous]
+        public ActionResult ConfirmAccountAwaitEmail()
+        {
+            // await for email...
+            return View();
+        }
+
+        //
+        // GET: /Account/ConfirmAccount
+        [AllowAnonymous]
+        public ActionResult ConfirmAccount(String confirmationToken)
+        {
+            if (WebSecurity.ConfirmAccount(confirmationToken))
+            {
+                return RedirectToAction(ActionMethods.ConfirmAccountSuccess);
+            }
+            return RedirectToAction(ActionMethods.ConfirmAccountFailure);
+        }
+
+        [AllowAnonymous]
+        public ActionResult ConfirmAccountSuccess()
+        {
+            return View(ViewNames.ConfirmAccountSuccess);
+        }
+
+        [AllowAnonymous]
+        public ActionResult ConfirmAccountFailure()
+        {
+            return View(ViewNames.ConfirmAccountFailure);
+        }
+
+        //{
+        //    if (String.IsNullOrEmpty(confirmationToken) || (!Regex.IsMatch(confirmationToken,
+        //            @"[0-9a-f]{8}\-([0-9a-f]{4}\-){3}[0-9a-f]{12}")))
+        //    {
+        //        TempData["tempMessage"] =
+        //            "The user account is not valid. Please try clicking the link in your email again."
+        //        return View();
+        //    }
+        //    else
+        //    {
+        //        var accountconfirmed = WebSecurity.ConfirmAccount(username, confirmationToken);
+        //        WebSecurity.L
+
+        //    MembershipUser user = Membership.GetUser(new Guid(ID));
+
+        //    if (!user.IsApproved)
+        //    {
+        //        user.IsApproved = true;
+        //        Membership.UpdateUser(user);
+        //        FormsService.SignIn(user.UserName, false);
+        //        return RedirectToAction("welcome");
+        //    }
+        //    else
+        //    {
+        //        FormsService.SignOut();
+        //        TempData["tempMessage"] = "You have already confirmed your email address... please log in.";
+        //        return RedirectToAction("LogOn");
+        //    }
+        //}
+
 
         //
         // GET: /Account/
@@ -120,10 +182,13 @@ namespace Dibware.Template.Presentation.Web.Controllers
                         Convert.ToBoolean(
                             ConfigurationManager.AppSettings[ConfigurationKeys.RequireConfirmationToken]);
 
-                    var propertyValues = new Dictionary<String, Object>();
-                    propertyValues.Add(DictionaryKeys.EmailAddress, model.EmailAddress);
+                    //// Set extended properties
+                    //var propertyValues = new Dictionary<String, Object>
+                    //{
+                    //    { DictionaryKeys.EmailAddress, model.EmailAddress }
+                    //};
 
-                    // try and create the user's account
+                    //// Try and create the user's account
                     //String confirmationToken = WebSecurity.CreateUserAndAccount(
                     //    model.UserName,
                     //    model.Password,
@@ -140,34 +205,21 @@ namespace Dibware.Template.Presentation.Web.Controllers
 
                     if (requireConfirmationToken)
                     {
-                        // send the user an email with the token.
-                        // TODO: create a nice email body and the correct link
-                        String returnLink = Url.Action(
-                            ViewNames.ConfirmAccount, 
-                            ControllerNames.Account, 
+                        // Create the return relative url
+                        var relativeUrl = Url.Action(
+                            ViewNames.ConfirmAccount,
+                            ControllerNames.Account,
                             new { confirmationToken = confirmationToken });
 
-                        try
-                        {
-                            //WebMail.SmtpServer
-                            WebMail.Send(
-                                to: model.EmailAddress,
-                                from: "dibley1973@sky.com",
-                                subject: "Your confirmation token",
-                                body: ("Your confirmation token is: " +
-                                    confirmationToken +
-                                    " click here: " +
-                                    returnLink)
-
-                            );
-                        }
-                        catch (System.Net.Mail.SmtpException smtpEx)
-                        {
-                            throw smtpEx;
-                        }
+                        // Send confirmation email to new registerant
+                        EmailHelper.SendConfirmationEmail(
+                            model.EmailAddress,
+                            model.UserName,
+                            confirmationToken,
+                            relativeUrl);
 
                         // Redirect to the confirmation token entry page
-                        return RedirectToAction(ViewNames.ConfirmAccount, ControllerNames.Account);
+                        return RedirectToAction(ActionMethods.ConfirmAccountAwaitEmail, ControllerNames.Account);
                     }
                     else
                     {
@@ -175,7 +227,7 @@ namespace Dibware.Template.Presentation.Web.Controllers
                         WebSecurity.Login(model.UserName, model.Password);
 
                         // Redirect to the home page
-                        return RedirectToAction(ViewNames.Index, ControllerNames.Home);
+                        return RedirectToAction(ActionMethods.Index, ControllerNames.Home);
                     }
                 }
                 catch (MembershipCreateUserException e)
@@ -187,7 +239,6 @@ namespace Dibware.Template.Presentation.Web.Controllers
             // If we got this far, something failed, redisplay form
             return View(ViewNames.Register, model);
         }
-
         #endregion
 
         #region Helper Methods

@@ -171,4 +171,7 @@
   <data name="ShowDetailedErroMessages" xml:space="preserve">
     <value>ShowDetailedErroMessages</value>
   </data>
+  <data name="ApplicationDomain" xml:space="preserve">
+    <value>ApplicationDomain</value>
+  </data>
 </root>

@@ -70,6 +70,15 @@ namespace Dibware.Template.Presentation.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to An error occurred sending an email.
+        /// </summary>
+        internal static string ErrorSendingMail {
+            get {
+                return ResourceManager.GetString("ErrorSendingMail", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to The model you have supplied of type {0} does not inherit from the base view model.
         /// </summary>
         internal static string ModelDoesNotInheritFromBaseViewModelFormat {

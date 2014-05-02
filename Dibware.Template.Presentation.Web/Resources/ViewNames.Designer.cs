@@ -79,6 +79,33 @@ namespace Dibware.Template.Presentation.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to ConfirmAccountAwaitEmail.
+        /// </summary>
+        internal static string ConfirmAccountAwaitEmail {
+            get {
+                return ResourceManager.GetString("ConfirmAccountAwaitEmail", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ConfirmAccountFailure.
+        /// </summary>
+        internal static string ConfirmAccountFailure {
+            get {
+                return ResourceManager.GetString("ConfirmAccountFailure", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ConfirmAccountSuccess.
+        /// </summary>
+        internal static string ConfirmAccountSuccess {
+            get {
+                return ResourceManager.GetString("ConfirmAccountSuccess", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Index.
         /// </summary>
         internal static string Index {
