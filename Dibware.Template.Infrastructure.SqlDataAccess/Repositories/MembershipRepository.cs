@@ -74,6 +74,7 @@ namespace Dibware.Template.Infrastructure.SqlDataAccess.Repositories
                 emailAddress,
                 confirmationToken
             );
+            
             var results = UnitOfWork.ExecuteStoredProcedure<String>(procedure);
             //var userGuid = results.SingleOrDefault();
             return confirmationToken;

@@ -286,6 +286,30 @@ namespace Dibware.Template.Presentation.Web.Tests.Controllers
             Assert.IsTrue(controller.ModelState.IsValid);
         }
 
+        [Ignore]    // Model state has no dictionary items!
+        [TestMethod]
+        public void Test_RegisterAction_WithAllValidProperties_ResultsInSuccessfulRegistration()
+        {
+            // Arrange
+            var roles = new[] { UserRole.UnknownUser.ToString() };
+            var controller = SetupAccountController(roles);
+            var expectedResultType = typeof(ViewResult);
+            var model = new RegisterViewModel
+            {
+
+                EmailAddress = @"dibley1973@yahoo.co.uk",
+                Password = @"1234QWERqwer#",
+                UserName = @"Dib"
+            };
+
+            // Act
+            var result = controller.Register(model);
+
+            // Assert
+            Assert.IsTrue(controller.ModelState.IsValid);
+        }
+
+
         #endregion Register
 
 

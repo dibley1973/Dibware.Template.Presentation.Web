@@ -1,12 +1,13 @@
-﻿using Dibware.EF.Extensions;
-using Dibware.EF.Extensions.Contracts;
+﻿using Dibware.EF.Extensions.Contracts;
+using Dibware.EF.Extensions;
+using Dibware.EF.Extensions.Helpers;
 using Dibware.Template.Core.Domain.Contracts.UnitOfWork;
 using Dibware.Template.Infrastructure.SqlDataAccess.UnitOfWork.Configuration;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
-using System.Data.Entity.Validation;
 using System.Data.Entity.ModelConfiguration.Conventions;
+using System.Data.Entity.Validation;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Reflection;
@@ -145,7 +146,24 @@ namespace Dibware.Template.Infrastructure.SqlDataAccess.UnitOfWork
         public IEnumerable<TResult> ExecuteStoredProcedure<TResult>(IStoredProcedure<TResult> storedProcedure)
             where TResult : class
         {
-            return Database.ExecuteStoredProcedure<TResult>(storedProcedure);
+            try
+            {
+                //// taken from Dib EF ext... Needs putting back when correct.
+                //var sqlCommandString = CommandHelper.CreateStoredProcedureCommandString<TResult>(
+                //    storedProcedure.FullName,
+                //    storedProcedure.Parameters
+                //);
+                //var result = Database.SqlQuery<TResult>(
+                //    sqlCommandString,
+                //    storedProcedure.Parameters.ToArray()).ToList();
+                /*procedure.Parameters.Cast<object>().ToArray());*/
+                var result = Database.ExecuteStoredProcedure<TResult>(storedProcedure).ToList();
+                return result;
+            }
+            catch (SqlException sqEx)
+            {
+                throw sqEx;
+            }
         }
 
         /// <summary>

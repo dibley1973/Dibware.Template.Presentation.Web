@@ -121,6 +121,8 @@
     <Folder Include="Storage\" />
     <Folder Include="Service Broker\" />
     <Folder Include="Server Objects\" />
+    <Folder Include="ref" />
+    <Folder Include="ref\Tables" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="security\Tables\User.sql" />
@@ -164,7 +166,9 @@
       <AnsiNulls>On</AnsiNulls>
       <QuotedIdentifier>On</QuotedIdentifier>
     </Build>
-    <Build Include="user\dbo.Account.sql" />
+    <Build Include="user\dbo.Account.sql">
+      <AnsiNulls>Off</AnsiNulls>
+    </Build>
     <Build Include="security\user.sql" />
     <Build Include="application\Tables\application.Configuration.sql">
       <AnsiNulls>Off</AnsiNulls>
@@ -181,6 +185,9 @@
     <Build Include="Service Broker\AutoCreatedLocal.sql" />
     <Build Include="Server Objects\AlwaysOn_health.sql" />
     <Build Include="security\Permissions.sql" />
+    <Build Include="security\ref.sql" />
+    <Build Include="ref\Tables\ref.AccountStatus.sql" />
+    <Build Include="ref\Tables\ref.AccountType.sql" />
   </ItemGroup>
   <ItemGroup>
     <RefactorLog Include="Dibware.Template.Database.refactorlog" />
@@ -188,6 +195,7 @@
   <ItemGroup>
     <None Include="DacPacs\master.dacpac" />
     <PostDeploy Include="PostDeploymentScripts\security.PasswordStrengthRules.Data.sql" />
+    <None Include="PostDeploymentScripts\application.Configuration.sql" />
   </ItemGroup>
   <ItemGroup>
     <ArtifactReference Include="DacPacs\master.dacpac">

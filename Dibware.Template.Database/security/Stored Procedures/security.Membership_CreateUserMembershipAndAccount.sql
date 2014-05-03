@@ -32,8 +32,8 @@ BEGIN
             16, -- Severity,
             1,  -- State,
             @Username
-        )
-        RETURN -1
+        );
+        RETURN -1;
     END
 
 	-- Then check if that email address exists
@@ -50,8 +50,8 @@ BEGIN
             16, -- Severity,
             1,  -- State,
             @Username
-        )
-        RETURN -1
+        );
+        RETURN -1;
     END
 
     BEGIN TRY
@@ -59,11 +59,10 @@ BEGIN
 
         -- Create a new GUID for the user
 	    DECLARE	@UserGuid UNIQUEIDENTIFIER;
-	    --SET		@UserGuid = NEWID();
 
         DECLARE @OutPutTable TABLE (
             UserGuid uniqueidentifier
-        )
+        );
 
 	    -- Create user details
 	    INSERT INTO [security].[User]
@@ -120,7 +119,7 @@ BEGIN
             @InitialAccountStatus   = [InitialAccountStatus]
         ,   @DefaultAccountType     = [DefaultAccountType]
         FROM
-            [application].[Configuration]
+            [application].[Configuration];
 
         -- Create account details
         INSERT INTO [user].Account
@@ -145,34 +144,52 @@ BEGIN
         COMMIT TRANSACTION
     END TRY
     BEGIN CATCH
-        DECLARE @ErrorSeverity INT,
-                    @ErrorNumber   INT,
-                    @ErrorMessage nvarchar(4000),
-                    @ErrorState INT,
-                    @ErrorLine  INT,
-                    @ErrorProc nvarchar(200)
-                    -- Grab error information from SQL functions
-            SET @ErrorSeverity = ERROR_SEVERITY()
-            SET @ErrorNumber   = ERROR_NUMBER()
-            SET @ErrorMessage  = ERROR_MESSAGE()
-            SET @ErrorState    = ERROR_STATE()
-            SET @ErrorLine     = ERROR_LINE()
-            SET @ErrorProc     = ERROR_PROCEDURE()
-            SET @ErrorMessage  = 'Problem updating users''s information.' + CHAR(13) + 'SQL Server Error Message is: ' + CAST(@ErrorNumber AS VARCHAR(10)) + ' in procedure: ' + @ErrorProc + ' Line: ' + CAST(@ErrorLine AS VARCHAR(10)) + ' Error text: ' + @ErrorMessage
-            -- Not all errors generate an error state, to set to 1 if it's zero
-            IF @ErrorState = 0
-            BEGIN
-                SET @ErrorState = 1
-            END
-            -- If the error renders the transaction as uncommittable or we have open transactions, we may want to rollback
-            IF @@TRANCOUNT > 0
-            BEGIN
-                    --print 'Rollback transaction'
-                    ROLLBACK TRANSACTION
-            END
-            RAISERROR (@ErrorMessage , @ErrorSeverity, @ErrorState, @ErrorNumber)
+        -- If the error renders the transaction as uncommittable or we have open transactions, we may want to rollback
+        IF @@TRANCOUNT > 0
+        BEGIN
+            --print 'Rollback transaction'
+            ROLLBACK TRANSACTION
+        END
+
+        DECLARE @ErrorSeverity  INT
+        ,       @ErrorNumber    INT
+        ,       @ErrorMessage   nvarchar(4000)
+        ,       @ErrorState     INT
+        ,       @ErrorLine      INT
+        ,       @ErrorProc      nvarchar(200)
+        ,       @ErrorTimeStamp smalldatetime
+        ,       @StackTrace     nvarchar(max);
+
+        -- Grab error information from SQL functions
+        SET     @ErrorSeverity  = ERROR_SEVERITY();
+        SET     @ErrorNumber    = ERROR_NUMBER();
+        SET     @ErrorMessage   = ERROR_MESSAGE();
+        SET     @ErrorState     = ERROR_STATE();
+        SET     @ErrorLine      = ERROR_LINE();
+        SET     @ErrorProc      = ERROR_PROCEDURE();
+        SET     @ErrorMessage   = 'Problem updating users''s information.' + CHAR(13) + 'SQL Server Error Message is: ' + CAST(@ErrorNumber AS VARCHAR(10)) + ' in procedure: ' + @ErrorProc + ' Line: ' + CAST(@ErrorLine AS VARCHAR(10)) + ' Error text: ' + @ErrorMessage;
+        SET     @ErrorTimeStamp = GETDATE();
+        SET     @StackTrace     = CAST(@ErrorLine AS varchar(18));
+
+        -- Not all errors generate an error state, to set to 1 if it's zero
+        IF @ErrorState = 0
+        BEGIN
+            SET @ErrorState = 1;
+        END
+
+        EXEC [application].[Error_Insert]
+            @ErrorMessage
+        ,   @ErrorProc
+        ,   @StackTrace
+        ,   @Username
+        ,   @ErrorTimeStamp;
+
+        RAISERROR (@ErrorMessage , @ErrorSeverity, @ErrorState, @ErrorNumber);
+
+        SELECT 'ERROR';
+
     END CATCH
-    RETURN @@ERROR
+    RETURN @@ERROR;
 END
 GO
 GRANT EXECUTE
