@@ -196,6 +196,9 @@
     <None Include="DacPacs\master.dacpac" />
     <PostDeploy Include="PostDeploymentScripts\security.PasswordStrengthRules.Data.sql" />
     <None Include="PostDeploymentScripts\application.Configuration.sql" />
+    <None Include="PostDeploymentScripts\ref.AccountStatus.sql" />
+    <None Include="PostDeploymentScripts\ref.AccountType.sql" />
+    <None Include="PostDeploymentScripts\master.CustomErrors.sql" />
   </ItemGroup>
   <ItemGroup>
     <ArtifactReference Include="DacPacs\master.dacpac">

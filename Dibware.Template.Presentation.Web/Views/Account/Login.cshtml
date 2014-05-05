@@ -1,19 +1,15 @@
 ﻿@using Dibware.Template.Presentation.Web.Resources
 @model Dibware.Template.Presentation.Web.Models.Account.LoginViewModel
 
-@{
-  ViewBag.Title = "Log in";
-}
-
 <hgroup class="title">
-  <h1>@ViewBag.Title.</h1>
+  <h1>@PageTitles.LogIn</h1>
 </hgroup>
 <section id="loginForm">
   @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form col-md-12 center-block" }))
   {
     <div class="modal-content">
       <div class="modal-header">
-        <h2 class="text-center">Log in normally.</h2>
+        <h2 class="text-center">@PageSubTitles.LogInNormally</h2>
       </div>
       <div class="modal-body">
         @Html.AntiForgeryToken()
@@ -44,7 +40,7 @@
 <section class="social" id="socialLoginForm">
   <div class="modal-content">
     <div class="modal-header">
-      <h1 class="text-center">Use another service to log in.</h1>
+      <h2 class="text-center">@PageSubTitles.LogInWithOtherService</h2>
     </div>  <!-- /.modal-header -->
     <div class="modal-body">
       @Html.Action("ExternalLoginsList", new { ReturnUrl = ViewBag.ReturnUrl })

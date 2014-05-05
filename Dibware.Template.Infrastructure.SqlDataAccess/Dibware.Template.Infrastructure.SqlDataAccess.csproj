@@ -94,6 +94,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ParameterNames.resx</DependentUpon>
     </Compile>
+    <Compile Include="Resources\SqlExceptionNumbers.cs" />
     <Compile Include="Resources\StoredProcedureAction1.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

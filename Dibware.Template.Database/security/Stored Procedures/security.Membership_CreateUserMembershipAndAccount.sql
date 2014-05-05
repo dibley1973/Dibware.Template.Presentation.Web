@@ -28,7 +28,7 @@ BEGIN
     )
     BEGIN
         RAISERROR (
-            N'Username %s already exists. Please choose another username.',
+            50001,
             16, -- Severity,
             1,  -- State,
             @Username
@@ -46,10 +46,10 @@ BEGIN
     )
     BEGIN
         RAISERROR (
-            N'Email address %s already exists in the system. Please choose another email address.',
+            50002,
             16, -- Severity,
             1,  -- State,
-            @Username
+            @EmailAddress
         );
         RETURN -1;
     END
@@ -139,7 +139,7 @@ BEGIN
         ,   @DefaultAccountType
         );
 
-        SELECT @UserGuid;
+        SELECT CAST(@UserGuid As varchar(36)) [UserGuid];
 
         COMMIT TRANSACTION
     END TRY

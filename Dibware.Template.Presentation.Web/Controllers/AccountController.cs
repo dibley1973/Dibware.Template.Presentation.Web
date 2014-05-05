@@ -38,17 +38,19 @@ namespace Dibware.Template.Presentation.Web.Controllers
         #region Actions
 
         //
-        // GET: /Account/ConfirmAccount
+        // GET: /Account/ConfirmAccountAwaitEmail
         [AllowAnonymous]
+        [ValidateAntiForgeryToken]
         public ActionResult ConfirmAccountAwaitEmail()
         {
             // await for email...
-            return View();
+            return View(ViewNames.ConfirmAccountAwaitEmail);
         }
 
         //
         // GET: /Account/ConfirmAccount
         [AllowAnonymous]
+        [ValidateAntiForgeryToken]
         public ActionResult ConfirmAccount(String confirmationToken)
         {
             if (WebSecurity.ConfirmAccount(confirmationToken))
@@ -230,9 +232,14 @@ namespace Dibware.Template.Presentation.Web.Controllers
                         return RedirectToAction(ActionMethods.Index, ControllerNames.Home);
                     }
                 }
-                catch (MembershipCreateUserException e)
+                catch (MembershipCreateUserException membEx)
                 {
-                    ModelState.AddModelError("", MembershipHelper.ConvertErrorCodeToString(e.StatusCode));
+                    ModelState.AddModelError("", MembershipHelper.ConvertErrorCodeToString(membEx.StatusCode));
+                }
+                catch (Dibware.Template.Core.Domain.Exceptions.ValidationException validationEx)
+                {
+                    // Report Validation Exceptions as model errors
+                    ModelState.AddModelError("", validationEx.Message);
                 }
             }
 

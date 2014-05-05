@@ -1,9 +1,10 @@
-﻿@model Dibware.Template.Presentation.Web.Models.Home.IndexViewModel
-@{
-    ViewBag.Title = "Index";
-    Layout = "~/Views/Shared/_Layout.cshtml";
-}
+﻿@using Dibware.Template.Presentation.Web.Resources
+@model Dibware.Template.Presentation.Web.Models.Home.IndexViewModel
 
-<h1>Website Template</h1>
-<h2>Index</h2>
-<p class="lead">Use this document as a way to quickly start any new project.</p>
+<hgroup class="title">
+  <h1>@PageTitles.Home</h1>
+</hgroup>
+<section id="homePage">
+  <h2>Website Template</h2>
+  <p class="lead">Use this document as a way to quickly start any new project.</p>
+</section>

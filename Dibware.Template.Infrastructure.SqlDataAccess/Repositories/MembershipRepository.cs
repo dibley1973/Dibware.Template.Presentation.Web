@@ -8,6 +8,7 @@ using Dibware.Template.Infrastructure.SqlDataAccess.Resources;
 using Dibware.Template.Infrastructure.SqlDataAccess.StoredProcedures.Membership;
 using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 
@@ -61,7 +62,7 @@ namespace Dibware.Template.Infrastructure.SqlDataAccess.Repositories
                 String.Empty;
 
             // Apply any validation
-            if(String.IsNullOrEmpty(emailAddress))
+            if (String.IsNullOrEmpty(emailAddress))
             {
                 throw new ValidationException(ExceptionMessages.EmailAddressMustBeSupplied);
             }
@@ -74,10 +75,39 @@ namespace Dibware.Template.Infrastructure.SqlDataAccess.Repositories
                 emailAddress,
                 confirmationToken
             );
-            
-            var results = UnitOfWork.ExecuteStoredProcedure<String>(procedure);
-            //var userGuid = results.SingleOrDefault();
-            return confirmationToken;
+
+            try
+            {
+                var userGuid = UnitOfWork.ExecuteStoredProcedure<String>(procedure);
+                return confirmationToken;
+            }
+            catch (SqlException sqEx)
+            {
+                // Determine if the Sql Exception number is a know value
+                if (!typeof(SqlExceptionNumbers).IsEnumDefined(sqEx.Number))
+                {
+                    // If it is not just rethrow it
+                    throw sqEx;
+                }
+
+                // Otherwise cast it and handle it
+                SqlExceptionNumbers sqExNumber = (SqlExceptionNumbers)sqEx.Number;
+                switch (sqExNumber)
+                {
+                    // catch explicit Sql Exceptions and re throw as validation message
+                    case SqlExceptionNumbers.EmailAddressAlreadyExists:
+                    case SqlExceptionNumbers.UserNameAlreadyExists:
+                        throw new ValidationException(sqEx.Message);
+
+                    default:
+                        throw sqEx;
+                }
+            }
+            catch (Exception ex)
+            {
+                //TODO: Remove this 'catch' and rethrow once all debuggung is complete
+                throw ex;
+            }
         }
 
         /// <summary>

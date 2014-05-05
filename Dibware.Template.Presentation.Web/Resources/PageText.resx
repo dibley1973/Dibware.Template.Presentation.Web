@@ -117,13 +117,7 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="ErroOccurredWhileProcessingAction" xml:space="preserve">
-    <value>An error occurred while processing your action.</value>
-  </data>
-  <data name="LogInNormally" xml:space="preserve">
-    <value>Log in normally</value>
-  </data>
-  <data name="LogInWithOtherService" xml:space="preserve">
-    <value>Use another service to log in</value>
+  <data name="ConfirmAccountAwaitEmail" xml:space="preserve">
+    <value>Thank you for registering for an account. To complete registration we need you to confirm the email address you registered with us. An email with a registration confirmation code has been sent to the email address that you supplied. Please check your email account, follow the instructions in the email.</value>
   </data>
 </root>

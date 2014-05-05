@@ -22,14 +22,14 @@ namespace Dibware.Template.Presentation.Web.Resources {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    public class PageSubTitles {
+    public class PageText {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
         private static global::System.Globalization.CultureInfo resourceCulture;
         
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal PageSubTitles() {
+        internal PageText() {
         }
         
         /// <summary>
@@ -39,7 +39,7 @@ namespace Dibware.Template.Presentation.Web.Resources {
         public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Dibware.Template.Presentation.Web.Resources.PageSubTitles", typeof(PageSubTitles).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Dibware.Template.Presentation.Web.Resources.PageText", typeof(PageText).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -61,29 +61,11 @@ namespace Dibware.Template.Presentation.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to An error occurred while processing your action..
+        ///   Looks up a localized string similar to Thank you for registering for an account. To complete registration we need you to confirm the email address you registered with us. An email with a registration confirmation code has been sent to the email address that you supplied. Please check your email account, follow the instructions in the email..
         /// </summary>
-        public static string ErroOccurredWhileProcessingAction {
+        public static string ConfirmAccountAwaitEmail {
             get {
-                return ResourceManager.GetString("ErroOccurredWhileProcessingAction", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Log in normally.
-        /// </summary>
-        public static string LogInNormally {
-            get {
-                return ResourceManager.GetString("LogInNormally", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Use another service to log in.
-        /// </summary>
-        public static string LogInWithOtherService {
-            get {
-                return ResourceManager.GetString("LogInWithOtherService", resourceCulture);
+                return ResourceManager.GetString("ConfirmAccountAwaitEmail", resourceCulture);
             }
         }
     }

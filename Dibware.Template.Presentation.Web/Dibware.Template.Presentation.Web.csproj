@@ -196,6 +196,7 @@
     <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
     <Content Include="Views\Account\Register.cshtml" />
     <Content Include="Views\Navigation\HeaderNavigation.cshtml" />
+    <Content Include="Views\Account\ConfirmAccountAwaitEmail.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -239,6 +240,7 @@
     <Compile Include="Helpers\LinkHelper.cs" />
     <Compile Include="Helpers\MembershipHelper.cs" />
     <Compile Include="HtmlHelpers\BootstrapValidationSummary.cs" />
+    <Compile Include="Models\Account\ConfirmAccountAwaitEmail.cs" />
     <Compile Include="Models\Account\IndexViewModel.cs" />
     <Compile Include="Models\Account\LoginViewModel.cs" />
     <Compile Include="Models\Account\RegisterViewModel.cs" />
@@ -324,6 +326,11 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>PageSubTitles.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\PageText.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PageText.resx</DependentUpon>
     </Compile>
     <Compile Include="Resources\PageTitles.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -426,11 +433,15 @@
       <LastGenOutput>MetaTagData.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Resources\PageSubTitles.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
+      <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>PageSubTitles.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="Resources\PageText.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>PageText.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="Resources\PageTitles.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
+      <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>PageTitles.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Resources\PromptText.resx">
