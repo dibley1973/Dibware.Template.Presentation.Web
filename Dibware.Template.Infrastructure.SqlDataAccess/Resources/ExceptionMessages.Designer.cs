@@ -61,6 +61,15 @@ namespace Dibware.Template.Infrastructure.SqlDataAccess.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Account confirmation token must be supplied.
+        /// </summary>
+        internal static string AccountConfirmationTokenMustBeSupplied {
+            get {
+                return ResourceManager.GetString("AccountConfirmationTokenMustBeSupplied", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to An email address must be supplied.
         /// </summary>
         internal static string EmailAddressMustBeSupplied {
@@ -75,6 +84,15 @@ namespace Dibware.Template.Infrastructure.SqlDataAccess.Resources {
         internal static string UnitOfWorkIsNull {
             get {
                 return ResourceManager.GetString("UnitOfWorkIsNull", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Username must be supplied.
+        /// </summary>
+        internal static string UsernameMustBeSupplied {
+            get {
+                return ResourceManager.GetString("UsernameMustBeSupplied", resourceCulture);
             }
         }
     }

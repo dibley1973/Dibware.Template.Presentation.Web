@@ -10,7 +10,6 @@ using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
-using System.Text;
 
 namespace Dibware.Template.Infrastructure.SqlDataAccess.Repositories
 {
@@ -36,6 +35,44 @@ namespace Dibware.Template.Infrastructure.SqlDataAccess.Repositories
         #endregion
 
         #region IRepositoryMembershipProviderRepository Members
+
+
+        /// <summary>
+        /// Activates a pending membership account.
+        /// </summary>
+        /// <param name="accountConfirmationToken">A confirmation token to pass to the authentication provider.</param>
+        /// <returns>
+        /// true if the account is confirmed; otherwise, false.
+        /// </returns>
+        /// <exception cref="System.NotImplementedException"></exception>
+        public Boolean ConfirmAccount(String accountConfirmationToken)
+        {
+            // Ensure we have a UnitOfWork
+            Guard.InvalidOperation((UnitOfWork == null), ExceptionMessages.UnitOfWorkIsNull);
+            Guard.ArgumentIsNotNullOrEmpty(accountConfirmationToken, ExceptionMessages.AccountConfirmationTokenMustBeSupplied);
+
+            throw new NotImplementedException();
+        }
+
+        /// <summary>
+        /// Activates a pending membership account for the specified user.
+        /// </summary>
+        /// <param name="userName">The user name.</param>
+        /// <param name="accountConfirmationToken">A confirmation token to pass to the authentication provider.</param>
+        /// <returns>
+        /// true if the account is confirmed; otherwise, false.
+        /// </returns>
+        /// <exception cref="System.NotImplementedException"></exception>
+        public Boolean ConfirmAccount(String userName, String accountConfirmationToken)
+        {
+            // Ensure we have a UnitOfWork
+            Guard.InvalidOperation((UnitOfWork == null), ExceptionMessages.UnitOfWorkIsNull);
+            Guard.ArgumentIsNotNullOrEmpty(userName, ExceptionMessages.UsernameMustBeSupplied);
+            Guard.ArgumentIsNotNullOrEmpty(accountConfirmationToken, ExceptionMessages.AccountConfirmationTokenMustBeSupplied);
+
+            throw new NotImplementedException();
+        }
+
 
         public String CreateUserAndAccount(String username, String password,
             Boolean requireConfirmation, IDictionary<String, Object> values)
@@ -126,22 +163,73 @@ namespace Dibware.Template.Infrastructure.SqlDataAccess.Repositories
             return returnValue;
         }
 
-        public string GetPasswordStrengthRegularExpression()
+        /// <summary>
+        /// Gets the password strength regular expression.
+        /// </summary>
+        /// <returns></returns>
+        /// <exception cref="System.NotImplementedException"></exception>
+        public String GetPasswordStrengthRegularExpression()
         {
-
-
-
-            var regularExpressionBuilder = new StringBuilder();
-            regularExpressionBuilder.Append("");
-            regularExpressionBuilder.Append("");
-            regularExpressionBuilder.Append("");
-
-            return regularExpressionBuilder.ToString();
-
+            //var regularExpressionBuilder = new StringBuilder();
+            //regularExpressionBuilder.Append("");
+            //regularExpressionBuilder.Append("");
+            //regularExpressionBuilder.Append("");
+            //return regularExpressionBuilder.ToString();
             throw new NotImplementedException();
         }
 
+        /// <summary>
+        /// Returns a value that indicates whether the user account has been confirmed by the provider.
+        /// </summary>
+        /// <param name="userName">The user name.</param>
+        /// <returns>
+        /// true if the user is confirmed; otherwise, false.
+        /// </returns>
+        /// <exception cref="System.NotImplementedException"></exception>
+        public Boolean IsConfirmed(String userName)
+        {
+            // Ensure we have a UnitOfWork
+            Guard.InvalidOperation((UnitOfWork == null), ExceptionMessages.UnitOfWorkIsNull);
+            Guard.ArgumentIsNotNullOrEmpty(userName, ExceptionMessages.UsernameMustBeSupplied);
 
+            //// Create the stored precedure we will use
+            //var procedure = new IsConfirmedStoredProcedure(username);
+
+            //try
+            //{
+            //    var result = UnitOfWork.ExecuteStoredProcedure<Boolean>(procedure).FirstOrDefault();
+            //    return result;
+            //}
+            //catch (SqlException sqEx)
+            //{
+            //    //// Determine if the Sql Exception number is a know value
+            //    //if (!typeof(SqlExceptionNumbers).IsEnumDefined(sqEx.Number))
+            //    //{
+            //    //    // If it is not just rethrow it
+            //    //    throw sqEx;
+            //    //}
+
+            //    //// Otherwise cast it and handle it
+            //    //SqlExceptionNumbers sqExNumber = (SqlExceptionNumbers)sqEx.Number;
+            //    //switch (sqExNumber)
+            //    //{
+            //    //    // catch explicit Sql Exceptions and re throw as validation message
+            //    //    case SqlExceptionNumbers.:
+            //    //    case SqlExceptionNumbers.:
+            //    //        throw new ValidationException(sqEx.Message);
+
+            //    //    default:
+            //            throw sqEx;
+            //    //}
+            //}
+            //catch (Exception ex)
+            //{
+            //    //TODO: Remove this 'catch' and rethrow once all debuggung is complete
+            //    throw ex;
+            //}
+
+            throw new NotImplementedException();
+        }
 
         //private IEnumerable<String> GetAllRuleRegularExpressions()
         //{

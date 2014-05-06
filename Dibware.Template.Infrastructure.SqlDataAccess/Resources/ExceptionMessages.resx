@@ -117,10 +117,16 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="AccountConfirmationTokenMustBeSupplied" xml:space="preserve">
+    <value>Account confirmation token must be supplied</value>
+  </data>
   <data name="EmailAddressMustBeSupplied" xml:space="preserve">
     <value>An email address must be supplied</value>
   </data>
   <data name="UnitOfWorkIsNull" xml:space="preserve">
     <value>UnitOfWork must not be null</value>
+  </data>
+  <data name="UsernameMustBeSupplied" xml:space="preserve">
+    <value>Username must be supplied</value>
   </data>
 </root>
