@@ -1,0 +1,40 @@
+﻿@using Dibware.Template.Presentation.Web.Resources
+@using Dibware.Template.Presentation.Web.HtmlHelpers
+@model Dibware.Template.Presentation.Web.Models.Account.ConfirmAccount
+
+<hgroup class="title">
+  <h1>@PageTitles.ConfirmAccount</h1>
+</hgroup>
+<section id="confirmAccountPage">
+  <p>@Model.UserName</p>
+  <p>@PageText.ConfirmAccount</p>
+  @using (Html.BeginForm())
+  {
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="text-center">Create a new account</h2>
+      </div>
+      <div class="modal-body">
+        @Html.AntiForgeryToken()
+        @Html.BootstrapValidationSummary()
+
+        <div class="form-group">
+          @Html.TextBoxFor(m => m.UserName, new { 
+            @class = "form-control input-lg", 
+            @placeholder = @PromptText.Username })
+          @Html.ValidationMessageFor(m => m.UserName)
+        </div>
+        <div class="form-group">
+          @Html.TextBoxFor(m => m.ConfirmationToken, new {
+            @class = "form-control input-lg", 
+            @placeholder = @PromptText.ConfirmationToken })
+          @Html.ValidationMessageFor(m => m.ConfirmationToken)
+        </div>
+
+        <div class="form-group">
+          <button class="btn btn-primary btn-lg btn-block">Confirm</button>
+        </div>
+      </div>
+    </div>
+  }
+</section>

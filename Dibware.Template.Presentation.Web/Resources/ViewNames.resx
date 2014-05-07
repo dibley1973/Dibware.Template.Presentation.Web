@@ -123,8 +123,8 @@
   <data name="ConfirmAccount" xml:space="preserve">
     <value>ConfirmAccount</value>
   </data>
-  <data name="ConfirmAccountAwaitEmail" xml:space="preserve">
-    <value>ConfirmAccountAwaitEmail</value>
+  <data name="ConfirmAccountCheckEmail" xml:space="preserve">
+    <value>ConfirmAccountCheckEmail</value>
   </data>
   <data name="ConfirmAccountFailure" xml:space="preserve">
     <value>ConfirmAccountFailure</value>

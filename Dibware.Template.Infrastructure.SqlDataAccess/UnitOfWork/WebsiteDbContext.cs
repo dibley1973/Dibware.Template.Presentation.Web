@@ -1,6 +1,5 @@
-﻿using Dibware.EF.Extensions.Contracts;
-using Dibware.EF.Extensions;
-using Dibware.EF.Extensions.Helpers;
+﻿using Dibware.EF.Extensions;
+using Dibware.EF.Extensions.Contracts;
 using Dibware.Template.Core.Domain.Contracts.UnitOfWork;
 using Dibware.Template.Infrastructure.SqlDataAccess.UnitOfWork.Configuration;
 using System;
@@ -178,6 +177,19 @@ namespace Dibware.Template.Infrastructure.SqlDataAccess.UnitOfWork
         }
 
         /// <summary>
+        /// Executes the scalar stored procedure.
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="database">The database.</param>
+        /// <param name="procedure">The procedure.</param>
+        /// <returns></returns>
+        public TResult ExecuteScalarStoredProcedure<TResult>(IStoredProcedure<TResult> storedProcedure)
+            where TResult : struct
+        {
+            return Database.ExecuteScalarStoredProcedure(storedProcedure);
+        }
+
+        /// <summary>
         /// Executes the SQL query.
         /// </summary>
         /// <typeparam name="T"></typeparam>
@@ -187,6 +199,12 @@ namespace Dibware.Template.Infrastructure.SqlDataAccess.UnitOfWork
         {
             return Database.SqlQuery<T>(sqlQuery).ToList();
         }
+
+        //public T ExecuteScalarSqlQuery<T>(String sqlQuery) where T : struct
+        //{
+        //    return Database
+
+        //}
 
         #endregion
 

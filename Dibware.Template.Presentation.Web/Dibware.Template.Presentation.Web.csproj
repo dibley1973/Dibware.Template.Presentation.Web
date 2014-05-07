@@ -196,7 +196,8 @@
     <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
     <Content Include="Views\Account\Register.cshtml" />
     <Content Include="Views\Navigation\HeaderNavigation.cshtml" />
-    <Content Include="Views\Account\ConfirmAccountAwaitEmail.cshtml" />
+    <Content Include="Views\Account\ConfirmAccountCheckEmail.cshtml" />
+    <Content Include="Views\Account\ConfirmAccount.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -240,7 +241,8 @@
     <Compile Include="Helpers\LinkHelper.cs" />
     <Compile Include="Helpers\MembershipHelper.cs" />
     <Compile Include="HtmlHelpers\BootstrapValidationSummary.cs" />
-    <Compile Include="Models\Account\ConfirmAccountAwaitEmail.cs" />
+    <Compile Include="Models\Account\ConfirmAccount.cs" />
+    <Compile Include="Models\Account\ConfirmAccountCheckEmail.cs" />
     <Compile Include="Models\Account\IndexViewModel.cs" />
     <Compile Include="Models\Account\LoginViewModel.cs" />
     <Compile Include="Models\Account\RegisterViewModel.cs" />

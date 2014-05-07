@@ -70,6 +70,24 @@ namespace Dibware.Template.Presentation.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Confirm Account.
+        /// </summary>
+        public static string ConfirmAccount {
+            get {
+                return ResourceManager.GetString("ConfirmAccount", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Confirm Account Check Email.
+        /// </summary>
+        public static string ConfirmAccountCheckEmail {
+            get {
+                return ResourceManager.GetString("ConfirmAccountCheckEmail", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Ermagad!.
         /// </summary>
         public static string Error {

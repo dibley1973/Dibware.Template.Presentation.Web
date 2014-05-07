@@ -79,11 +79,11 @@ namespace Dibware.Template.Presentation.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to ConfirmAccountAwaitEmail.
+        ///   Looks up a localized string similar to ConfirmAccountCheckEmail.
         /// </summary>
-        internal static string ConfirmAccountAwaitEmail {
+        internal static string ConfirmAccountCheckEmail {
             get {
-                return ResourceManager.GetString("ConfirmAccountAwaitEmail", resourceCulture);
+                return ResourceManager.GetString("ConfirmAccountCheckEmail", resourceCulture);
             }
         }
         

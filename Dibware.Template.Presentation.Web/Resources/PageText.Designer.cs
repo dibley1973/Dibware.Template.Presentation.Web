@@ -61,11 +61,20 @@ namespace Dibware.Template.Presentation.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Please enter your username and confirmation token in the boxes below.
+        /// </summary>
+        public static string ConfirmAccount {
+            get {
+                return ResourceManager.GetString("ConfirmAccount", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Thank you for registering for an account. To complete registration we need you to confirm the email address you registered with us. An email with a registration confirmation code has been sent to the email address that you supplied. Please check your email account, follow the instructions in the email..
         /// </summary>
-        public static string ConfirmAccountAwaitEmail {
+        public static string ConfirmAccountCheckEmail {
             get {
-                return ResourceManager.GetString("ConfirmAccountAwaitEmail", resourceCulture);
+                return ResourceManager.GetString("ConfirmAccountCheckEmail", resourceCulture);
             }
         }
     }

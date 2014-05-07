@@ -117,7 +117,10 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="ConfirmAccountAwaitEmail" xml:space="preserve">
+  <data name="ConfirmAccount" xml:space="preserve">
+    <value>Please enter your username and confirmation token in the boxes below</value>
+  </data>
+  <data name="ConfirmAccountCheckEmail" xml:space="preserve">
     <value>Thank you for registering for an account. To complete registration we need you to confirm the email address you registered with us. An email with a registration confirmation code has been sent to the email address that you supplied. Please check your email account, follow the instructions in the email.</value>
   </data>
 </root>

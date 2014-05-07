@@ -51,7 +51,22 @@ namespace Dibware.Template.Infrastructure.SqlDataAccess.Repositories
             Guard.InvalidOperation((UnitOfWork == null), ExceptionMessages.UnitOfWorkIsNull);
             Guard.ArgumentIsNotNullOrEmpty(accountConfirmationToken, ExceptionMessages.AccountConfirmationTokenMustBeSupplied);
 
-            throw new NotImplementedException();
+            // Create the stored precedure we will use
+            var procedure = new ConfirmAccountStoredProcedure(
+                accountConfirmationToken,
+                String.Empty
+            );
+
+            try
+            {
+                Boolean confirmed = UnitOfWork.ExecuteScalarStoredProcedure<Boolean>(procedure);
+                return confirmed;
+            }
+            catch (Exception ex)
+            {
+                //TODO: Remove this 'catch' and rethrow once all debuggung is complete
+                throw ex;
+            }
         }
 
         /// <summary>
@@ -70,7 +85,22 @@ namespace Dibware.Template.Infrastructure.SqlDataAccess.Repositories
             Guard.ArgumentIsNotNullOrEmpty(userName, ExceptionMessages.UsernameMustBeSupplied);
             Guard.ArgumentIsNotNullOrEmpty(accountConfirmationToken, ExceptionMessages.AccountConfirmationTokenMustBeSupplied);
 
-            throw new NotImplementedException();
+            // Create the stored precedure we will use
+            var procedure = new ConfirmAccountStoredProcedure(
+                accountConfirmationToken,
+                String.Empty
+            );
+
+            try
+            {
+                var confirmed = UnitOfWork.ExecuteScalarStoredProcedure<Boolean>(procedure);
+                return confirmed;
+            }
+            catch (Exception ex)
+            {
+                //TODO: Remove this 'catch' and rethrow once all debuggung is complete
+                throw ex;
+            }
         }
 
 
@@ -192,7 +222,7 @@ namespace Dibware.Template.Infrastructure.SqlDataAccess.Repositories
             Guard.InvalidOperation((UnitOfWork == null), ExceptionMessages.UnitOfWorkIsNull);
             Guard.ArgumentIsNotNullOrEmpty(userName, ExceptionMessages.UsernameMustBeSupplied);
 
-            //// Create the stored precedure we will use
+            // Create the stored precedure we will use
             //var procedure = new IsConfirmedStoredProcedure(username);
 
             //try

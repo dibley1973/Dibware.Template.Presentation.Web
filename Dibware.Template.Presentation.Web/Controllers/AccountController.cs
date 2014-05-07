@@ -40,17 +40,19 @@ namespace Dibware.Template.Presentation.Web.Controllers
         //
         // GET: /Account/ConfirmAccountAwaitEmail
         [AllowAnonymous]
-        [ValidateAntiForgeryToken]
-        public ActionResult ConfirmAccountAwaitEmail()
+        public ActionResult ConfirmAccountCheckEmail(String username)
         {
             // await for email...
-            return View(ViewNames.ConfirmAccountAwaitEmail);
+            var model = new ConfirmAccountCheckEmail()
+            {
+                UserName = username
+            };
+            return View(ViewNames.ConfirmAccountCheckEmail, model);
         }
 
         //
         // GET: /Account/ConfirmAccount
         [AllowAnonymous]
-        [ValidateAntiForgeryToken]
         public ActionResult ConfirmAccount(String confirmationToken)
         {
             if (WebSecurity.ConfirmAccount(confirmationToken))
@@ -221,7 +223,7 @@ namespace Dibware.Template.Presentation.Web.Controllers
                             relativeUrl);
 
                         // Redirect to the confirmation token entry page
-                        return RedirectToAction(ActionMethods.ConfirmAccountAwaitEmail, ControllerNames.Account);
+                        return RedirectToAction(ActionMethods.ConfirmAccountCheckEmail, ControllerNames.Account, new { @username = model.UserName});
                     }
                     else
                     {

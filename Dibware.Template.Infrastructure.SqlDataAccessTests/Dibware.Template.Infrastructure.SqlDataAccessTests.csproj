@@ -95,6 +95,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Libraries\Dibware.EF.Extensions.dll" />
     <Content Include="Libraries\Dibware.Web.Security.dll" />
     <Content Include="Libraries\EntityFramework.dll" />
     <Content Include="Libraries\EntityFramework.SqlServer.dll" />

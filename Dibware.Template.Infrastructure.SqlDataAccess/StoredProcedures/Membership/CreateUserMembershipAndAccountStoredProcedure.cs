@@ -6,7 +6,7 @@ using System.Collections.Generic;
 namespace Dibware.Template.Infrastructure.SqlDataAccess.StoredProcedures.Membership
 {
     /// <summary>
-    /// Represents the security.Membership_CreateUserAndAccount stored procedure
+    /// Represents the security.Membership_CreateUserMembershipAndAccount stored procedure
     /// </summary>
     public class CreateUserMembershipAndAccountStoredProcedure : BaseStoredProcedure<String>, IStoredProcedure<String>
     {
@@ -14,7 +14,7 @@ namespace Dibware.Template.Infrastructure.SqlDataAccess.StoredProcedures.Members
         public const String ProcedureSchema = @"security";
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="GetPasswordStoredProcedure" /> class.
+        /// Initializes a new instance of the <see cref="CreateUserMembershipAndAccountStoredProcedure" /> class.
         /// </summary>
         /// <param name="username">The username.</param>
         /// <param name="name">The name.</param>

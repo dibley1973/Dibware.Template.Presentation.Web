@@ -127,12 +127,12 @@
   <ItemGroup>
     <Build Include="security\Tables\User.sql" />
     <Build Include="security\Tables\Role.sql" />
-    <Build Include="security\Stored Procedures\User_Delete.sql" />
-    <Build Include="security\Stored Procedures\User_Update.sql" />
-    <Build Include="security\Stored Procedures\User_Insert.sql" />
-    <Build Include="security\Stored Procedures\Role_Delete.sql" />
-    <Build Include="security\Stored Procedures\Role_Update.sql" />
-    <Build Include="security\Stored Procedures\Role_Insert.sql" />
+    <Build Include="security\Stored Procedures\security.User_Delete.sql" />
+    <Build Include="security\Stored Procedures\security.User_Update.sql" />
+    <Build Include="security\Stored Procedures\security.User_Insert.sql" />
+    <Build Include="security\Stored Procedures\security.Role_Delete.sql" />
+    <Build Include="security\Stored Procedures\security.Role_Update.sql" />
+    <Build Include="security\Stored Procedures\security.Role_Insert.sql" />
     <Build Include="security\security.sql" />
     <Build Include="security\Tables\UsersInRoles.sql" />
     <Build Include="security\Tables\Membership.sql" />
@@ -188,6 +188,10 @@
     <Build Include="security\ref.sql" />
     <Build Include="ref\Tables\ref.AccountStatus.sql" />
     <Build Include="ref\Tables\ref.AccountType.sql" />
+    <Build Include="security\Stored Procedures\security.Membership_ConfirmAccount.sql">
+      <AnsiNulls>Off</AnsiNulls>
+      <QuotedIdentifier>Off</QuotedIdentifier>
+    </Build>
   </ItemGroup>
   <ItemGroup>
     <RefactorLog Include="Dibware.Template.Database.refactorlog" />

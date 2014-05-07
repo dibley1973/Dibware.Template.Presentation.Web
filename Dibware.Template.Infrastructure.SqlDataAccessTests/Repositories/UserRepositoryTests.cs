@@ -39,6 +39,81 @@ namespace Dibware.Template.Infrastructure.SqlDataAccessTests.Repositories
 
         #region IRepositoryMembershipProviderRepository Tests
 
+        [TestMethod]
+        [ExpectedException(typeof(InvalidOperationException))]
+        public void Test_ConfirmAccount_WithNameNullUnitOfWork_ThrowsInvalidOperationException()
+        {
+            // Arrange
+            const String username = UserData.UserDave.Username;
+            var repository = (IMembershipRepository)new MembershipRepository(null);
+
+            // Act
+            var actualResult = repository.ConfirmAccount(username);
+
+            // Assert
+            // Exception thrown
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(ArgumentNullException))]
+        public void Test_ConfirmAccount_WithNullName_ThrowsArgumentNullException()
+        {
+            // Arrange
+            var repository = (IMembershipRepository)new MembershipRepository(_unitOfWork);
+
+            // Act
+            var actualResult = repository.ConfirmAccount(null);
+
+            // Assert
+            // Exception thrown
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(InvalidOperationException))]
+        public void Test_ConfirmAccount_WithNameAndTokenNullUnitOfWork_ThrowsInvalidOperationException()
+        {
+            // Arrange
+            const String username = UserData.UserDave.Username;
+            const String accountConfirmationToken = UserData.UserDave.AccountConfirmationToken;
+            var repository = (IMembershipRepository)new MembershipRepository(null);
+
+            // Act
+            var actualResult = repository.ConfirmAccount(username, accountConfirmationToken);
+
+            // Assert
+            // Exception thrown
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(ArgumentNullException))]
+        public void Test_ConfirmAccount_WithNullAccountToken_ThrowsArgumentNullException()
+        {
+            // Arrange
+            const String username = UserData.UserDave.Username;
+            var repository = (IMembershipRepository)new MembershipRepository(_unitOfWork);
+
+            // Act
+            var actualResult = repository.ConfirmAccount(username, null);
+
+            // Assert
+            // Exception thrown
+        }
+
+        [TestMethod]
+        public void Test_ConfirmAccount_WithUsernameAndAccountToken_ThrowsArgumentNullException()
+        {
+            // Arrange
+            const String username = UserData.UserDave.Username;
+            const String accountConfirmationToken = UserData.UserDave.AccountConfirmationToken;
+            var repository = (IMembershipRepository)new MembershipRepository(_unitOfWork);
+
+            // Act
+            var actualResult = repository.ConfirmAccount(username, accountConfirmationToken);
+
+            // Assert
+
+        }
+
         //[Ignore]
         //[TestMethod]
         //[ExpectedException(typeof(InvalidOperationException))]

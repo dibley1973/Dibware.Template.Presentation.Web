@@ -61,6 +61,15 @@ namespace Dibware.Template.Presentation.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Confirmation Token.
+        /// </summary>
+        public static string ConfirmationToken {
+            get {
+                return ResourceManager.GetString("ConfirmationToken", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Confirm Password.
         /// </summary>
         public static string ConfirmPassword {

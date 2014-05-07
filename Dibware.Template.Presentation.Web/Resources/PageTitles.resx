@@ -120,6 +120,12 @@
   <data name="About" xml:space="preserve">
     <value>About</value>
   </data>
+  <data name="ConfirmAccount" xml:space="preserve">
+    <value>Confirm Account</value>
+  </data>
+  <data name="ConfirmAccountCheckEmail" xml:space="preserve">
+    <value>Confirm Account Check Email</value>
+  </data>
   <data name="Error" xml:space="preserve">
     <value>Ermagad!</value>
   </data>

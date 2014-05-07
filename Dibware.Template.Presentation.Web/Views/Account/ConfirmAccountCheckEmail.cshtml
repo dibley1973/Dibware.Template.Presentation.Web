@@ -1,0 +1,11 @@
+﻿@using Dibware.Template.Presentation.Web.Resources
+@model Dibware.Template.Presentation.Web.Models.Account.ConfirmAccountCheckEmail
+
+<hgroup class="title">
+  <h1>@PageTitles.ConfirmAccountCheckEmail</h1>
+</hgroup>
+<section id="confirmAccountCheckEmailPage">
+  @Html.AntiForgeryToken()
+  <h4>@Model.UserName</h4>
+  <p>@PageText.ConfirmAccountCheckEmail</p>
+</section>

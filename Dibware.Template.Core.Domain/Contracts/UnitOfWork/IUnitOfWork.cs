@@ -53,6 +53,16 @@ namespace Dibware.Template.Core.Domain.Contracts.UnitOfWork
             where TResult : class;
 
         /// <summary>
+        /// Executes the scalar stored procedure.
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="database">The database.</param>
+        /// <param name="procedure">The procedure.</param>
+        /// <returns></returns>
+        TResult ExecuteScalarStoredProcedure<TResult>(IStoredProcedure<TResult> storedProcedure)
+            where TResult : struct;
+
+        /// <summary>
         /// Executes the stored procedure.
         /// </summary>
         /// <param name="procedureName">Name of the procedure.</param>
