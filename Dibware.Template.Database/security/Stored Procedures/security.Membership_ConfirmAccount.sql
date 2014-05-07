@@ -30,17 +30,23 @@ BEGIN
         RETURN;
 
     END ELSE BEGIN
-        -- We do have a user with either taht token or that
+        -- We do have a user with either that token or that
         -- username and token combination, so get the "Confirmed"
         -- AccounStatusId
         DECLARE @ConfirmedStatus int;
         SELECT  @ConfirmedStatus = 2    -- Confirmed
 
         -- Update the membership record to "Confirmed" state
+		UPDATE	[security].[Membership]
+		SET		[IsConfirmed]					= 1
+		WHERE	[UserGuid]                      = @UserGuid;
+
+		-- Update user account to confirmed status
         UPDATE  [user].[Account]
         SET     [AccountStatus]                 = @ConfirmedStatus
         ,       [LastAccountStatusChangedDate]  = GETDATE()
         WHERE   [UserGuid]                      = @UserGuid;
+
         RETURN;
     END
 END
