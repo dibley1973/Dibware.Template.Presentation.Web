@@ -192,6 +192,14 @@
       <AnsiNulls>Off</AnsiNulls>
       <QuotedIdentifier>Off</QuotedIdentifier>
     </Build>
+    <Build Include="security\Stored Procedures\security.UsersInRoles_GetForRoleKey.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="security\Stored Procedures\security.UsersInRoles_Add.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
   </ItemGroup>
   <ItemGroup>
     <RefactorLog Include="Dibware.Template.Database.refactorlog" />
@@ -203,6 +211,7 @@
     <None Include="PostDeploymentScripts\ref.AccountStatus.sql" />
     <None Include="PostDeploymentScripts\ref.AccountType.sql" />
     <None Include="PostDeploymentScripts\master.CustomErrors.sql" />
+    <None Include="PostDeploymentScripts\security.Role.sql" />
   </ItemGroup>
   <ItemGroup>
     <ArtifactReference Include="DacPacs\master.dacpac">

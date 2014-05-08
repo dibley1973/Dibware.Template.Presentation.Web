@@ -79,6 +79,15 @@ namespace Dibware.Template.Infrastructure.SqlDataAccess.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Rol name must be supplied.
+        /// </summary>
+        internal static string RoleNameMustBeSupplied {
+            get {
+                return ResourceManager.GetString("RoleNameMustBeSupplied", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to UnitOfWork must not be null.
         /// </summary>
         internal static string UnitOfWorkIsNull {

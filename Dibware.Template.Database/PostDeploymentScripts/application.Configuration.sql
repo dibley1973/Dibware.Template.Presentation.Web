@@ -1,8 +1,10 @@
 ﻿-- Declare our initial configuration values
-DECLARE @InitialAccountStatus int
-,       @DefaultAccountType int;
-SELECT  @InitialAccountStatus = 1;
-SELECT  @DefaultAccountType = 1;
+DECLARE @InitialAccountStatus	int
+,       @DefaultAccountType		int
+,		@DefaultRoleKey			nvarchar(25);
+SELECT  @InitialAccountStatus	= 1
+,		@DefaultAccountType		= 1
+,		@DefaultRoleKey			= 'main';
 
 -- Truncate the configuration table
 TRUNCATE TABLE [application].[Configuration];
@@ -13,11 +15,13 @@ INSERT INTO
     (
         [InitialAccountStatus]
     ,   [DefaultAccountType]
+	,	[DefaultRoleKey]
     )
     VALUES
     (
         @InitialAccountStatus
     ,   @DefaultAccountType
+	,	@DefaultRoleKey
     );
 GO
 

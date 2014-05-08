@@ -174,16 +174,52 @@ namespace Dibware.Template.Infrastructure.SqlDataAccess.Repositories
 
         String[] IRepositoryRoleProviderRepository.GetRolesForUser(String username)
         {
+            // Ensure we have a UnitOfWork
+            Guard.InvalidOperation((UnitOfWork == null), ExceptionMessages.UnitOfWorkIsNull);
+            Guard.ArgumentIsNotNullOrEmpty(username, ExceptionMessages.UsernameMustBeSupplied);
+
+
+
             throw new NotImplementedException();
         }
 
         String[] IRepositoryRoleProviderRepository.GetUsersInRole(String roleName)
         {
+            // Ensure we have a UnitOfWork
+            Guard.InvalidOperation((UnitOfWork == null), ExceptionMessages.UnitOfWorkIsNull);
+            Guard.ArgumentIsNotNullOrEmpty(roleName, ExceptionMessages.RoleNameMustBeSupplied);
+
+            //try
+            //{
+            //    var result = UnitOfWork.??;
+            //    return result;
+            //}
+            //catch (Exception ex)
+            //{
+            //    //TODO: Remove this 'catch' and rethrow once all debuggung is complete
+            //    throw ex;
+            //}
             throw new NotImplementedException();
         }
 
         bool IRepositoryRoleProviderRepository.IsUserInRole(String username, String roleName)
         {
+            // Ensure we have a UnitOfWork
+            Guard.InvalidOperation((UnitOfWork == null), ExceptionMessages.UnitOfWorkIsNull);
+            Guard.ArgumentIsNotNullOrEmpty(username, ExceptionMessages.UsernameMustBeSupplied);
+            Guard.ArgumentIsNotNullOrEmpty(roleName, ExceptionMessages.RoleNameMustBeSupplied);
+
+            //try
+            //{
+            //    var result = UnitOfWork.??;
+            //    return result;
+            //}
+            //catch (Exception ex)
+            //{
+            //    //TODO: Remove this 'catch' and rethrow once all debuggung is complete
+            //    throw ex;
+            //}
+
             throw new NotImplementedException();
         }
 
