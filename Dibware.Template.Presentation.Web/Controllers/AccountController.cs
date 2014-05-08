@@ -43,7 +43,7 @@ namespace Dibware.Template.Presentation.Web.Controllers
         public ActionResult ConfirmAccountCheckEmail(String username)
         {
             // await for email...
-            var model = new ConfirmAccountCheckEmail()
+            var model = new ConfirmAccountCheckEmailViewModel()
             {
                 UserName = username
             };
@@ -52,10 +52,45 @@ namespace Dibware.Template.Presentation.Web.Controllers
 
         //
         // GET: /Account/ConfirmAccount
+        [HttpGet]
+        [AllowAnonymous]
+        public ActionResult ConfirmAccount()
+        {
+            var model = new ConfirmAccountViewModel();
+            return View(ViewNames.ConfirmAccount, model);
+        }
+
+        //
+        // GET: /Account/ConfirmAccount/confirmationtoken=
         [AllowAnonymous]
         public ActionResult ConfirmAccount(String confirmationToken)
         {
             if (WebSecurity.ConfirmAccount(confirmationToken))
+            {
+                return RedirectToAction(ActionMethods.ConfirmAccountSuccess);
+            }
+            return RedirectToAction(ActionMethods.ConfirmAccountFailure);
+        }
+
+        //
+        // GET: /Account/ConfirmAccount/username= &confirmationtoken=
+        [AllowAnonymous]
+        public ActionResult ConfirmAccount(String username, String confirmationToken)
+        {
+            if (WebSecurity.ConfirmAccount(username, confirmationToken))
+            {
+                return RedirectToAction(ActionMethods.ConfirmAccountSuccess);
+            }
+            return RedirectToAction(ActionMethods.ConfirmAccountFailure);
+        }
+
+        //
+        // POST: /Account/ConfirmAccount/ConfirmAccountModel
+        [HttpPost]
+        [AllowAnonymous]
+        public ActionResult ConfirmAccount(ConfirmAccountViewModel model)
+        {
+            if (WebSecurity.ConfirmAccount(model.UserName, model.ConfirmationToken))
             {
                 return RedirectToAction(ActionMethods.ConfirmAccountSuccess);
             }
@@ -223,7 +258,7 @@ namespace Dibware.Template.Presentation.Web.Controllers
                             relativeUrl);
 
                         // Redirect to the confirmation token entry page
-                        return RedirectToAction(ActionMethods.ConfirmAccountCheckEmail, ControllerNames.Account, new { @username = model.UserName});
+                        return RedirectToAction(ActionMethods.ConfirmAccountCheckEmail, ControllerNames.Account, new { @username = model.UserName });
                     }
                     else
                     {

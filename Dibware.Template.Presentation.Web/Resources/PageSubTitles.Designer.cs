@@ -61,11 +61,29 @@ namespace Dibware.Template.Presentation.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Confirm your account.
+        /// </summary>
+        public static string ConfirmAccount {
+            get {
+                return ResourceManager.GetString("ConfirmAccount", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to An error occurred while processing your action..
         /// </summary>
         public static string ErroOccurredWhileProcessingAction {
             get {
                 return ResourceManager.GetString("ErroOccurredWhileProcessingAction", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Welcome to the website home page.
+        /// </summary>
+        public static string Home {
+            get {
+                return ResourceManager.GetString("Home", resourceCulture);
             }
         }
         
@@ -84,6 +102,15 @@ namespace Dibware.Template.Presentation.Web.Resources {
         public static string LogInWithOtherService {
             get {
                 return ResourceManager.GetString("LogInWithOtherService", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Register for a new account.
+        /// </summary>
+        public static string Register {
+            get {
+                return ResourceManager.GetString("Register", resourceCulture);
             }
         }
     }

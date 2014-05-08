@@ -22,7 +22,7 @@ namespace Dibware.Template.Presentation.Web.Resources {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class ActionMethods {
+    public class ActionMethods {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
@@ -36,7 +36,7 @@ namespace Dibware.Template.Presentation.Web.Resources {
         ///   Returns the cached ResourceManager instance used by this class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Resources.ResourceManager ResourceManager {
+        public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
                     global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Dibware.Template.Presentation.Web.Resources.ActionMethods", typeof(ActionMethods).Assembly);
@@ -51,7 +51,7 @@ namespace Dibware.Template.Presentation.Web.Resources {
         ///   resource lookups using this strongly typed resource class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Globalization.CultureInfo Culture {
+        public static global::System.Globalization.CultureInfo Culture {
             get {
                 return resourceCulture;
             }
@@ -63,7 +63,7 @@ namespace Dibware.Template.Presentation.Web.Resources {
         /// <summary>
         ///   Looks up a localized string similar to ConfirmAccount.
         /// </summary>
-        internal static string ConfirmAccount {
+        public static string ConfirmAccount {
             get {
                 return ResourceManager.GetString("ConfirmAccount", resourceCulture);
             }
@@ -72,7 +72,7 @@ namespace Dibware.Template.Presentation.Web.Resources {
         /// <summary>
         ///   Looks up a localized string similar to ConfirmAccountCheckEmail.
         /// </summary>
-        internal static string ConfirmAccountCheckEmail {
+        public static string ConfirmAccountCheckEmail {
             get {
                 return ResourceManager.GetString("ConfirmAccountCheckEmail", resourceCulture);
             }
@@ -81,7 +81,7 @@ namespace Dibware.Template.Presentation.Web.Resources {
         /// <summary>
         ///   Looks up a localized string similar to ConfirmAccountFailure.
         /// </summary>
-        internal static string ConfirmAccountFailure {
+        public static string ConfirmAccountFailure {
             get {
                 return ResourceManager.GetString("ConfirmAccountFailure", resourceCulture);
             }
@@ -90,7 +90,7 @@ namespace Dibware.Template.Presentation.Web.Resources {
         /// <summary>
         ///   Looks up a localized string similar to ConfirmAccountSuccess.
         /// </summary>
-        internal static string ConfirmAccountSuccess {
+        public static string ConfirmAccountSuccess {
             get {
                 return ResourceManager.GetString("ConfirmAccountSuccess", resourceCulture);
             }
@@ -99,7 +99,7 @@ namespace Dibware.Template.Presentation.Web.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Index.
         /// </summary>
-        internal static string Index {
+        public static string Index {
             get {
                 return ResourceManager.GetString("Index", resourceCulture);
             }

@@ -1,5 +1,5 @@
 ﻿@using Dibware.Template.Presentation.Web.Resources
-@model Dibware.Template.Presentation.Web.Models.Account.ConfirmAccountCheckEmail
+@model Dibware.Template.Presentation.Web.Models.Account.ConfirmAccountCheckEmailViewModel
 
 <hgroup class="title">
   <h1>@PageTitles.ConfirmAccountCheckEmail</h1>
@@ -8,4 +8,6 @@
   @Html.AntiForgeryToken()
   <h4>@Model.UserName</h4>
   <p>@PageText.ConfirmAccountCheckEmail</p>
+  <p>@PageText.ConfirmAccountCheckEmail2</p>
+  <p>@Html.ActionLink(LinkText.ConfirmAccount, ActionMethods.ConfirmAccount)</p>
 </section>

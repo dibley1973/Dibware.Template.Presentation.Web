@@ -117,13 +117,22 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="ConfirmAccount" xml:space="preserve">
+    <value>Confirm your account</value>
+  </data>
   <data name="ErroOccurredWhileProcessingAction" xml:space="preserve">
     <value>An error occurred while processing your action.</value>
+  </data>
+  <data name="Home" xml:space="preserve">
+    <value>Welcome to the website home page</value>
   </data>
   <data name="LogInNormally" xml:space="preserve">
     <value>Log in normally</value>
   </data>
   <data name="LogInWithOtherService" xml:space="preserve">
     <value>Use another service to log in</value>
+  </data>
+  <data name="Register" xml:space="preserve">
+    <value>Register for a new account</value>
   </data>
 </root>

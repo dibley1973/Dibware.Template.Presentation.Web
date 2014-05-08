@@ -123,4 +123,7 @@
   <data name="ConfirmAccountCheckEmail" xml:space="preserve">
     <value>Thank you for registering for an account. To complete registration we need you to confirm the email address you registered with us. An email with a registration confirmation code has been sent to the email address that you supplied. Please check your email account, follow the instructions in the email.</value>
   </data>
+  <data name="ConfirmAccountCheckEmail2" xml:space="preserve">
+    <value>Or please click the link below to take you a page where you can manually enter your confirmation token.</value>
+  </data>
 </root>

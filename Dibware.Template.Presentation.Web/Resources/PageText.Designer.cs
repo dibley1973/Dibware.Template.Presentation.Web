@@ -77,5 +77,14 @@ namespace Dibware.Template.Presentation.Web.Resources {
                 return ResourceManager.GetString("ConfirmAccountCheckEmail", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Or please click the link below to take you a page where you can manually enter your confirmation token..
+        /// </summary>
+        public static string ConfirmAccountCheckEmail2 {
+            get {
+                return ResourceManager.GetString("ConfirmAccountCheckEmail2", resourceCulture);
+            }
+        }
     }
 }

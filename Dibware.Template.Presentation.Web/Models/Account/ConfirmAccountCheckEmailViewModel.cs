@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Dibware.Template.Presentation.Web.Models.Account
 {
-    public class ConfirmAccountCheckEmail : BaseViewModel
+    public class ConfirmAccountCheckEmailViewModel : BaseViewModel
     {
         [Display(Name = "User name")]
         public String UserName { get; set; }

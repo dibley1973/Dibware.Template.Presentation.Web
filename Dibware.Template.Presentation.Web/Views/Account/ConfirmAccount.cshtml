@@ -1,6 +1,6 @@
 ﻿@using Dibware.Template.Presentation.Web.Resources
 @using Dibware.Template.Presentation.Web.HtmlHelpers
-@model Dibware.Template.Presentation.Web.Models.Account.ConfirmAccount
+@model Dibware.Template.Presentation.Web.Models.Account.ConfirmAccountViewModel
 
 <hgroup class="title">
   <h1>@PageTitles.ConfirmAccount</h1>
@@ -12,7 +12,7 @@
   {
     <div class="modal-content">
       <div class="modal-header">
-        <h2 class="text-center">Create a new account</h2>
+        <h2 class="text-center">@PageSubTitles.ConfirmAccount</h2>
       </div>
       <div class="modal-body">
         @Html.AntiForgeryToken()
