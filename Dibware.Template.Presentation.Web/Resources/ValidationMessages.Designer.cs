@@ -61,6 +61,15 @@ namespace Dibware.Template.Presentation.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to The email address for this account has not been confirmed.
+        /// </summary>
+        internal static string EmailNotConfirmed {
+            get {
+                return ResourceManager.GetString("EmailNotConfirmed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Your password is empty.
         /// </summary>
         internal static string PasswordEmpty {
@@ -93,6 +102,15 @@ namespace Dibware.Template.Presentation.Web.Resources {
         internal static string PasswordToShort {
             get {
                 return ResourceManager.GetString("PasswordToShort", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The username or password provided is incorrect.
+        /// </summary>
+        internal static string UsernameOrPasswordIncorrect {
+            get {
+                return ResourceManager.GetString("UsernameOrPasswordIncorrect", resourceCulture);
             }
         }
     }

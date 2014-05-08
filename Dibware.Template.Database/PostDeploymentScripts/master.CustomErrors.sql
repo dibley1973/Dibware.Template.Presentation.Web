@@ -48,7 +48,9 @@ SQL SERVER languages
 */
 
 -- Username already exists in the system
-EXEC    sp_dropmessage @msgnum = 50001, @lang = 'all'
+IF EXISTS (SELECT 1 FROM sys.messages WHERE message_id = 50001) BEGIN
+    EXEC    sp_dropmessage @msgnum = 50001, @lang = 'all'
+END
 EXEC    sp_addmessage
     @msgnum = 50001,
     @severity = 16, 
@@ -66,8 +68,10 @@ EXEC    sp_addmessage
     @lang = 'Spanish';
 
 
--- Email addres already exists in system
-EXEC    sp_dropmessage @msgnum = 50002, @lang = 'all'
+-- Email address already exists in system
+IF EXISTS (SELECT 1 FROM sys.messages WHERE message_id = 50002) BEGIN
+    EXEC    sp_dropmessage @msgnum = 50002, @lang = 'all'
+END
 EXEC    sp_addmessage 
     @msgnum = 50002, 
     @severity =16, 
@@ -84,3 +88,14 @@ EXEC    sp_addmessage
     @msgtext = 'Dirección de correo electrónico %s ya existe en el sistema. Por favor elija otra dirección de correo electrónico. ', 
     @lang = 'Spanish'
 
+
+
+-- Membership is already confirmed in system
+IF EXISTS (SELECT 1 FROM sys.messages WHERE message_id = 50003) BEGIN
+    EXEC    sp_dropmessage @msgnum = 50003, @lang = 'all'
+END
+EXEC    sp_addmessage 
+    @msgnum = 50003, 
+    @severity =16, 
+    @msgtext = 'Membership has already been confirmed. ', 
+    @lang = 'us_english'

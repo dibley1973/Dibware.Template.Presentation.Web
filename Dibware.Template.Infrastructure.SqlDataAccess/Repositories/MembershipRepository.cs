@@ -51,22 +51,24 @@ namespace Dibware.Template.Infrastructure.SqlDataAccess.Repositories
             Guard.InvalidOperation((UnitOfWork == null), ExceptionMessages.UnitOfWorkIsNull);
             Guard.ArgumentIsNotNullOrEmpty(accountConfirmationToken, ExceptionMessages.AccountConfirmationTokenMustBeSupplied);
 
-            // Create the stored precedure we will use
-            var procedure = new ConfirmAccountStoredProcedure(
-                accountConfirmationToken,
-                String.Empty
-            );
+            return ConfirmAccountInternal(String.Empty, accountConfirmationToken);
 
-            try
-            {
-                Boolean confirmed = UnitOfWork.ExecuteScalarStoredProcedure<Boolean>(procedure);
-                return confirmed;
-            }
-            catch (Exception ex)
-            {
-                //TODO: Remove this 'catch' and rethrow once all debuggung is complete
-                throw ex;
-            }
+            //// Create the stored precedure we will use
+            //var procedure = new ConfirmAccountStoredProcedure(
+            //    accountConfirmationToken,
+            //    String.Empty
+            //);
+
+            //try
+            //{
+            //    var confirmedState = UnitOfWork.ExecuteScalarStoredProcedure<Int32>(procedure);
+            //    return (confirmedState == 1);
+            //}
+            //catch (Exception ex)
+            //{
+            //    //TODO: Remove this 'catch' and rethrow once all debuggung is complete
+            //    throw ex;
+            //}
         }
 
         /// <summary>
@@ -85,16 +87,88 @@ namespace Dibware.Template.Infrastructure.SqlDataAccess.Repositories
             Guard.ArgumentIsNotNullOrEmpty(userName, ExceptionMessages.UsernameMustBeSupplied);
             Guard.ArgumentIsNotNullOrEmpty(accountConfirmationToken, ExceptionMessages.AccountConfirmationTokenMustBeSupplied);
 
+            return ConfirmAccountInternal(userName, accountConfirmationToken);
+
+            //// Create the stored precedure we will use
+            //var procedure = new ConfirmAccountStoredProcedure(
+            //    accountConfirmationToken,
+            //    userName
+            //);
+
+            //try
+            //{
+            //    var confirmedState = UnitOfWork.ExecuteScalarStoredProcedure<Int32>(procedure);
+            //    return (confirmedState == 1);
+            //}
+            //catch (SqlException sqEx)
+            //{
+            //    // Determine if the Sql Exception number is a know value
+            //    if (!typeof(SqlExceptionNumbers).IsEnumDefined(sqEx.Number))
+            //    {
+            //        // If it is not just rethrow it
+            //        throw sqEx;
+            //    }
+
+            //    // Otherwise cast it and handle it
+            //    SqlExceptionNumbers sqExNumber = (SqlExceptionNumbers)sqEx.Number;
+            //    switch (sqExNumber)
+            //    {
+            //        // catch explicit Sql Exceptions and re throw as validation message
+            //        case SqlExceptionNumbers.EmailAddressAlreadyExists:
+            //        case SqlExceptionNumbers.UserNameAlreadyExists:
+            //            throw new ValidationException(sqEx.Message);
+
+            //        default:
+            //            throw sqEx;
+            //    }
+            //}
+            //catch (Exception ex)
+            //{
+            //    //TODO: Remove this 'catch' and rethrow once all debuggung is complete
+            //    throw ex;
+            //}
+        }
+
+        /// <summary>
+        /// Confirms the account internal.
+        /// </summary>
+        /// <param name="userName">Name of the user.</param>
+        /// <param name="accountConfirmationToken">The account confirmation token.</param>
+        /// <returns></returns>
+        /// <exception cref="ValidationException"></exception>
+        private Boolean ConfirmAccountInternal(String userName, String accountConfirmationToken)
+        {
             // Create the stored precedure we will use
             var procedure = new ConfirmAccountStoredProcedure(
                 accountConfirmationToken,
-                String.Empty
+                userName
             );
 
             try
             {
-                var confirmed = UnitOfWork.ExecuteScalarStoredProcedure<Boolean>(procedure);
-                return confirmed;
+                var confirmedState = UnitOfWork.ExecuteScalarStoredProcedure<Int32>(procedure);
+                return (confirmedState == 1);
+            }
+            catch (SqlException sqEx)
+            {
+                // Determine if the Sql Exception number is a know value
+                if (!typeof(SqlExceptionNumbers).IsEnumDefined(sqEx.Number))
+                {
+                    // If it is not just rethrow it
+                    throw sqEx;
+                }
+
+                // Otherwise cast it and handle it
+                SqlExceptionNumbers sqExNumber = (SqlExceptionNumbers)sqEx.Number;
+                switch (sqExNumber)
+                {
+                    // catch explicit Sql Exceptions and re throw as validation message
+                    case SqlExceptionNumbers.MembershipHasAlreadyConfirmed:
+                        throw new ValidationException(sqEx.Message);
+
+                    default:
+                        throw sqEx;
+                }
             }
             catch (Exception ex)
             {
@@ -102,7 +176,6 @@ namespace Dibware.Template.Infrastructure.SqlDataAccess.Repositories
                 throw ex;
             }
         }
-
 
         public String CreateUserAndAccount(String username, String password,
             Boolean requireConfirmation, IDictionary<String, Object> values)
@@ -211,54 +284,52 @@ namespace Dibware.Template.Infrastructure.SqlDataAccess.Repositories
         /// <summary>
         /// Returns a value that indicates whether the user account has been confirmed by the provider.
         /// </summary>
-        /// <param name="userName">The user name.</param>
+        /// <param name="username">The user name.</param>
         /// <returns>
         /// true if the user is confirmed; otherwise, false.
         /// </returns>
         /// <exception cref="System.NotImplementedException"></exception>
-        public Boolean IsConfirmed(String userName)
+        public Boolean IsConfirmed(String username)
         {
             // Ensure we have a UnitOfWork
             Guard.InvalidOperation((UnitOfWork == null), ExceptionMessages.UnitOfWorkIsNull);
-            Guard.ArgumentIsNotNullOrEmpty(userName, ExceptionMessages.UsernameMustBeSupplied);
+            Guard.ArgumentIsNotNullOrEmpty(username, ExceptionMessages.UsernameMustBeSupplied);
 
             // Create the stored precedure we will use
-            //var procedure = new IsConfirmedStoredProcedure(username);
+            var procedure = new IsConfirmedStoredProcedure(username);
 
-            //try
-            //{
-            //    var result = UnitOfWork.ExecuteStoredProcedure<Boolean>(procedure).FirstOrDefault();
-            //    return result;
-            //}
-            //catch (SqlException sqEx)
-            //{
-            //    //// Determine if the Sql Exception number is a know value
-            //    //if (!typeof(SqlExceptionNumbers).IsEnumDefined(sqEx.Number))
-            //    //{
-            //    //    // If it is not just rethrow it
-            //    //    throw sqEx;
-            //    //}
+            try
+            {
+                var result = UnitOfWork.ExecuteScalarStoredProcedure<Boolean>(procedure);
+                return result;
+            }
+            catch (SqlException sqEx)
+            {
+                //// Determine if the Sql Exception number is a know value
+                //if (!typeof(SqlExceptionNumbers).IsEnumDefined(sqEx.Number))
+                //{
+                //    // If it is not just rethrow it
+                //    throw sqEx;
+                //}
 
-            //    //// Otherwise cast it and handle it
-            //    //SqlExceptionNumbers sqExNumber = (SqlExceptionNumbers)sqEx.Number;
-            //    //switch (sqExNumber)
-            //    //{
-            //    //    // catch explicit Sql Exceptions and re throw as validation message
-            //    //    case SqlExceptionNumbers.:
-            //    //    case SqlExceptionNumbers.:
-            //    //        throw new ValidationException(sqEx.Message);
+                //// Otherwise cast it and handle it
+                //SqlExceptionNumbers sqExNumber = (SqlExceptionNumbers)sqEx.Number;
+                //switch (sqExNumber)
+                //{
+                //    // catch explicit Sql Exceptions and re throw as validation message
+                //    case SqlExceptionNumbers.:
+                //    case SqlExceptionNumbers.:
+                //        throw new ValidationException(sqEx.Message);
 
-            //    //    default:
-            //            throw sqEx;
-            //    //}
-            //}
-            //catch (Exception ex)
-            //{
-            //    //TODO: Remove this 'catch' and rethrow once all debuggung is complete
-            //    throw ex;
-            //}
-
-            throw new NotImplementedException();
+                //    default:
+                throw sqEx;
+                //}
+            }
+            catch (Exception ex)
+            {
+                //TODO: Remove this 'catch' and rethrow once all debuggung is complete
+                throw ex;
+            }
         }
 
         //private IEnumerable<String> GetAllRuleRegularExpressions()

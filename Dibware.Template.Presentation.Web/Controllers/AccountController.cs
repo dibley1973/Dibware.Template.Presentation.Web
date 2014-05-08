@@ -1,5 +1,6 @@
 ﻿using Dibware.Template.Core.Domain.Contracts.Services;
 using Dibware.Template.Core.Domain.Entities.Security;
+using Dibware.Template.Core.Domain.Exceptions;
 using Dibware.Template.Presentation.Web.Controllers.Base;
 using Dibware.Template.Presentation.Web.Helpers;
 using Dibware.Template.Presentation.Web.Models.Account;
@@ -77,11 +78,19 @@ namespace Dibware.Template.Presentation.Web.Controllers
         [AllowAnonymous]
         public ActionResult ConfirmAccount(String username, String confirmationToken)
         {
-            if (WebSecurity.ConfirmAccount(username, confirmationToken))
+            try
             {
-                return RedirectToAction(ActionMethods.ConfirmAccountSuccess);
+                if (WebSecurity.ConfirmAccount(username, confirmationToken))
+                {
+                    return RedirectToAction(ActionMethods.ConfirmAccountSuccess);
+                }
+                return RedirectToAction(ActionMethods.ConfirmAccountFailure);
             }
-            return RedirectToAction(ActionMethods.ConfirmAccountFailure);
+            catch (ValidationException vEx)
+            {
+                ModelState.AddModelError("", vEx.Message);
+                return RedirectToAction(ActionMethods.ConfirmAccountFailure);
+            }
         }
 
         //
@@ -90,11 +99,19 @@ namespace Dibware.Template.Presentation.Web.Controllers
         [AllowAnonymous]
         public ActionResult ConfirmAccount(ConfirmAccountViewModel model)
         {
-            if (WebSecurity.ConfirmAccount(model.UserName, model.ConfirmationToken))
+            try
             {
-                return RedirectToAction(ActionMethods.ConfirmAccountSuccess);
+                if (WebSecurity.ConfirmAccount(model.UserName, model.ConfirmationToken))
+                {
+                    return RedirectToAction(ActionMethods.ConfirmAccountSuccess);
+                }
+                return RedirectToAction(ActionMethods.ConfirmAccountFailure);
             }
-            return RedirectToAction(ActionMethods.ConfirmAccountFailure);
+            catch (ValidationException vEx)
+            {
+                ModelState.AddModelError("", vEx.Message);
+                return View(ViewNames.ConfirmAccount, model);
+            }
         }
 
         [AllowAnonymous]
@@ -139,7 +156,6 @@ namespace Dibware.Template.Presentation.Web.Controllers
         //    }
         //}
 
-
         //
         // GET: /Account/
         [WebsiteAuthorize(UserRole.AllAuthorised)]
@@ -175,14 +191,35 @@ namespace Dibware.Template.Presentation.Web.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Login(LoginViewModel model, String returnUrl)
         {
-            if (ModelState.IsValid && WebSecurity.Login(model.UserName, model.Password, persistCookie: model.RememberMe))
+            // Check if the model is valid...
+            var modelIsValid = ModelState.IsValid;
+            if (!modelIsValid)
             {
-                return RedirectToLocal(returnUrl);
+                // ... it isn't so throw the user back out
+                return View(ViewNames.Login, model);
             }
 
-            // If we got this far, something failed, redisplay form
-            ModelState.AddModelError("", "The user name or password provided is incorrect.");
-            return View(ViewNames.Login, model);
+            // Check if the user has a confirmed account...
+            Boolean isconfirmed = WebSecurity.IsConfirmed(model.UserName);
+            if (!isconfirmed)
+            {
+                // ... we are not logged in, so add an error and kick the user back
+                ModelState.AddModelError(String.Empty, ValidationMessages.EmailNotConfirmed);
+                return View(ViewNames.Login, model);
+            }
+
+            // Check is the user is logged in...
+            var isLoggedIn = WebSecurity.Login(model.UserName,
+                model.Password, persistCookie: model.RememberMe);
+            if (!isLoggedIn)
+            {
+                // ... we are not logged in, so add an error and kick the user back
+                ModelState.AddModelError(String.Empty, ValidationMessages.UsernameOrPasswordIncorrect);
+                return View(ViewNames.Login, model);
+            }
+
+            // We have got this far so return the user to the passed URL
+            return RedirectToLocal(returnUrl);
         }
 
         //

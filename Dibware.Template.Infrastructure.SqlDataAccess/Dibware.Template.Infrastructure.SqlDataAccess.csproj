@@ -118,6 +118,7 @@
     <Compile Include="StoredProcedures\Membership\ConfirmAccountStoredProcedure.cs" />
     <Compile Include="StoredProcedures\Membership\CreateUserMembershipAndAccountStoredProcedure.cs" />
     <Compile Include="StoredProcedures\Membership\GetPasswordStoredProcedure.cs" />
+    <Compile Include="StoredProcedures\Membership\IsConfirmedStoredProcedure.cs" />
     <Compile Include="StoredProcedures\Membership\ValidateUserStoredProcedure.cs" />
     <Compile Include="UnitOfWork\Configuration\ErrorConfiguration.cs" />
     <Compile Include="UnitOfWork\Configuration\PasswordStrengthRuleConfiguration.cs" />
