@@ -1,4 +1,5 @@
 ﻿@using Dibware.Template.Presentation.Web.Resources
+@using Dibware.Template.Presentation.Web.HtmlHelpers
 @model Dibware.Template.Presentation.Web.Models.Account.LoginViewModel
 
 <hgroup class="title">
@@ -13,7 +14,8 @@
       </div>
       <div class="modal-body">
         @Html.AntiForgeryToken()
-        @Html.ValidationSummary(true)
+        @Html.BootstrapValidationSummary()
+        
         <div class="form-group">
           @Html.TextBoxFor(m => m.UserName, new { @class = "form-control input-lg", @placeholder = @PromptText.Username })
           @Html.ValidationMessageFor(m => m.UserName)

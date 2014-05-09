@@ -29,7 +29,7 @@ BEGIN
         -- ... It does nots os return ZERO (False) to indicate 
         -- there is either no such user with that token, or no 
         -- such user with that token and name combination
-        SELECT 0
+        SELECT 0 [IsConfirmed];
         RETURN;
     END
 
@@ -68,14 +68,14 @@ BEGIN
 
 	-- Get the default role
 	DECLARE	@DefaultRoleKey		nvarchar(25);
-	SELECT	@DefaultRoleKey		[DefaultRoleKey]
+	SELECT	@DefaultRoleKey		= [DefaultRoleKey]
 	FROM	[application].[Configuration]
 	WHERE	[ConfigurationId]    = 1;
 
 	-- Add the user to the default role
 	EXEC [security].[UsersInRoles_Add] @UserGuid, @DefaultRoleKey;
 
-    SELECT 1;
+    SELECT 1 [IsConfirmed];
     RETURN;
 
 END

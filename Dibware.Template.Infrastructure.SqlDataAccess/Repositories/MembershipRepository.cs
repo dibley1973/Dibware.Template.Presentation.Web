@@ -4,6 +4,7 @@ using Dibware.Template.Core.Domain.Contracts.UnitOfWork;
 using Dibware.Template.Core.Domain.Entities.Security;
 using Dibware.Template.Core.Domain.Exceptions;
 using Dibware.Template.Infrastructure.SqlDataAccess.Base;
+using Dibware.Template.Infrastructure.SqlDataAccess.Helpers;
 using Dibware.Template.Infrastructure.SqlDataAccess.Resources;
 using Dibware.Template.Infrastructure.SqlDataAccess.StoredProcedures.Membership;
 using System;
@@ -151,24 +152,26 @@ namespace Dibware.Template.Infrastructure.SqlDataAccess.Repositories
             }
             catch (SqlException sqEx)
             {
-                // Determine if the Sql Exception number is a know value
-                if (!typeof(SqlExceptionNumbers).IsEnumDefined(sqEx.Number))
-                {
-                    // If it is not just rethrow it
-                    throw sqEx;
-                }
+                throw SqlExceptionHelper.HandledKnownSqlExceptions(sqEx);
 
-                // Otherwise cast it and handle it
-                SqlExceptionNumbers sqExNumber = (SqlExceptionNumbers)sqEx.Number;
-                switch (sqExNumber)
-                {
-                    // catch explicit Sql Exceptions and re throw as validation message
-                    case SqlExceptionNumbers.MembershipHasAlreadyConfirmed:
-                        throw new ValidationException(sqEx.Message);
+                //// Determine if the Sql Exception number is a know value
+                //if (!typeof(SqlExceptionNumbers).IsEnumDefined(sqEx.Number))
+                //{
+                //    // If it is not just rethrow it
+                //    throw sqEx;
+                //}
 
-                    default:
-                        throw sqEx;
-                }
+                //// Otherwise cast it and handle it
+                //SqlExceptionNumbers sqExNumber = (SqlExceptionNumbers)sqEx.Number;
+                //switch (sqExNumber)
+                //{
+                //    // catch explicit Sql Exceptions and re throw as validation message
+                //    case SqlExceptionNumbers.MembershipHasAlreadyConfirmed:
+                //        throw new ValidationException(sqEx.Message);
+
+                //    default:
+                //        throw sqEx;
+                //}
             }
             catch (Exception ex)
             {
@@ -223,25 +226,27 @@ namespace Dibware.Template.Infrastructure.SqlDataAccess.Repositories
             }
             catch (SqlException sqEx)
             {
-                // Determine if the Sql Exception number is a know value
-                if (!typeof(SqlExceptionNumbers).IsEnumDefined(sqEx.Number))
-                {
-                    // If it is not just rethrow it
-                    throw sqEx;
-                }
+                throw SqlExceptionHelper.HandledKnownSqlExceptions(sqEx);
 
-                // Otherwise cast it and handle it
-                SqlExceptionNumbers sqExNumber = (SqlExceptionNumbers)sqEx.Number;
-                switch (sqExNumber)
-                {
-                    // catch explicit Sql Exceptions and re throw as validation message
-                    case SqlExceptionNumbers.EmailAddressAlreadyExists:
-                    case SqlExceptionNumbers.UserNameAlreadyExists:
-                        throw new ValidationException(sqEx.Message);
+                //// Determine if the Sql Exception number is a know value
+                //if (!typeof(SqlExceptionNumbers).IsEnumDefined(sqEx.Number))
+                //{
+                //    // If it is not just rethrow it
+                //    throw sqEx;
+                //}
 
-                    default:
-                        throw sqEx;
-                }
+                //// Otherwise cast it and handle it
+                //SqlExceptionNumbers sqExNumber = (SqlExceptionNumbers)sqEx.Number;
+                //switch (sqExNumber)
+                //{
+                //    // catch explicit Sql Exceptions and re throw as validation message
+                //    case SqlExceptionNumbers.EmailAddressAlreadyExists:
+                //    case SqlExceptionNumbers.UserNameAlreadyExists:
+                //        throw new ValidationException(sqEx.Message);
+
+                //    default:
+                //        throw sqEx;
+                //}
             }
             catch (Exception ex)
             {
@@ -305,25 +310,7 @@ namespace Dibware.Template.Infrastructure.SqlDataAccess.Repositories
             }
             catch (SqlException sqEx)
             {
-                //// Determine if the Sql Exception number is a know value
-                //if (!typeof(SqlExceptionNumbers).IsEnumDefined(sqEx.Number))
-                //{
-                //    // If it is not just rethrow it
-                //    throw sqEx;
-                //}
-
-                //// Otherwise cast it and handle it
-                //SqlExceptionNumbers sqExNumber = (SqlExceptionNumbers)sqEx.Number;
-                //switch (sqExNumber)
-                //{
-                //    // catch explicit Sql Exceptions and re throw as validation message
-                //    case SqlExceptionNumbers.:
-                //    case SqlExceptionNumbers.:
-                //        throw new ValidationException(sqEx.Message);
-
-                //    default:
-                throw sqEx;
-                //}
+                throw SqlExceptionHelper.HandledKnownSqlExceptions(sqEx);
             }
             catch (Exception ex)
             {

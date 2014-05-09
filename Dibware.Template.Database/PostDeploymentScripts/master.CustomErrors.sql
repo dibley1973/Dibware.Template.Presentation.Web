@@ -1,6 +1,8 @@
 ﻿USE MASTER
 GO
 
+DECLARE @MessageNumber int;
+
 /*
 Ref:
     http://www.msbiguide.com/2012/11/how-to-raise-custom-errors-in-sql-server-using-raiserror/c
@@ -48,42 +50,45 @@ SQL SERVER languages
 */
 
 -- Username already exists in the system
-IF EXISTS (SELECT 1 FROM sys.messages WHERE message_id = 50001) BEGIN
-    EXEC    sp_dropmessage @msgnum = 50001, @lang = 'all'
+SET @MessageNumber = 50001
+IF EXISTS (SELECT 1 FROM sys.messages WHERE message_id = @MessageNumber) BEGIN
+    EXEC    sp_dropmessage @msgnum = @MessageNumber, @lang = 'all'
 END
 EXEC    sp_addmessage
-    @msgnum = 50001,
+    @msgnum = @MessageNumber,
     @severity = 16, 
     @msgtext = N'Username %s already exists in the system. Please choose another username. ', 
     @lang = 'us_english';
 EXEC    sp_addmessage 
-    @msgnum = 50001, 
+    @msgnum = @MessageNumber, 
     @severity = 16, 
     @msgtext = N'Nom d''utilisateur %s existe déjà dans le système. S''il vous plaît choisir un autre nom d''utilisateur. ', 
     @lang = 'French';
 EXEC    sp_addmessage 
-    @msgnum = 50001, 
+    @msgnum = @MessageNumber, 
     @severity = 16, 
     @msgtext = N'Nombre de usuario %s ya existe en el sistema. Por favor, elija otro nombre de usuario. ', 
     @lang = 'Spanish';
 
 
 -- Email address already exists in system
-IF EXISTS (SELECT 1 FROM sys.messages WHERE message_id = 50002) BEGIN
-    EXEC    sp_dropmessage @msgnum = 50002, @lang = 'all'
+
+SET @MessageNumber = 50002
+IF EXISTS (SELECT 1 FROM sys.messages WHERE message_id = @MessageNumber) BEGIN
+    EXEC    sp_dropmessage @msgnum = @MessageNumber, @lang = 'all'
 END
 EXEC    sp_addmessage 
-    @msgnum = 50002, 
+    @msgnum = @MessageNumber, 
     @severity =16, 
     @msgtext = 'Email address %s already exists in the system. Please choose another email address. ', 
     @lang = 'us_english'
 EXEC    sp_addmessage 
-    @msgnum = 50002, 
+    @msgnum = @MessageNumber, 
     @severity =16, 
     @msgtext = 'Adresse e-mail %s existe déjà dans le système. S''il vous plaît choisir une autre adresse e-mail. ', 
     @lang = 'French'
 EXEC    sp_addmessage 
-    @msgnum = 50002, 
+    @msgnum = @MessageNumber, 
     @severity =16, 
     @msgtext = 'Dirección de correo electrónico %s ya existe en el sistema. Por favor elija otra dirección de correo electrónico. ', 
     @lang = 'Spanish'
@@ -91,11 +96,25 @@ EXEC    sp_addmessage
 
 
 -- Membership is already confirmed in system
-IF EXISTS (SELECT 1 FROM sys.messages WHERE message_id = 50003) BEGIN
-    EXEC    sp_dropmessage @msgnum = 50003, @lang = 'all'
+SET @MessageNumber = 50003
+IF EXISTS (SELECT 1 FROM sys.messages WHERE message_id = @MessageNumber) BEGIN
+    EXEC    sp_dropmessage @msgnum = @MessageNumber, @lang = 'all'
 END
 EXEC    sp_addmessage 
-    @msgnum = 50003, 
+    @msgnum = @MessageNumber, 
     @severity =16, 
     @msgtext = 'Membership has already been confirmed. ', 
+    @lang = 'us_english'
+
+
+
+-- Membership is already confirmed in system
+SET @MessageNumber = 50004
+IF EXISTS (SELECT 1 FROM sys.messages WHERE message_id = @MessageNumber) BEGIN
+    EXEC    sp_dropmessage @msgnum = @MessageNumber, @lang = 'all'
+END
+EXEC    sp_addmessage 
+    @msgnum = @MessageNumber, 
+    @severity =16, 
+    @msgtext = 'Username does not exist. ', 
     @lang = 'us_english'

@@ -51,15 +51,15 @@ namespace Dibware.Template.Presentation.Web.Controllers
             return View(ViewNames.ConfirmAccountCheckEmail, model);
         }
 
-        //
-        // GET: /Account/ConfirmAccount
-        [HttpGet]
-        [AllowAnonymous]
-        public ActionResult ConfirmAccount()
-        {
-            var model = new ConfirmAccountViewModel();
-            return View(ViewNames.ConfirmAccount, model);
-        }
+        ////
+        //// GET: /Account/ConfirmAccount
+        //[HttpGet]
+        //[AllowAnonymous]
+        //public ActionResult ConfirmAccount()
+        //{
+        //    var model = new ConfirmAccountViewModel();
+        //    return View(ViewNames.ConfirmAccount, model);
+        //}
 
         //
         // GET: /Account/ConfirmAccount/confirmationtoken=
@@ -75,6 +75,7 @@ namespace Dibware.Template.Presentation.Web.Controllers
 
         //
         // GET: /Account/ConfirmAccount/username= &confirmationtoken=
+        [HttpGet]
         [AllowAnonymous]
         public ActionResult ConfirmAccount(String username, String confirmationToken)
         {
@@ -199,27 +200,38 @@ namespace Dibware.Template.Presentation.Web.Controllers
                 return View(ViewNames.Login, model);
             }
 
-            // Check if the user has a confirmed account...
-            Boolean isconfirmed = WebSecurity.IsConfirmed(model.UserName);
-            if (!isconfirmed)
+            try
             {
-                // ... we are not logged in, so add an error and kick the user back
-                ModelState.AddModelError(String.Empty, ValidationMessages.EmailNotConfirmed);
+                // Check if the user has a confirmed account...
+                Boolean isconfirmed = WebSecurity.IsConfirmed(model.UserName);
+                if (!isconfirmed)
+                {
+                    // ... we are not logged in, so add an error and kick the user back
+                    ModelState.AddModelError(String.Empty, ValidationMessages.EmailNotConfirmed);
+                    return View(ViewNames.Login, model);
+                }
+
+                // Check is the user is logged in...
+                var isLoggedIn = WebSecurity.Login(model.UserName,
+                    model.Password, persistCookie: model.RememberMe);
+                if (!isLoggedIn)
+                {
+                    // ... we are not logged in, so add an error and kick the user back
+                    ModelState.AddModelError(String.Empty, ValidationMessages.UsernameOrPasswordIncorrect);
+                    return View(ViewNames.Login, model);
+                }
+
+                // We have got this far so return the user to the passed URL
+                return RedirectToLocal(returnUrl);
+            }
+            catch (ValidationException validationEx)
+            {
+                // Report Validation Exceptions as model errors
+                ModelState.AddModelError("", validationEx.Message);
+
+                // ... throw the user back out
                 return View(ViewNames.Login, model);
             }
-
-            // Check is the user is logged in...
-            var isLoggedIn = WebSecurity.Login(model.UserName,
-                model.Password, persistCookie: model.RememberMe);
-            if (!isLoggedIn)
-            {
-                // ... we are not logged in, so add an error and kick the user back
-                ModelState.AddModelError(String.Empty, ValidationMessages.UsernameOrPasswordIncorrect);
-                return View(ViewNames.Login, model);
-            }
-
-            // We have got this far so return the user to the passed URL
-            return RedirectToLocal(returnUrl);
         }
 
         //
@@ -285,7 +297,11 @@ namespace Dibware.Template.Presentation.Web.Controllers
                         var relativeUrl = Url.Action(
                             ViewNames.ConfirmAccount,
                             ControllerNames.Account,
-                            new { confirmationToken = confirmationToken });
+                            new
+                            {
+                                username = model.UserName,
+                                confirmationToken = confirmationToken
+                            });
 
                         // Send confirmation email to new registerant
                         EmailHelper.SendConfirmationEmail(
@@ -310,7 +326,7 @@ namespace Dibware.Template.Presentation.Web.Controllers
                 {
                     ModelState.AddModelError("", MembershipHelper.ConvertErrorCodeToString(membEx.StatusCode));
                 }
-                catch (Dibware.Template.Core.Domain.Exceptions.ValidationException validationEx)
+                catch (ValidationException validationEx)
                 {
                     // Report Validation Exceptions as model errors
                     ModelState.AddModelError("", validationEx.Message);

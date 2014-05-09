@@ -198,6 +198,8 @@
     <Content Include="Views\Navigation\HeaderNavigation.cshtml" />
     <Content Include="Views\Account\ConfirmAccountCheckEmail.cshtml" />
     <Content Include="Views\Account\ConfirmAccount.cshtml" />
+    <Content Include="Views\Account\ConfirmAccountSuccess.cshtml" />
+    <Content Include="Views\Account\ConfirmAccountFailure.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
