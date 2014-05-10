@@ -17,6 +17,9 @@ using WebMatrix.WebData;
 
 namespace Dibware.Template.Presentation.Web.Controllers
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public class AccountController : BaseControllerWithDataLookup
     {
         #region Reference
@@ -202,8 +205,20 @@ namespace Dibware.Template.Presentation.Web.Controllers
 
             try
             {
+                String username = model.UserName;
+                String password = model.Password;
+
+                // Check if the user exists in the system
+                Boolean userExists = WebSecurity.UserExists(username);
+                if (!userExists)
+                {
+                    // ... they don't so add an error and kick the user back to the login page
+                    ModelState.AddModelError(FieldNames.Username, ValidationMessages.UsernameNotRecognised);
+                    return View(ViewNames.Login, model);
+                }
+
                 // Check if the user has a confirmed account...
-                Boolean isconfirmed = WebSecurity.IsConfirmed(model.UserName);
+                Boolean isconfirmed = WebSecurity.IsConfirmed(username);
                 if (!isconfirmed)
                 {
                     // ... we are not logged in, so add an error and kick the user back
@@ -211,13 +226,33 @@ namespace Dibware.Template.Presentation.Web.Controllers
                     return View(ViewNames.Login, model);
                 }
 
+                // Ref:
+                //  http://www.thecodingguys.net/reference/asp/websecurity-login
+                // Check if the user has made too many failed login attempts (x) 
+                // with the wrong password and their then their account is locked 
+                // out for (y) minutes. 
+                // Note:
+                //  The time must be UTC, as that is how it is stored in the database!
+                Int32 maximumPasswordFailuresSinceLastLogin = Int32.Parse(ConfigurationManager.AppSettings[ConfigurationKeys.MaximumPasswordFailuresSinceLastLogin]);
+                Int32 accountLockoutTimeInMinutes = Int32.Parse(ConfigurationManager.AppSettings[ConfigurationKeys.AccountLockoutTimeInMinutes]);
+                if (WebSecurity.GetPasswordFailuresSinceLastSuccess(username) > maximumPasswordFailuresSinceLastLogin &&
+                    WebSecurity.GetLastPasswordFailureDate(username).AddMinutes(accountLockoutTimeInMinutes) > DateTime.UtcNow)
+                {
+                    String errorMessage = String.Format(
+                        ValidationMessages.AccountLockedOut,
+                        accountLockoutTimeInMinutes,
+                        maximumPasswordFailuresSinceLastLogin
+                        );
+                    ModelState.AddModelError(String.Empty, errorMessage);
+                }
+
                 // Check is the user is logged in...
-                var isLoggedIn = WebSecurity.Login(model.UserName,
-                    model.Password, persistCookie: model.RememberMe);
+                var isLoggedIn = WebSecurity.Login(username,
+                    password, persistCookie: model.RememberMe);
                 if (!isLoggedIn)
                 {
                     // ... we are not logged in, so add an error and kick the user back
-                    ModelState.AddModelError(String.Empty, ValidationMessages.UsernameOrPasswordIncorrect);
+                    ModelState.AddModelError(String.Empty, ValidationMessages.PasswordIncorrect);
                     return View(ViewNames.Login, model);
                 }
 
@@ -227,7 +262,7 @@ namespace Dibware.Template.Presentation.Web.Controllers
             catch (ValidationException validationEx)
             {
                 // Report Validation Exceptions as model errors
-                ModelState.AddModelError("", validationEx.Message);
+                ModelState.AddModelError(String.Empty, validationEx.Message);
 
                 // ... throw the user back out
                 return View(ViewNames.Login, model);
@@ -235,7 +270,18 @@ namespace Dibware.Template.Presentation.Web.Controllers
         }
 
         //
+        // GET: /Account/Logout
+        [HttpGet]
+        public ActionResult Logout()
+        {
+            WebSecurity.RequireAuthenticatedUser();
+            WebSecurity.Logout();
+            return RedirectToHome();
+        }
+
+        //
         // GET: /Account/Register
+        [HttpGet]
         [AllowAnonymous]
         public ActionResult Register()
         {
@@ -245,7 +291,6 @@ namespace Dibware.Template.Presentation.Web.Controllers
 
         //
         // POST: /Account/Register
-
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
@@ -319,7 +364,7 @@ namespace Dibware.Template.Presentation.Web.Controllers
                         WebSecurity.Login(model.UserName, model.Password);
 
                         // Redirect to the home page
-                        return RedirectToAction(ActionMethods.Index, ControllerNames.Home);
+                        return RedirectToHome();
                     }
                 }
                 catch (MembershipCreateUserException membEx)
@@ -446,6 +491,15 @@ namespace Dibware.Template.Presentation.Web.Controllers
                     }
                 }
             }
+        }
+
+        /// <summary>
+        /// Redirects to the home page.
+        /// </summary>
+        /// <returns></returns>
+        private ActionResult RedirectToHome()
+        {
+            return RedirectToAction(ActionMethods.Index, ControllerNames.Home);
         }
 
         /// <summary>

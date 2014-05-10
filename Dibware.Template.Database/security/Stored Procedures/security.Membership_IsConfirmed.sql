@@ -13,10 +13,8 @@ BEGIN
     -- Detect if the user's membership has been 
     -- confirmed and return the result
     SELECT  @IsConfirmed            = [IsConfirmed] 
-    FROM    [security].[Membership] [m]
-    JOIN    [security].[User]       [u]
-    ON      [u].[UserGuid]          = [m].[UserGuid]
-    WHERE   [u].[Username]          = @Username;
+    FROM    [security].[Membership]
+    WHERE   [Username]              = @Username;
 
     -- Detect if the user does not exist
     If (@IsConfirmed) = NULL BEGIN

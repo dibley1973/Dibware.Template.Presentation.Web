@@ -174,4 +174,10 @@
   <data name="ApplicationDomain" xml:space="preserve">
     <value>ApplicationDomain</value>
   </data>
+  <data name="AccountLockoutTimeInMinutes" xml:space="preserve">
+    <value>AccountLockoutTimeInMinutes</value>
+  </data>
+  <data name="MaximumPasswordFailuresSinceLastLogin" xml:space="preserve">
+    <value>MaximumPasswordFailuresSinceLastLogin</value>
+  </data>
 </root>

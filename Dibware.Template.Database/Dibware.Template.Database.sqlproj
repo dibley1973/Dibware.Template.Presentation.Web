@@ -125,11 +125,7 @@
     <Folder Include="ref\Tables" />
   </ItemGroup>
   <ItemGroup>
-    <Build Include="security\Tables\User.sql" />
     <Build Include="security\Tables\Role.sql" />
-    <Build Include="security\Stored Procedures\security.User_Delete.sql" />
-    <Build Include="security\Stored Procedures\security.User_Update.sql" />
-    <Build Include="security\Stored Procedures\security.User_Insert.sql" />
     <Build Include="security\Stored Procedures\security.Role_Delete.sql" />
     <Build Include="security\Stored Procedures\security.Role_Update.sql" />
     <Build Include="security\Stored Procedures\security.Role_Insert.sql" />
@@ -141,10 +137,6 @@
     <Build Include="security\Tables\OAuthMembership.sql" />
     <Build Include="security\AppUnauthorisedLogin.sql" />
     <Build Include="security\RoleMemberships.sql" />
-    <Build Include="security\Stored Procedures\security.Membership_ValidateUser.sql">
-      <AnsiNulls>On</AnsiNulls>
-      <QuotedIdentifier>On</QuotedIdentifier>
-    </Build>
     <Build Include="security\Stored Procedures\security.Membership_GetPassword.sql">
       <AnsiNulls>On</AnsiNulls>
       <QuotedIdentifier>On</QuotedIdentifier>
@@ -209,6 +201,8 @@
       <QuotedIdentifier>On</QuotedIdentifier>
     </Build>
     <Build Include="security\AppMainLogin.sql" />
+    <Build Include="security\Stored Procedures\security.Membership_UpdatePasswordFailure.sql" />
+    <Build Include="security\Stored Procedures\security.Membership_UpdatePasswordSuccess.sql" />
   </ItemGroup>
   <ItemGroup>
     <RefactorLog Include="Dibware.Template.Database.refactorlog" />

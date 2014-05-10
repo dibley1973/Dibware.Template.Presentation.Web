@@ -12,14 +12,12 @@ BEGIN
     -- First get the user GUID for a user with the specified
     -- confirmation token, and also username if it was supplied.
     DECLARE @UserGuid uniqueidentifier;
-    SELECT  @UserGuid               = [m].[UserGuid]
-    FROM    [security].[User]       [u]
-    JOIN    [security].[Membership] [m]
-    ON      [u].UserGuid            = [m].[UserGuid]
-    WHERE   [m].ConfirmationToken   = @ConfirmationToken
+    SELECT  @UserGuid               = [UserGuid]
+    FROM    [security].[Membership]
+    WHERE   [ConfirmationToken]   = @ConfirmationToken
     AND
     (
-        [u].[Username] = @Username
+        [Username] = @Username
     OR
         @Username = ''
     );

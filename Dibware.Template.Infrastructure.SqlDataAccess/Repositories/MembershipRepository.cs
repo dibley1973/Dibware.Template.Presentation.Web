@@ -7,6 +7,7 @@ using Dibware.Template.Infrastructure.SqlDataAccess.Base;
 using Dibware.Template.Infrastructure.SqlDataAccess.Helpers;
 using Dibware.Template.Infrastructure.SqlDataAccess.Resources;
 using Dibware.Template.Infrastructure.SqlDataAccess.StoredProcedures.Membership;
+using Dibware.Web.Security.Membership;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
@@ -14,6 +15,9 @@ using System.Linq;
 
 namespace Dibware.Template.Infrastructure.SqlDataAccess.Repositories
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public class MembershipRepository : Repository<User>, IMembershipRepository
     {
         #region Construct
@@ -287,6 +291,23 @@ namespace Dibware.Template.Infrastructure.SqlDataAccess.Repositories
         }
 
         /// <summary>
+        /// Gets the user.
+        /// </summary>
+        /// <param name="username">The username.</param>
+        /// <param name="userIsOnline">if set to <c>true</c> [user is online].</param>
+        /// <returns></returns>
+        /// <exception cref="System.NotImplementedException"></exception>
+        public WebMembershipUser GetUser(string username, bool userIsOnline)
+        {
+            // Ensure we have a UnitOfWork
+            Guard.InvalidOperation((UnitOfWork == null), ExceptionMessages.UnitOfWorkIsNull);
+            Guard.ArgumentIsNotNullOrEmpty(username, ExceptionMessages.UsernameMustBeSupplied);
+
+            var result = UnitOfWork.CreateSet<WebMembershipUser>().FirstOrDefault();
+            return result;
+        }
+
+        /// <summary>
         /// Returns a value that indicates whether the user account has been confirmed by the provider.
         /// </summary>
         /// <param name="username">The user name.</param>
@@ -319,39 +340,21 @@ namespace Dibware.Template.Infrastructure.SqlDataAccess.Repositories
             }
         }
 
-        //private IEnumerable<String> GetAllRuleRegularExpressions()
-        //{
-        //    throw new NotImplementedException();
-        //}
+        public void UpdatePasswordFailureState(String username)
+        {
+            throw new NotImplementedException();
+        }
 
-        ///// <summary>
-        ///// Validates the user.
-        ///// </summary>
-        ///// <param name="username">The username.</param>
-        ///// <param name="password">The password.</param>
-        ///// <returns></returns>
-        ///// <exception cref="System.NotImplementedException"></exception>
-        //bool IRepositoryMembershipProviderRepository.ValidateUser(String username, String password)
-        //{
-        //    throw new NotImplementedException();
-
-        //    // Ensure we have a UnitOfWork
-        //    //Guard.InvalidOperation((UnitOfWork == null), ExceptionMessages.UnitOfWorkIsNull);
-
-        //    //var procedure = new ValidateUserStoredProcedure(username, password);
-        //    //var returnValue = UnitOfWork.ExecuteStoredProcedure<Boolean>(procedure).SingleOrDefault();
-        //    //return returnValue.HasValue();
-        //}
+        public void UpdatePasswordSuccessState(String username)
+        {
+            throw new NotImplementedException();
+        }
 
         #endregion
 
         // Ref:
         //  http://www.lucbos.net/2012/03/calling-stored-procedure-with-entity.html
         //  https://github.com/LucBos/GenericExtensionsEFCF
-
-
-
-
 
     }
 }

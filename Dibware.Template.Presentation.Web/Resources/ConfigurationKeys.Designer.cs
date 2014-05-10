@@ -61,6 +61,15 @@ namespace Dibware.Template.Presentation.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to AccountLockoutTimeInMinutes.
+        /// </summary>
+        public static string AccountLockoutTimeInMinutes {
+            get {
+                return ResourceManager.GetString("AccountLockoutTimeInMinutes", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to ApplicationDomain.
         /// </summary>
         public static string ApplicationDomain {
@@ -129,6 +138,15 @@ namespace Dibware.Template.Presentation.Web.Resources {
         public static string HashByteSize {
             get {
                 return ResourceManager.GetString("HashByteSize", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to MaximumPasswordFailuresSinceLastLogin.
+        /// </summary>
+        public static string MaximumPasswordFailuresSinceLastLogin {
+            get {
+                return ResourceManager.GetString("MaximumPasswordFailuresSinceLastLogin", resourceCulture);
             }
         }
         

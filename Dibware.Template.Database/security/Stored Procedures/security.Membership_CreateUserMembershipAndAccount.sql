@@ -23,7 +23,7 @@ BEGIN
     IF EXISTS
     (
         SELECT  1
-        FROM    [security].[User]
+        FROM    [security].[Membership]
         WHERE   [Username] = @Username
     )
     BEGIN
@@ -41,7 +41,7 @@ BEGIN
     IF EXISTS
     (
         SELECT  1
-        FROM    [user].[Account]
+        FROM    [security].[Membership]
         WHERE   [EmailAddress] = @EmailAddress
     )
     BEGIN
@@ -64,68 +64,79 @@ BEGIN
             UserGuid uniqueidentifier
         );
 
-	    -- Create user details
-	    INSERT INTO [security].[User]
-		(
-            --[UserGuid]
-		    [Username]
-		,   [Name]
-        )
-        OUTPUT inserted.UserGuid INTO @OutPutTable
-	    VALUES
-		(
-            --@UserGuid
-		    @Username
-		,   @Name
-        );
+	 --   -- Create user details
+	 --   INSERT INTO [security].[User]
+		--(
+  --          --[UserGuid]
+		--    [Username]
+		--,   [Name]
+  --      )
+  --      OUTPUT inserted.UserGuid INTO @OutPutTable
+	 --   VALUES
+		--(
+  --          --@UserGuid
+		--    @Username
+		--,   @Name
+  --      );
 
         -- Get identity of the newly inserted record
         --SET @UserGuid = SCOPE_IDENTITY();
-        SELECT @UserGuid = UserGuid FROM @OutPutTable;
+        --SELECT @UserGuid = UserGuid FROM @OutPutTable;
+
+        -- Load up some default values for the user account
+        DECLARE @InitialAccountStatus           int
+        ,       @DefaultAccountType             int
+        ,       @DefaultMemberShipIsApproved    bit;
+        SELECT TOP 1                        -- Should only ever be one row anyway!
+            @InitialAccountStatus           = [InitialAccountStatus]
+        ,   @DefaultAccountType             = [DefaultAccountType]
+        ,   @DefaultMemberShipIsApproved    = [DefaultMemberShipIsApproved]
+        FROM
+            [application].[Configuration];
+
+        
 
         -- Create membership details
         INSERT INTO [security].[Membership]
         (
-            [UserGuid]
-        ,   [CreateDate]
-        ,   [ConfirmationToken]
-        ,   [IsConfirmed]
-        ,   [LastPasswordFailureDate]
-        ,   [PasswordFailuresSinceLastSuccess]
+		    [Username]
         ,   [Password]
-        ,   [PasswordChangedDate]
-        ,   [PasswordVerificationToken]
-        ,   [PasswordVerificationTokenExpirationDate]
-        )
+        ,   [EmailAddress]
+        ,   [IsApproved]
+        ,   [ConfirmationToken]
+
+        --,   [IsConfirmed]
+        --,   [LastPasswordFailureDate]
+        --,   [PasswordFailuresSinceLastSuccess]
+        --,   [LastPasswordChangedDate]
+        --,   [PasswordVerificationToken]
+        --,   [PasswordVerificationTokenExpirationDate]
+        ) 
+        OUTPUT inserted.UserGuid INTO @OutPutTable
+        --OUTPUT INSERTED.[UserGuid] INTO @UserGuid
         VALUES
         (
-            @UserGuid
-        ,   GETDATE()
-        ,   @ConfirmationToken
-        ,   0               -- Not confirmed
-        ,   null            -- Never failed
-        ,   0               -- never failed
+		    @Username
         ,   @Password
-        ,   null            -- Never changed
-        ,   null            -- Never set
-        ,   null            -- Never set
+        ,   @EmailAddress
+        ,   @DefaultMemberShipIsApproved
+        ,   @ConfirmationToken
+        --,   0               -- Not confirmed
+        --,   null            -- Never failed
+        --,   0               -- never failed
+        --,   null            -- Never changed
+        --,   null            -- Never set
+        --,   null            -- Never set
         );
 
-        -- Load up some default values for the user account
-        DECLARE @InitialAccountStatus   int;
-        DECLARE @DefaultAccountType     int;
-
-        SELECT TOP 1                -- Should only ever be one row anyway!
-            @InitialAccountStatus   = [InitialAccountStatus]
-        ,   @DefaultAccountType     = [DefaultAccountType]
-        FROM
-            [application].[Configuration];
+        -- Get identity of the newly inserted record
+        SELECT @UserGuid = UserGuid FROM @OutPutTable;
 
         -- Create account details
         INSERT INTO [user].Account
         (
             [UserGuid]
-        ,   [EmailAddress]
+        ,   [Name]
         ,   [AccountStatus]
         ,   [LastAccountStatusChangedDate]
         ,   [AccountType]
@@ -133,7 +144,7 @@ BEGIN
         VALUES
         (
             @UserGuid
-        ,   @EmailAddress
+        ,   @Name
         ,   @InitialAccountStatus
         ,   null
         ,   @DefaultAccountType

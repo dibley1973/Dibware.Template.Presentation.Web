@@ -61,6 +61,15 @@ namespace Dibware.Template.Presentation.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Sorry your account is locked out for {0} minutes due to too many password failures. A maximum of {1} is allowed..
+        /// </summary>
+        internal static string AccountLockedOut {
+            get {
+                return ResourceManager.GetString("AccountLockedOut", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to The email address for this account has not been confirmed.
         /// </summary>
         internal static string EmailNotConfirmed {
@@ -75,6 +84,15 @@ namespace Dibware.Template.Presentation.Web.Resources {
         internal static string PasswordEmpty {
             get {
                 return ResourceManager.GetString("PasswordEmpty", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The password provided is incorrect.
+        /// </summary>
+        internal static string PasswordIncorrect {
+            get {
+                return ResourceManager.GetString("PasswordIncorrect", resourceCulture);
             }
         }
         
@@ -102,6 +120,15 @@ namespace Dibware.Template.Presentation.Web.Resources {
         internal static string PasswordToShort {
             get {
                 return ResourceManager.GetString("PasswordToShort", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The username specified was not recognized.
+        /// </summary>
+        internal static string UsernameNotRecognised {
+            get {
+                return ResourceManager.GetString("UsernameNotRecognised", resourceCulture);
             }
         }
         

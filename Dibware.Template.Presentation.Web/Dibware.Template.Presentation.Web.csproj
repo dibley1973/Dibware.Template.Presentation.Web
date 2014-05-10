@@ -257,6 +257,7 @@
     <Compile Include="Models\Home\TermsViewModel.cs" />
     <Compile Include="Models\Navigation\HeaderNavigationViewModel.cs" />
     <Compile Include="Models\Navigation\NavigationItem.cs" />
+    <Compile Include="Modules\Authentication\WebSiteMembershipUser .cs" />
     <Compile Include="Modules\Authentication\IWebsitePrincipal.cs" />
     <Compile Include="Modules\Authentication\WebsiteAuthorizeAttribute.cs" />
     <Compile Include="Modules\Authentication\WebsitePrincipal.cs" />
@@ -312,6 +313,11 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>ExceptionMessages.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\FieldNames.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FieldNames.resx</DependentUpon>
     </Compile>
     <Compile Include="Resources\LinkText.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -425,6 +431,10 @@
     <EmbeddedResource Include="Resources\ExceptionMessages.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>ExceptionMessages.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\FieldNames.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>FieldNames.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Resources\LinkText.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>

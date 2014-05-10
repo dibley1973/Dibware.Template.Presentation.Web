@@ -18,9 +18,12 @@ BEGIN
     -- Insert the user and role relationship
 	SELECT  [r].[Name]
     FROM    [security].[Role]           [r]
+
     JOIN    [security].[UsersInRoles]   [uir]
-    ON      [uir].[RoleKey]             = [r].[RoleKey]
-    JOIN    [security].[User]           [u]
-    ON      [u].[UserGuid]              = [uir].[UserGuid]
-    WHERE   [u].[Username]              = @Username;
+            ON [uir].[RoleKey]          = [r].[RoleKey]
+
+    JOIN    [security].[Membership]     [m]
+            ON [m].[UserGuid]           = [uir].[UserGuid]
+
+    WHERE   [m].[Username]              = @Username;
 END

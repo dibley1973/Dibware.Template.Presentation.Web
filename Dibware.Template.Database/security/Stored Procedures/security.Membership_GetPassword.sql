@@ -14,12 +14,10 @@ BEGIN
 	-- Declare a variable to hold our result
 	DECLARE @Result int;
 
-	-- 
-	SELECT TOP(1)	[m].[Password]	[Password]
-	FROM			[security].[Membership] [m]
-	JOIN			[security].[User] [u]
-	ON				[m].[UserGuid] = [u].UserGuid
-	WHERE			[u].[Username] = @Username;
+	-- Get the password for the username
+	SELECT TOP(1)	[Password]
+	FROM			[security].[Membership]
+	WHERE			[Username] = @Username;
 
 END
 GO

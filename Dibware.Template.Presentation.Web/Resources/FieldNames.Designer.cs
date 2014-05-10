@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Dibware.Template.Presentation.Web.Resources.Emailing {
+namespace Dibware.Template.Presentation.Web.Resources {
     using System;
     
     
@@ -22,14 +22,14 @@ namespace Dibware.Template.Presentation.Web.Resources.Emailing {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class BodyTextHtml {
+    internal class FieldNames {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
         private static global::System.Globalization.CultureInfo resourceCulture;
         
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal BodyTextHtml() {
+        internal FieldNames() {
         }
         
         /// <summary>
@@ -39,7 +39,7 @@ namespace Dibware.Template.Presentation.Web.Resources.Emailing {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Dibware.Template.Presentation.Web.Resources.Emailing.BodyTextHtml", typeof(BodyTextHtml).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Dibware.Template.Presentation.Web.Resources.FieldNames", typeof(FieldNames).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -61,11 +61,11 @@ namespace Dibware.Template.Presentation.Web.Resources.Emailing {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to &lt;p&gt;Hi {1}, &lt;/p&gt;{0}&lt;p&gt;Please confirm your {2} account using the following token: &lt;/p&gt;&lt;p&gt;{3}&lt;/p&gt;{0}&lt;p&gt;You can click the link below to return to the website to enter the token. &lt;a href=&quot;{4}&quot; &gt;{4}&lt;/a&gt; or copy and paste the link into your browser. &lt;/p&gt;{0}&lt;p&gt;Best regards, &lt;/p&gt;{0}&lt;p&gt;The {2} team.&lt;/p&gt;.
+        ///   Looks up a localized string similar to Username.
         /// </summary>
-        internal static string AccountConfirmation {
+        internal static string Username {
             get {
-                return ResourceManager.GetString("AccountConfirmation", resourceCulture);
+                return ResourceManager.GetString("Username", resourceCulture);
             }
         }
     }

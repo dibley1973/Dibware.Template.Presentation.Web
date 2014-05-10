@@ -117,11 +117,17 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="AccountLockedOut" xml:space="preserve">
+    <value>Sorry your account is locked out for {0} minutes due to too many password failures. A maximum of {1} is allowed.</value>
+  </data>
   <data name="EmailNotConfirmed" xml:space="preserve">
     <value>The email address for this account has not been confirmed</value>
   </data>
   <data name="PasswordEmpty" xml:space="preserve">
     <value>Your password is empty</value>
+  </data>
+  <data name="PasswordIncorrect" xml:space="preserve">
+    <value>The password provided is incorrect</value>
   </data>
   <data name="PasswordMinNonAlphaNumericNotMet" xml:space="preserve">
     <value>Your password does not have the minimum required number of non-alphanumeric characters</value>
@@ -131,6 +137,9 @@
   </data>
   <data name="PasswordToShort" xml:space="preserve">
     <value>Your password is less than required length</value>
+  </data>
+  <data name="UsernameNotRecognised" xml:space="preserve">
+    <value>The username specified was not recognized</value>
   </data>
   <data name="UsernameOrPasswordIncorrect" xml:space="preserve">
     <value>The username or password provided is incorrect</value>
