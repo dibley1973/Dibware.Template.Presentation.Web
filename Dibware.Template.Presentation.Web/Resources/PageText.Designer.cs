@@ -86,5 +86,41 @@ namespace Dibware.Template.Presentation.Web.Resources {
                 return ResourceManager.GetString("ConfirmAccountCheckEmail2", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Sorry but something has gone wrong when you have tried to confirm your account..
+        /// </summary>
+        public static string ConfirmAccountFailure {
+            get {
+                return ResourceManager.GetString("ConfirmAccountFailure", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Your account has now been confirmed. Please use the link below to take you to the login screen..
+        /// </summary>
+        public static string ConfirmAccountSuccess {
+            get {
+                return ResourceManager.GetString("ConfirmAccountSuccess", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Please select as complicated password as you can. Please do not use the same password as you use for your email account or online banking or anything where security is paramount. If you have trouble remembering many passwords, maybe consider adding some text to your &quot;normal&quot; password that is unique for this site.
+        /// </summary>
+        public static string PasswordAdvice {
+            get {
+                return ResourceManager.GetString("PasswordAdvice", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to We apologise if the registration process appears long and complicated, but we only have the best interests of your security in mind..
+        /// </summary>
+        public static string RegistrationSecurityApology {
+            get {
+                return ResourceManager.GetString("RegistrationSecurityApology", resourceCulture);
+            }
+        }
     }
 }

@@ -6,7 +6,9 @@ using Dibware.Template.Infrastructure.SqlDataAccess.Base;
 using Dibware.Template.Infrastructure.SqlDataAccess.Resources;
 using Dibware.Web.Security.Providers.Contracts;
 using System;
+using System.Linq;
 using System.Collections.Generic;
+using Dibware.Template.Infrastructure.SqlDataAccess.StoredProcedures.Roles;
 
 namespace Dibware.Template.Infrastructure.SqlDataAccess.Repositories
 {
@@ -178,9 +180,18 @@ namespace Dibware.Template.Infrastructure.SqlDataAccess.Repositories
             Guard.InvalidOperation((UnitOfWork == null), ExceptionMessages.UnitOfWorkIsNull);
             Guard.ArgumentIsNotNullOrEmpty(username, ExceptionMessages.UsernameMustBeSupplied);
 
-
-
-            throw new NotImplementedException();
+            try
+            {
+                var procedure = new GetRolesForUserStoredProcedure(username);
+                var results = UnitOfWork.ExecuteStoredProcedure<String>(procedure);
+                var returnValue = results.ToList();
+                return returnValue.ToArray();
+            }
+            catch (Exception ex)
+            {
+                //TODO: Remove this 'catch' and rethrow once all debuggung is complete
+                throw ex;
+            }
         }
 
         String[] IRepositoryRoleProviderRepository.GetUsersInRole(String roleName)

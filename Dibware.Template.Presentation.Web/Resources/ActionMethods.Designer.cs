@@ -104,5 +104,14 @@ namespace Dibware.Template.Presentation.Web.Resources {
                 return ResourceManager.GetString("Index", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Login.
+        /// </summary>
+        public static string Login {
+            get {
+                return ResourceManager.GetString("Login", resourceCulture);
+            }
+        }
     }
 }

@@ -132,4 +132,7 @@
   <data name="Index" xml:space="preserve">
     <value>Index</value>
   </data>
+  <data name="Login" xml:space="preserve">
+    <value>Login</value>
+  </data>
 </root>

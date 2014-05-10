@@ -126,6 +126,12 @@
   <data name="ConfirmAccountCheckEmail" xml:space="preserve">
     <value>Confirm Account Check Email</value>
   </data>
+  <data name="ConfirmAccountFailure" xml:space="preserve">
+    <value>Confirm  Account - Failure</value>
+  </data>
+  <data name="ConfirmAccountSuccess" xml:space="preserve">
+    <value>Confirm Account - Success</value>
+  </data>
   <data name="Error" xml:space="preserve">
     <value>Ermagad!</value>
   </data>

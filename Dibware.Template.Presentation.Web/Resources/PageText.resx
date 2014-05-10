@@ -126,4 +126,16 @@
   <data name="ConfirmAccountCheckEmail2" xml:space="preserve">
     <value>Or please click the link below to take you a page where you can manually enter your confirmation token.</value>
   </data>
+  <data name="ConfirmAccountFailure" xml:space="preserve">
+    <value>Sorry but something has gone wrong when you have tried to confirm your account.</value>
+  </data>
+  <data name="ConfirmAccountSuccess" xml:space="preserve">
+    <value>Your account has now been confirmed. Please use the link below to take you to the login screen.</value>
+  </data>
+  <data name="PasswordAdvice" xml:space="preserve">
+    <value>Please select as complicated password as you can. Please do not use the same password as you use for your email account or online banking or anything where security is paramount. If you have trouble remembering many passwords, maybe consider adding some text to your "normal" password that is unique for this site</value>
+  </data>
+  <data name="RegistrationSecurityApology" xml:space="preserve">
+    <value>We apologise if the registration process appears long and complicated, but we only have the best interests of your security in mind.</value>
+  </data>
 </root>

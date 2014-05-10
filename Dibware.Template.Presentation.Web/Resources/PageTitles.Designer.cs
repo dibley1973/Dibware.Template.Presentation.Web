@@ -88,6 +88,24 @@ namespace Dibware.Template.Presentation.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Confirm  Account - Failure.
+        /// </summary>
+        public static string ConfirmAccountFailure {
+            get {
+                return ResourceManager.GetString("ConfirmAccountFailure", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Confirm Account - Success.
+        /// </summary>
+        public static string ConfirmAccountSuccess {
+            get {
+                return ResourceManager.GetString("ConfirmAccountSuccess", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Ermagad!.
         /// </summary>
         public static string Error {

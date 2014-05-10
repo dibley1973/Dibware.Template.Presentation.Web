@@ -243,6 +243,8 @@
     <Compile Include="Helpers\LinkHelper.cs" />
     <Compile Include="Helpers\MembershipHelper.cs" />
     <Compile Include="HtmlHelpers\BootstrapValidationSummary.cs" />
+    <Compile Include="Models\Account\ConfirmAccountFailureViewModel.cs" />
+    <Compile Include="Models\Account\ConfirmAccountSuccessViewModel.cs" />
     <Compile Include="Models\Account\ConfirmAccountViewModel.cs" />
     <Compile Include="Models\Account\ConfirmAccountCheckEmailViewModel.cs" />
     <Compile Include="Models\Account\IndexViewModel.cs" />
