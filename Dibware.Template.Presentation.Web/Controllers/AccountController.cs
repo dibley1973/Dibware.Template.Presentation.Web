@@ -118,47 +118,25 @@ namespace Dibware.Template.Presentation.Web.Controllers
             }
         }
 
+        //
+        // GET: /Account/ConfirmAccountSuccess
+        [HttpGet]
         [AllowAnonymous]
         public ActionResult ConfirmAccountSuccess()
         {
-            return View(ViewNames.ConfirmAccountSuccess);
+            var model = new ConfirmAccountSuccessViewModel();
+            return View(ViewNames.ConfirmAccountSuccess, model);
         }
 
+        //
+        // GET: /Account/ConfirmAccountFailure
+        [HttpGet]
         [AllowAnonymous]
         public ActionResult ConfirmAccountFailure()
         {
-            return View(ViewNames.ConfirmAccountFailure);
+            var model = new ConfirmAccountFailureViewModel();
+            return View(ViewNames.ConfirmAccountFailure, model);
         }
-
-        //{
-        //    if (String.IsNullOrEmpty(confirmationToken) || (!Regex.IsMatch(confirmationToken,
-        //            @"[0-9a-f]{8}\-([0-9a-f]{4}\-){3}[0-9a-f]{12}")))
-        //    {
-        //        TempData["tempMessage"] =
-        //            "The user account is not valid. Please try clicking the link in your email again."
-        //        return View();
-        //    }
-        //    else
-        //    {
-        //        var accountconfirmed = WebSecurity.ConfirmAccount(username, confirmationToken);
-        //        WebSecurity.L
-
-        //    MembershipUser user = Membership.GetUser(new Guid(ID));
-
-        //    if (!user.IsApproved)
-        //    {
-        //        user.IsApproved = true;
-        //        Membership.UpdateUser(user);
-        //        FormsService.SignIn(user.UserName, false);
-        //        return RedirectToAction("welcome");
-        //    }
-        //    else
-        //    {
-        //        FormsService.SignOut();
-        //        TempData["tempMessage"] = "You have already confirmed your email address... please log in.";
-        //        return RedirectToAction("LogOn");
-        //    }
-        //}
 
         //
         // GET: /Account/

@@ -118,7 +118,7 @@ namespace Dibware.Template.Core.Domain.Entities.Security
         /// <value>
         /// The last password failure date.
         /// </value>
-        public DateTime? LastPasswordFailureDate { get; set; }
+        public DateTime LastPasswordFailureDate { get; set; }
 
         /// <summary>
         /// Gets or sets the last password changed date.

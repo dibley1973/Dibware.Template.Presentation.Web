@@ -174,7 +174,7 @@ namespace Dibware.Template.Infrastructure.SqlDataAccess.Repositories
         /// </summary>
         /// <param name="username"></param>
         /// <returns></returns>
-        public String GetHashedPasswordForUser(string username)
+        public String GetHashedPasswordForUser(String username)
         {
             // Ensure we have a UnitOfWork
             Guard.InvalidOperation((UnitOfWork == null), ExceptionMessages.UnitOfWorkIsNull);
@@ -192,12 +192,37 @@ namespace Dibware.Template.Infrastructure.SqlDataAccess.Repositories
         /// <exception cref="System.NotImplementedException"></exception>
         public String GetPasswordStrengthRegularExpression()
         {
-            //var regularExpressionBuilder = new StringBuilder();
-            //regularExpressionBuilder.Append("");
-            //regularExpressionBuilder.Append("");
-            //regularExpressionBuilder.Append("");
-            //return regularExpressionBuilder.ToString();
             throw new NotImplementedException();
+        }
+
+        public DateTime GetLastPasswordFailureDate(String username)
+        {
+            // Ensure we have a UnitOfWork
+            Guard.InvalidOperation((UnitOfWork == null), ExceptionMessages.UnitOfWorkIsNull);
+            Guard.ArgumentIsNotNullOrEmpty(username, ExceptionMessages.UsernameMustBeSupplied);
+
+            var result = GetAll().FirstOrDefault(u => u.Username == username).LastPasswordFailureDate;
+            return result;
+        }
+
+        public DateTime GetPasswordChangedDate(String username)
+        {
+            // Ensure we have a UnitOfWork
+            Guard.InvalidOperation((UnitOfWork == null), ExceptionMessages.UnitOfWorkIsNull);
+            Guard.ArgumentIsNotNullOrEmpty(username, ExceptionMessages.UsernameMustBeSupplied);
+
+            var result = GetAll().FirstOrDefault(u => u.Username == username).LastPasswordChangedDate;
+            return result;
+        }
+
+        public int GetPasswordFailuresSinceLastSuccess(String username)
+        {
+            // Ensure we have a UnitOfWork
+            Guard.InvalidOperation((UnitOfWork == null), ExceptionMessages.UnitOfWorkIsNull);
+            Guard.ArgumentIsNotNullOrEmpty(username, ExceptionMessages.UsernameMustBeSupplied);
+
+            var result = GetAll().FirstOrDefault(u => u.Username == username).PasswordFailuresSinceLastSuccess;
+            return result;
         }
 
         /// <summary>
@@ -211,6 +236,7 @@ namespace Dibware.Template.Infrastructure.SqlDataAccess.Repositories
         {
             // Ensure we have a UnitOfWork
             Guard.InvalidOperation((UnitOfWork == null), ExceptionMessages.UnitOfWorkIsNull);
+            Guard.ArgumentIsNotNullOrEmpty(providername, ExceptionMessages.ProviderNameMustBeSupplied);
             Guard.ArgumentIsNotNullOrEmpty(username, ExceptionMessages.UsernameMustBeSupplied);
 
             var userMembership = GetAll().FirstOrDefault(u => u.Username == username);
@@ -275,6 +301,5 @@ namespace Dibware.Template.Infrastructure.SqlDataAccess.Repositories
         // Ref:
         //  http://www.lucbos.net/2012/03/calling-stored-procedure-with-entity.html
         //  https://github.com/LucBos/GenericExtensionsEFCF
-
     }
 }

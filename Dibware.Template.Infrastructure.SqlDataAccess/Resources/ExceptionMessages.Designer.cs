@@ -79,6 +79,15 @@ namespace Dibware.Template.Infrastructure.SqlDataAccess.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to ProviderName must be supplied.
+        /// </summary>
+        internal static string ProviderNameMustBeSupplied {
+            get {
+                return ResourceManager.GetString("ProviderNameMustBeSupplied", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Rol name must be supplied.
         /// </summary>
         internal static string RoleNameMustBeSupplied {
