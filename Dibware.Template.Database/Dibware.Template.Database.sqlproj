@@ -123,6 +123,7 @@
     <Folder Include="Server Objects\" />
     <Folder Include="ref" />
     <Folder Include="ref\Tables" />
+    <Folder Include="UtilityScripts" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="security\Tables\Role.sql" />
@@ -215,6 +216,8 @@
     <None Include="PostDeploymentScripts\ref.AccountType.sql" />
     <None Include="PostDeploymentScripts\master.CustomErrors.sql" />
     <None Include="PostDeploymentScripts\security.Role.sql" />
+    <None Include="UtilityScripts\CreateObjectFromTableDetailed.sql" />
+    <None Include="UtilityScripts\CreateObjectFromTableSimple.sql" />
   </ItemGroup>
   <ItemGroup>
     <ArtifactReference Include="DacPacs\master.dacpac">

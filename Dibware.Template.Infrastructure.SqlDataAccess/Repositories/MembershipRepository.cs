@@ -5,6 +5,7 @@ using Dibware.Template.Core.Domain.Entities.Security;
 using Dibware.Template.Core.Domain.Exceptions;
 using Dibware.Template.Infrastructure.SqlDataAccess.Base;
 using Dibware.Template.Infrastructure.SqlDataAccess.Helpers;
+using Dibware.Template.Infrastructure.SqlDataAccess.Mappings;
 using Dibware.Template.Infrastructure.SqlDataAccess.Resources;
 using Dibware.Template.Infrastructure.SqlDataAccess.StoredProcedures.Membership;
 using Dibware.Web.Security.Membership;
@@ -18,7 +19,11 @@ namespace Dibware.Template.Infrastructure.SqlDataAccess.Repositories
     /// <summary>
     /// 
     /// </summary>
-    public class MembershipRepository : Repository<User>, IMembershipRepository
+    /// <remarks>
+    /// Ref:
+    ///     https://github.com/jcwmoore/athena/blob/master/Athena.Mvc/MembershipProvider.cs
+    /// </remarks>
+    public class MembershipRepository : Repository<UserMembership>, IMembershipRepository
     {
         #region Construct
 
@@ -57,23 +62,6 @@ namespace Dibware.Template.Infrastructure.SqlDataAccess.Repositories
             Guard.ArgumentIsNotNullOrEmpty(accountConfirmationToken, ExceptionMessages.AccountConfirmationTokenMustBeSupplied);
 
             return ConfirmAccountInternal(String.Empty, accountConfirmationToken);
-
-            //// Create the stored precedure we will use
-            //var procedure = new ConfirmAccountStoredProcedure(
-            //    accountConfirmationToken,
-            //    String.Empty
-            //);
-
-            //try
-            //{
-            //    var confirmedState = UnitOfWork.ExecuteScalarStoredProcedure<Int32>(procedure);
-            //    return (confirmedState == 1);
-            //}
-            //catch (Exception ex)
-            //{
-            //    //TODO: Remove this 'catch' and rethrow once all debuggung is complete
-            //    throw ex;
-            //}
         }
 
         /// <summary>
@@ -93,45 +81,6 @@ namespace Dibware.Template.Infrastructure.SqlDataAccess.Repositories
             Guard.ArgumentIsNotNullOrEmpty(accountConfirmationToken, ExceptionMessages.AccountConfirmationTokenMustBeSupplied);
 
             return ConfirmAccountInternal(userName, accountConfirmationToken);
-
-            //// Create the stored precedure we will use
-            //var procedure = new ConfirmAccountStoredProcedure(
-            //    accountConfirmationToken,
-            //    userName
-            //);
-
-            //try
-            //{
-            //    var confirmedState = UnitOfWork.ExecuteScalarStoredProcedure<Int32>(procedure);
-            //    return (confirmedState == 1);
-            //}
-            //catch (SqlException sqEx)
-            //{
-            //    // Determine if the Sql Exception number is a know value
-            //    if (!typeof(SqlExceptionNumbers).IsEnumDefined(sqEx.Number))
-            //    {
-            //        // If it is not just rethrow it
-            //        throw sqEx;
-            //    }
-
-            //    // Otherwise cast it and handle it
-            //    SqlExceptionNumbers sqExNumber = (SqlExceptionNumbers)sqEx.Number;
-            //    switch (sqExNumber)
-            //    {
-            //        // catch explicit Sql Exceptions and re throw as validation message
-            //        case SqlExceptionNumbers.EmailAddressAlreadyExists:
-            //        case SqlExceptionNumbers.UserNameAlreadyExists:
-            //            throw new ValidationException(sqEx.Message);
-
-            //        default:
-            //            throw sqEx;
-            //    }
-            //}
-            //catch (Exception ex)
-            //{
-            //    //TODO: Remove this 'catch' and rethrow once all debuggung is complete
-            //    throw ex;
-            //}
         }
 
         /// <summary>
@@ -157,25 +106,6 @@ namespace Dibware.Template.Infrastructure.SqlDataAccess.Repositories
             catch (SqlException sqEx)
             {
                 throw SqlExceptionHelper.HandledKnownSqlExceptions(sqEx);
-
-                //// Determine if the Sql Exception number is a know value
-                //if (!typeof(SqlExceptionNumbers).IsEnumDefined(sqEx.Number))
-                //{
-                //    // If it is not just rethrow it
-                //    throw sqEx;
-                //}
-
-                //// Otherwise cast it and handle it
-                //SqlExceptionNumbers sqExNumber = (SqlExceptionNumbers)sqEx.Number;
-                //switch (sqExNumber)
-                //{
-                //    // catch explicit Sql Exceptions and re throw as validation message
-                //    case SqlExceptionNumbers.MembershipHasAlreadyConfirmed:
-                //        throw new ValidationException(sqEx.Message);
-
-                //    default:
-                //        throw sqEx;
-                //}
             }
             catch (Exception ex)
             {
@@ -231,26 +161,6 @@ namespace Dibware.Template.Infrastructure.SqlDataAccess.Repositories
             catch (SqlException sqEx)
             {
                 throw SqlExceptionHelper.HandledKnownSqlExceptions(sqEx);
-
-                //// Determine if the Sql Exception number is a know value
-                //if (!typeof(SqlExceptionNumbers).IsEnumDefined(sqEx.Number))
-                //{
-                //    // If it is not just rethrow it
-                //    throw sqEx;
-                //}
-
-                //// Otherwise cast it and handle it
-                //SqlExceptionNumbers sqExNumber = (SqlExceptionNumbers)sqEx.Number;
-                //switch (sqExNumber)
-                //{
-                //    // catch explicit Sql Exceptions and re throw as validation message
-                //    case SqlExceptionNumbers.EmailAddressAlreadyExists:
-                //    case SqlExceptionNumbers.UserNameAlreadyExists:
-                //        throw new ValidationException(sqEx.Message);
-
-                //    default:
-                //        throw sqEx;
-                //}
             }
             catch (Exception ex)
             {
@@ -297,14 +207,24 @@ namespace Dibware.Template.Infrastructure.SqlDataAccess.Repositories
         /// <param name="userIsOnline">if set to <c>true</c> [user is online].</param>
         /// <returns></returns>
         /// <exception cref="System.NotImplementedException"></exception>
-        public WebMembershipUser GetUser(string username, bool userIsOnline)
+        public WebMembershipUser GetUser(String providername, String username, Boolean userIsOnline)
         {
             // Ensure we have a UnitOfWork
             Guard.InvalidOperation((UnitOfWork == null), ExceptionMessages.UnitOfWorkIsNull);
             Guard.ArgumentIsNotNullOrEmpty(username, ExceptionMessages.UsernameMustBeSupplied);
 
-            var result = UnitOfWork.CreateSet<WebMembershipUser>().FirstOrDefault();
+            var userMembership = GetAll().FirstOrDefault(u => u.Username == username);
+            WebMembershipUser result = null;
+            if (userMembership != null)
+            {
+                result = MembershipMapping.ToWebMembershipUser(providername, userMembership);
+            }
             return result;
+        }
+
+        public WebMembershipUser GetUser(String providername, object providerUserKey, Boolean userIsOnline)
+        {
+            throw new NotImplementedException();
         }
 
         /// <summary>

@@ -95,5 +95,14 @@ namespace Dibware.Template.Infrastructure.SqlDataAccess.Resources {
                 return ResourceManager.GetString("User", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Membership.
+        /// </summary>
+        internal static string WebMembershipUser {
+            get {
+                return ResourceManager.GetString("WebMembershipUser", resourceCulture);
+            }
+        }
     }
 }

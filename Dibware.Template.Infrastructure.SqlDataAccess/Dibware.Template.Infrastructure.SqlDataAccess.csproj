@@ -66,6 +66,7 @@
     <Compile Include="Base\Repository.cs" />
     <Compile Include="Helpers\DatabaseObjectNameHelper.cs" />
     <Compile Include="Helpers\SqlExceptionHelper.cs" />
+    <Compile Include="Mappings\MembershipMapping.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -127,6 +128,7 @@
     <Compile Include="UnitOfWork\Configuration\PasswordStrengthRuleConfiguration.cs" />
     <Compile Include="UnitOfWork\Configuration\RoleConfiguration.cs" />
     <Compile Include="UnitOfWork\Configuration\UserConfiguration.cs" />
+    <Compile Include="UnitOfWork\Configuration\UserMembershipConfiguration.cs" />
     <Compile Include="UnitOfWork\WebsiteDbContext.cs" />
   </ItemGroup>
   <ItemGroup>

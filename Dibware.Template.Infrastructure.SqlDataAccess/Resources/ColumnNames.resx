@@ -117,8 +117,14 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="EmailAddress" xml:space="preserve">
+    <value>EmailAddress</value>
+  </data>
   <data name="ErrorId" xml:space="preserve">
     <value>ErrorId</value>
+  </data>
+  <data name="Password" xml:space="preserve">
+    <value>Password</value>
   </data>
   <data name="PasswordStrengthRuleId" xml:space="preserve">
     <value>Id</value>
@@ -128,5 +134,8 @@
   </data>
   <data name="UserGuid" xml:space="preserve">
     <value>UserGuid</value>
+  </data>
+  <data name="Username" xml:space="preserve">
+    <value>Username</value>
   </data>
 </root>
