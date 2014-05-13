@@ -109,7 +109,7 @@ namespace Dibware.Template.Infrastructure.SqlDataAccess.Repositories
             }
             catch (Exception ex)
             {
-                //TODO: Remove this 'catch' and rethrow once all debuggung is complete
+                //TODO: Remove this 'catch' and rethrow once all debugging is complete
                 throw ex;
             }
         }
@@ -164,7 +164,7 @@ namespace Dibware.Template.Infrastructure.SqlDataAccess.Repositories
             }
             catch (Exception ex)
             {
-                //TODO: Remove this 'catch' and rethrow once all debuggung is complete
+                //TODO: Remove this 'catch' and rethrow once all debugging is complete
                 throw ex;
             }
         }
@@ -281,19 +281,65 @@ namespace Dibware.Template.Infrastructure.SqlDataAccess.Repositories
             }
             catch (Exception ex)
             {
-                //TODO: Remove this 'catch' and rethrow once all debuggung is complete
+                //TODO: Remove this 'catch' and rethrow once all debugging is complete
                 throw ex;
             }
         }
 
+        /// <summary>
+        /// Updates the state of the password failure.
+        /// </summary>
+        /// <param name="username">The username.</param>
         public void UpdatePasswordFailureState(String username)
         {
-            throw new NotImplementedException();
+            // Ensure we have a UnitOfWork
+            Guard.InvalidOperation((UnitOfWork == null), ExceptionMessages.UnitOfWorkIsNull);
+            Guard.ArgumentIsNotNullOrEmpty(username, ExceptionMessages.UsernameMustBeSupplied);
+
+            // Create the stored precedure we will use
+            var procedure = new UpdatePasswordFailureStateStoredProcedure(username);
+
+            try
+            {
+                var confirmedState = UnitOfWork.ExecuteScalarStoredProcedure<Int32>(procedure);
+            }
+            catch (SqlException sqEx)
+            {
+                throw SqlExceptionHelper.HandledKnownSqlExceptions(sqEx);
+            }
+            catch (Exception ex)
+            {
+                //TODO: Remove this 'catch' and rethrow once all debugging is complete
+                throw ex;
+            }
         }
 
+        /// <summary>
+        /// Updates the state of the password success.
+        /// </summary>
+        /// <param name="username">The username.</param>
         public void UpdatePasswordSuccessState(String username)
         {
-            throw new NotImplementedException();
+            // Ensure we have a UnitOfWork
+            Guard.InvalidOperation((UnitOfWork == null), ExceptionMessages.UnitOfWorkIsNull);
+            Guard.ArgumentIsNotNullOrEmpty(username, ExceptionMessages.UsernameMustBeSupplied);
+
+            // Create the stored precedure we will use
+            var procedure = new UpdatePasswordSuccessStateStoredProcedure(username);
+
+            try
+            {
+                var confirmedState = UnitOfWork.ExecuteScalarStoredProcedure<Int32>(procedure);
+            }
+            catch (SqlException sqEx)
+            {
+                throw SqlExceptionHelper.HandledKnownSqlExceptions(sqEx);
+            }
+            catch (Exception ex)
+            {
+                //TODO: Remove this 'catch' and rethrow once all debugging is complete
+                throw ex;
+            }
         }
 
         #endregion

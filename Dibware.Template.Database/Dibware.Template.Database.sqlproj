@@ -204,6 +204,8 @@
     <Build Include="security\AppMainLogin.sql" />
     <Build Include="security\Stored Procedures\security.Membership_UpdatePasswordFailure.sql" />
     <Build Include="security\Stored Procedures\security.Membership_UpdatePasswordSuccess.sql" />
+    <Build Include="security\Stored Procedures\dbo.Membership_UpdatePasswordFailureState.sql" />
+    <Build Include="security\Stored Procedures\dbo.Membership_UpdatePasswordSuccessState.sql" />
   </ItemGroup>
   <ItemGroup>
     <RefactorLog Include="Dibware.Template.Database.refactorlog" />

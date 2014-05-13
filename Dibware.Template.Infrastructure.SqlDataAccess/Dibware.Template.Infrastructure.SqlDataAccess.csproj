@@ -122,6 +122,8 @@
     <Compile Include="StoredProcedures\Membership\CreateUserMembershipAndAccountStoredProcedure.cs" />
     <Compile Include="StoredProcedures\Membership\GetPasswordStoredProcedure.cs" />
     <Compile Include="StoredProcedures\Membership\IsConfirmedStoredProcedure.cs" />
+    <Compile Include="StoredProcedures\Membership\UpdatePasswordFailureStateStoredProcedure.cs" />
+    <Compile Include="StoredProcedures\Membership\UpdatePasswordSuccessStateStoredProcedure.cs" />
     <Compile Include="StoredProcedures\Membership\ValidateUserStoredProcedure.cs" />
     <Compile Include="StoredProcedures\Roles\GetRolesForUserStoredProcedure.cs" />
     <Compile Include="UnitOfWork\Configuration\ErrorConfiguration.cs" />

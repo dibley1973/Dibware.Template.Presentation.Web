@@ -39,6 +39,9 @@ namespace Dibware.Template.Presentation.Web
             var identity = HttpContext.Current.User.Identity;
             if (Request.IsAuthenticated)
             {
+                // TODO:
+                // By the time we get here we need a new databse conenction for the authenticated user..
+
                 var roleRepository =
                     (IRoleRepository)DependencyResolver.Current.GetService(typeof(IRoleRepository));
                 roles = roleRepository.GetRolesForUser(identity.Name);

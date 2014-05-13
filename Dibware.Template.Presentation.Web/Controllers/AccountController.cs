@@ -222,6 +222,7 @@ namespace Dibware.Template.Presentation.Web.Controllers
                         maximumPasswordFailuresSinceLastLogin
                         );
                     ModelState.AddModelError(String.Empty, errorMessage);
+                    return View(ViewNames.Login, model);
                 }
 
                 // Check is the user is logged in...
