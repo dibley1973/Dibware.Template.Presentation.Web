@@ -18,7 +18,7 @@ namespace Dibware.Template.Presentation.Web.Composition
             // Bind the Interface for the ErrorRepository to an implementation
             Bind<IErrorRepository>()
                 .To<ErrorRepository>()
-                .InRequestScope();
+                .InSingletonScope();
 
             #endregion
 
@@ -28,7 +28,7 @@ namespace Dibware.Template.Presentation.Web.Composition
             // RepositoryMembershipProvider to an implementation
             Bind<IMembershipRepository>()
                 .To<MembershipRepository>()
-                .InRequestScope();
+                .InSingletonScope();
 
             #endregion
 
@@ -38,7 +38,7 @@ namespace Dibware.Template.Presentation.Web.Composition
             // RepositoryMembershipProvider to an implementation
             Bind<IRepositoryMembershipProviderRepository>()
                 .To<MembershipRepository>()
-                .InRequestScope();
+                .InSingletonScope();
 
             #endregion
 
@@ -48,7 +48,7 @@ namespace Dibware.Template.Presentation.Web.Composition
             // RepositoryRoleProvider to an implementation
             Bind<IRepositoryRoleProviderRepository>()
                 .To<RoleRepository>()
-                .InRequestScope();
+                .InSingletonScope();
 
             #endregion
 
@@ -66,7 +66,7 @@ namespace Dibware.Template.Presentation.Web.Composition
             // Bind the Interface for the PasswordStrengthRuleRepository to an implementation
             Bind<IPasswordStrengthRuleRepository>()
                 .To<PasswordStrengthRuleRepository>()
-                .InRequestScope();
+                .InSingletonScope();
 
             #endregion
         }

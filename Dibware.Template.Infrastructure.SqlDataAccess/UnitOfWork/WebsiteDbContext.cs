@@ -25,7 +25,10 @@ namespace Dibware.Template.Infrastructure.SqlDataAccess.UnitOfWork
         /// </summary>
         /// <param name="connectionString">The connection string.</param>
         public WebsiteDbContext(string connectionString)
-            : base(connectionString) { }
+            : base(connectionString)
+        {
+            Database.SetInitializer<WebsiteDbContext>(null);
+        }
 
         #endregion
 
@@ -41,7 +44,7 @@ namespace Dibware.Template.Infrastructure.SqlDataAccess.UnitOfWork
             modelBuilder.Configurations.Add(new ErrorConfiguration());
             modelBuilder.Configurations.Add(new PasswordStrengthRuleConfiguration());
             modelBuilder.Configurations.Add(new RoleConfiguration());
-            modelBuilder.Configurations.Add(new UserConfiguration());
+            //modelBuilder.Configurations.Add(new UserConfiguration());
             modelBuilder.Configurations.Add(new UserMembershipConfiguration());
         }
 

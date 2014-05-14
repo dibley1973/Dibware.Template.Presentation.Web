@@ -334,6 +334,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>MetaTagData.resx</DependentUpon>
     </Compile>
+    <Compile Include="Resources\Ninjection\ConstructorArguments.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ConstructorArguments.resx</DependentUpon>
+    </Compile>
     <Compile Include="Resources\PageSubTitles.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -447,6 +452,10 @@
     <EmbeddedResource Include="Resources\MetaTagData.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>MetaTagData.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Ninjection\ConstructorArguments.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>ConstructorArguments.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Resources\PageSubTitles.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>

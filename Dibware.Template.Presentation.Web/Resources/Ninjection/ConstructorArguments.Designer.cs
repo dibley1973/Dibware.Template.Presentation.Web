@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Dibware.Template.Presentation.Web.Resources {
+namespace Dibware.Template.Presentation.Web.Resources.Ninjection {
     using System;
     
     
@@ -22,14 +22,14 @@ namespace Dibware.Template.Presentation.Web.Resources {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class ConnectionStringKeys {
+    internal class ConstructorArguments {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
         private static global::System.Globalization.CultureInfo resourceCulture;
         
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal ConnectionStringKeys() {
+        internal ConstructorArguments() {
         }
         
         /// <summary>
@@ -39,7 +39,7 @@ namespace Dibware.Template.Presentation.Web.Resources {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Dibware.Template.Presentation.Web.Resources.ConnectionStringKeys", typeof(ConnectionStringKeys).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Dibware.Template.Presentation.Web.Resources.Ninjection.ConstructorArguments", typeof(ConstructorArguments).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -61,20 +61,29 @@ namespace Dibware.Template.Presentation.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to MainUserConnectionString.
+        ///   Looks up a localized string similar to connectionString.
         /// </summary>
-        internal static string MainUserConnectionString {
+        internal static string ConnectionString {
             get {
-                return ResourceManager.GetString("MainUserConnectionString", resourceCulture);
+                return ResourceManager.GetString("ConnectionString", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to UnauthorisedUserConnectionString.
+        ///   Looks up a localized string similar to errorService.
         /// </summary>
-        internal static string UnauthorisedUser {
+        internal static string ErrorService {
             get {
-                return ResourceManager.GetString("UnauthorisedUser", resourceCulture);
+                return ResourceManager.GetString("ErrorService", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to showDetailedErrorMessages.
+        /// </summary>
+        internal static string ShowDetailedErrorMessages {
+            get {
+                return ResourceManager.GetString("ShowDetailedErrorMessages", resourceCulture);
             }
         }
     }

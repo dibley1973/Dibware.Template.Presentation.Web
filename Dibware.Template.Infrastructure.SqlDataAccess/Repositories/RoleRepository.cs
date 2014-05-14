@@ -4,11 +4,11 @@ using Dibware.Template.Core.Domain.Contracts.UnitOfWork;
 using Dibware.Template.Core.Domain.Entities.Security;
 using Dibware.Template.Infrastructure.SqlDataAccess.Base;
 using Dibware.Template.Infrastructure.SqlDataAccess.Resources;
+using Dibware.Template.Infrastructure.SqlDataAccess.StoredProcedures.Roles;
 using Dibware.Web.Security.Providers.Contracts;
 using System;
-using System.Linq;
 using System.Collections.Generic;
-using Dibware.Template.Infrastructure.SqlDataAccess.StoredProcedures.Roles;
+using System.Linq;
 
 namespace Dibware.Template.Infrastructure.SqlDataAccess.Repositories
 {

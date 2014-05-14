@@ -27,3 +27,8 @@ BEGIN
 
     WHERE   [m].[Username]              = @Username;
 END
+GO
+GRANT EXECUTE
+    ON OBJECT::[security].[UsersInRoles_GetForUser] TO [MainRole]
+    AS [dbo];
+

@@ -161,6 +161,12 @@ namespace Dibware.Template.Presentation.Web.Controllers
         [AllowAnonymous]
         public ActionResult Login(String returnUrl)
         {
+            // check if user is already logged in
+            if (WebSecurity.IsAuthenticated)
+            {
+                return RedirectToLocalOrDefault(returnUrl);
+            }
+
             var model = new LoginViewModel();
             ViewBag.ReturnUrl = returnUrl;
             return View(ViewNames.Login, model);
@@ -173,6 +179,12 @@ namespace Dibware.Template.Presentation.Web.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Login(LoginViewModel model, String returnUrl)
         {
+            // check if user is already logged in
+            if (WebSecurity.IsAuthenticated)
+            {
+                return RedirectToLocalOrDefault(returnUrl);
+            }
+
             // Check if the model is valid...
             var modelIsValid = ModelState.IsValid;
             if (!modelIsValid)
@@ -236,7 +248,7 @@ namespace Dibware.Template.Presentation.Web.Controllers
                 }
 
                 // We have got this far so return the user to the passed URL
-                return RedirectToLocal(returnUrl);
+                return RedirectToLocalOrDefault(returnUrl);
             }
             catch (ValidationException validationEx)
             {
@@ -253,6 +265,12 @@ namespace Dibware.Template.Presentation.Web.Controllers
         [HttpGet]
         public ActionResult Logout()
         {
+            // check if user is already logged in
+            if (!WebSecurity.IsAuthenticated)
+            {
+                return RedirectToLocalOrDefault(null);
+            }
+
             WebSecurity.RequireAuthenticatedUser();
             WebSecurity.Logout();
             return RedirectToHome();
@@ -482,11 +500,11 @@ namespace Dibware.Template.Presentation.Web.Controllers
         }
 
         /// <summary>
-        /// Redirects to a local url.
+        /// Redirects to a local url, or default (Home/Index) if url is null.
         /// </summary>
-        /// <param name="url">The URL to redirect to.</param>
+        /// <param name="url">The URL to redirect to or null.</param>
         /// <returns></returns>
-        private ActionResult RedirectToLocal(String url)
+        private ActionResult RedirectToLocalOrDefault(String url)
         {
             if (Url.IsLocalUrl(url))
             {
