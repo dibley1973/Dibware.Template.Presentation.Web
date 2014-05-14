@@ -3,10 +3,14 @@ using Dibware.Template.Core.Domain.Contracts.UnitOfWork;
 using Dibware.Template.Infrastructure.SqlDataAccess.UnitOfWork;
 using Dibware.Template.Presentation.Web.Resources;
 using Dibware.Template.Presentation.Web.Resources.Ninjection;
+using Ninject;
 using Ninject.Modules;
 using Ninject.Web.Common;
+using Ninject.Syntax;
 using System;
 using System.Configuration;
+using System.Web;
+using System.Linq;
 
 namespace Dibware.Template.Presentation.Web.Composition
 {
@@ -17,6 +21,29 @@ namespace Dibware.Template.Presentation.Web.Composition
             //TODO: Investigate Contextual Binding 
             // Ref:
             //  https://github.com/ninject/ninject/wiki/Contextual-Binding
+
+            // TODO: get .When(..) to compile!
+            // Then use example here
+            //  http://stackoverflow.com/questions/23641883/ninject-uow-pattern-new-connectionstring-after-user-is-authenticated
+            //
+            //Bind<IUnitOfWork>()
+            //    .To<WebsiteDbContext>()
+            //    .InRequestScope()
+            //    .When(x => !HttpContext.Current.Request.IsAuthenticated)
+            //    .WithConstructorArgument(
+            //        "connectionString",
+            //        ConfigurationManager.ConnectionStrings[ConnectionStringKeys.UnauthorisedUser]
+            //            .ConnectionString);
+            //
+            //Bind<IUnitOfWork>()
+            //    .To<WebsiteDbContext>()
+            //    .InRequestScope()
+            //    .When(x => HttpContext.Current.Request.IsAuthenticated)
+            //    .WithConstructorArgument(
+            //        "connectionString",
+            //        ConfigurationManager.ConnectionStrings[ConnectionStringKeys.AuthorisedUser]
+            //           .ConnectionString);
+
 
             Bind<IUnitOfWork>()
                 .To<WebsiteDbContext>()
