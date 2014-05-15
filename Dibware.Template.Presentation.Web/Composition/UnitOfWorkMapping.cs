@@ -1,6 +1,7 @@
 ﻿using Dibware.Template.Core.Domain.Contracts.UnitOfWork;
 using Dibware.Template.Infrastructure.SqlDataAccess.UnitOfWork;
 using Dibware.Template.Presentation.Web.Resources;
+using Dibware.Template.Presentation.Web.Resources.Ninjection;
 using Ninject.Activation;
 using Ninject.Modules;
 using System;
@@ -14,21 +15,19 @@ namespace Dibware.Template.Presentation.Web.Composition
         //TODO: Investigate Contextual Binding 
         // Ref:
         //  https://github.com/ninject/ninject/wiki/Contextual-Binding
-
-        // TODO: get .When(..) to compile!
-        // Then use example here
         //  http://stackoverflow.com/questions/23641883/ninject-uow-pattern-new-connectionstring-after-user-is-authenticated
-        //
 
+        /// <summary>
+        /// Loads this module mapping.
+        /// </summary>
         public override void Load()
         {
-
             // Bind the IUnitOfWork for a user that IS logged in.
             Bind<IUnitOfWork>()
                 .To<WebsiteDbContext>()
                 .When(request => IsUserAuthenticated(request))
                 .WithConstructorArgument(
-                    "connectionString",
+                    ConstructorArguments.ConnectionString,
                     ConfigurationManager.ConnectionStrings[ConnectionStringKeys.MainUserConnectionString]
                         .ConnectionString);
 
@@ -37,19 +36,9 @@ namespace Dibware.Template.Presentation.Web.Composition
                 .To<WebsiteDbContext>()
                 .When(request => !IsUserAuthenticated(request))
                 .WithConstructorArgument(
-                    "connectionString",
+                    ConstructorArguments.ConnectionString,
                     ConfigurationManager.ConnectionStrings[ConnectionStringKeys.UnauthorisedUser]
                         .ConnectionString);
-
-            //// Bind the IUnitOfWork for a user that is logged in.
-            //Bind<IUnitOfWork>()
-            //    .To<WebsiteDbContext>()
-            //    .When(x => HttpContext.Current.User.Identity.IsAuthenticated)
-            //    .InRequestScope()
-            //    .WithConstructorArgument(
-            //        "connectionString",
-            //        ConfigurationManager.ConnectionStrings[ConnectionStringKeys.MainUserConnectionString]
-            //            .ConnectionString);
 
             //// Bind the IUnitOfWork the PasswordStrengthRuleRepository.
             //Bind<IUnitOfWork>()
@@ -81,8 +70,6 @@ namespace Dibware.Template.Presentation.Web.Composition
             //        ConfigurationManager.ConnectionStrings[ConnectionStringKeys.UnauthorisedUser]
             //            .ConnectionString);
 
-
-
             //// Objects that explicitly need a DB context for the life of the request
             //Bind<IUnitOfWorkInRequestScope>()
             //    .To<WebsiteDbContext>()
@@ -112,7 +99,7 @@ namespace Dibware.Template.Presentation.Web.Composition
         public Boolean IsUserAuthenticated(IRequest request)
         {
             return (
-                (HttpContext.Current.User != null) &&
+                HttpContext.Current.User != null &&
                 HttpContext.Current.User.Identity.IsAuthenticated);
         }
     }
