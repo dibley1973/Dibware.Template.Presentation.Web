@@ -23,7 +23,7 @@ namespace Dibware.Template.Presentation.Web.Composition
         public override void Load()
         {
 
-            // Bind the IUnitOfWork for a user that is not logged in.
+            // Bind the IUnitOfWork for a user that IS logged in.
             Bind<IUnitOfWork>()
                 .To<WebsiteDbContext>()
                 .When(request => IsUserAuthenticated(request))
@@ -32,7 +32,7 @@ namespace Dibware.Template.Presentation.Web.Composition
                     ConfigurationManager.ConnectionStrings[ConnectionStringKeys.MainUserConnectionString]
                         .ConnectionString);
 
-            // Bind the IUnitOfWork for a user that is not logged in.
+            // Bind the IUnitOfWork for a user that IS NOT logged in.
             Bind<IUnitOfWork>()
                 .To<WebsiteDbContext>()
                 .When(request => !IsUserAuthenticated(request))
