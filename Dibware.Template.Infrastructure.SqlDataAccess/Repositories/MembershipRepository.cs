@@ -27,11 +27,18 @@ namespace Dibware.Template.Infrastructure.SqlDataAccess.Repositories
     {
         #region Construct
 
+        ///// <summary>
+        ///// Initializes a new instance of the <see cref="RoleRepository"/> class.
+        ///// </summary>
+        ///// <param name="unitOfWork">The unit of work.</param>
+        //public MembershipRepository(IUnitOfWorkInApplicationScope unitOfWork)
+        //    : base(unitOfWork) { }
+
         /// <summary>
         /// Initializes a new instance of the <see cref="RoleRepository"/> class.
         /// </summary>
         /// <param name="unitOfWork">The unit of work.</param>
-        public MembershipRepository(IUnitOfWorkInApplicationScope unitOfWork)
+        public MembershipRepository(IUnitOfWork unitOfWork)
             : base(unitOfWork) { }
 
         #endregion

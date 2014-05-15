@@ -1,7 +1,6 @@
 ﻿using AutoMapper;
 using Dibware.Template.Core.Domain.Contracts.Repositories;
 using Dibware.Template.Core.Domain.Contracts.Services;
-using Dibware.Template.Presentation.Web.Composition;
 using Dibware.Template.Presentation.Web.Filters;
 using Dibware.Template.Presentation.Web.Modules.Authentication;
 using Dibware.Template.Presentation.Web.Modules.Configuration;
@@ -9,17 +8,13 @@ using Dibware.Template.Presentation.Web.Resources;
 using Dibware.Template.Presentation.Web.Resources.Ninjection;
 using Dibware.Web.Security.Principal;
 using Ninject;
-using Ninject.Modules;
-using Ninject.Parameters;
 using Ninject.Web.Common;
 using Ninject.Web.Mvc;
 using Ninject.Web.Mvc.FilterBindingSyntax;
 using System;
-using System.Collections.Generic;
 using System.Configuration;
 using System.Linq;
 using System.Reflection;
-using System.Security.Principal;
 using System.Web;
 using System.Web.Http;
 using System.Web.Mvc;
@@ -45,11 +40,6 @@ namespace Dibware.Template.Presentation.Web
             var identity = HttpContext.Current.User.Identity;
             if (Request.IsAuthenticated)
             {
-                // TODO:
-                // By the time we get here we need a new databse conenction for the authenticated user..
-                RebindUnitOfWork(identity);
-
-
                 var roleRepository =
                     (IRoleRepository)DependencyResolver.Current.GetService(typeof(IRoleRepository));
                 roles = roleRepository.GetRolesForUser(identity.Name);
@@ -65,61 +55,6 @@ namespace Dibware.Template.Presentation.Web
             };
 
             HttpContext.Current.User = principal;
-        }
-
-        private void RebindUnitOfWork(IIdentity identity)
-        {
-            //ConstructorArgument parameter = GetConnectionStringConstructorArgumentForUser(identity);
-            String connectionString = GetConnectionStringForUser(identity);
-            var module = GetUnitOfWorkMapping(Kernel);
-            module.ReBindDataContext(connectionString);
-        }
-
-        private String GetConnectionStringForUser(IIdentity identity)
-        {
-            //Select appropriate connection
-            String connectionString = "";
-            if (identity.IsAuthenticated)
-            {
-                connectionString = ConfigurationManager.ConnectionStrings[ConnectionStringKeys.MainUserConnectionString].ConnectionString;
-            }
-            else
-            {
-                connectionString = ConfigurationManager.ConnectionStrings[ConnectionStringKeys.UnauthorisedUser].ConnectionString;
-            }
-            return connectionString;
-        }
-
-        private ConstructorArgument GetConnectionStringConstructorArgumentForUser(IIdentity identity)
-        {
-            //Select appropriate connection
-            String connectionString = "";
-            if (identity.IsAuthenticated)
-            {
-                connectionString = ConfigurationManager.ConnectionStrings[ConnectionStringKeys.MainUserConnectionString].ConnectionString;
-            }
-            else
-            {
-                connectionString = ConfigurationManager.ConnectionStrings[ConnectionStringKeys.UnauthorisedUser].ConnectionString;
-            }
-            ConstructorArgument result =
-                new ConstructorArgument(ConstructorArguments.ConnectionString, connectionString);
-
-            return result;
-        }
-
-        public static UnitOfWorkMapping GetUnitOfWorkMapping(IKernel kernel)
-        {
-            IEnumerable<INinjectModule> ml = kernel.GetModules();
-            String moduleName = "UnitOfWorkMapping".ToLowerInvariant();
-            var myModule = ml.Where(i => i.Name
-                .ToLowerInvariant()
-                .Contains(moduleName))
-                .Select(i => i)
-                .FirstOrDefault();
-            UnitOfWorkMapping uowMapping = myModule as UnitOfWorkMapping;
-            //UnitOfWorkMapping uowMapping = myModule.ToList()[0] as UnitOfWorkMapping;
-            return uowMapping;
         }
 
         /// <summary>

@@ -63,6 +63,7 @@
     <Content Include="Libraries\Ninject.Web.Common.dll" />
     <Content Include="Libraries\Ninject.Web.Mvc.dll" />
     <Content Include="Libraries\System.Web.Optimization.dll" />
+    <Content Include="Libraries\WebActivatorEx.dll" />
     <Content Include="Libraries\WebGrease.dll" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

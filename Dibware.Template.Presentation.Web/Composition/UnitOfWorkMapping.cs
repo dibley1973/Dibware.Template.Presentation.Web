@@ -1,92 +1,119 @@
-﻿using Dibware.Helpers.Validation;
-using Dibware.Template.Core.Domain.Contracts.UnitOfWork;
+﻿using Dibware.Template.Core.Domain.Contracts.UnitOfWork;
 using Dibware.Template.Infrastructure.SqlDataAccess.UnitOfWork;
 using Dibware.Template.Presentation.Web.Resources;
-using Dibware.Template.Presentation.Web.Resources.Ninjection;
-using Ninject;
+using Ninject.Activation;
 using Ninject.Modules;
-using Ninject.Web.Common;
-using Ninject.Syntax;
 using System;
 using System.Configuration;
 using System.Web;
-using System.Linq;
 
 namespace Dibware.Template.Presentation.Web.Composition
 {
     public class UnitOfWorkMapping : NinjectModule
     {
+        //TODO: Investigate Contextual Binding 
+        // Ref:
+        //  https://github.com/ninject/ninject/wiki/Contextual-Binding
+
+        // TODO: get .When(..) to compile!
+        // Then use example here
+        //  http://stackoverflow.com/questions/23641883/ninject-uow-pattern-new-connectionstring-after-user-is-authenticated
+        //
+
         public override void Load()
         {
-            //TODO: Investigate Contextual Binding 
-            // Ref:
-            //  https://github.com/ninject/ninject/wiki/Contextual-Binding
 
-            // TODO: get .When(..) to compile!
-            // Then use example here
-            //  http://stackoverflow.com/questions/23641883/ninject-uow-pattern-new-connectionstring-after-user-is-authenticated
-            //
+            // Bind the IUnitOfWork for a user that is not logged in.
+            Bind<IUnitOfWork>()
+                .To<WebsiteDbContext>()
+                .When(request => IsUserAuthenticated(request))
+                .WithConstructorArgument(
+                    "connectionString",
+                    ConfigurationManager.ConnectionStrings[ConnectionStringKeys.MainUserConnectionString]
+                        .ConnectionString);
+
+            // Bind the IUnitOfWork for a user that is not logged in.
+            Bind<IUnitOfWork>()
+                .To<WebsiteDbContext>()
+                .When(request => !IsUserAuthenticated(request))
+                .WithConstructorArgument(
+                    "connectionString",
+                    ConfigurationManager.ConnectionStrings[ConnectionStringKeys.UnauthorisedUser]
+                        .ConnectionString);
+
+            //// Bind the IUnitOfWork for a user that is logged in.
             //Bind<IUnitOfWork>()
             //    .To<WebsiteDbContext>()
+            //    .When(x => HttpContext.Current.User.Identity.IsAuthenticated)
             //    .InRequestScope()
-            //    .When(x => !HttpContext.Current.Request.IsAuthenticated)
+            //    .WithConstructorArgument(
+            //        "connectionString",
+            //        ConfigurationManager.ConnectionStrings[ConnectionStringKeys.MainUserConnectionString]
+            //            .ConnectionString);
+
+            //// Bind the IUnitOfWork the PasswordStrengthRuleRepository.
+            //Bind<IUnitOfWork>()
+            //    .To<WebsiteDbContext>()
+            //    .WhenInjectedExactlyInto<PasswordStrengthRuleRepository>()
+            //    .InRequestScope()
             //    .WithConstructorArgument(
             //        "connectionString",
             //        ConfigurationManager.ConnectionStrings[ConnectionStringKeys.UnauthorisedUser]
             //            .ConnectionString);
 
+            //// Bind the IUnitOfWork the MembershipRepository.
             //Bind<IUnitOfWork>()
             //    .To<WebsiteDbContext>()
-            //    .InRequestScope()
-            //    .When(x => HttpContext.Current.Request.IsAuthenticated)
+            //    .WhenInjectedExactlyInto<MembershipRepository>()
+            //    .InSingletonScope()
             //    .WithConstructorArgument(
             //        "connectionString",
-            //        ConfigurationManager.ConnectionStrings[ConnectionStringKeys.MainUserConnectionString]
-            //           .ConnectionString);
+            //        ConfigurationManager.ConnectionStrings[ConnectionStringKeys.UnauthorisedUser]
+            //            .ConnectionString);
+
+            //// Bind the IUnitOfWork the RoleRepository .
+            //Bind<IUnitOfWork>()
+            //    .To<WebsiteDbContext>()
+            //    .WhenInjectedExactlyInto<RoleRepository>()
+            //    .InSingletonScope()
+            //    .WithConstructorArgument(
+            //        "connectionString",
+            //        ConfigurationManager.ConnectionStrings[ConnectionStringKeys.UnauthorisedUser]
+            //            .ConnectionString);
 
 
-            Bind<IUnitOfWork>()
-                .To<WebsiteDbContext>()
-                .InRequestScope()
-                .WithConstructorArgument(
-                    ConstructorArguments.ConnectionString,
-                    ConfigurationManager.ConnectionStrings[ConnectionStringKeys.UnauthorisedUser]
-                        .ConnectionString);
 
-            // Objects that explicitly need a DB context for the life of the request
-            Bind<IUnitOfWorkInRequestScope>()
-                .To<WebsiteDbContext>()
-                .InRequestScope()
-                .WithConstructorArgument(
-                    ConstructorArguments.ConnectionString,
-                    ConfigurationManager.ConnectionStrings[ConnectionStringKeys.UnauthorisedUser]
-                        .ConnectionString);
+            //// Objects that explicitly need a DB context for the life of the request
+            //Bind<IUnitOfWorkInRequestScope>()
+            //    .To<WebsiteDbContext>()
+            //    .InRequestScope()
+            //    .WithConstructorArgument(
+            //        ConstructorArguments.ConnectionString,
+            //        ConfigurationManager.ConnectionStrings[ConnectionStringKeys.UnauthorisedUser]
+            //            .ConnectionString);
 
-            // Objects that specifically need a DB context for the life of the application
-            Bind<IUnitOfWorkInApplicationScope>()
-                .To<WebsiteDbContext>()
-                .InSingletonScope()
-                .WithConstructorArgument(
-                    ConstructorArguments.ConnectionString,
-                    ConfigurationManager.ConnectionStrings[ConnectionStringKeys.UnauthorisedUser]
-                        .ConnectionString);
+            //// Objects that specifically need a DB context for the life of the application
+            //Bind<IUnitOfWorkInApplicationScope>()
+            //    .To<WebsiteDbContext>()
+            //    .InSingletonScope()
+            //    .WithConstructorArgument(
+            //        ConstructorArguments.ConnectionString,
+            //        ConfigurationManager.ConnectionStrings[ConnectionStringKeys.UnauthorisedUser]
+            //            .ConnectionString);
         }
 
         /// <summary>
-        /// Re-Bind the connection string (in case of multi-tenant architecture)
+        /// Determines if the user authenticated.
         /// </summary>
-        /// <param name="connectionString">The connection string.</param>
-        public void ReBindDataContext(String connectionString)
+        /// <param name="request">The Ninject Activation request.</param>
+        /// <returns>
+        /// returns <c>true</c> if the user exists and is authenticated
+        /// </returns>
+        public Boolean IsUserAuthenticated(IRequest request)
         {
-            Guard.ArgumentIsNotNull(connectionString, "connectionString");
-
-            Unbind<IUnitOfWorkInApplicationScope>();
-            Rebind<IUnitOfWorkInApplicationScope>()
-                .To<WebsiteDbContext>()
-                .InSingletonScope()
-                .WithConstructorArgument(
-                    ConstructorArguments.ConnectionString,
-                    connectionString);
+            return (
+                (HttpContext.Current.User != null) &&
+                HttpContext.Current.User.Identity.IsAuthenticated);
         }
     }
 }

@@ -13,11 +13,18 @@ namespace Dibware.Template.Infrastructure.SqlDataAccess.Repositories
     {
         #region Construct
 
+        ///// <summary>
+        ///// Initializes a new instance of the <see cref="RoleRepository"/> class.
+        ///// </summary>
+        ///// <param name="unitOfWork">The unit of work.</param>
+        //public PasswordStrengthRuleRepository(IUnitOfWorkInApplicationScope unitOfWork)
+        //    : base(unitOfWork) { }
+
         /// <summary>
         /// Initializes a new instance of the <see cref="RoleRepository"/> class.
         /// </summary>
         /// <param name="unitOfWork">The unit of work.</param>
-        public PasswordStrengthRuleRepository(IUnitOfWorkInApplicationScope unitOfWork)
+        public PasswordStrengthRuleRepository(IUnitOfWork unitOfWork)
             : base(unitOfWork) { }
 
         #endregion

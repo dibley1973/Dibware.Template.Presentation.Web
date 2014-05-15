@@ -14,9 +14,9 @@ using System.Reflection;
 namespace Dibware.Template.Infrastructure.SqlDataAccess.UnitOfWork
 {
     public class WebsiteDbContext : DbContext,
-        IUnitOfWork,
-        IUnitOfWorkInRequestScope,
-        IUnitOfWorkInApplicationScope
+        IUnitOfWork //,
+        //IUnitOfWorkInRequestScope,
+        //IUnitOfWorkInApplicationScope
     {
         #region Construct
 
