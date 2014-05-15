@@ -71,7 +71,7 @@ namespace Dibware.Template.Presentation.Web
         {
             //ConstructorArgument parameter = GetConnectionStringConstructorArgumentForUser(identity);
             String connectionString = GetConnectionStringForUser(identity);
-            var module = GetUnitOfWorkMapping(this.Kernel);
+            var module = GetUnitOfWorkMapping(Kernel);
             module.ReBindDataContext(connectionString);
         }
 

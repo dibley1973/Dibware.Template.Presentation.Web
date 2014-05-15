@@ -36,9 +36,8 @@
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Dibware.Extensions, Version=1.0.0.9406, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\Dibware.Template.Core.Application.Tests\Libraries\Dibware.Extensions.dll</HintPath>
+    <Reference Include="Dibware.Extensions">
+      <HintPath>..\Dibware.Template.Shared\Libraries\Dibware.Extensions.dll</HintPath>
     </Reference>
     <Reference Include="Dibware.Helpers">
       <HintPath>..\Dibware.Template.Shared\Libraries\Dibware.Helpers.dll</HintPath>
