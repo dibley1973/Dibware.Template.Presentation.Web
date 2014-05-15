@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{60FBAF93-499F-4A46-B0F1-41A196CD5B98}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Dibware.Template.Shared</RootNamespace>
+    <AssemblyName>Dibware.Template.Shared</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Content Include="Libraries\AutoMapper.dll" />
+    <Content Include="Libraries\Dibware.EF.Extensions.dll" />
+    <Content Include="Libraries\Dibware.Extensions.dll" />
+    <Content Include="Libraries\Dibware.Helpers.dll" />
+    <Content Include="Libraries\Dibware.UnitTesting.dll" />
+    <Content Include="Libraries\Dibware.Web.Security.dll" />
+    <Content Include="Libraries\DotNetOpenAuth.AspNet.dll" />
+    <Content Include="Libraries\DotNetOpenAuth.Core.dll" />
+    <Content Include="Libraries\EntityFramework.dll" />
+    <Content Include="Libraries\EntityFramework.SqlServer.dll" />
+    <Content Include="Libraries\LowercaseRoutesMVC.dll" />
+    <Content Include="Libraries\Moq.dll" />
+    <Content Include="Libraries\MvcContrib.dll" />
+    <Content Include="Libraries\MvcContrib.TestHelper.dll" />
+    <Content Include="Libraries\MvcRouteTester.dll" />
+    <Content Include="Libraries\Newtonsoft.Json.dll" />
+    <Content Include="Libraries\Ninject.dll" />
+    <Content Include="Libraries\Ninject.Web.Common.dll" />
+    <Content Include="Libraries\Ninject.Web.Mvc.dll" />
+    <Content Include="Libraries\System.Web.Optimization.dll" />
+    <Content Include="Libraries\WebGrease.dll" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

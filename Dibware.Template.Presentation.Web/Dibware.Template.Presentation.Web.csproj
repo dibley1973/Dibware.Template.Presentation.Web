@@ -41,9 +41,8 @@
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="AutoMapper, Version=2.2.1.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>Libraries\AutoMapper.dll</HintPath>
+    <Reference Include="AutoMapper">
+      <HintPath>..\Dibware.Template.Shared\Libraries\AutoMapper.dll</HintPath>
     </Reference>
     <Reference Include="Dibware.Extensions, Version=1.0.0.9406, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -57,13 +56,11 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>Libraries\Dibware.Web.Security.dll</HintPath>
     </Reference>
-    <Reference Include="DotNetOpenAuth.AspNet, Version=4.1.0.0, Culture=neutral, PublicKeyToken=2780ccd10d57b246, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>Libraries\DotNetOpenAuth.AspNet.dll</HintPath>
+    <Reference Include="DotNetOpenAuth.AspNet">
+      <HintPath>..\Dibware.Template.Shared\Libraries\DotNetOpenAuth.AspNet.dll</HintPath>
     </Reference>
-    <Reference Include="DotNetOpenAuth.Core, Version=4.1.0.0, Culture=neutral, PublicKeyToken=2780ccd10d57b246, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>Libraries\DotNetOpenAuth.Core.dll</HintPath>
+    <Reference Include="DotNetOpenAuth.Core">
+      <HintPath>..\Dibware.Template.Shared\Libraries\DotNetOpenAuth.Core.dll</HintPath>
     </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -73,27 +70,22 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>Libraries\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
-    <Reference Include="LowercaseRoutesMVC, Version=1.0.3.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>Libraries\LowercaseRoutesMVC.dll</HintPath>
+    <Reference Include="LowercaseRoutesMVC">
+      <HintPath>..\Dibware.Template.Shared\Libraries\LowercaseRoutesMVC.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Microsoft.Web.WebPages.OAuth, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
-    <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>Libraries\Newtonsoft.Json.dll</HintPath>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\Dibware.Template.Shared\Libraries\Newtonsoft.Json.dll</HintPath>
     </Reference>
-    <Reference Include="Ninject, Version=3.0.0.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>Libraries\Ninject.dll</HintPath>
+    <Reference Include="Ninject">
+      <HintPath>..\Dibware.Template.Shared\Libraries\Ninject.dll</HintPath>
     </Reference>
-    <Reference Include="Ninject.Web.Common, Version=3.0.0.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>Libraries\Ninject.Web.Common.dll</HintPath>
+    <Reference Include="Ninject.Web.Common">
+      <HintPath>..\Dibware.Template.Shared\Libraries\Ninject.Web.Common.dll</HintPath>
     </Reference>
-    <Reference Include="Ninject.Web.Mvc, Version=3.0.0.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>Libraries\Ninject.Web.Mvc.dll</HintPath>
+    <Reference Include="Ninject.Web.Mvc">
+      <HintPath>..\Dibware.Template.Shared\Libraries\Ninject.Web.Mvc.dll</HintPath>
     </Reference>
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Net.Http" />
@@ -119,9 +111,8 @@
     <Reference Include="System.Web.Mvc, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <Private>True</Private>
     </Reference>
-    <Reference Include="System.Web.Optimization, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>Libraries\System.Web.Optimization.dll</HintPath>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\Dibware.Template.Shared\Libraries\System.Web.Optimization.dll</HintPath>
     </Reference>
     <Reference Include="System.Web.WebPages, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <Private>True</Private>
@@ -137,9 +128,8 @@
     <Reference Include="System.Web.Services" />
     <Reference Include="System.EnterpriseServices" />
     <Reference Include="System.Xml.Linq" />
-    <Reference Include="WebGrease, Version=1.3.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>Libraries\WebGrease.dll</HintPath>
+    <Reference Include="WebGrease">
+      <HintPath>..\Dibware.Template.Shared\Libraries\WebGrease.dll</HintPath>
     </Reference>
     <Reference Include="WebMatrix.WebData, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
   </ItemGroup>
@@ -167,21 +157,6 @@
     <Content Include="assets\themes\pink\bootstrap.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
-    <Content Include="Libraries\AutoMapper.dll" />
-    <Content Include="Libraries\Dibware.Extensions.dll" />
-    <Content Include="Libraries\Dibware.Helpers.dll" />
-    <Content Include="Libraries\Dibware.Web.Security.dll" />
-    <Content Include="Libraries\DotNetOpenAuth.AspNet.dll" />
-    <Content Include="Libraries\DotNetOpenAuth.Core.dll" />
-    <Content Include="Libraries\EntityFramework.dll" />
-    <Content Include="Libraries\EntityFramework.SqlServer.dll" />
-    <Content Include="Libraries\LowercaseRoutesMVC.dll" />
-    <Content Include="Libraries\Newtonsoft.Json.dll" />
-    <Content Include="Libraries\Ninject.dll" />
-    <Content Include="Libraries\Ninject.Web.Common.dll" />
-    <Content Include="Libraries\Ninject.Web.Mvc.dll" />
-    <Content Include="Libraries\System.Web.Optimization.dll" />
-    <Content Include="Libraries\WebGrease.dll" />
     <Content Include="Views\Web.config" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
@@ -497,6 +472,9 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

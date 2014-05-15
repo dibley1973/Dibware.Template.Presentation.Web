@@ -32,26 +32,25 @@
   <ItemGroup>
     <Reference Include="Dibware.EF.Extensions, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>Libraries\Dibware.EF.Extensions.dll</HintPath>
+      <HintPath>..\Dibware.Template.Shared\Libraries\Dibware.EF.Extensions.dll</HintPath>
     </Reference>
-    <Reference Include="Dibware.Extensions, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="Dibware.Extensions, Version=1.0.0.37886, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>Libraries\Dibware.Extensions.dll</HintPath>
+      <HintPath>..\Dibware.Template.Shared\Libraries\Dibware.Extensions.dll</HintPath>
     </Reference>
     <Reference Include="Dibware.Helpers, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>Libraries\Dibware.Helpers.dll</HintPath>
+      <HintPath>..\Dibware.Template.Shared\Libraries\Dibware.Helpers.dll</HintPath>
     </Reference>
-    <Reference Include="Dibware.Web.Security">
-      <HintPath>..\..\Dibware.Web.Security\Dibware.Web.Security\bin\Release\Dibware.Web.Security.dll</HintPath>
-    </Reference>
-    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+    <Reference Include="Dibware.Web.Security, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>Libraries\EntityFramework.dll</HintPath>
+      <HintPath>..\Dibware.Template.Shared\Libraries\Dibware.Web.Security.dll</HintPath>
     </Reference>
-    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>Libraries\EntityFramework.SqlServer.dll</HintPath>
+    <Reference Include="EntityFramework">
+      <HintPath>..\Dibware.Template.Shared\Libraries\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\Dibware.Template.Shared\Libraries\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -132,14 +131,6 @@
     <Compile Include="UnitOfWork\Configuration\UserConfiguration.cs" />
     <Compile Include="UnitOfWork\Configuration\UserMembershipConfiguration.cs" />
     <Compile Include="UnitOfWork\WebsiteDbContext.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Libraries\Dibware.EF.Extensions.dll" />
-    <Content Include="Libraries\Dibware.Extensions.dll" />
-    <Content Include="Libraries\Dibware.Helpers.dll" />
-    <Content Include="Libraries\Dibware.Web.Security.dll" />
-    <Content Include="Libraries\EntityFramework.dll" />
-    <Content Include="Libraries\EntityFramework.SqlServer.dll" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Dibware.Template.Core.Domain\Dibware.Template.Core.Domain.csproj">

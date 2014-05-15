@@ -40,38 +40,30 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\Dibware.Template.Core.Application.Tests\Libraries\Dibware.Extensions.dll</HintPath>
     </Reference>
-    <Reference Include="Dibware.Helpers, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>Libraries\Dibware.Helpers.dll</HintPath>
+    <Reference Include="Dibware.Helpers">
+      <HintPath>..\Dibware.Template.Shared\Libraries\Dibware.Helpers.dll</HintPath>
     </Reference>
-    <Reference Include="Dibware.UnitTesting, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>Libraries\Dibware.UnitTesting.dll</HintPath>
+    <Reference Include="Dibware.UnitTesting">
+      <HintPath>..\Dibware.Template.Shared\Libraries\Dibware.UnitTesting.dll</HintPath>
     </Reference>
-    <Reference Include="Dibware.Web.Security, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>Libraries\Dibware.Web.Security.dll</HintPath>
+    <Reference Include="Dibware.Web.Security">
+      <HintPath>..\Dibware.Template.Shared\Libraries\Dibware.Web.Security.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
-    <Reference Include="Moq, Version=4.1.1309.1617, Culture=neutral, PublicKeyToken=69f491c39445e920, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>Libraries\Moq.dll</HintPath>
+    <Reference Include="Moq">
+      <HintPath>..\Dibware.Template.Shared\Libraries\Moq.dll</HintPath>
     </Reference>
-    <Reference Include="MvcContrib, Version=2.0.95.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>Libraries\MvcContrib.dll</HintPath>
+    <Reference Include="MvcContrib">
+      <HintPath>..\Dibware.Template.Shared\Libraries\MvcContrib.dll</HintPath>
     </Reference>
-    <Reference Include="MvcContrib.TestHelper, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>Libraries\MvcContrib.TestHelper.dll</HintPath>
+    <Reference Include="MvcContrib.TestHelper">
+      <HintPath>..\Dibware.Template.Shared\Libraries\MvcContrib.TestHelper.dll</HintPath>
     </Reference>
-    <Reference Include="MvcRouteTester, Version=1.0.1.1, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>Libraries\MvcRouteTester.dll</HintPath>
+    <Reference Include="MvcRouteTester">
+      <HintPath>..\Dibware.Template.Shared\Libraries\MvcRouteTester.dll</HintPath>
     </Reference>
-    <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>Libraries\Newtonsoft.Json.dll</HintPath>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\Dibware.Template.Shared\Libraries\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
@@ -83,9 +75,8 @@
     <Reference Include="System.Web.Http, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
     <Reference Include="System.Web.Http.WebHost, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
     <Reference Include="System.Web.Mvc, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
-    <Reference Include="System.Web.Optimization, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>Libraries\System.Web.Optimization.dll</HintPath>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\Dibware.Template.Shared\Libraries\System.Web.Optimization.dll</HintPath>
     </Reference>
     <Reference Include="System.Web.Razor, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
     <Reference Include="System.Web.Routing" />
@@ -134,16 +125,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="App.config" />
-    <Content Include="Libraries\Dibware.Extensions.dll" />
-    <Content Include="Libraries\Dibware.Helpers.dll" />
-    <Content Include="Libraries\Dibware.UnitTesting.dll" />
-    <Content Include="Libraries\Dibware.Web.Security.dll" />
-    <Content Include="Libraries\Moq.dll" />
-    <Content Include="Libraries\MvcContrib.dll" />
-    <Content Include="Libraries\MvcContrib.TestHelper.dll" />
-    <Content Include="Libraries\MvcRouteTester.dll" />
-    <Content Include="Libraries\Newtonsoft.Json.dll" />
-    <Content Include="Libraries\System.Web.Optimization.dll" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Extensions\" />

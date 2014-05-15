@@ -55,6 +55,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 EndProject
 Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "Dibware.Template.Database", "Dibware.Template.Database\Dibware.Template.Database.sqlproj", "{8DE5309C-56E9-46B4-92C6-678A2F90B495}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "05-Shared", "05-Shared", "{06341039-F184-4324-B597-BE9FFE46ED35}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dibware.Template.Shared", "Dibware.Template.Shared\Dibware.Template.Shared.csproj", "{60FBAF93-499F-4A46-B0F1-41A196CD5B98}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -99,6 +103,10 @@ Global
 		{8DE5309C-56E9-46B4-92C6-678A2F90B495}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8DE5309C-56E9-46B4-92C6-678A2F90B495}.Release|Any CPU.Build.0 = Release|Any CPU
 		{8DE5309C-56E9-46B4-92C6-678A2F90B495}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{60FBAF93-499F-4A46-B0F1-41A196CD5B98}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{60FBAF93-499F-4A46-B0F1-41A196CD5B98}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{60FBAF93-499F-4A46-B0F1-41A196CD5B98}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{60FBAF93-499F-4A46-B0F1-41A196CD5B98}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -116,5 +124,6 @@ Global
 		{8DE5309C-56E9-46B4-92C6-678A2F90B495} = {76E96821-C288-47DC-B9C0-49B67130B4F7}
 		{E123F4A6-35DC-4E93-A6A3-FCC2D8475D60} = {FB1F1A5E-B660-4793-A281-E0F51F4C52B4}
 		{EF97B279-C40E-4123-AB14-6795ED048676} = {FB1F1A5E-B660-4793-A281-E0F51F4C52B4}
+		{60FBAF93-499F-4A46-B0F1-41A196CD5B98} = {06341039-F184-4324-B597-BE9FFE46ED35}
 	EndGlobalSection
 EndGlobal
