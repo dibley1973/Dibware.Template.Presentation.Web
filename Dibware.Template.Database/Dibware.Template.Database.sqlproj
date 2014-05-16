@@ -204,10 +204,11 @@
     <Build Include="security\AppMainLogin.sql" />
     <Build Include="security\Stored Procedures\security.Membership_UpdatePasswordFailure.sql" />
     <Build Include="security\Stored Procedures\security.Membership_UpdatePasswordSuccess.sql" />
-    <Build Include="security\Stored Procedures\dbo.Membership_UpdatePasswordFailureState.sql" />
-    <Build Include="security\Stored Procedures\dbo.Membership_UpdatePasswordSuccessState.sql" />
+    <Build Include="security\Stored Procedures\security.Membership_UpdatePasswordFailureState.sql" />
+    <Build Include="security\Stored Procedures\security.Membership_UpdatePasswordSuccessState.sql" />
     <Build Include="security\MainRole.sql" />
     <Build Include="security\AuthorisedUser.sql" />
+    <Build Include="security\Stored Procedures\security.Membership_ChangePassword.sql" />
   </ItemGroup>
   <ItemGroup>
     <RefactorLog Include="Dibware.Template.Database.refactorlog" />

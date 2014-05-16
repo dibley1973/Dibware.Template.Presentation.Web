@@ -24,7 +24,7 @@ namespace Dibware.Template.Infrastructure.SqlDataAccess.StoredProcedures.Members
             : base(ProcedureSchema, ProcedureName, new Dictionary<String, Object>()
                 {
                     { "username", username },
-                    { "newHashedPassword", newHashedPassword }
+                    { "newPassword", newHashedPassword }
                 })
         { }
     }
