@@ -61,6 +61,15 @@ namespace Dibware.Template.Presentation.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Your password was successfully changed.
+        /// </summary>
+        public static string ChangePasswordConfirmed {
+            get {
+                return ResourceManager.GetString("ChangePasswordConfirmed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Please enter your username and confirmation token in the boxes below.
         /// </summary>
         public static string ConfirmAccount {

@@ -102,7 +102,7 @@ namespace Dibware.Template.Presentation.Web
             // Register any Providers
             RegisterProviders(kernel);
 
-            // Bind any filters that require dependenccy injection
+            // Bind any filters that require dependency injection
             RegisterGlobalFiltersRequiringInjection(kernel);
 
             // Return the new kernal
@@ -168,6 +168,7 @@ namespace Dibware.Template.Presentation.Web
 
             // Bind the CustomHandleErrorAttribute
             kernel.BindFilter<CustomHandleErrorAttribute>(FilterScope.Global, 0)
+                .When(r => true)
                 .WithConstructorArgument(ConstructorArguments.ErrorService, errorService)
                 .WithConstructorArgument(ConstructorArguments.ShowDetailedErrorMessages, showDetailedErrorMesages);
         }

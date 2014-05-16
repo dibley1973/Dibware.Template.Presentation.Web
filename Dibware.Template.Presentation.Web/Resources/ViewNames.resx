@@ -120,6 +120,12 @@
   <data name="About" xml:space="preserve">
     <value>About</value>
   </data>
+  <data name="ChangePassword" xml:space="preserve">
+    <value>ChangePassword</value>
+  </data>
+  <data name="ChangePasswordConfirmed" xml:space="preserve">
+    <value>Password Changed</value>
+  </data>
   <data name="ConfirmAccount" xml:space="preserve">
     <value>ConfirmAccount</value>
   </data>

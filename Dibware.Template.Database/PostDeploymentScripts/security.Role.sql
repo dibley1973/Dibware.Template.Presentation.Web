@@ -4,10 +4,10 @@ MERGE INTO [security].[Role] AS TARGET
 USING
 (
     VALUES 
-    (N'admin',N'Admin'),
-    (N'main',N'Main'),
-    (N'super',N'Super'),
-    (N'unknown',N'Unknown')
+    (N'unknown',N'UnknownUser'),
+    (N'main',N'MainUser'),
+    (N'super',N'SuperUser'),
+    (N'admin',N'AdministratorUser')
 ) 
 AS Source ([RoleKey], [Name]) 
 ON TARGET.[RoleKey] = Source.[RoleKey]

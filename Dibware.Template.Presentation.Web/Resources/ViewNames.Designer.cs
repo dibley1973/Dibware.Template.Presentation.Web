@@ -70,6 +70,24 @@ namespace Dibware.Template.Presentation.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to ChangePassword.
+        /// </summary>
+        internal static string ChangePassword {
+            get {
+                return ResourceManager.GetString("ChangePassword", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Password Changed.
+        /// </summary>
+        internal static string ChangePasswordConfirmed {
+            get {
+                return ResourceManager.GetString("ChangePasswordConfirmed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to ConfirmAccount.
         /// </summary>
         internal static string ConfirmAccount {

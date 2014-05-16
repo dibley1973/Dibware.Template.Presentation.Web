@@ -79,6 +79,15 @@ namespace Dibware.Template.Infrastructure.SqlDataAccess.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to New hashed password must be supplied.
+        /// </summary>
+        internal static string NewHashedPasswordMustBeSupplied {
+            get {
+                return ResourceManager.GetString("NewHashedPasswordMustBeSupplied", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to ProviderName must be supplied.
         /// </summary>
         internal static string ProviderNameMustBeSupplied {

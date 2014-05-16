@@ -123,6 +123,9 @@
   <data name="EmailAddressMustBeSupplied" xml:space="preserve">
     <value>An email address must be supplied</value>
   </data>
+  <data name="NewHashedPasswordMustBeSupplied" xml:space="preserve">
+    <value>New hashed password must be supplied</value>
+  </data>
   <data name="ProviderNameMustBeSupplied" xml:space="preserve">
     <value>ProviderName must be supplied</value>
   </data>

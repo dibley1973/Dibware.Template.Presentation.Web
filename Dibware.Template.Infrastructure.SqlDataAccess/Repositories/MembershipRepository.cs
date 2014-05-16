@@ -53,6 +53,41 @@ namespace Dibware.Template.Infrastructure.SqlDataAccess.Repositories
 
         #region IRepositoryMembershipProviderRepository Members
 
+        /// <summary>
+        /// Changes the password.
+        /// </summary>
+        /// <param name="username">The username.</param>
+        /// <param name="newHashedPassword">The new hashed password.</param>
+        /// <returns></returns>
+        /// <exception cref="System.NotImplementedException"></exception>
+        public Boolean ChangePassword(String username, String newHashedPassword)
+        {
+            // Ensure we have a UnitOfWork
+            Guard.InvalidOperation((UnitOfWork == null), ExceptionMessages.UnitOfWorkIsNull);
+            Guard.ArgumentIsNotNullOrEmpty(username, ExceptionMessages.UsernameMustBeSupplied);
+            Guard.ArgumentIsNotNullOrEmpty(newHashedPassword, ExceptionMessages.NewHashedPasswordMustBeSupplied);
+
+            // Create the stored precedure we will use
+            var procedure = new ChangePasswordStoredProcedure(
+                username,
+                newHashedPassword
+            );
+
+            try
+            {
+                var confirmedState = UnitOfWork.ExecuteScalarStoredProcedure<Int32>(procedure);
+                return (confirmedState == 1);
+            }
+            catch (SqlException sqEx)
+            {
+                throw SqlExceptionHelper.HandledKnownSqlExceptions(sqEx);
+            }
+            catch (Exception ex)
+            {
+                //TODO: Remove this 'catch' and rethrow once all debugging is complete
+                throw ex;
+            }
+        }
 
         /// <summary>
         /// Activates a pending membership account.

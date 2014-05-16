@@ -12,7 +12,7 @@ namespace Dibware.Template.Presentation.Web
             // Currently:
             //      CustomHandleErrorAttribute
 
-            filters.Add(new HandleErrorAttribute());
+            //filters.Add(new HandleErrorAttribute());
             //filters.Add(new CustomHandleErrorAttribute()); //; See note above
             filters.Add(new HandleErrorForAjaxRequestAttribute());
             filters.Add(new ManageBaseViewModelAttribute());

@@ -42,7 +42,66 @@ namespace Dibware.Template.Presentation.Web.Controllers
         #region Actions
 
         //
+        // GET: /Account/ChangePassword
+        [HttpGet]
+        [WebsiteAuthorize(UserRole.AllAuthorised)]
+        public ActionResult ChangePassword()
+        {
+            // Check if user is NOT logged in
+            if (!WebSecurity.IsAuthenticated)
+            {
+                // Throw them out to the login screen
+                return View(ViewNames.Login, new LoginViewModel());
+            }
+
+            var model = new ChangePasswordViewModel();
+            return View(ViewNames.ChangePassword, model);
+        }
+
+        //
+        // GET: /Account/ChangePassword
+        [HttpPost]
+        [WebsiteAuthorize(UserRole.AllAuthorised)]
+        [ValidateAntiForgeryToken]
+        public ActionResult ChangePassword(ChangePasswordViewModel model)
+        {
+            // Check if user is NOT logged in
+            if (!WebSecurity.IsAuthenticated)
+            {
+                // Throw them out to the login screen
+                return View(ViewNames.Login, new LoginViewModel());
+            }
+
+            // Check if the model is valid...
+            var modelIsValid = ModelState.IsValid;
+            if (!modelIsValid)
+            {
+                // ... it isn't so throw the user back out to form
+                return View(ViewNames.ChangePassword, model);
+            }
+
+            String username = HttpContext.User.Identity.Name;
+            String currentPassword = model.CurrentPassword;
+            String newPassword = model.NewPassword;
+
+            try
+            {
+                WebSecurity.ChangePassword(username, currentPassword, newPassword);
+                return View(ViewNames.ChangePasswordConfirmed, new ChangePasswordConfirmedViewModel());
+            }
+            catch (ValidationException validationEx)
+            {
+                // Report Validation Exceptions as model errors
+                ModelState.AddModelError(String.Empty, validationEx.Message);
+
+                // ... throw the user back out
+                return View(ViewNames.ChangePassword, model);
+            }
+        }
+
+        //
         // GET: /Account/ConfirmAccountAwaitEmail
+        [HttpGet]
         [AllowAnonymous]
         public ActionResult ConfirmAccountCheckEmail(String username)
         {
@@ -263,6 +322,7 @@ namespace Dibware.Template.Presentation.Web.Controllers
         //
         // GET: /Account/Logout
         [HttpGet]
+        [WebsiteAuthorize(UserRole.AllAuthorised)]
         public ActionResult Logout()
         {
             // check if user is already logged in

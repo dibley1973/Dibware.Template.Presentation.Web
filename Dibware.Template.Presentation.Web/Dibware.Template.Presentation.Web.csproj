@@ -53,7 +53,6 @@
       <HintPath>Libraries\Dibware.Helpers.dll</HintPath>
     </Reference>
     <Reference Include="Dibware.Web.Security, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
       <HintPath>Libraries\Dibware.Web.Security.dll</HintPath>
     </Reference>
     <Reference Include="DotNetOpenAuth.AspNet">
@@ -178,6 +177,8 @@
     <Content Include="Views\Account\ConfirmAccount.cshtml" />
     <Content Include="Views\Account\ConfirmAccountSuccess.cshtml" />
     <Content Include="Views\Account\ConfirmAccountFailure.cshtml" />
+    <Content Include="Views\Account\ChangePassword.cshtml" />
+    <Content Include="Views\Account\ChangePasswordConfirmed.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -221,6 +222,8 @@
     <Compile Include="Helpers\LinkHelper.cs" />
     <Compile Include="Helpers\MembershipHelper.cs" />
     <Compile Include="HtmlHelpers\BootstrapValidationSummary.cs" />
+    <Compile Include="Models\Account\ChangePasswordConfirmedViewModel.cs" />
+    <Compile Include="Models\Account\ChangePasswordViewModel.cs" />
     <Compile Include="Models\Account\ConfirmAccountFailureViewModel.cs" />
     <Compile Include="Models\Account\ConfirmAccountSuccessViewModel.cs" />
     <Compile Include="Models\Account\ConfirmAccountViewModel.cs" />
@@ -252,6 +255,11 @@
     </Compile>
     <Compile Include="Resources\AssetPaths.cs" />
     <Compile Include="Resources\BundlePaths.cs" />
+    <Compile Include="Resources\ButtonText.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ButtonText.resx</DependentUpon>
+    </Compile>
     <Compile Include="Resources\CompressionEncoding.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -382,6 +390,10 @@
     <EmbeddedResource Include="Resources\ActionMethods.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>ActionMethods.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\ButtonText.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>ButtonText.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Resources\CompressionEncoding.resx">
       <Generator>ResXFileCodeGenerator</Generator>

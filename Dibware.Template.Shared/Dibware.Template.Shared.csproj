@@ -49,6 +49,7 @@
     <Content Include="Libraries\Dibware.Helpers.dll" />
     <Content Include="Libraries\Dibware.UnitTesting.dll" />
     <Content Include="Libraries\Dibware.Web.Security.dll" />
+    <Content Include="Libraries\Dibware.Web.Security.pdb" />
     <Content Include="Libraries\DotNetOpenAuth.AspNet.dll" />
     <Content Include="Libraries\DotNetOpenAuth.Core.dll" />
     <Content Include="Libraries\EntityFramework.dll" />

@@ -117,6 +117,8 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>SchemaNames.resx</DependentUpon>
     </Compile>
+    <Compile Include="StoredProcedures\Membership\BaseMembershipStoredProcedure.cs" />
+    <Compile Include="StoredProcedures\Membership\ChangePasswordStoredProcedure.cs" />
     <Compile Include="StoredProcedures\Membership\ConfirmAccountStoredProcedure.cs" />
     <Compile Include="StoredProcedures\Membership\CreateUserMembershipAndAccountStoredProcedure.cs" />
     <Compile Include="StoredProcedures\Membership\GetPasswordStoredProcedure.cs" />

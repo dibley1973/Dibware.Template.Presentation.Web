@@ -8,6 +8,7 @@ using System.Web.Mvc;
 
 namespace Dibware.Template.Presentation.Web.Filters
 {
+    [AttributeUsage(AttributeTargets.Method | AttributeTargets.Class, Inherited = true, AllowMultiple = true)]
     public class CustomHandleErrorAttribute : HandleErrorAttribute
     {
         //private IErrorService _errorService = null;
@@ -44,6 +45,9 @@ namespace Dibware.Template.Presentation.Web.Filters
         {
             ErrorService = errorService;
             ShowDetailedErrorMessages = showDetailedErrorMessages;
+
+            // Errors come here before other error filters
+            Order = 1;
         }
 
         /// <summary>

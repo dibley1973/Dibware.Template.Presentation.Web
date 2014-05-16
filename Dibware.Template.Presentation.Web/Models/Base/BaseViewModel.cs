@@ -1,6 +1,7 @@
 ﻿using Dibware.Extensions.System;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace Dibware.Template.Presentation.Web.Models.Base
 {
@@ -132,6 +133,10 @@ namespace Dibware.Template.Presentation.Web.Models.Base
         /// The stylesheet bundle path list.
         /// </value>
         public List<String> StylesheetBundlePathList { get; private set; }
+
+        #endregion
+
+        #region User Details
 
         #endregion
 
