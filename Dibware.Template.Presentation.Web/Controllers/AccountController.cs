@@ -330,10 +330,12 @@ namespace Dibware.Template.Presentation.Web.Controllers
             {
                 return RedirectToLocalOrDefault(null);
             }
+            var model = new LogoutViewModel();
+            model.UserName = this.User.Name; // System.Web.Http.H HttpContext.Current.User.
 
             WebSecurity.RequireAuthenticatedUser();
             WebSecurity.Logout();
-            return RedirectToHome();
+            return View(ViewNames.Logout, model);
         }
 
         //

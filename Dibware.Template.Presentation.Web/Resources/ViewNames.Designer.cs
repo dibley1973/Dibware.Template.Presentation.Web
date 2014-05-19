@@ -79,7 +79,7 @@ namespace Dibware.Template.Presentation.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Password Changed.
+        ///   Looks up a localized string similar to ChangePasswordConfirmed.
         /// </summary>
         internal static string ChangePasswordConfirmed {
             get {
@@ -138,6 +138,15 @@ namespace Dibware.Template.Presentation.Web.Resources {
         internal static string Login {
             get {
                 return ResourceManager.GetString("Login", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Logout.
+        /// </summary>
+        internal static string Logout {
+            get {
+                return ResourceManager.GetString("Logout", resourceCulture);
             }
         }
         

@@ -49,11 +49,11 @@
       <HintPath>Libraries\Dibware.Extensions.dll</HintPath>
     </Reference>
     <Reference Include="Dibware.Helpers, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
       <HintPath>Libraries\Dibware.Helpers.dll</HintPath>
     </Reference>
     <Reference Include="Dibware.Web.Security, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>Libraries\Dibware.Web.Security.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Dibware.Template.Shared\Libraries\Dibware.Web.Security.dll</HintPath>
     </Reference>
     <Reference Include="DotNetOpenAuth.AspNet">
       <HintPath>..\Dibware.Template.Shared\Libraries\DotNetOpenAuth.AspNet.dll</HintPath>
@@ -179,6 +179,7 @@
     <Content Include="Views\Account\ConfirmAccountFailure.cshtml" />
     <Content Include="Views\Account\ChangePassword.cshtml" />
     <Content Include="Views\Account\ChangePasswordConfirmed.cshtml" />
+    <Content Include="Views\Account\Logout.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -230,6 +231,7 @@
     <Compile Include="Models\Account\ConfirmAccountCheckEmailViewModel.cs" />
     <Compile Include="Models\Account\IndexViewModel.cs" />
     <Compile Include="Models\Account\LoginViewModel.cs" />
+    <Compile Include="Models\Account\LogoutViewModel.cs" />
     <Compile Include="Models\Account\RegisterViewModel.cs" />
     <Compile Include="Models\Base\BaseViewModel.cs" />
     <Compile Include="Models\Error\ErrorViewModel.cs" />

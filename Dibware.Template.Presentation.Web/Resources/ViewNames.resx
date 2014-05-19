@@ -124,7 +124,7 @@
     <value>ChangePassword</value>
   </data>
   <data name="ChangePasswordConfirmed" xml:space="preserve">
-    <value>Password Changed</value>
+    <value>ChangePasswordConfirmed</value>
   </data>
   <data name="ConfirmAccount" xml:space="preserve">
     <value>ConfirmAccount</value>
@@ -143,6 +143,9 @@
   </data>
   <data name="Login" xml:space="preserve">
     <value>Login</value>
+  </data>
+  <data name="Logout" xml:space="preserve">
+    <value>Logout</value>
   </data>
   <data name="Register" xml:space="preserve">
     <value>Register</value>

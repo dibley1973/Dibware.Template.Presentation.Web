@@ -1,5 +1,4 @@
 ﻿using AutoMapper;
-using Dibware.Template.Core.Domain.Contracts.Repositories;
 using Dibware.Template.Core.Domain.Contracts.Services;
 using Dibware.Template.Presentation.Web.Filters;
 using Dibware.Template.Presentation.Web.Modules.Authentication;
@@ -40,9 +39,7 @@ namespace Dibware.Template.Presentation.Web
             var identity = HttpContext.Current.User.Identity;
             if (Request.IsAuthenticated)
             {
-                var roleRepository =
-                    (IRoleRepository)DependencyResolver.Current.GetService(typeof(IRoleRepository));
-                roles = roleRepository.GetRolesForUser(identity.Name);
+                roles = Roles.GetRolesForUser(identity.Name);
             }
             else
             {

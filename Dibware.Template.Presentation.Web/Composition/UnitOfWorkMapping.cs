@@ -40,6 +40,15 @@ namespace Dibware.Template.Presentation.Web.Composition
                     ConfigurationManager.ConnectionStrings[ConnectionStringKeys.UnauthorisedUser]
                         .ConnectionString);
 
+            //// Bind the IUnitOfWork specifically for the RoleRepository.
+            //Bind<IUnitOfWork>()
+            //    .To<WebsiteDbContext>()
+            //    .WhenInjectedInto<RoleRepository>()
+            //    .WithConstructorArgument(
+            //        ConstructorArguments.ConnectionString,
+            //        ConfigurationManager.ConnectionStrings[ConnectionStringKeys.MainUserConnectionString]
+            //            .ConnectionString);
+
             //// Bind the IUnitOfWork the PasswordStrengthRuleRepository.
             //Bind<IUnitOfWork>()
             //    .To<WebsiteDbContext>()

@@ -9,9 +9,9 @@ BEGIN
 	-- interfering with SELECT statements.
 	SET NOCOUNT ON;
 
-	-- First check if a user of that username exists
-    -- and if it does throw an error
-    IF EXISTS
+	-- First check if a user of that username does
+    -- not exists and if it does not, throw an error
+    IF NOT EXISTS
     (
         SELECT  1
         FROM    [security].[Membership]
@@ -19,9 +19,9 @@ BEGIN
     )
     BEGIN
         RAISERROR (
-            50001,
-            16, -- Severity,
-            1,  -- State,
+            50004,  -- Username does not exist. 
+            16,     -- Severity,
+            1,      -- State,
             @Username
         );
         RETURN -1;
@@ -39,3 +39,14 @@ BEGIN
 	SELECT 1;
 	RETURN 1;
 END
+GO
+GRANT EXECUTE
+    ON OBJECT::[security].[Membership_ChangePassword] TO [UnauthorisedRole]
+    AS [dbo];
+
+
+GO
+GRANT EXECUTE
+    ON OBJECT::[security].[Membership_ChangePassword] TO [MainRole]
+    AS [dbo];
+

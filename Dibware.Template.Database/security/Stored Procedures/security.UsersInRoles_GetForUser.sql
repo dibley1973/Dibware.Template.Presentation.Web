@@ -32,3 +32,9 @@ GRANT EXECUTE
     ON OBJECT::[security].[UsersInRoles_GetForUser] TO [MainRole]
     AS [dbo];
 
+
+GO
+GRANT EXECUTE
+    ON OBJECT::[security].[UsersInRoles_GetForUser] TO [UnauthorisedRole]
+    AS [dbo];
+

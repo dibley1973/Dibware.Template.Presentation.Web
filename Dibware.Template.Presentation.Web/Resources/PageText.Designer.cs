@@ -115,6 +115,15 @@ namespace Dibware.Template.Presentation.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to You have been logged out.
+        /// </summary>
+        public static string Logout {
+            get {
+                return ResourceManager.GetString("Logout", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Please select as complicated a password as you can manage to remember. Please do not use the same password for this website as you use for other online accounts where security is paramount; for example your email account or your online banking. If find you have trouble remembering many passwords and you currently use one &quot;normal&quot; password for many sites, maybe consider adding some text to the start or end of your &quot;normal&quot; password for this site so that it becomes that becomes unique for this site..
         /// </summary>
         public static string PasswordAdvice {

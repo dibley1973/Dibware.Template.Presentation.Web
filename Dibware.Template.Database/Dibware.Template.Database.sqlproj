@@ -208,7 +208,10 @@
     <Build Include="security\Stored Procedures\security.Membership_UpdatePasswordSuccessState.sql" />
     <Build Include="security\MainRole.sql" />
     <Build Include="security\AuthorisedUser.sql" />
-    <Build Include="security\Stored Procedures\security.Membership_ChangePassword.sql" />
+    <Build Include="security\Stored Procedures\security.Membership_ChangePassword.sql">
+      <AnsiNulls>Off</AnsiNulls>
+      <QuotedIdentifier>Off</QuotedIdentifier>
+    </Build>
   </ItemGroup>
   <ItemGroup>
     <RefactorLog Include="Dibware.Template.Database.refactorlog" />
