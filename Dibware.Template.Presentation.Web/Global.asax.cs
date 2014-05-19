@@ -3,6 +3,7 @@ using Dibware.Template.Core.Domain.Contracts.Services;
 using Dibware.Template.Presentation.Web.Filters;
 using Dibware.Template.Presentation.Web.Modules.Authentication;
 using Dibware.Template.Presentation.Web.Modules.Configuration;
+using Dibware.Template.Presentation.Web.Modules.PostAuthenticateRequest;
 using Dibware.Template.Presentation.Web.Resources;
 using Dibware.Template.Presentation.Web.Resources.Ninjection;
 using Dibware.Web.Security.Principal;
@@ -32,26 +33,11 @@ namespace Dibware.Template.Presentation.Web
         /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         protected void Application_PostAuthenticateRequest(Object sender, EventArgs e)
         {
-            String[] roles;
-            var applicationConfiguration =
-                (IApplicationConfiguration)
-                    DependencyResolver.Current.GetService(typeof(IApplicationConfiguration));
-            var identity = HttpContext.Current.User.Identity;
-            if (Request.IsAuthenticated)
-            {
-                roles = Roles.GetRolesForUser(identity.Name);
-            }
-            else
-            {
-                roles = new[] { applicationConfiguration.UnknownUserRoleName };
-            }
-            var webIdentity = new WebIdentity(identity, roles);
-            var principal = new WebsitePrincipal(webIdentity)
-            {
-                ApplicationConfiguration = applicationConfiguration
-            };
-
-            HttpContext.Current.User = principal;
+            // Get a PostAuthenticateRequestProvider and use this to apply a 
+            // correctly configured principal to the current http request
+            var provider = (IPostAuthenticateRequestProvider)
+                DependencyResolver.Current.GetService(typeof(IPostAuthenticateRequestProvider));
+            provider.ApplyPrincipleToHttpRequest(HttpContext.Current);
         }
 
         /// <summary>

@@ -204,6 +204,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Composition\IApplicationConfigurationMapping.cs" />
+    <Compile Include="Modules\PostAuthenticateRequest\IPostAuthenticateRequestProvider.cs" />
     <Compile Include="Composition\ProviderMappings.cs" />
     <Compile Include="Composition\RepositoryMapping.cs" />
     <Compile Include="Composition\ServiceMapping.cs" />
@@ -248,6 +249,7 @@
     <Compile Include="Modules\Authentication\WebsitePrincipal.cs" />
     <Compile Include="Modules\Configuration\ApplicationConfiguration.cs" />
     <Compile Include="Modules\Configuration\IApplicationConfiguration.cs" />
+    <Compile Include="Modules\PostAuthenticateRequest\MvcPostAuthenticateRequestProvider .cs" />
     <Compile Include="Modules\ProviderInitialization\ProviderInitializationHttpModule.cs" />
     <Compile Include="Modules\UserPreferences\IUserPreferenceData.cs" />
     <Compile Include="Modules\UserPreferences\UserPreferenceData.cs" />

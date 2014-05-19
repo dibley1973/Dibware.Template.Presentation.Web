@@ -1,4 +1,5 @@
-﻿using Dibware.Web.Security.Providers;
+﻿using Dibware.Template.Presentation.Web.Modules.PostAuthenticateRequest;
+using Dibware.Web.Security.Providers;
 using Dibware.Web.Security.Providers.Contracts;
 using Ninject.Modules;
 using Ninject.Web.Common;
@@ -20,6 +21,10 @@ namespace Dibware.Template.Presentation.Web.Composition
             Bind<IRepositoryRoleProvider>()
                 .To<RepositoryRoleProvider>()
                 .InThreadScope();
+
+            Bind<IPostAuthenticateRequestProvider>()
+                .To<MvcPostAuthenticateRequestProvider>()
+                .InRequestScope();
         }
     }
 }
