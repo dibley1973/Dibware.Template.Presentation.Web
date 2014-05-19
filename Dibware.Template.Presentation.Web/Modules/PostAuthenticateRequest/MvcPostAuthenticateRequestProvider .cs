@@ -32,10 +32,10 @@ namespace Dibware.Template.Presentation.Web.Modules.PostAuthenticateRequest
         #region IPostAuthenticateRequestProvider Members
 
         /// <summary>
-        /// Applies a correctly setup principle to the Http request
+        /// Applies a correctly setup principal to the Http request
         /// </summary>
         /// <param name="httpContext"></param>
-        public void ApplyPrincipleToHttpRequest(HttpContext httpContext)
+        public void ApplyPrincipalToHttpRequest(HttpContext httpContext)
         {
             // declare a collection to hold roles for the current user
             String[] roles;

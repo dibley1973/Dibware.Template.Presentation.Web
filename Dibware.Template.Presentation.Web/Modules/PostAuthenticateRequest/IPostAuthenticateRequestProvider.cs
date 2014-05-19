@@ -9,9 +9,9 @@ namespace Dibware.Template.Presentation.Web.Modules.PostAuthenticateRequest
     internal interface IPostAuthenticateRequestProvider
     {
         /// <summary>
-        /// Applies a correctly setup principle to the Http request
+        /// Applies a correctly setup principal to the Http request
         /// </summary>
         /// <param name="httpContext"></param>
-        void ApplyPrincipleToHttpRequest(HttpContext httpContext);
+        void ApplyPrincipalToHttpRequest(HttpContext httpContext);
     }
 }

@@ -37,11 +37,11 @@ namespace Dibware.Template.Presentation.Web
             // correctly configured principal to the current http request
             var provider = (IPostAuthenticateRequestProvider)
                 DependencyResolver.Current.GetService(typeof(IPostAuthenticateRequestProvider));
-            provider.ApplyPrincipleToHttpRequest(HttpContext.Current);
+            provider.ApplyPrincipalToHttpRequest(HttpContext.Current);
         }
 
         /// <summary>
-        /// Called when the application is started.
+        /// Called when the application is started.s
         /// </summary>
         protected override void OnApplicationStarted()
         {
