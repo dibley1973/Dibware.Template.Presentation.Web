@@ -180,6 +180,7 @@
     <Content Include="Views\Account\ChangePassword.cshtml" />
     <Content Include="Views\Account\ChangePasswordConfirmed.cshtml" />
     <Content Include="Views\Account\Logout.cshtml" />
+    <Content Include="Views\Account\RecoverPassword.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -232,6 +233,7 @@
     <Compile Include="Models\Account\IndexViewModel.cs" />
     <Compile Include="Models\Account\LoginViewModel.cs" />
     <Compile Include="Models\Account\LogoutViewModel.cs" />
+    <Compile Include="Models\Account\RecoverPassword.cs" />
     <Compile Include="Models\Account\RegisterViewModel.cs" />
     <Compile Include="Models\Base\BaseViewModel.cs" />
     <Compile Include="Models\Error\ErrorViewModel.cs" />

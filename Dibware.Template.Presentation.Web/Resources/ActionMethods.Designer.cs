@@ -113,5 +113,23 @@ namespace Dibware.Template.Presentation.Web.Resources {
                 return ResourceManager.GetString("Login", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to RecoverPassword.
+        /// </summary>
+        public static string RecoverPassword {
+            get {
+                return ResourceManager.GetString("RecoverPassword", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Register.
+        /// </summary>
+        public static string Register {
+            get {
+                return ResourceManager.GetString("Register", resourceCulture);
+            }
+        }
     }
 }

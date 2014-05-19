@@ -147,6 +147,9 @@
   <data name="Logout" xml:space="preserve">
     <value>Logout</value>
   </data>
+  <data name="RecoverPassword" xml:space="preserve">
+    <value>RecoverPassword</value>
+  </data>
   <data name="Register" xml:space="preserve">
     <value>Register</value>
   </data>

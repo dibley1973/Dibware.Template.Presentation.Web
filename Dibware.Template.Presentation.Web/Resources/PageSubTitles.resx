@@ -135,6 +135,9 @@
   <data name="LogInWithOtherService" xml:space="preserve">
     <value>Use another service to log in</value>
   </data>
+  <data name="RecoverPassword" xml:space="preserve">
+    <value>Use this form to recover your password</value>
+  </data>
   <data name="Register" xml:space="preserve">
     <value>Register for a new account</value>
   </data>

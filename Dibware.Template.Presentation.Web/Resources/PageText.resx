@@ -141,6 +141,9 @@
   <data name="PasswordAdvice" xml:space="preserve">
     <value>Please select as complicated a password as you can manage to remember. Please do not use the same password for this website as you use for other online accounts where security is paramount; for example your email account or your online banking. If find you have trouble remembering many passwords and you currently use one "normal" password for many sites, maybe consider adding some text to the start or end of your "normal" password for this site so that it becomes that becomes unique for this site.</value>
   </data>
+  <data name="RecoverPassword" xml:space="preserve">
+    <value>Please fill in the form below to recover your password via email</value>
+  </data>
   <data name="RegistrationSecurityApology" xml:space="preserve">
     <value>We apologise if the registration process appears long and complicated, but we only have the best interests of your security in mind.</value>
   </data>

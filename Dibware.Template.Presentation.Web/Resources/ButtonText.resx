@@ -126,6 +126,9 @@
   <data name="Register" xml:space="preserve">
     <value>Register</value>
   </data>
+  <data name="SendEmail" xml:space="preserve">
+    <value>Send Email</value>
+  </data>
   <data name="SignIn" xml:space="preserve">
     <value>Sign In</value>
   </data>

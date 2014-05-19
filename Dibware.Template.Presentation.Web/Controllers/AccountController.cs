@@ -339,6 +339,37 @@ namespace Dibware.Template.Presentation.Web.Controllers
         }
 
         //
+        // GET: /Account/RecoverPassword
+        [HttpGet]
+        [AllowAnonymous]
+        public ActionResult RecoverPassword()
+        {
+            var model = new RecoverPassword();
+            return View(model);
+        }
+
+        //
+        // POST: /Account/RecoverPassword
+        [HttpPost]
+        [AllowAnonymous]
+        [ValidateAntiForgeryToken]
+        public ActionResult RecoverPassword(RecoverPassword model)
+        {
+            // Check if the model is valid...
+            var modelIsValid = ModelState.IsValid;
+            if (!modelIsValid)
+            {
+                // ... it isn't so throw the user back out
+                return View(ViewNames.RecoverPassword, model);
+            }
+
+
+            return View(ViewNames.RecoverPassword, model);
+        }
+
+
+
+        //
         // GET: /Account/Register
         [HttpGet]
         [AllowAnonymous]

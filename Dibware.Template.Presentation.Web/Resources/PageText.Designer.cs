@@ -133,6 +133,15 @@ namespace Dibware.Template.Presentation.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Please fill in the form below to recover your password via email.
+        /// </summary>
+        public static string RecoverPassword {
+            get {
+                return ResourceManager.GetString("RecoverPassword", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to We apologise if the registration process appears long and complicated, but we only have the best interests of your security in mind..
         /// </summary>
         public static string RegistrationSecurityApology {
