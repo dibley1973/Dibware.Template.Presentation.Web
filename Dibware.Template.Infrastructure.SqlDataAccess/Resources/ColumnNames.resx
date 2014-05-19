@@ -132,6 +132,9 @@
   <data name="RoleKey" xml:space="preserve">
     <value>RoleKey</value>
   </data>
+  <data name="StatusId" xml:space="preserve">
+    <value>StatusId</value>
+  </data>
   <data name="UserGuid" xml:space="preserve">
     <value>UserGuid</value>
   </data>

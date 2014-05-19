@@ -106,6 +106,15 @@ namespace Dibware.Template.Infrastructure.SqlDataAccess.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to StatusId.
+        /// </summary>
+        internal static string StatusId {
+            get {
+                return ResourceManager.GetString("StatusId", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to UserGuid.
         /// </summary>
         internal static string UserGuid {

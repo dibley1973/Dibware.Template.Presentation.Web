@@ -84,6 +84,7 @@
     <Compile Include="Repositories\ErrorRepositoryTests.cs" />
     <Compile Include="Repositories\PasswordStrengthRuleRepositoryTests.cs" />
     <Compile Include="Repositories\RoleRepositoryTests.cs" />
+    <Compile Include="Repositories\StatusRepositoryTest.cs" />
     <Compile Include="Repositories\UserRepositoryTests.cs" />
     <Compile Include="UnitOfWork\WebsiteDbContextTests.cs" />
   </ItemGroup>

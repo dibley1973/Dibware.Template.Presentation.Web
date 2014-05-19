@@ -76,6 +76,7 @@
     <Compile Include="Repositories\PasswordStrengthRuleRepository.cs" />
     <Compile Include="Repositories\RoleRepository.cs" />
     <Compile Include="Repositories\MembershipRepository.cs" />
+    <Compile Include="Repositories\StatusRepository.cs" />
     <Compile Include="Resources\ColumnNames.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -130,6 +131,7 @@
     <Compile Include="UnitOfWork\Configuration\ErrorConfiguration.cs" />
     <Compile Include="UnitOfWork\Configuration\PasswordStrengthRuleConfiguration.cs" />
     <Compile Include="UnitOfWork\Configuration\RoleConfiguration.cs" />
+    <Compile Include="UnitOfWork\Configuration\StatusConfiguration.cs" />
     <Compile Include="UnitOfWork\Configuration\UserConfiguration.cs" />
     <Compile Include="UnitOfWork\Configuration\UserMembershipConfiguration.cs" />
     <Compile Include="UnitOfWork\WebsiteDbContext.cs" />

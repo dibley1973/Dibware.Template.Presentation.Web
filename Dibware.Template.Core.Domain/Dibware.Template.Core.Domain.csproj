@@ -72,6 +72,7 @@
     <Compile Include="Contracts\Repositories\IMembershipRepository.cs" />
     <Compile Include="Contracts\Repositories\IPasswordStrengthRuleRepository.cs" />
     <Compile Include="Contracts\Repositories\IRoleRepository.cs" />
+    <Compile Include="Contracts\Repositories\IStatusRepository.cs" />
     <Compile Include="Contracts\Services\IAccountStatusService.cs" />
     <Compile Include="Contracts\Services\ICloneService.cs" />
     <Compile Include="Contracts\Services\IDataService.cs" />
@@ -84,6 +85,7 @@
     <Compile Include="Contracts\UnitOfWork\IUnitOfWorkInRequestScope.cs" />
     <Compile Include="Entities\Accounting\AccountStatusChangeRule.cs" />
     <Compile Include="Entities\Application\Error.cs" />
+    <Compile Include="Entities\Application\Status.cs" />
     <Compile Include="Entities\Base\BaseEntity.cs" />
     <Compile Include="Entities\Base\BaseGuidNameEntity.cs" />
     <Compile Include="Entities\Base\BaseIdEntity.cs" />
