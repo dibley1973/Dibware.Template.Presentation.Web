@@ -45,8 +45,8 @@ namespace Dibware.Template.Infrastructure.SqlDataAccessTests.Base
         public void Test_BaseRepository_GetForGuid_ReturnsExpectedGuidBasedItemWhenGuidExists()
         {
             // Arrange
-            var expectedResult = _unitOfWork.CreateSet<User>().First();
-            var repository = new MockRepository<User>(_unitOfWork);
+            var expectedResult = _unitOfWork.CreateSet<UserMembership>().First();
+            var repository = new MockRepository<UserMembership>(_unitOfWork);
 
             // Act
             var actualResult = repository.GetForGuid(expectedResult.Guid);
@@ -54,7 +54,7 @@ namespace Dibware.Template.Infrastructure.SqlDataAccessTests.Base
             // Assert
             Assert.IsNotNull(actualResult);
             Assert.AreEqual(actualResult.Guid, expectedResult.Guid);
-            Assert.AreEqual(actualResult.Name, expectedResult.Name);
+            //Assert.AreEqual(actualResult.Name, expectedResult.Name);
         }
 
         // Get for ID returns expected item when ID exists

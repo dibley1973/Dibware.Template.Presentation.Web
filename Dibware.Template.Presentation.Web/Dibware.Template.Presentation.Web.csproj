@@ -206,6 +206,9 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Composition\IApplicationConfigurationMapping.cs" />
+    <Compile Include="Composition\IApplicationStatusProviderMapping.cs" />
+    <Compile Include="Modules\ApplicationState\IApplicationStatusProvider.cs" />
+    <Compile Include="Modules\ApplicationState\MvcApplicationStatusProvider.cs" />
     <Compile Include="Modules\PostAuthenticateRequest\IPostAuthenticateRequestProvider.cs" />
     <Compile Include="Composition\ProviderMappings.cs" />
     <Compile Include="Composition\RepositoryMapping.cs" />

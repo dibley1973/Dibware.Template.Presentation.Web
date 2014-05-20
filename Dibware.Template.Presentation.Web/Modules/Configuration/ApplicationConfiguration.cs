@@ -50,6 +50,18 @@ namespace Dibware.Template.Presentation.Web.Modules.Configuration
             get { return ConfigurationManager.AppSettings[ConfigurationKeys.BrandName]; }
         }
 
+
+        /// <summary>
+        /// Gets the ID of the default application status.
+        /// </summary>
+        /// <value>
+        /// The id of the default application status.
+        /// </value>
+        public int DefaultApplicationStatusId
+        {
+            get { return Convert.ToInt32(ConfigurationManager.AppSettings[ConfigurationKeys.DefaultApplicationStatusId]); }
+        }
+
         /// <summary>
         /// Gets the default theme name.
         /// </summary>

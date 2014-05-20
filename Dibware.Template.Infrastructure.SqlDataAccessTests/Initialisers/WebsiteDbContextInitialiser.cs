@@ -19,7 +19,8 @@ namespace Dibware.Template.Infrastructure.SqlDataAccessTests.Initialisers
             SeedErrors(ref databaseContext);
             SeedPasswordStrengthRules(ref databaseContext);
             SeedRoles(ref databaseContext);
-            SeedUsers(ref databaseContext);
+            SeedStatus(ref databaseContext);
+            //SeedUsers(ref databaseContext);
 
             // Commit attachments
             databaseContext.Commit();
@@ -166,38 +167,56 @@ namespace Dibware.Template.Infrastructure.SqlDataAccessTests.Initialisers
         }
 
         /// <summary>
-        /// Seeds the specified database context with users.
+        /// Seeds the specified database context with Statuses.
         /// </summary>
         /// <param name="databaseContext">The database context.</param>
-        private static void SeedUsers(ref WebsiteDbContext databaseContext)
+        private void SeedStatus(ref WebsiteDbContext databaseContext)
         {
-            // Create Users
-            var userDave = new User
+            // Create Roles
+            var defaultStatus = new Status
             {
-                Guid = UserData.UserDave.Guid,
-                //Password = UserData.UserDave.Password,
-                Name = UserData.UserDave.Name,
-                Username = UserData.UserDave.Username
-            };
-            var userJane = new User
-            {
-                Guid = UserData.UserJane.Guid,
-                //Password = UserData.UserJane.Password,
-                Name = UserData.UserJane.Name,
-                Username = UserData.UserJane.Username
-            };
-            var userPete = new User
-            {
-                Guid = UserData.UserPete.Guid,
-                //Password = UserData.UserPete.Password,
-                Name = UserData.UserPete.Name,
-                Username = UserData.UserPete.Username
+                Id = StatusData.DefaultStatus.Id,
+                State = StatusData.DefaultStatus.State,
+                Message = StatusData.DefaultStatus.Message
             };
 
-            // Add Users
-            databaseContext.Attach(userDave);
-            databaseContext.Attach(userJane);
-            databaseContext.Attach(userPete);
+            // Add Roles
+            databaseContext.Attach(defaultStatus);
         }
+
+        ///// <summary>
+        ///// Seeds the specified database context with users.
+        ///// </summary>
+        ///// <param name="databaseContext">The database context.</param>
+        //private static void SeedUsers(ref WebsiteDbContext databaseContext)
+        //{
+        //    // Create Users
+        //    var userDave = new User
+        //    {
+        //        Guid = UserData.UserDave.Guid,
+        //        //Password = UserData.UserDave.Password,
+        //        Name = UserData.UserDave.Name,
+        //        Username = UserData.UserDave.Username
+        //    };
+        //    var userJane = new User
+        //    {
+        //        Guid = UserData.UserJane.Guid,
+        //        //Password = UserData.UserJane.Password,
+        //        Name = UserData.UserJane.Name,
+        //        Username = UserData.UserJane.Username
+        //    };
+        //    var userPete = new User
+        //    {
+        //        Guid = UserData.UserPete.Guid,
+        //        //Password = UserData.UserPete.Password,
+        //        Name = UserData.UserPete.Name,
+        //        Username = UserData.UserPete.Username
+        //    };
+
+        //    // Add Users
+        //    databaseContext.Attach(userDave);
+        //    databaseContext.Attach(userJane);
+        //    databaseContext.Attach(userPete);
+        //}
     }
 }

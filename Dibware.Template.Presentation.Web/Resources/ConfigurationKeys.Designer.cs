@@ -124,6 +124,15 @@ namespace Dibware.Template.Presentation.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to DefaultApplicationStatusId.
+        /// </summary>
+        public static string DefaultApplicationStatusId {
+            get {
+                return ResourceManager.GetString("DefaultApplicationStatusId", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to DefaultThemeName.
         /// </summary>
         public static string DefaultThemeName {

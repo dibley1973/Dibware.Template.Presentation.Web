@@ -180,4 +180,7 @@
   <data name="MaximumPasswordFailuresSinceLastLogin" xml:space="preserve">
     <value>MaximumPasswordFailuresSinceLastLogin</value>
   </data>
+  <data name="DefaultApplicationStatusId" xml:space="preserve">
+    <value>DefaultApplicationStatusId</value>
+  </data>
 </root>

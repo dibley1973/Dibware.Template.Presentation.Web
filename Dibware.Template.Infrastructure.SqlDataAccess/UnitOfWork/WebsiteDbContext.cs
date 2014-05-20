@@ -39,9 +39,12 @@ namespace Dibware.Template.Infrastructure.SqlDataAccess.UnitOfWork
             // Remove all existing conventions
             modelBuilder.Conventions
                 .Remove<NavigationPropertyNameForeignKeyDiscoveryConvention>();
+            
+            // Application
+            modelBuilder.Configurations.Add(new StatusConfiguration());
+            modelBuilder.Configurations.Add(new ErrorConfiguration());
 
             // Security
-            modelBuilder.Configurations.Add(new ErrorConfiguration());
             modelBuilder.Configurations.Add(new PasswordStrengthRuleConfiguration());
             modelBuilder.Configurations.Add(new RoleConfiguration());
             //modelBuilder.Configurations.Add(new UserConfiguration());

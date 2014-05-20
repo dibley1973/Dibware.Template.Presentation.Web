@@ -32,12 +32,20 @@ namespace Dibware.Template.Presentation.Web.Modules.Configuration
         String ApplicationVersion { get; }
 
         /// <summary>
-        /// Gets or sets the name of the brand.
+        /// Gets the name of the brand.
         /// </summary>
         /// <value>
         /// The name of the brand.
         /// </value>
         String BrandName { get; }
+
+        /// <summary>
+        /// Gets the ID of the default application status.
+        /// </summary>
+        /// <value>
+        /// The id of the default application status.
+        /// </value>
+        Int32 DefaultApplicationStatusId { get; }
 
         /// <summary>
         /// Gets the default theme name.

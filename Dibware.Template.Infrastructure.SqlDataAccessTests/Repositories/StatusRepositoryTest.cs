@@ -6,6 +6,7 @@ using System.Data.Entity;
 using Dibware.Template.Core.Domain.Contracts.Repositories;
 using Dibware.Template.Infrastructure.SqlDataAccess.Repositories;
 using Dibware.Template.Infrastructure.SqlDataAccessTests.Initialisers;
+using Dibware.Template.Infrastructure.SqlDataAccessTests.MockData;
 
 namespace Dibware.Template.Infrastructure.SqlDataAccessTests.Repositories
 {
@@ -50,6 +51,21 @@ namespace Dibware.Template.Infrastructure.SqlDataAccessTests.Repositories
 
             // Assert
             // Exception Thrown
+        }
+
+        [TestMethod]
+        public void Test_StatusRepository_GetDefault_ReturnsDefaultState()
+        {
+            // Arrange
+            var repository = (IStatusRepository)new StatusRepository(_unitOfWork);
+            var defaultId = StatusData.DefaultStatus.Id;
+            var expectedState = StatusData.DefaultStatus.State;
+
+            // Act
+            var actualResult = repository.GetForId(defaultId);
+
+            // Assert
+            Assert.AreEqual(expectedState, actualResult.State);
         }
 
         #endregion

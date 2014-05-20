@@ -230,6 +230,7 @@
     <None Include="PostDeploymentScripts\security.Role.sql" />
     <None Include="UtilityScripts\CreateObjectFromTableDetailed.sql" />
     <None Include="UtilityScripts\CreateObjectFromTableSimple.sql" />
+    <None Include="PostDeploymentScripts\application.Status.sql" />
   </ItemGroup>
   <ItemGroup>
     <ArtifactReference Include="DacPacs\master.dacpac">

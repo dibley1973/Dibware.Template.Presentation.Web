@@ -73,6 +73,7 @@
     <Compile Include="MockData\MockRepository.cs" />
     <Compile Include="MockData\PasswordStrengthRuleData.cs" />
     <Compile Include="MockData\RoleData.cs" />
+    <Compile Include="MockData\StatusData.cs" />
     <Compile Include="MockData\UserData.cs" />
     <Compile Include="Mocks\MockSqlExceptionHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
