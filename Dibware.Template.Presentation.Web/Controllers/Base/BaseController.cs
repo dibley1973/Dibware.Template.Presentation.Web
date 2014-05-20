@@ -1,6 +1,7 @@
 ﻿using Dibware.Template.Presentation.Web.Models.Base;
 using Dibware.Template.Presentation.Web.Modules.Authentication;
 using Dibware.Template.Presentation.Web.Modules.Configuration;
+using Dibware.Template.Presentation.Web.Modules.SiteMaintenance;
 using Dibware.Template.Presentation.Web.Resources;
 using Ninject;
 using System;
@@ -13,6 +14,7 @@ namespace Dibware.Template.Presentation.Web.Controllers.Base
     /// This is the controller that holds all common implementations
     /// and which all other controllers should inherit from.
     /// </summary>
+    [BlockSiteAccessOnTesting]
     public class BaseController : Controller
     {
         #region Properties

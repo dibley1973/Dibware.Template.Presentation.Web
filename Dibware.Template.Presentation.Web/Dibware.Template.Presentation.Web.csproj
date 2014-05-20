@@ -137,6 +137,8 @@
     <Reference Include="WebMatrix.WebData, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="placeholder_app_offline.htm" />
+    <Content Include="placeholder_app_testing.htm" />
     <Content Include="assets\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="assets\js\bootstrap.js" />
     <Content Include="assets\js\bootstrap.min.js" />
@@ -207,6 +209,7 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Composition\IApplicationConfigurationMapping.cs" />
     <Compile Include="Composition\IApplicationStatusProviderMapping.cs" />
+    <Compile Include="Helpers\IpAddresshelper.cs" />
     <Compile Include="Modules\ApplicationState\IApplicationStatusProvider.cs" />
     <Compile Include="Modules\ApplicationState\MvcApplicationStatusProvider.cs" />
     <Compile Include="Modules\PostAuthenticateRequest\IPostAuthenticateRequestProvider.cs" />
@@ -256,6 +259,8 @@
     <Compile Include="Modules\Configuration\IApplicationConfiguration.cs" />
     <Compile Include="Modules\PostAuthenticateRequest\MvcPostAuthenticateRequestProvider .cs" />
     <Compile Include="Modules\ProviderInitialization\ProviderInitializationHttpModule.cs" />
+    <Compile Include="Modules\SiteMaintenance\BlockSiteAccessOnTesting.cs" />
+    <Compile Include="Modules\SiteMaintenance\SiteDownForTestingResult.cs" />
     <Compile Include="Modules\UserPreferences\IUserPreferenceData.cs" />
     <Compile Include="Modules\UserPreferences\UserPreferenceData.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -270,6 +275,11 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>ButtonText.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\CacheKeys.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CacheKeys.resx</DependentUpon>
     </Compile>
     <Compile Include="Resources\CompressionEncoding.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -366,6 +376,16 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ResponseHeaders.resx</DependentUpon>
     </Compile>
+    <Compile Include="Resources\StaticPages.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>StaticPages.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\StatusDescriptionText.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>StatusDescriptionText.resx</DependentUpon>
+    </Compile>
     <Compile Include="Resources\UserRole.cs" />
     <Compile Include="Resources\ValidationMessages.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -405,6 +425,10 @@
     <EmbeddedResource Include="Resources\ButtonText.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>ButtonText.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CacheKeys.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>CacheKeys.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Resources\CompressionEncoding.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -481,6 +505,14 @@
     <EmbeddedResource Include="Resources\ResponseHeaders.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>ResponseHeaders.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\StaticPages.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>StaticPages.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\StatusDescriptionText.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>StatusDescriptionText.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Resources\ValidationMessages.resx">
       <Generator>ResXFileCodeGenerator</Generator>

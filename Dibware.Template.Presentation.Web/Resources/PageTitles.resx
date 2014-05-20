@@ -156,6 +156,9 @@
   <data name="Register" xml:space="preserve">
     <value>Register</value>
   </data>
+  <data name="ServiceUnavailable" xml:space="preserve">
+    <value>Service Is Unavailable</value>
+  </data>
   <data name="Terms" xml:space="preserve">
     <value>Terms</value>
   </data>
