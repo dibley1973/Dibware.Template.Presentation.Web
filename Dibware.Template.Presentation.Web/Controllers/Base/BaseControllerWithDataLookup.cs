@@ -1,10 +1,12 @@
 ﻿using Dibware.Template.Core.Domain.Contracts.Services;
+using Dibware.Template.Presentation.Web.Modules.ApplicationState;
 
 namespace Dibware.Template.Presentation.Web.Controllers.Base
 {
     /// <summary>
     /// This is the controller adds data lookup functionality to the BaseController.
     /// </summary>
+    [ApplicationStatus]
     public abstract class BaseControllerWithDataLookup : BaseController
     {
         #region Private Members
@@ -21,7 +23,7 @@ namespace Dibware.Template.Presentation.Web.Controllers.Base
         /// <value>
         /// The lookup service.
         /// </value>
-        protected ILookupService LookupService
+        internal ILookupService LookupService
         {
             get { return _lookupService; }
         }

@@ -1,12 +1,24 @@
-﻿using Dibware.Template.Presentation.Web.Controllers.Base;
+﻿using Dibware.Template.Core.Domain.Contracts.Services;
+using Dibware.Template.Presentation.Web.Controllers.Base;
 using Dibware.Template.Presentation.Web.Models.Home;
 using Dibware.Template.Presentation.Web.Resources;
 using System.Web.Mvc;
 
 namespace Dibware.Template.Presentation.Web.Controllers
 {
-    public class HomeController : BaseController
+    public class HomeController : BaseControllerWithDataLookup
     {
+        #region Constructors
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="AccountController"/> class.
+        /// </summary>
+        /// <param name="lookupService">The lookup service.</param>
+        public HomeController(ILookupService lookupService)
+            : base(lookupService) { }
+
+        #endregion
+
         #region Actions
 
         //

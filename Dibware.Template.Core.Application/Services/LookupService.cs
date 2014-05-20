@@ -127,9 +127,10 @@ namespace Dibware.Template.Core.Application.Services
                 }
             }
 
-            // Test repository was found.. if not something's gone poopie
+            // Test if a repository was found... 
             if (returnRepository == null)
             {
+                // ... it wasn't so something's gone poopie!
                 throw new ArgumentNullException("returnRepository");
             }
             else

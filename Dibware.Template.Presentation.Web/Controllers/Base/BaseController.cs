@@ -14,7 +14,7 @@ namespace Dibware.Template.Presentation.Web.Controllers.Base
     /// This is the controller that holds all common implementations
     /// and which all other controllers should inherit from.
     /// </summary>
-    [BlockSiteAccessOnTesting]
+    [BlockSiteAccessOnTestingAttribute]
     public class BaseController : Controller
     {
         #region Properties

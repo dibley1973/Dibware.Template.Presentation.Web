@@ -185,6 +185,7 @@
     <Content Include="Views\Account\Logout.cshtml" />
     <Content Include="Views\Account\RecoverPassword.cshtml" />
     <Content Include="connections.config" />
+    <Content Include="Views\Home\Status.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -210,6 +211,8 @@
     <Compile Include="Composition\IApplicationConfigurationMapping.cs" />
     <Compile Include="Composition\IApplicationStatusProviderMapping.cs" />
     <Compile Include="Helpers\IpAddresshelper.cs" />
+    <Compile Include="Models\Home\StatusViewModel.cs" />
+    <Compile Include="Modules\ApplicationState\ApplicationStatusAttribute.cs" />
     <Compile Include="Modules\ApplicationState\IApplicationStatusProvider.cs" />
     <Compile Include="Modules\ApplicationState\MvcApplicationStatusProvider.cs" />
     <Compile Include="Modules\PostAuthenticateRequest\IPostAuthenticateRequestProvider.cs" />
@@ -259,7 +262,7 @@
     <Compile Include="Modules\Configuration\IApplicationConfiguration.cs" />
     <Compile Include="Modules\PostAuthenticateRequest\MvcPostAuthenticateRequestProvider .cs" />
     <Compile Include="Modules\ProviderInitialization\ProviderInitializationHttpModule.cs" />
-    <Compile Include="Modules\SiteMaintenance\BlockSiteAccessOnTesting.cs" />
+    <Compile Include="Modules\SiteMaintenance\BlockSiteAccessOnTestingAttribute.cs" />
     <Compile Include="Modules\SiteMaintenance\SiteDownForTestingResult.cs" />
     <Compile Include="Modules\UserPreferences\IUserPreferenceData.cs" />
     <Compile Include="Modules\UserPreferences\UserPreferenceData.cs" />

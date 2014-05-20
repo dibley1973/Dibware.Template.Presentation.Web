@@ -14,7 +14,7 @@ namespace Dibware.Template.Presentation.Web.Modules.SiteMaintenance
     /// Checks for the presence of a file and set sthe filterContext result to 
     /// be of type SiteDownForTestingResult.
     /// </summary>
-    public sealed class BlockSiteAccessOnTesting : ActionFilterAttribute
+    public sealed class BlockSiteAccessOnTestingAttribute : ActionFilterAttribute
     {
         #region Declarations
 
@@ -32,7 +32,7 @@ namespace Dibware.Template.Presentation.Web.Modules.SiteMaintenance
         /// <param name="filterContext">The filter context.</param>
         public override void OnActionExecuting(ActionExecutingContext filterContext)
         {
-            // Determin if we are testing
+            // Determine if we are testing
             var isTesting = GetIsTestingState();
             if (isTesting)
             {
