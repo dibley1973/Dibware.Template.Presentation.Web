@@ -182,6 +182,7 @@
     <Content Include="Views\Account\ChangePasswordConfirmed.cshtml" />
     <Content Include="Views\Account\Logout.cshtml" />
     <Content Include="Views\Account\RecoverPassword.cshtml" />
+    <Content Include="connections.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
