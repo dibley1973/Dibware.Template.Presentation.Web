@@ -141,4 +141,7 @@
   <data name="Register" xml:space="preserve">
     <value>Register</value>
   </data>
+  <data name="Status" xml:space="preserve">
+    <value>Status</value>
+  </data>
 </root>

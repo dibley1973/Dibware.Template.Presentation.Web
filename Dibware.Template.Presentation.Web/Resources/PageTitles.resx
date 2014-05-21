@@ -159,10 +159,10 @@
   <data name="ServiceUnavailable" xml:space="preserve">
     <value>Service Is Unavailable</value>
   </data>
-  <data name="Status" xml:space="preserve">
-    <value>Status</value>
-  </data>
   <data name="Terms" xml:space="preserve">
     <value>Terms</value>
+  </data>
+  <data name="WebsiteStatus" xml:space="preserve">
+    <value>Website Status</value>
   </data>
 </root>

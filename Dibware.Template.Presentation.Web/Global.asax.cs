@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using Dibware.Template.Core.Domain.Contracts.Services;
 using Dibware.Template.Presentation.Web.Filters;
+using Dibware.Template.Presentation.Web.Modules.ApplicationState;
 using Dibware.Template.Presentation.Web.Modules.Authentication;
 using Dibware.Template.Presentation.Web.Modules.Configuration;
 using Dibware.Template.Presentation.Web.Modules.PostAuthenticateRequest;
@@ -113,6 +114,9 @@ namespace Dibware.Template.Presentation.Web
         {
             kernel.Inject(Membership.Provider);
             kernel.Inject(Roles.Provider);
+
+            //TODO: Implement ApplicationStatus.Provider
+            //kernel.Inject(ApplicationStatus.Provider);
         }
 
         // <summary>

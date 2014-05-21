@@ -4,6 +4,7 @@ using Dibware.Template.Presentation.Web.Models.Home;
 using Dibware.Template.Presentation.Web.Resources;
 using System;
 using System.Web.Mvc;
+using System.Web.Routing;
 
 namespace Dibware.Template.Presentation.Web.Modules.ApplicationState
 {
@@ -28,25 +29,33 @@ namespace Dibware.Template.Presentation.Web.Modules.ApplicationState
         {
             // TODO: Uncomment and finish implementing!
 
-            //// Load the current status
-            //Status applictionStatus = GetIsActiveStatus(filterContext);
+            // Load the current status
+            Status applictionStatus = GetIsActiveStatus(filterContext);
 
-            //// check if the state is active...
-            //Boolean isActive = (applictionStatus.State == ApplicationActiveState);
-            //if (!isActive)
-            //{
-            //    // ... it is not so redirect to the message view
-            //    filterContext.Result = new ViewResult
-            //    {
-            //        ViewName = ViewNames.Status,
-            //        ViewData = filterContext.Controller.ViewData,
-            //        TempData = filterContext.Controller.TempData
-            //    };
-            //    filterContext.Controller.ViewData.Model = new StatusViewModel
-            //    {
-            //        Message = applictionStatus.Message
-            //    };
-            //}
+            // check if the state is active...
+            Boolean isActive = (applictionStatus.State == ApplicationActiveState);
+            if (!isActive)
+            {
+                // ... it is not so redirect to the message view
+                filterContext.Result = new ViewResult
+                {
+                    ViewName = ViewNames.Status,
+                    ViewData = filterContext.Controller.ViewData,
+                    TempData = filterContext.Controller.TempData
+                };
+                filterContext.Controller.ViewData.Model = new StatusViewModel
+                {
+                    Message = applictionStatus.Message
+                };
+                ((BaseController)filterContext.Controller)
+                    .RedirectToAction(
+                        ActionMethods.Status,
+                        ControllerNames.Home,
+                        new RouteValueDictionary
+                        {
+                            { "message", applictionStatus.Message }
+                        });
+            }
 
             // Pass on through to the base class
             base.OnActionExecuting(filterContext);
@@ -60,10 +69,20 @@ namespace Dibware.Template.Presentation.Web.Modules.ApplicationState
         /// <exception cref="System.NotImplementedException"></exception>
         private Status GetIsActiveStatus(ActionExecutingContext filterContext)
         {
-            if(filterContext.Controller is BaseControllerWithDataLookup)
+            //TODO: Implement ApplicationStatus.Provider
+            //if (filterContext.Controller is BaseController)
+            //{
+            //    var baseController = filterContext.Controller as BaseController;
+            //    var status = baseController.ApplicationStatusProvider.GetCurrentState();
+            // or..
+            //    var status = ApplicationStatus.Provider.GetCurrentState();
+            //    return status;
+            //}
+
+            if (filterContext.Controller is BaseControllerWithDataLookup)
             {
-                var dataLookUpcontroller = filterContext.Controller as BaseControllerWithDataLookup;
-                var status = dataLookUpcontroller.LookupService.FindById<Status>(1);
+                var dataLookUpController = filterContext.Controller as BaseControllerWithDataLookup;
+                var status = dataLookUpController.LookupService.FindById<Status>(1);
                 // TODO: Remove hard-coded 1 and replace with value from web.config or constant
                 return status;
             }

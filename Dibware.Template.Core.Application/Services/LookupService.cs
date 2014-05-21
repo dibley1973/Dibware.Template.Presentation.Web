@@ -35,17 +35,19 @@ namespace Dibware.Template.Core.Application.Services
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="LookupService"/> class.
+        /// Initializes a new instance of the <see cref="LookupService" /> class.
         /// </summary>
         /// <param name="errorRepository">The error repository.</param>
         /// <param name="membershipRepository">The membership repository.</param>
         /// <param name="passwordStrengthRuleRepository">The password strength rule repository.</param>
         /// <param name="roleRepository">The role repository.</param>
+        /// <param name="statusRepository">The status repository.</param>
         public LookupService(
             IErrorRepository errorRepository,
             IMembershipRepository membershipRepository,
             IPasswordStrengthRuleRepository passwordStrengthRuleRepository,
-            IRoleRepository roleRepository
+            IRoleRepository roleRepository,
+            IStatusRepository statusRepository
         )
             : this()
         {
@@ -54,6 +56,7 @@ namespace Dibware.Template.Core.Application.Services
             this._repositories.Add(membershipRepository);
             this._repositories.Add(passwordStrengthRuleRepository);
             this._repositories.Add(roleRepository);
+            this._repositories.Add(statusRepository);
         }
 
         #endregion

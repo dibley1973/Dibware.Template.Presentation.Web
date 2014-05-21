@@ -1,12 +1,8 @@
-﻿using Dibware.Template.Presentation.Web.Modules.PostAuthenticateRequest;
+﻿using Dibware.Template.Presentation.Web.Modules.ApplicationState;
+using Dibware.Template.Presentation.Web.Modules.PostAuthenticateRequest;
 using Dibware.Web.Security.Providers;
 using Dibware.Web.Security.Providers.Contracts;
 using Ninject.Modules;
-using Ninject.Web.Common;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 
 namespace Dibware.Template.Presentation.Web.Composition
 {
@@ -24,7 +20,11 @@ namespace Dibware.Template.Presentation.Web.Composition
 
             Bind<IPostAuthenticateRequestProvider>()
                 .To<MvcPostAuthenticateRequestProvider>()
-                .InRequestScope();
+                .InThreadScope();
+
+            Bind<IApplicationStatusProvider>()
+                .To<MvcApplicationStatusProvider>()
+                .InThreadScope();
         }
     }
 }

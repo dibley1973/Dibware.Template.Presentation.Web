@@ -1,6 +1,6 @@
 ﻿using Dibware.Template.Presentation.Web.Modules.ApplicationState;
 using Ninject.Modules;
-using System;
+using Ninject.Web.Common;
 
 namespace Dibware.Template.Presentation.Web.Composition
 {
@@ -9,7 +9,8 @@ namespace Dibware.Template.Presentation.Web.Composition
         public override void Load()
         {
             Bind<IApplicationStatusProvider>()
-                .To<MvcApplicationStatusProvider>();
+                .To<MvcApplicationStatusProvider>()
+                .InRequestScope();
         }
     }
 }

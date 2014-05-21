@@ -1,4 +1,5 @@
 ﻿using Dibware.Template.Presentation.Web.Models.Base;
+using Dibware.Template.Presentation.Web.Modules.ApplicationState;
 using Dibware.Template.Presentation.Web.Modules.Authentication;
 using Dibware.Template.Presentation.Web.Modules.Configuration;
 using Dibware.Template.Presentation.Web.Modules.SiteMaintenance;
@@ -7,6 +8,7 @@ using Ninject;
 using System;
 using System.Collections.Generic;
 using System.Web.Mvc;
+using System.Web.Routing;
 
 namespace Dibware.Template.Presentation.Web.Controllers.Base
 {
@@ -17,6 +19,12 @@ namespace Dibware.Template.Presentation.Web.Controllers.Base
     [BlockSiteAccessOnTestingAttribute]
     public class BaseController : Controller
     {
+        //public BaseController(IApplicationStatusProvider applicationStatusProvider)
+        //{
+        //    ApplicationStatusProvider = applicationStatusProvider;
+        //}
+
+
         #region Properties
 
         /// <summary>
@@ -36,6 +44,15 @@ namespace Dibware.Template.Presentation.Web.Controllers.Base
         /// </value>
         [Inject]
         public IApplicationConfiguration ApplicationConfiguration { get; set; }
+
+        /// <summary>
+        /// Gets or sets the application status provider.
+        /// </summary>
+        /// <value>
+        /// The application status provider.
+        /// </value>
+        //[Inject] //TODO: This does not work!
+        public IApplicationStatusProvider ApplicationStatusProvider { get; private set; }
 
         #endregion
 
@@ -129,6 +146,35 @@ namespace Dibware.Template.Presentation.Web.Controllers.Base
                 default:
                     throw new ArgumentOutOfRangeException(ExceptionMessages.UnexpectedCustomThemeNameEncountered);
             }
+        }
+
+        /// <summary>
+        ///Redirects to the specified action using the action name and controller name.
+        /// </summary>
+        /// <param name="actionName">The name of the action.</param>
+        /// <param name="controllerName">The name of the controller</param>
+        /// <returns>The redirect result object.</returns>
+        public new RedirectToRouteResult RedirectToAction(
+            String actionName,
+            String controllerName)
+        {
+            return base.RedirectToAction(actionName, controllerName);
+        }
+
+        /// <summary>
+        /// Redirects to the specified action using the action name, controller 
+        /// name, and route dictionary.
+        /// </summary>
+        /// <param name="actionName">The name of the action.</param>
+        /// <param name="controllerName">The name of the controller</param>
+        /// <param name="routeValues">The parameters for a route.</param>
+        /// <returns>The redirect result object.</returns>
+        public new RedirectToRouteResult RedirectToAction(
+            String actionName,
+            String controllerName,
+            RouteValueDictionary routeValues)
+        {
+            return base.RedirectToAction(actionName, controllerName, routeValues);
         }
 
         /// <summary>

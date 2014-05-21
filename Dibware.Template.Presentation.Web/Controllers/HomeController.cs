@@ -2,6 +2,7 @@
 using Dibware.Template.Presentation.Web.Controllers.Base;
 using Dibware.Template.Presentation.Web.Models.Home;
 using Dibware.Template.Presentation.Web.Resources;
+using System;
 using System.Web.Mvc;
 
 namespace Dibware.Template.Presentation.Web.Controllers
@@ -24,8 +25,8 @@ namespace Dibware.Template.Presentation.Web.Controllers
         //
         // GET: /About/
         // No authorisation, anyone can view this.
-        //[WebsiteAuthorize(UserRole.All)]
         [HttpGet]
+        [AllowAnonymous]
         public ActionResult About()
         {
             var model = new AboutViewModel();
@@ -35,8 +36,8 @@ namespace Dibware.Template.Presentation.Web.Controllers
         //
         // GET: /Home/
         // No authorisation, anyone can view this.
-        ////[WebsiteAuthorize(UserRole.All)]
         [HttpGet]
+        [AllowAnonymous]
         public ActionResult Index()
         {
             var model = new IndexViewModel();
@@ -44,10 +45,24 @@ namespace Dibware.Template.Presentation.Web.Controllers
         }
 
         //
+        // GET: /Status/
+        // No authorisation, anyone can view this.
+        [HttpGet]
+        [AllowAnonymous]
+        public ActionResult Status(String message)
+        {
+            var model = new StatusViewModel
+            {
+                Message = message
+            };
+            return View(ViewNames.Status, model);
+        }
+
+        //
         // GET: /Terms/
         // No authorisation, anyone can view this.
-        ////[WebsiteAuthorize(UserRole.All)]
         [HttpGet]
+        [AllowAnonymous]
         public ActionResult Terms()
         {
             var model = new TermsViewModel();
