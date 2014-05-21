@@ -8,17 +8,21 @@ The aim of this project is to build a template that can be used as a starting po
 This is very much a work in progress. Check back soon for more updates. 
 
 ## Branching, Copy Assist 
-Feel free to branch, copy or assist if the project looks helpeful to you.
+Feel free to branch, copy or assist if the project looks helpeful to you. Please note database project is included in solution.
 
-### Feature MusCoW
+### Feature MoSCoW
 #### Must have
 * Sql Membership, Roles, Account mamangement
 * Registration and Login
 * Error Logging module
 * Dated Terms and conditions module
 * Contact Form module
-* Notifications module
+* Application Status module
 * About page
+* Add more tests!
+
+### Should have
+* Notifications module
 * Add more tests!
 
 #### Could have
@@ -29,15 +33,19 @@ Feel free to branch, copy or assist if the project looks helpeful to you.
 * Add more tests!
 
 ## Architecture
-* Based strongly on an DDD architecture devised by by John collinson
+* Based strongly on a DDD architecture devised by John collinson
 ### Layers
 * Presentation 
     * Web
+    * Web Tests
 * Core
     * Domain
+    * Domain Tests
     * Application
+    * Application Tests
 * Infrastructure
     * SqlDataAccess
+    * SqlDataAccess Tests
 * Database
 
 ## Prerequisit DLLs
