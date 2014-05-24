@@ -84,9 +84,19 @@ namespace Dibware.Template.Presentation.Web.Controllers
             String currentPassword = model.CurrentPassword;
             String newPassword = model.NewPassword;
 
+            // Check the complexity of the new password meets the requirement of 
+            // the membership provider
+            if (!CheckPasswordComplexity(Membership.Provider, newPassword, ModelState, DictionaryKeys.NewPassword, LookupService))
+            {
+                ModelState.AddModelError(DictionaryKeys.NewPassword, ValidationMessages.PasswordNotMetRequiredComplexity);
+                return View(model);
+            }
+
+            // Try to change the password and warn the user of any issues
             try
             {
                 WebSecurity.ChangePassword(username, currentPassword, newPassword);
+                WebSecurity.Logout();
                 return View(ViewNames.ChangePasswordConfirmed, new ChangePasswordConfirmedViewModel());
             }
             catch (ValidationException validationEx)
@@ -394,7 +404,7 @@ namespace Dibware.Template.Presentation.Web.Controllers
 
                     // Check the password complexity meets the requirement of 
                     // the membership provider
-                    if (!CheckPasswordComplexity(Membership.Provider, model.Password, ModelState, LookupService))
+                    if (!CheckPasswordComplexity(Membership.Provider, model.Password, ModelState, DictionaryKeys.Password, LookupService))
                     {
                         ModelState.AddModelError(DictionaryKeys.Password, ValidationMessages.PasswordNotMetRequiredComplexity);
                         return View(model);
@@ -480,25 +490,33 @@ namespace Dibware.Template.Presentation.Web.Controllers
         /// </summary>
         /// <param name="membershipProvider">membership provider</param>
         /// <param name="password">password to check</param>
-        /// <returns>true if the password meets the req. complexity</returns>
+        /// <param name="modelState">State of the model.</param>
+        /// <param name="modelStatePasswordDictionaryKey">The model state password dictionary key.</param>
+        /// <param name="lookupService">The lookup service.</param>
+        /// <returns>
+        /// true if the password meets the req. complexity
+        /// </returns>
         public static Boolean CheckPasswordComplexity(MembershipProvider membershipProvider,
-            String password, ModelStateDictionary modelState, ILookupService lookupService)
+            String password,
+            ModelStateDictionary modelState,
+            String modelStatePasswordDictionaryKey,
+            ILookupService lookupService)
         {
             var initialPasswordErrorCount =
-                ((modelState[DictionaryKeys.Password].Errors != null)
-                ? modelState[DictionaryKeys.Password].Errors.Count
+                ((modelState[modelStatePasswordDictionaryKey].Errors != null)
+                ? modelState[modelStatePasswordDictionaryKey].Errors.Count
                 : 0);
 
             // Check for an empty string, as they should fail
             if (string.IsNullOrEmpty(password))
             {
-                modelState.AddModelError(DictionaryKeys.Password, ValidationMessages.PasswordEmpty);
+                modelState.AddModelError(modelStatePasswordDictionaryKey, ValidationMessages.PasswordEmpty);
             }
 
             // Check the minumum length meets requirements
             if (membershipProvider.MinRequiredPasswordLength > 0 && password.Length < membershipProvider.MinRequiredPasswordLength)
             {
-                modelState.AddModelError(DictionaryKeys.Password, ValidationMessages.PasswordToShort);
+                modelState.AddModelError(modelStatePasswordDictionaryKey, ValidationMessages.PasswordToShort);
             }
 
             // Check count of non-alpha-numeric characters meets requirements
@@ -513,10 +531,11 @@ namespace Dibware.Template.Presentation.Web.Controllers
                 membershipProvider.PasswordStrengthRegularExpression,
                 password,
                 modelState,
+                modelStatePasswordDictionaryKey,
                 lookupService);
 
             // Check that no more errors have been added
-            var currentPasswordErrorCount = modelState[DictionaryKeys.Password].Errors.Count;
+            var currentPasswordErrorCount = modelState[modelStatePasswordDictionaryKey].Errors.Count;
             var noErrorsEncountered =
                 (initialPasswordErrorCount == currentPasswordErrorCount);
 
@@ -556,11 +575,13 @@ namespace Dibware.Template.Presentation.Web.Controllers
         /// <param name="passwordStrengthRegularExpression">The password strength regular expression.</param>
         /// <param name="password">The password.</param>
         /// <param name="modelState">State of the model.</param>
+        /// <param name="modelStatePasswordDictionaryKey">The model state password dictionary key.</param>
         /// <param name="lookupService">The lookup service.</param>
         public static void CheckPasswordStrength(
             String passwordStrengthRegularExpression,
             String password,
             ModelStateDictionary modelState,
+            String modelStatePasswordDictionaryKey,
             ILookupService lookupService)
         {
             // Check password strength regular expression meets requirements
@@ -577,7 +598,7 @@ namespace Dibware.Template.Presentation.Web.Controllers
                     if (!isMatch)
                     {
                         //...and report any rule failures
-                        modelState.AddModelError(DictionaryKeys.Password, passwordRule.Description);
+                        modelState.AddModelError(modelStatePasswordDictionaryKey, passwordRule.Description);
                     }
                 }
             }

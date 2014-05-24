@@ -10,6 +10,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <meta name="description" content="@Model.MetaDescription"/>
     <meta name="author" content="@Model.MetaAuthor"/>
+    @RenderSection("Metadata", required: false)
     <title>@Model.PageTitle</title>
     <link rel="shortcut icon" type="image/x-icon" href="~/favicon.ico" />
     @* Add Stylesheets *@

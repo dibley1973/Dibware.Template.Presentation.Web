@@ -120,6 +120,9 @@
   <data name="EmailAddress" xml:space="preserve">
     <value>EmailAddress</value>
   </data>
+  <data name="NewPassword" xml:space="preserve">
+    <value>NewPassword</value>
+  </data>
   <data name="Password" xml:space="preserve">
     <value>Password</value>
   </data>

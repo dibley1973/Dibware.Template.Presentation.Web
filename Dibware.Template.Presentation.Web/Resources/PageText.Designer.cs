@@ -133,6 +133,15 @@ namespace Dibware.Template.Presentation.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Please log in with your new password.
+        /// </summary>
+        public static string PleaseLogInWithNewPassword {
+            get {
+                return ResourceManager.GetString("PleaseLogInWithNewPassword", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Please fill in the form below to recover your password via email.
         /// </summary>
         public static string RecoverPassword {
@@ -147,6 +156,15 @@ namespace Dibware.Template.Presentation.Web.Resources {
         public static string RegistrationSecurityApology {
             get {
                 return ResourceManager.GetString("RegistrationSecurityApology", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to You have been logged out..
+        /// </summary>
+        public static string YouHaveBeenLoggedOut {
+            get {
+                return ResourceManager.GetString("YouHaveBeenLoggedOut", resourceCulture);
             }
         }
     }
