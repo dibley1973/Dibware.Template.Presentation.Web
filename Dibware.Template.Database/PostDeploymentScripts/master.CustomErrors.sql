@@ -80,17 +80,17 @@ END
 EXEC    sp_addmessage 
     @msgnum = @MessageNumber, 
     @severity =16, 
-    @msgtext = 'Email address %s already exists in the system. Please choose another email address. ', 
+    @msgtext = N'Email address %s already exists in the system. Please choose another email address. ', 
     @lang = 'us_english'
 EXEC    sp_addmessage 
     @msgnum = @MessageNumber, 
     @severity =16, 
-    @msgtext = 'Adresse e-mail %s existe déjà dans le système. S''il vous plaît choisir une autre adresse e-mail. ', 
+    @msgtext = N'Adresse e-mail %s existe déjà dans le système. S''il vous plaît choisir une autre adresse e-mail. ', 
     @lang = 'French'
 EXEC    sp_addmessage 
     @msgnum = @MessageNumber, 
     @severity =16, 
-    @msgtext = 'Dirección de correo electrónico %s ya existe en el sistema. Por favor elija otra dirección de correo electrónico. ', 
+    @msgtext = N'Dirección de correo electrónico %s ya existe en el sistema. Por favor elija otra dirección de correo electrónico. ', 
     @lang = 'Spanish'
 
 
@@ -103,7 +103,7 @@ END
 EXEC    sp_addmessage 
     @msgnum = @MessageNumber, 
     @severity =16, 
-    @msgtext = 'Membership has already been confirmed. ', 
+    @msgtext = N'Membership has already been confirmed. ', 
     @lang = 'us_english'
 
 
@@ -116,5 +116,53 @@ END
 EXEC    sp_addmessage 
     @msgnum = @MessageNumber, 
     @severity =16, 
-    @msgtext = 'Username does not exist. ', 
+    @msgtext = N'Username does not exist. ', 
+    @lang = 'us_english'
+
+
+-- No current Term has been found in system
+SET @MessageNumber = 50005
+IF EXISTS (SELECT 1 FROM sys.messages WHERE message_id = @MessageNumber) BEGIN
+    EXEC    sp_dropmessage @msgnum = @MessageNumber, @lang = 'all'
+END
+EXEC    sp_addmessage 
+    @msgnum = @MessageNumber, 
+    @severity =16, 
+    @msgtext = N'No current Term has been found in system. ', 
+    @lang = 'us_english'
+
+
+-- That term does not exists in the system. 
+SET @MessageNumber = 50006
+IF EXISTS (SELECT 1 FROM sys.messages WHERE message_id = @MessageNumber) BEGIN
+    EXEC    sp_dropmessage @msgnum = @MessageNumber, @lang = 'all'
+END
+EXEC    sp_addmessage 
+    @msgnum = @MessageNumber, 
+    @severity =16, 
+    @msgtext = N'That term does not exists in the system. ', 
+    @lang = 'us_english'
+
+
+-- Cannot delete a term that has been active in the system. 
+SET @MessageNumber = 50007
+IF EXISTS (SELECT 1 FROM sys.messages WHERE message_id = @MessageNumber) BEGIN
+    EXEC    sp_dropmessage @msgnum = @MessageNumber, @lang = 'all'
+END
+EXEC    sp_addmessage 
+    @msgnum = @MessageNumber, 
+    @severity =16, 
+    @msgtext = N'Cannot delete a term that has been active in the system. ', 
+    @lang = 'us_english'
+
+    
+-- Cannot update a term that has been active in the system. 
+SET @MessageNumber = 50008
+IF EXISTS (SELECT 1 FROM sys.messages WHERE message_id = @MessageNumber) BEGIN
+    EXEC    sp_dropmessage @msgnum = @MessageNumber, @lang = 'all'
+END
+EXEC    sp_addmessage 
+    @msgnum = @MessageNumber, 
+    @severity =16, 
+    @msgtext = N'Cannot update a term that has been active in the system. ', 
     @lang = 'us_english'

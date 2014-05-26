@@ -216,6 +216,14 @@
       <AnsiNulls>On</AnsiNulls>
       <QuotedIdentifier>On</QuotedIdentifier>
     </Build>
+    <Build Include="application\Stored Procedures\application.TermAndCondition_GetCurrent.sql" />
+    <Build Include="application\Stored Procedures\application.TermAndCondition_Insert.sql" />
+    <Build Include="application\Stored Procedures\application.TermAndCondition_Update.sql" />
+    <Build Include="application\Stored Procedures\application.TermAndCondition_Delete.sql" />
+    <Build Include="application\Tables\application.TermAndCondition.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
   </ItemGroup>
   <ItemGroup>
     <RefactorLog Include="Dibware.Template.Database.refactorlog" />
