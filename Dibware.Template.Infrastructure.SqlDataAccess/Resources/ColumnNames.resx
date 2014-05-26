@@ -135,6 +135,9 @@
   <data name="StatusId" xml:space="preserve">
     <value>StatusId</value>
   </data>
+  <data name="TermAndConditionId" xml:space="preserve">
+    <value>TermId</value>
+  </data>
   <data name="UserGuid" xml:space="preserve">
     <value>UserGuid</value>
   </data>

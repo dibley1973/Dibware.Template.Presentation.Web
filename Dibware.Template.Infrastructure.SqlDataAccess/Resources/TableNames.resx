@@ -129,6 +129,9 @@
   <data name="Status" xml:space="preserve">
     <value>Status</value>
   </data>
+  <data name="TermAndCondition" xml:space="preserve">
+    <value>TermAndCondition</value>
+  </data>
   <data name="User" xml:space="preserve">
     <value>User</value>
   </data>

@@ -70,6 +70,15 @@ namespace Dibware.Template.Infrastructure.SqlDataAccess.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to EffectiveFrom.
+        /// </summary>
+        internal static string EffectiveFrom {
+            get {
+                return ResourceManager.GetString("EffectiveFrom", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to ErrorId.
         /// </summary>
         internal static string ErrorId {
@@ -165,6 +174,15 @@ namespace Dibware.Template.Infrastructure.SqlDataAccess.Resources {
         internal static string StackTrace {
             get {
                 return ResourceManager.GetString("StackTrace", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to TermId.
+        /// </summary>
+        internal static string TermAndConditionId {
+            get {
+                return ResourceManager.GetString("TermAndConditionId", resourceCulture);
             }
         }
         

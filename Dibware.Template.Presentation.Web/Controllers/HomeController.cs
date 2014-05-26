@@ -9,6 +9,12 @@ namespace Dibware.Template.Presentation.Web.Controllers
 {
     public class HomeController : BaseControllerWithDataLookup
     {
+        #region Declarations
+
+        //private ITermAndConditionService _termAndConditionService;
+
+        #endregion
+
         #region Constructors
 
         /// <summary>
@@ -17,6 +23,19 @@ namespace Dibware.Template.Presentation.Web.Controllers
         /// <param name="lookupService">The lookup service.</param>
         public HomeController(ILookupService lookupService)
             : base(lookupService) { }
+
+        //TODO: swap constructors when all service code is complete...
+        //
+        ///// <summary>
+        ///// Initializes a new instance of the <see cref="AccountController"/> class.
+        ///// </summary>
+        ///// <param name="lookupService">The lookup service.</param>
+        //public HomeController(ILookupService lookupService,
+        //    ITermAndConditionService termAndConditionService)
+        //    : base(lookupService)
+        //{
+        //    _termAndConditionService = termAndConditionService;
+        //}
 
         #endregion
 
@@ -66,6 +85,9 @@ namespace Dibware.Template.Presentation.Web.Controllers
         public ActionResult Terms()
         {
             var model = new TermsViewModel();
+            //{
+            //    CurrentTerms = _termAndConditionService.GetCurrent()
+            //};
             return View(ViewNames.Terms, model);
         }
 

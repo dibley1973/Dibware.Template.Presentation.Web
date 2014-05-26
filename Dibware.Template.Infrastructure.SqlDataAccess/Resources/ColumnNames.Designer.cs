@@ -115,6 +115,15 @@ namespace Dibware.Template.Infrastructure.SqlDataAccess.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to TermId.
+        /// </summary>
+        internal static string TermAndConditionId {
+            get {
+                return ResourceManager.GetString("TermAndConditionId", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to UserGuid.
         /// </summary>
         internal static string UserGuid {

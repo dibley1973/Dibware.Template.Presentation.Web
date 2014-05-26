@@ -120,6 +120,9 @@
   <data name="Description" xml:space="preserve">
     <value>Description</value>
   </data>
+  <data name="EffectiveFrom" xml:space="preserve">
+    <value>EffectiveFrom</value>
+  </data>
   <data name="ErrorId" xml:space="preserve">
     <value>ErrorId</value>
   </data>
@@ -152,6 +155,9 @@
   </data>
   <data name="StackTrace" xml:space="preserve">
     <value>StackTrace</value>
+  </data>
+  <data name="TermAndConditionId" xml:space="preserve">
+    <value>TermId</value>
   </data>
   <data name="TimeStamp" xml:space="preserve">
     <value>TimeStamp</value>

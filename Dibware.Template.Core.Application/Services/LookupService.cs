@@ -47,7 +47,8 @@ namespace Dibware.Template.Core.Application.Services
             IMembershipRepository membershipRepository,
             IPasswordStrengthRuleRepository passwordStrengthRuleRepository,
             IRoleRepository roleRepository,
-            IStatusRepository statusRepository
+            IStatusRepository statusRepository,
+            ITermAndConditionRepository termAndConditionRepository
         )
             : this()
         {
@@ -57,6 +58,7 @@ namespace Dibware.Template.Core.Application.Services
             this._repositories.Add(passwordStrengthRuleRepository);
             this._repositories.Add(roleRepository);
             this._repositories.Add(statusRepository);
+            this._repositories.Add(termAndConditionRepository);
         }
 
         #endregion

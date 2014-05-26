@@ -73,12 +73,14 @@
     <Compile Include="Contracts\Repositories\IPasswordStrengthRuleRepository.cs" />
     <Compile Include="Contracts\Repositories\IRoleRepository.cs" />
     <Compile Include="Contracts\Repositories\IStatusRepository.cs" />
+    <Compile Include="Contracts\Repositories\ITermAndConditionRepository.cs" />
     <Compile Include="Contracts\Services\IAccountStatusService.cs" />
     <Compile Include="Contracts\Services\ICloneService.cs" />
     <Compile Include="Contracts\Services\IDataService.cs" />
     <Compile Include="Contracts\Services\IErrorService.cs" />
     <Compile Include="Contracts\Services\ILookupService.cs" />
     <Compile Include="Contracts\Services\IPasswordService.cs" />
+    <Compile Include="Contracts\Services\ITermAndConditionService.cs" />
     <Compile Include="Contracts\UnitOfWork\IUnitOfWork.cs" />
     <Compile Include="Contracts\Entities\IAccount.cs" />
     <Compile Include="Contracts\UnitOfWork\IUnitOfWorkInApplicationScope.cs" />
@@ -86,6 +88,7 @@
     <Compile Include="Entities\Accounting\AccountStatusChangeRule.cs" />
     <Compile Include="Entities\Application\Error.cs" />
     <Compile Include="Entities\Application\Status.cs" />
+    <Compile Include="Entities\Application\TermAndCondition.cs" />
     <Compile Include="Entities\Base\BaseEntity.cs" />
     <Compile Include="Entities\Base\BaseGuidNameEntity.cs" />
     <Compile Include="Entities\Base\BaseIdEntity.cs" />
@@ -93,6 +96,7 @@
     <Compile Include="Entities\Base\BaseKeyEntity.cs" />
     <Compile Include="Entities\Base\BaseKeyNameEntity.cs" />
     <Compile Include="Entities\Base\BaseNameEntity.cs" />
+    <Compile Include="Entities\Constants.cs" />
     <Compile Include="Entities\Security\UserMembership.cs" />
     <Compile Include="Entities\Security\PasswordStrengthRule.cs" />
     <Compile Include="Entities\Security\Role.cs" />
