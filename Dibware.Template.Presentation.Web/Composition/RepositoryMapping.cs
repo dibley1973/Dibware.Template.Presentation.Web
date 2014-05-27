@@ -83,9 +83,9 @@ namespace Dibware.Template.Presentation.Web.Composition
             #region TermAndCondition
 
             // Bind the Interface for the StatusRepository to a concrete implementation
-            //Bind<ITermAndConditionRepository>()
-            //    .To<TermAndConditionRepository>()
-            //    .InRequestScope();
+            Bind<ITermAndConditionRepository>()
+                .To<TermAndConditionRepository>()
+                .InRequestScope();
 
             #endregion
         }
