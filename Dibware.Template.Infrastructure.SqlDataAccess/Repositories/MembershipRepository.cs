@@ -59,7 +59,7 @@ namespace Dibware.Template.Infrastructure.SqlDataAccess.Repositories
         /// <param name="username">The username.</param>
         /// <param name="newHashedPassword">The new hashed password.</param>
         /// <returns></returns>
-        /// <exception cref="System.NotImplementedException"></exception>
+        /// <exception cref="System.InvalidOperationException">UnitOfWork is null</exception>
         public Boolean ChangePassword(String username, String newHashedPassword)
         {
             // Ensure we have a UnitOfWork
@@ -268,12 +268,19 @@ namespace Dibware.Template.Infrastructure.SqlDataAccess.Repositories
         }
 
         /// <summary>
-        /// Gets the user.
+        /// Gets information from the data source for a user. Provides an option
+        /// to update the last-activity date/time stamp for the user.
         /// </summary>
-        /// <param name="username">The username.</param>
-        /// <param name="userIsOnline">if set to <c>true</c> [user is online].</param>
-        /// <returns></returns>
-        /// <exception cref="System.NotImplementedException"></exception>
+        /// <param name="username">The name of the user to get information for.</param>
+        /// <param name="userIsOnline">
+        /// Set to <c>true</c> if to update the last-activity date/time stamp 
+        /// for the user; set to <c>false</c> to return user information without 
+        /// updating the last-activity date/time stamp for the user.
+        /// </param>
+        /// <returns>
+        /// A <see cref="T:System.Web.Security.MembershipUser" /> object 
+        /// populated with the specified user's information from the data source.
+        /// </returns>
         public WebMembershipUser GetUser(String providername, String username, Boolean userIsOnline)
         {
             // Ensure we have a UnitOfWork
@@ -281,10 +288,22 @@ namespace Dibware.Template.Infrastructure.SqlDataAccess.Repositories
             Guard.ArgumentIsNotNullOrEmpty(providername, ExceptionMessages.ProviderNameMustBeSupplied);
             Guard.ArgumentIsNotNullOrEmpty(username, ExceptionMessages.UsernameMustBeSupplied);
 
-            var userMembership = GetAll().FirstOrDefault(u => u.Username == username);
+            // Get a user UserMembership for the username
+            var userMembership = UnitOfWork.CreateSet<UserMembership>().FirstOrDefault(u => u.Username == username);
+            //var userMembership = GetAll().FirstOrDefault(u => u.Username == username);
             WebMembershipUser result = null;
             if (userMembership != null)
             {
+                // If flag is set... 
+                if (userIsOnline)
+                {
+                    // ... update the user activity fields
+                    userMembership.LastActivityDate = DateTime.Now;
+                    Update(userMembership);
+                    SaveChanges();
+                }
+
+                // Map the UserMembership to the result
                 result = MembershipMapping.ToWebMembershipUser(providername, userMembership);
             }
             return result;
@@ -329,6 +348,81 @@ namespace Dibware.Template.Infrastructure.SqlDataAccess.Repositories
         }
 
         /// <summary>
+        /// Resets the password with token.
+        /// </summary>
+        /// <param name="token">The token.</param>
+        /// <param name="newHashedPassword">The new hashed password.</param>
+        /// <returns></returns>
+        /// <exception cref="System.InvalidOperationException">UnitOfWork is null</exception>
+        public Boolean ResetPasswordWithToken(String token, String newHashedPassword)
+        {
+            // Ensure we have a UnitOfWork
+            Guard.InvalidOperation((UnitOfWork == null), ExceptionMessages.UnitOfWorkIsNull);
+
+            // Validate parameters
+            Guard.ArgumentIsNotNullOrEmpty(token, ExceptionMessages.TokenMustBeSupplied);
+            Guard.ArgumentIsNotNullOrEmpty(newHashedPassword, ExceptionMessages.NewPasswordMustBeSupplied);
+
+            // Create the stored precedure we will use
+            var procedure = new ResetPasswordWithTokenStoredProcedure(
+                token, newHashedPassword);
+
+            try
+            {
+                var confirmedState = UnitOfWork.ExecuteScalarStoredProcedure<Int32>(procedure);
+                return (confirmedState == 1);
+            }
+            catch (SqlException sqEx)
+            {
+                throw SqlExceptionHelper.HandledKnownSqlExceptions(sqEx);
+            }
+            catch (Exception ex)
+            {
+                //TODO: Remove this 'catch' and rethrow once all debugging is complete
+                throw ex;
+            }
+        }
+
+        /// <summary>
+        /// Sets the password confirmation token.
+        /// </summary>
+        /// <param name="username">The username.</param>
+        /// <param name="passwordConfirmationToken">The password confirmation token.</param>
+        /// <param name="tokenExpirationTime">The token expiration time.</param>
+        public void SetPasswordConfirmationToken(
+            String username,
+            String passwordConfirmationToken,
+            DateTime tokenExpirationTime)
+        {
+            // Ensure we have a UnitOfWork
+            Guard.InvalidOperation((UnitOfWork == null), ExceptionMessages.UnitOfWorkIsNull);
+
+            // Validate parameters
+            Guard.ArgumentIsNotNullOrEmpty(passwordConfirmationToken, ExceptionMessages.PasswordConfirmationTokenMustBeSupplied);
+            Guard.ArgumentOutOfRange((tokenExpirationTime < DateTime.Now), "tokenExpirationTime", ExceptionMessages.TokenExpirationTimeMustBeSupplied);
+
+            // Create the stored precedure we will use
+            var procedure = new SetPasswordConfirmationTokenStoredProcedure(
+                username,
+                passwordConfirmationToken,
+                tokenExpirationTime);
+
+            try
+            {
+                var confirmedState = UnitOfWork.ExecuteScalarStoredProcedure<Int32>(procedure);
+            }
+            catch (SqlException sqEx)
+            {
+                throw SqlExceptionHelper.HandledKnownSqlExceptions(sqEx);
+            }
+            catch (Exception ex)
+            {
+                //TODO: Remove this 'catch' and rethrow once all debugging is complete
+                throw ex;
+            }
+        }
+
+        /// <summary>
         /// Updates the state of the password failure.
         /// </summary>
         /// <param name="username">The username.</param>
@@ -336,6 +430,8 @@ namespace Dibware.Template.Infrastructure.SqlDataAccess.Repositories
         {
             // Ensure we have a UnitOfWork
             Guard.InvalidOperation((UnitOfWork == null), ExceptionMessages.UnitOfWorkIsNull);
+
+            // Validate parameters
             Guard.ArgumentIsNotNullOrEmpty(username, ExceptionMessages.UsernameMustBeSupplied);
 
             // Create the stored precedure we will use
@@ -389,5 +485,6 @@ namespace Dibware.Template.Infrastructure.SqlDataAccess.Repositories
         // Ref:
         //  http://www.lucbos.net/2012/03/calling-stored-procedure-with-entity.html
         //  https://github.com/LucBos/GenericExtensionsEFCF
+
     }
 }

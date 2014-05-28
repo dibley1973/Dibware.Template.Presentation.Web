@@ -166,3 +166,44 @@ EXEC    sp_addmessage
     @severity =16, 
     @msgtext = N'Cannot update a term that has been active in the system. ', 
     @lang = 'us_english'
+
+
+-- That password reset token does not exist in the system. 
+SET @MessageNumber = 50009
+IF EXISTS (SELECT 1 FROM sys.messages WHERE message_id = @MessageNumber) BEGIN
+    EXEC    sp_dropmessage @msgnum = @MessageNumber, @lang = 'all'
+END
+EXEC    sp_addmessage 
+    @msgnum = @MessageNumber, 
+    @severity =16, 
+    @msgtext = N'That password reset token does not exist in the system. ', 
+    @lang = 'us_english'
+
+
+-- That password reset token exists multiple times in the system. 
+SET @MessageNumber = 50010
+IF EXISTS (SELECT 1 FROM sys.messages WHERE message_id = @MessageNumber) BEGIN
+    EXEC    sp_dropmessage @msgnum = @MessageNumber, @lang = 'all'
+END
+EXEC    sp_addmessage 
+    @msgnum = @MessageNumber, 
+    @severity =16, 
+    @msgtext = N'That password reset token exists multiple times in the system. ', 
+    @lang = 'us_english'
+
+
+-- That password reset token has expired. 
+SET @MessageNumber = 50011
+IF EXISTS (SELECT 1 FROM sys.messages WHERE message_id = @MessageNumber) BEGIN
+    EXEC    sp_dropmessage @msgnum = @MessageNumber, @lang = 'all'
+END
+EXEC    sp_addmessage 
+    @msgnum = @MessageNumber, 
+    @severity =16, 
+    @msgtext = N'That password reset token has expired. ', 
+    @lang = 'us_english'
+
+
+
+
+-- DECLARE @MessageNumber int;

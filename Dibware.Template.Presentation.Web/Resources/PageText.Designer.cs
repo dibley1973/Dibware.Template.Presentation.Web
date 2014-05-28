@@ -142,11 +142,29 @@ namespace Dibware.Template.Presentation.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Please fill in the form below to recover your password via email.
+        ///   Looks up a localized string similar to Please fill in your username below to receive an email with details how to recover your password..
         /// </summary>
         public static string RecoverPassword {
             get {
                 return ResourceManager.GetString("RecoverPassword", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to An email has been sent to your registered email address with a token that can be used to reset your password. This token expires in {0} minutes. Please check your email now..
+        /// </summary>
+        public static string RecoverPasswordEmailSent {
+            get {
+                return ResourceManager.GetString("RecoverPasswordEmailSent", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to We apologise if the password recovery process appears long and complicated, but we only have the best interests of your security in mind..
+        /// </summary>
+        public static string RecoverPasswordEmailSentApology {
+            get {
+                return ResourceManager.GetString("RecoverPasswordEmailSentApology", resourceCulture);
             }
         }
         

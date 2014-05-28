@@ -183,4 +183,7 @@
   <data name="DefaultApplicationStatusId" xml:space="preserve">
     <value>DefaultApplicationStatusId</value>
   </data>
+  <data name="TokenExpirationInMinutesFromNow" xml:space="preserve">
+    <value>TokenExpirationInMinutesFromNow</value>
+  </data>
 </root>

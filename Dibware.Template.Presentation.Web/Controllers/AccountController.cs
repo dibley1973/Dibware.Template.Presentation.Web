@@ -354,7 +354,7 @@ namespace Dibware.Template.Presentation.Web.Controllers
         [AllowAnonymous]
         public ActionResult RecoverPassword()
         {
-            var model = new RecoverPassword();
+            var model = new RecoverPasswordModel();
             return View(model);
         }
 
@@ -363,7 +363,7 @@ namespace Dibware.Template.Presentation.Web.Controllers
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
-        public ActionResult RecoverPassword(RecoverPassword model)
+        public ActionResult RecoverPassword(RecoverPasswordModel model)
         {
             // Check if the model is valid...
             var modelIsValid = ModelState.IsValid;
@@ -373,11 +373,36 @@ namespace Dibware.Template.Presentation.Web.Controllers
                 return View(ViewNames.RecoverPassword, model);
             }
 
+            var tokenExpirationInMinutesFromNow = 
+                Convert.ToInt32(
+                    ConfigurationManager.AppSettings[ConfigurationKeys.TokenExpirationInMinutesFromNow]);
+            WebSecurity.GeneratePasswordResetToken(
+                model.Username, tokenExpirationInMinutesFromNow);
 
-            return View(ViewNames.RecoverPassword, model);
+            // return a view confirming password reset email has been sent
+            var emailSentModel = new RecoverPasswordEmailSentModel
+            {
+                TokenExpirationInMinutesFromNow = tokenExpirationInMinutesFromNow
+            };
+            return View(ViewNames.RecoverPasswordEmailSent, emailSentModel);
         }
 
+        public ActionResult ResetPasswordWithToken(ResetPasswordWithTokenModel model)
+        {
+            // Check if the model is valid...
+            var modelIsValid = ModelState.IsValid;
+            if (!modelIsValid)
+            {
+                // ... it isn't so throw the user back out
+                return View(ViewNames.ResetPasswordWithToken, model);
+            }
 
+            WebSecurity.ResetPassword(model.PasswordResetToken, model.NewPassword);
+
+            // Return a view confirming password has been reset
+            var passwordResetModel = new PasswordResetModel();
+            return View(ViewNames.PasswordReset, passwordResetModel);
+        }
 
         //
         // GET: /Account/Register

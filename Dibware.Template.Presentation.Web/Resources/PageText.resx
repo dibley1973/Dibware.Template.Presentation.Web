@@ -145,7 +145,13 @@
     <value>Please log in with your new password</value>
   </data>
   <data name="RecoverPassword" xml:space="preserve">
-    <value>Please fill in the form below to recover your password via email</value>
+    <value>Please fill in your username below to receive an email with details how to recover your password.</value>
+  </data>
+  <data name="RecoverPasswordEmailSent" xml:space="preserve">
+    <value>An email has been sent to your registered email address with a token that can be used to reset your password. This token expires in {0} minutes. Please check your email now.</value>
+  </data>
+  <data name="RecoverPasswordEmailSentApology" xml:space="preserve">
+    <value>We apologise if the password recovery process appears long and complicated, but we only have the best interests of your security in mind.</value>
   </data>
   <data name="RegistrationSecurityApology" xml:space="preserve">
     <value>We apologise if the registration process appears long and complicated, but we only have the best interests of your security in mind.</value>

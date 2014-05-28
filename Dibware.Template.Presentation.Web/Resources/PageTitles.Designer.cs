@@ -169,6 +169,15 @@ namespace Dibware.Template.Presentation.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Recover Password - Email Sent.
+        /// </summary>
+        public static string RecoverPasswordEmailSent {
+            get {
+                return ResourceManager.GetString("RecoverPasswordEmailSent", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Register.
         /// </summary>
         public static string Register {

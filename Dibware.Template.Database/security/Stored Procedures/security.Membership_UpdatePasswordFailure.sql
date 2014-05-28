@@ -16,8 +16,7 @@ BEGIN
     WHERE
         [Username]      = @Username;
     
-    -- Update the 
-
+    -- Update the password failures
     UPDATE
         [security].[Membership]
     SET

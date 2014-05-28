@@ -5,24 +5,23 @@ using System.Collections.Generic;
 namespace Dibware.Template.Infrastructure.SqlDataAccess.StoredProcedures.Membership
 {
     /// <summary>
-    /// Represents the security.Membership_ChangePassword stored procedure
+    /// Represents the security.Membership_ResetPassword stored procedure
     /// </summary>
-    internal class ChangePasswordStoredProcedure : BaseMembershipStoredProcedure<Int32>, IStoredProcedure<Int32>
+    internal class ResetPasswordWithTokenStoredProcedure : BaseMembershipStoredProcedure<Int32>, IStoredProcedure<Int32>
     {
-        public const String ProcedureName = @"Membership_ChangePassword";
+        public const String ProcedureName = @"Membership_ResetPassword";
         public new const String ProcedureSchema = @"security";
 
         /// <summary>
         /// Initializes a new instance of the <see cref="ConfirmAccountStoredProcedure" /> class.
         /// </summary>
-        /// <param name="username">The username.</param>
+        /// <param name="passwordConfirmationToken">The password confirmation token.</param>
         /// <param name="newHashedPassword">The new hashed password.</param>
-        public ChangePasswordStoredProcedure(
-            String username,
-            String newHashedPassword)
+        public ResetPasswordWithTokenStoredProcedure(
+            String passwordConfirmationToken, String newHashedPassword)
             : base(ProcedureSchema, ProcedureName, new Dictionary<String, Object>()
                 {
-                    { "username", username },
+                    { "passwordConfirmationToken", passwordConfirmationToken },
                     { "newPassword", newHashedPassword }
                 })
         { }

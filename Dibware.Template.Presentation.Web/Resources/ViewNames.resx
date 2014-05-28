@@ -147,11 +147,20 @@
   <data name="Logout" xml:space="preserve">
     <value>Logout</value>
   </data>
+  <data name="PasswordReset" xml:space="preserve">
+    <value>PasswordReset</value>
+  </data>
   <data name="RecoverPassword" xml:space="preserve">
     <value>RecoverPassword</value>
   </data>
+  <data name="RecoverPasswordEmailSent" xml:space="preserve">
+    <value>RecoverPasswordEmailSent</value>
+  </data>
   <data name="Register" xml:space="preserve">
     <value>Register</value>
+  </data>
+  <data name="ResetPasswordWithToken" xml:space="preserve">
+    <value>ResetPasswordWithToken</value>
   </data>
   <data name="Status" xml:space="preserve">
     <value>Status</value>

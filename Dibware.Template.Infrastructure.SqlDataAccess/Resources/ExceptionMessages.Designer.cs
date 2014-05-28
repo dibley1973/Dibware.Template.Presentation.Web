@@ -88,6 +88,24 @@ namespace Dibware.Template.Infrastructure.SqlDataAccess.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to New password must be supplied.
+        /// </summary>
+        internal static string NewPasswordMustBeSupplied {
+            get {
+                return ResourceManager.GetString("NewPasswordMustBeSupplied", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Password confirmation token must be supplied.
+        /// </summary>
+        internal static string PasswordConfirmationTokenMustBeSupplied {
+            get {
+                return ResourceManager.GetString("PasswordConfirmationTokenMustBeSupplied", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to ProviderName must be supplied.
         /// </summary>
         internal static string ProviderNameMustBeSupplied {
@@ -102,6 +120,24 @@ namespace Dibware.Template.Infrastructure.SqlDataAccess.Resources {
         internal static string RoleNameMustBeSupplied {
             get {
                 return ResourceManager.GetString("RoleNameMustBeSupplied", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Token expiration time  must be supplied.
+        /// </summary>
+        internal static string TokenExpirationTimeMustBeSupplied {
+            get {
+                return ResourceManager.GetString("TokenExpirationTimeMustBeSupplied", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Token must be supplied.
+        /// </summary>
+        internal static string TokenMustBeSupplied {
+            get {
+                return ResourceManager.GetString("TokenMustBeSupplied", resourceCulture);
             }
         }
         

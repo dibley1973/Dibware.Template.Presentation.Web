@@ -153,6 +153,9 @@
   <data name="RecoverPassword" xml:space="preserve">
     <value>Recover Password</value>
   </data>
+  <data name="RecoverPasswordEmailSent" xml:space="preserve">
+    <value>Recover Password - Email Sent</value>
+  </data>
   <data name="Register" xml:space="preserve">
     <value>Register</value>
   </data>

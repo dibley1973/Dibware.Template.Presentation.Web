@@ -186,6 +186,7 @@
     <Content Include="Views\Account\RecoverPassword.cshtml" />
     <Content Include="connections.config" />
     <Content Include="Views\Shared\Status.cshtml" />
+    <Content Include="Views\Account\RecoverPasswordEmailSent.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -211,6 +212,9 @@
     <Compile Include="Composition\IApplicationConfigurationMapping.cs" />
     <Compile Include="Composition\IApplicationStatusProviderMapping.cs" />
     <Compile Include="Helpers\IpAddresshelper.cs" />
+    <Compile Include="Models\Account\PasswordResetModel.cs" />
+    <Compile Include="Models\Account\RecoverPasswordEmailSentModel.cs" />
+    <Compile Include="Models\Account\ResetPasswordWithTokenModel.cs" />
     <Compile Include="Models\Home\StatusViewModel.cs" />
     <Compile Include="Modules\ApplicationState\ApplicationStatus.cs" />
     <Compile Include="Modules\ApplicationState\ApplicationStatusAttribute.cs" />
@@ -248,7 +252,7 @@
     <Compile Include="Models\Account\IndexViewModel.cs" />
     <Compile Include="Models\Account\LoginViewModel.cs" />
     <Compile Include="Models\Account\LogoutViewModel.cs" />
-    <Compile Include="Models\Account\RecoverPassword.cs" />
+    <Compile Include="Models\Account\RecoverPasswordModel.cs" />
     <Compile Include="Models\Account\RegisterViewModel.cs" />
     <Compile Include="Models\Base\BaseViewModel.cs" />
     <Compile Include="Models\Error\ErrorViewModel.cs" />

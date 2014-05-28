@@ -126,11 +126,23 @@
   <data name="NewHashedPasswordMustBeSupplied" xml:space="preserve">
     <value>New hashed password must be supplied</value>
   </data>
+  <data name="NewPasswordMustBeSupplied" xml:space="preserve">
+    <value>New password must be supplied</value>
+  </data>
+  <data name="PasswordConfirmationTokenMustBeSupplied" xml:space="preserve">
+    <value>Password confirmation token must be supplied</value>
+  </data>
   <data name="ProviderNameMustBeSupplied" xml:space="preserve">
     <value>ProviderName must be supplied</value>
   </data>
   <data name="RoleNameMustBeSupplied" xml:space="preserve">
     <value>Rol name must be supplied</value>
+  </data>
+  <data name="TokenExpirationTimeMustBeSupplied" xml:space="preserve">
+    <value>Token expiration time  must be supplied</value>
+  </data>
+  <data name="TokenMustBeSupplied" xml:space="preserve">
+    <value>Token must be supplied</value>
   </data>
   <data name="UnitOfWorkIsNull" xml:space="preserve">
     <value>UnitOfWork must not be null</value>

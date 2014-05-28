@@ -125,6 +125,8 @@
     <Compile Include="StoredProcedures\Membership\CreateUserMembershipAndAccountStoredProcedure.cs" />
     <Compile Include="StoredProcedures\Membership\GetPasswordStoredProcedure.cs" />
     <Compile Include="StoredProcedures\Membership\IsConfirmedStoredProcedure.cs" />
+    <Compile Include="StoredProcedures\Membership\ResetPasswordWithTokenStoredProcedure.cs" />
+    <Compile Include="StoredProcedures\Membership\SetPasswordConfirmationTokenStoredProcedure.cs" />
     <Compile Include="StoredProcedures\Membership\UpdatePasswordFailureStateStoredProcedure.cs" />
     <Compile Include="StoredProcedures\Membership\UpdatePasswordSuccessStateStoredProcedure.cs" />
     <Compile Include="StoredProcedures\Membership\ValidateUserStoredProcedure.cs" />

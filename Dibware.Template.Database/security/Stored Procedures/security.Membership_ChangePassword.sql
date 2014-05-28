@@ -27,7 +27,7 @@ BEGIN
         RETURN -1;
     END
 
-	-- So we do have the user so update the stored procedure
+	-- So we do have the user so update the password
 	UPDATE
 		[security].[Membership]
 	SET

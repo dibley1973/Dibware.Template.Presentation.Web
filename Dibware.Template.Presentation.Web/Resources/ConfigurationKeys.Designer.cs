@@ -257,5 +257,14 @@ namespace Dibware.Template.Presentation.Web.Resources {
                 return ResourceManager.GetString("ShowDetailedErroMessages", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to TokenExpirationInMinutesFromNow.
+        /// </summary>
+        public static string TokenExpirationInMinutesFromNow {
+            get {
+                return ResourceManager.GetString("TokenExpirationInMinutesFromNow", resourceCulture);
+            }
+        }
     }
 }
