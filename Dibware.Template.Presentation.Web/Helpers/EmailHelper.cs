@@ -70,6 +70,48 @@ namespace Dibware.Template.Presentation.Web.Helpers
                 priority);
         }
 
+        public static void SendPasswordRecoveryEmail(
+            String userEmail,
+            String username,
+            String passwordRecoveryToken,
+            String relativeUrl)
+        {
+            // Get the application name from Web.config
+            var applicationName =
+                ConfigurationManager.AppSettings[ConfigurationKeys.ApplicationTitle];
+
+            // Get the application domain from Web.config
+            var domain =
+                ConfigurationManager.AppSettings[ConfigurationKeys.ApplicationDomain];
+
+            // Create the return web address link
+            var returnLink = LinkHelper.CreateLink(domain, relativeUrl);
+
+            // Create the email body text
+            var bodyText =
+                EmailContentHelper.CreatePasswordRecoveryEmailBodyText(
+                    username,
+                    applicationName,
+                    passwordRecoveryToken,
+                    returnLink);
+
+            // Create the email subject
+            var subjectText =
+                EmailContentHelper.CreatePasswordRecoveryEmailSubjectText(
+                username,
+                applicationName);
+
+            // Set the email priority
+            var priority = EmailHelper.EmailPriority.High;
+
+            // Send the email
+            EmailHelper.SendHtmlEmail(
+                userEmail,
+                subjectText,
+                bodyText,
+                priority);
+        }
+
 
         /// <summary>
         /// Sends an HTML email. Wraps up WebMail.Send()

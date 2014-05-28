@@ -68,5 +68,14 @@ namespace Dibware.Template.Presentation.Web.Resources.Emailing {
                 return ResourceManager.GetString("AccountConfirmation", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;p&gt;Hi {1}, &lt;/p&gt;{0}&lt;p&gt;Please use the token below to recover your {2} password&lt;/p&gt;&lt;p&gt;{3}&lt;/p&gt;&lt;p&gt;You can click the link below to return to the website to enter the token. &lt;a href=&quot;{4}&quot; &gt;{4}&lt;/a&gt; or copy and paste the link into your browser. &lt;/p&gt;{0}&lt;p&gt;Best regards, &lt;/p&gt;{0}&lt;p&gt;The {2} team.&lt;/p&gt;.
+        /// </summary>
+        internal static string PasswordRecovery {
+            get {
+                return ResourceManager.GetString("PasswordRecovery", resourceCulture);
+            }
+        }
     }
 }

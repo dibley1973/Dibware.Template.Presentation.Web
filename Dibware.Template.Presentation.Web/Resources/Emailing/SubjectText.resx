@@ -120,4 +120,7 @@
   <data name="AccountConfirmation" xml:space="preserve">
     <value>{0} please confirm your {1} account</value>
   </data>
+  <data name="PasswordRecovery" xml:space="preserve">
+    <value>{0}, Recover your {1} password</value>
+  </data>
 </root>

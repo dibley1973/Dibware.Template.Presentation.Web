@@ -120,4 +120,7 @@
   <data name="AccountConfirmation" xml:space="preserve">
     <value>&lt;p&gt;Hi {1}, &lt;/p&gt;{0}&lt;p&gt;Please confirm your {2} account using the following token: &lt;/p&gt;&lt;p&gt;{3}&lt;/p&gt;{0}&lt;p&gt;You can click the link below to return to the website to enter the token. &lt;a href="{4}" &gt;{4}&lt;/a&gt; or copy and paste the link into your browser. &lt;/p&gt;{0}&lt;p&gt;Best regards, &lt;/p&gt;{0}&lt;p&gt;The {2} team.&lt;/p&gt;</value>
   </data>
+  <data name="PasswordRecovery" xml:space="preserve">
+    <value>&lt;p&gt;Hi {1}, &lt;/p&gt;{0}&lt;p&gt;Please use the token below to recover your {2} password&lt;/p&gt;&lt;p&gt;{3}&lt;/p&gt;&lt;p&gt;You can click the link below to return to the website to enter the token. &lt;a href="{4}" &gt;{4}&lt;/a&gt; or copy and paste the link into your browser. &lt;/p&gt;{0}&lt;p&gt;Best regards, &lt;/p&gt;{0}&lt;p&gt;The {2} team.&lt;/p&gt;</value>
+  </data>
 </root>

@@ -373,13 +373,37 @@ namespace Dibware.Template.Presentation.Web.Controllers
                 return View(ViewNames.RecoverPassword, model);
             }
 
+            // Get the password reset token expiry period in minutes from the config
             var tokenExpirationInMinutesFromNow = 
                 Convert.ToInt32(
                     ConfigurationManager.AppSettings[ConfigurationKeys.TokenExpirationInMinutesFromNow]);
-            WebSecurity.GeneratePasswordResetToken(
+
+            // Get a newly generated password reset token
+            var passwordResetToken = WebSecurity.GeneratePasswordResetToken(
                 model.Username, tokenExpirationInMinutesFromNow);
 
-            // return a view confirming password reset email has been sent
+            //TODO: complete...
+            //var emailAddress = WebSecurity.GetEmailFor(...)
+            var emailAddress = "";
+
+            // Create the return relative url
+            var relativeUrl = Url.Action(
+                ViewNames.ResetPasswordWithToken,
+                ControllerNames.Account,
+                new
+                {
+                    username = model.Username,
+                    passwordResetToken = passwordResetToken
+                });
+
+            // Send confirmation email to new registerant
+            EmailHelper.SendPasswordRecoveryEmail(
+                emailAddress,
+                model.Username,
+                passwordResetToken,
+                relativeUrl);
+
+            // Return a view confirming password reset email has been sent
             var emailSentModel = new RecoverPasswordEmailSentModel
             {
                 TokenExpirationInMinutesFromNow = tokenExpirationInMinutesFromNow

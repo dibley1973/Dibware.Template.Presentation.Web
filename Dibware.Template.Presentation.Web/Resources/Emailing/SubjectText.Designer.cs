@@ -68,5 +68,14 @@ namespace Dibware.Template.Presentation.Web.Resources.Emailing {
                 return ResourceManager.GetString("AccountConfirmation", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {0}, Recover your {1} password.
+        /// </summary>
+        internal static string PasswordRecovery {
+            get {
+                return ResourceManager.GetString("PasswordRecovery", resourceCulture);
+            }
+        }
     }
 }
