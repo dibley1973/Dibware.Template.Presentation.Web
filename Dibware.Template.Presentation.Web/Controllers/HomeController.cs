@@ -11,31 +11,31 @@ namespace Dibware.Template.Presentation.Web.Controllers
     {
         #region Declarations
 
-        //private ITermAndConditionService _termAndConditionService;
+        private ITermAndConditionService _termAndConditionService;
 
         #endregion
 
         #region Constructors
 
-        /// <summary>
-        /// Initializes a new instance of the <see cref="AccountController"/> class.
-        /// </summary>
-        /// <param name="lookupService">The lookup service.</param>
-        public HomeController(ILookupService lookupService)
-            : base(lookupService) { }
-
-        //TODO: swap constructors when all service code is complete...
-        //
         ///// <summary>
         ///// Initializes a new instance of the <see cref="AccountController"/> class.
         ///// </summary>
         ///// <param name="lookupService">The lookup service.</param>
-        //public HomeController(ILookupService lookupService,
-        //    ITermAndConditionService termAndConditionService)
-        //    : base(lookupService)
-        //{
-        //    _termAndConditionService = termAndConditionService;
-        //}
+        //public HomeController(ILookupService lookupService)
+        //    : base(lookupService) { }
+
+        //TODO: swap constructors when all service code is complete...
+        //
+        /// <summary>
+        /// Initializes a new instance of the <see cref="AccountController"/> class.
+        /// </summary>
+        /// <param name="lookupService">The lookup service.</param>
+        public HomeController(ILookupService lookupService,
+            ITermAndConditionService termAndConditionService)
+            : base(lookupService)
+        {
+            _termAndConditionService = termAndConditionService;
+        }
 
         #endregion
 
@@ -84,10 +84,10 @@ namespace Dibware.Template.Presentation.Web.Controllers
         [AllowAnonymous]
         public ActionResult Terms()
         {
-            var model = new TermsViewModel();
-            //{
-            //    CurrentTerms = _termAndConditionService.GetCurrent()
-            //};
+            var model = new TermsViewModel()
+            {
+                CurrentTerms = _termAndConditionService.GetCurrent()
+            };
             return View(ViewNames.Terms, model);
         }
 

@@ -151,15 +151,6 @@ namespace Dibware.Template.Presentation.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to PasswordReset.
-        /// </summary>
-        internal static string PasswordReset {
-            get {
-                return ResourceManager.GetString("PasswordReset", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to RecoverPassword.
         /// </summary>
         internal static string RecoverPassword {
@@ -183,6 +174,15 @@ namespace Dibware.Template.Presentation.Web.Resources {
         internal static string Register {
             get {
                 return ResourceManager.GetString("Register", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ResetPasswordConfirmed.
+        /// </summary>
+        internal static string ResetPasswordConfirmed {
+            get {
+                return ResourceManager.GetString("ResetPasswordConfirmed", resourceCulture);
             }
         }
         

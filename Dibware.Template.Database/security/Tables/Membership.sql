@@ -27,14 +27,14 @@
 );
 
 
-
-
-
-
-
-
 GO
 GRANT SELECT
     ON OBJECT::[security].[Membership] TO [UnauthorisedRole]
     AS [dbo];
 
+
+GO
+GRANT UPDATE
+    ON OBJECT::[security].[Membership] TO [MainRole]
+    AS [dbo];
+GO

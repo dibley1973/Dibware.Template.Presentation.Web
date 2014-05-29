@@ -48,7 +48,7 @@ BEGIN
         FROM    [security].[Membership]
         WHERE   [PasswordVerificationToken] = @PasswordConfirmationToken
     );
-    IF (GETDATE() < @TokenExpiry) BEGIN
+    IF (@TokenExpiry < GETDATE()) BEGIN
         RAISERROR (
             50011,  -- Password reset token has expired. 
             16,     -- Severity,

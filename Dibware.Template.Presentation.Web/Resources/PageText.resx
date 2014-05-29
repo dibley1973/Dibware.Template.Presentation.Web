@@ -118,7 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="ChangePasswordConfirmed" xml:space="preserve">
-    <value>Your password was successfully changed</value>
+    <value>Your password was successfully changed. Please now log in with your new credentials.</value>
   </data>
   <data name="ConfirmAccount" xml:space="preserve">
     <value>Please enter your username and confirmation token in the boxes below</value>

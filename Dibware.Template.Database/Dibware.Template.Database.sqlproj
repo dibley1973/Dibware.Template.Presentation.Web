@@ -225,7 +225,10 @@
       <QuotedIdentifier>On</QuotedIdentifier>
     </Build>
     <Build Include="security\Stored Procedures\security.Membership_SetPasswordConfirmationToken.sql" />
-    <Build Include="security\Stored Procedures\security.Membership_ResetPassword.sql" />
+    <Build Include="security\Stored Procedures\security.Membership_ResetPassword.sql">
+      <AnsiNulls>Off</AnsiNulls>
+      <QuotedIdentifier>Off</QuotedIdentifier>
+    </Build>
   </ItemGroup>
   <ItemGroup>
     <RefactorLog Include="Dibware.Template.Database.refactorlog" />

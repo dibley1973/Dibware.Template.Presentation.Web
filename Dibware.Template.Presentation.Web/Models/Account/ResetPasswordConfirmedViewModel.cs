@@ -2,7 +2,7 @@
 
 namespace Dibware.Template.Presentation.Web.Models.Account
 {
-    public class PasswordResetViewModel : BaseViewModel
+    public class ResetPasswordConfirmedViewModel : BaseViewModel
     {
     }
 }

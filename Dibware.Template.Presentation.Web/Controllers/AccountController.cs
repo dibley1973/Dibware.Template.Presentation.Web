@@ -445,8 +445,8 @@ namespace Dibware.Template.Presentation.Web.Controllers
             WebSecurity.ResetPassword(model.PasswordResetToken, model.NewPassword);
 
             // Return a view confirming password has been reset
-            var passwordResetModel = new PasswordResetViewModel();
-            return View(ViewNames.PasswordReset, passwordResetModel);
+            var passwordResetModel = new ResetPasswordConfirmedViewModel();
+            return View(ViewNames.ResetPasswordConfirmed, passwordResetModel);
         }
 
         //

@@ -188,6 +188,7 @@
     <Content Include="Views\Shared\Status.cshtml" />
     <Content Include="Views\Account\RecoverPasswordEmailSent.cshtml" />
     <Content Include="Views\Account\ResetPasswordWithToken.cshtml" />
+    <Content Include="Views\Account\ResetPasswordConfirmed.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -213,7 +214,7 @@
     <Compile Include="Composition\IApplicationConfigurationMapping.cs" />
     <Compile Include="Composition\IApplicationStatusProviderMapping.cs" />
     <Compile Include="Helpers\IpAddresshelper.cs" />
-    <Compile Include="Models\Account\PasswordResetViewModel.cs" />
+    <Compile Include="Models\Account\ResetPasswordConfirmedViewModel.cs" />
     <Compile Include="Models\Account\RecoverPasswordEmailSentModel.cs" />
     <Compile Include="Models\Account\ResetPasswordWithTokenViewModel.cs" />
     <Compile Include="Models\Home\StatusViewModel.cs" />

@@ -112,9 +112,9 @@ namespace Dibware.Template.Infrastructure.SqlDataAccess.UnitOfWork
             {
                 throw dbException;
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                throw;
+                throw ex;
             }
         }
 

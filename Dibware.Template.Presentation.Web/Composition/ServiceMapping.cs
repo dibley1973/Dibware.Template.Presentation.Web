@@ -49,6 +49,10 @@ namespace Dibware.Template.Presentation.Web.Composition
             Bind<IErrorService>()
                 .To<ErrorService>()
                 .InRequestScope();
+
+            Bind<ITermAndConditionService>()
+                .To<TermAndConditionService>()
+                .InRequestScope();
         }
     }
 }

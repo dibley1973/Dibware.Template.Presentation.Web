@@ -61,7 +61,7 @@ namespace Dibware.Template.Presentation.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Your password was successfully changed.
+        ///   Looks up a localized string similar to Your password was successfully changed. Please now log in with your new credentials..
         /// </summary>
         public static string ChangePasswordConfirmed {
             get {

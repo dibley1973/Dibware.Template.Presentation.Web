@@ -68,6 +68,7 @@
     <Compile Include="Services\ErrorService.cs" />
     <Compile Include="Services\LookupService.cs" />
     <Compile Include="Services\PasswordService.cs" />
+    <Compile Include="Services\TermAndConditionService.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Dibware.Template.Core.Domain\Dibware.Template.Core.Domain.csproj">
