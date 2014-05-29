@@ -24,6 +24,7 @@ namespace Dibware.Template.Infrastructure.SqlDataAccess.StoredProcedures.Members
             DateTime tokenExpirationTime)
             : base(ProcedureSchema, ProcedureName, new Dictionary<String, Object>()
                 {
+                    { "username", username },
                     { "passwordConfirmationToken", passwordConfirmationToken },
                     { "tokenExpirationTime", tokenExpirationTime }
                 })

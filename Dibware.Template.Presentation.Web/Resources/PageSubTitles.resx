@@ -141,4 +141,7 @@
   <data name="Register" xml:space="preserve">
     <value>Register for a new account</value>
   </data>
+  <data name="ResetPasswordWithTokenModel" xml:space="preserve">
+    <value>Change your password</value>
+  </data>
 </root>

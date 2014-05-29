@@ -354,7 +354,7 @@ namespace Dibware.Template.Presentation.Web.Controllers
         [AllowAnonymous]
         public ActionResult RecoverPassword()
         {
-            var model = new RecoverPasswordModel();
+            var model = new RecoverPasswordViewModel();
             return View(model);
         }
 
@@ -363,7 +363,7 @@ namespace Dibware.Template.Presentation.Web.Controllers
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
-        public ActionResult RecoverPassword(RecoverPasswordModel model)
+        public ActionResult RecoverPassword(RecoverPasswordViewModel model)
         {
             // Check if the model is valid...
             var modelIsValid = ModelState.IsValid;
@@ -374,7 +374,7 @@ namespace Dibware.Template.Presentation.Web.Controllers
             }
 
             // Get the password reset token expiry period in minutes from the config
-            var tokenExpirationInMinutesFromNow = 
+            var tokenExpirationInMinutesFromNow =
                 Convert.ToInt32(
                     ConfigurationManager.AppSettings[ConfigurationKeys.TokenExpirationInMinutesFromNow]);
 
@@ -382,9 +382,9 @@ namespace Dibware.Template.Presentation.Web.Controllers
             var passwordResetToken = WebSecurity.GeneratePasswordResetToken(
                 model.Username, tokenExpirationInMinutesFromNow);
 
-            //TODO: complete...
-            //var emailAddress = WebSecurity.GetEmailFor(...)
-            var emailAddress = "";
+            // Get user's email address
+            var user = Membership.GetUser(model.Username);
+            var emailAddress = user.Email;
 
             // Create the return relative url
             var relativeUrl = Url.Action(
@@ -411,7 +411,28 @@ namespace Dibware.Template.Presentation.Web.Controllers
             return View(ViewNames.RecoverPasswordEmailSent, emailSentModel);
         }
 
-        public ActionResult ResetPasswordWithToken(ResetPasswordWithTokenModel model)
+        //
+        // GET: /Account/ResetPasswordWithToken
+        [HttpGet]
+        [AllowAnonymous]
+        public ActionResult ResetPasswordWithToken(String username, String passwordResetToken)
+        {
+            //if(String.IsNullOrEmpty(passwordResetToken))
+            //{
+
+            //}
+            ResetPasswordWithTokenViewModel model = new ResetPasswordWithTokenViewModel
+            {
+                PasswordResetToken = passwordResetToken
+            };
+            return View(ViewNames.ResetPasswordWithToken, model);
+        }
+
+        //
+        // POST: /Account/ResetPasswordWithToken
+        [HttpPost]
+        [AllowAnonymous]
+        public ActionResult ResetPasswordWithToken(ResetPasswordWithTokenViewModel model)
         {
             // Check if the model is valid...
             var modelIsValid = ModelState.IsValid;
@@ -424,7 +445,7 @@ namespace Dibware.Template.Presentation.Web.Controllers
             WebSecurity.ResetPassword(model.PasswordResetToken, model.NewPassword);
 
             // Return a view confirming password has been reset
-            var passwordResetModel = new PasswordResetModel();
+            var passwordResetModel = new PasswordResetViewModel();
             return View(ViewNames.PasswordReset, passwordResetModel);
         }
 

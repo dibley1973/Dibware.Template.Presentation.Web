@@ -1,9 +1,10 @@
-﻿using System;
+﻿using Dibware.Template.Presentation.Web.Models.Base;
+using System;
 using System.ComponentModel.DataAnnotations;
 
 namespace Dibware.Template.Presentation.Web.Models.Account
 {
-    public class ResetPasswordWithTokenModel
+    public class ResetPasswordWithTokenViewModel : BaseViewModel
     {
         [Required]
         [Display(Name = "Password Reset Token")]

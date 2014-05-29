@@ -159,6 +159,9 @@
   <data name="Register" xml:space="preserve">
     <value>Register</value>
   </data>
+  <data name="ResetPasswordWithTokenModel" xml:space="preserve">
+    <value>Reset Password</value>
+  </data>
   <data name="ServiceUnavailable" xml:space="preserve">
     <value>Service Is Unavailable</value>
   </data>

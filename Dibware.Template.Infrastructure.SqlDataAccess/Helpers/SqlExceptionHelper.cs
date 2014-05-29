@@ -32,6 +32,13 @@ namespace Dibware.Template.Infrastructure.SqlDataAccess.Helpers
                 case SqlExceptionNumbers.UserNameAlreadyExists:
                 case SqlExceptionNumbers.MembershipHasAlreadyConfirmed:
                 case SqlExceptionNumbers.UsernameDoesNotExist:
+                case SqlExceptionNumbers.NoCurrentTermfoundInSystem:
+                case SqlExceptionNumbers.TermDoesNotExistInSystem:
+                case SqlExceptionNumbers.CannotDeleteTermThatIsActive:
+                case SqlExceptionNumbers.CannotUpdateTermThatIsActive:
+                case SqlExceptionNumbers.PasswordResetTokenDoesNotExist:
+                case SqlExceptionNumbers.PasswordResetTokenExistsInMultiple:
+                case SqlExceptionNumbers.PasswordResetTokenExpired:
                     // ...return them as ValidationExceptions
                     return new ValidationException(exception.Message, exception);
 

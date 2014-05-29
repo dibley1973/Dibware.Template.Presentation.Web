@@ -187,6 +187,15 @@ namespace Dibware.Template.Presentation.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Reset Password.
+        /// </summary>
+        public static string ResetPasswordWithTokenModel {
+            get {
+                return ResourceManager.GetString("ResetPasswordWithTokenModel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Service Is Unavailable.
         /// </summary>
         public static string ServiceUnavailable {

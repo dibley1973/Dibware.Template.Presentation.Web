@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Dibware.Template.Presentation.Web.Models.Account
 {
-    public class RecoverPasswordModel : BaseViewModel
+    public class RecoverPasswordViewModel : BaseViewModel
     {
         [Required]
         [Display(Name = "User name")]

@@ -131,5 +131,14 @@ namespace Dibware.Template.Presentation.Web.Resources {
                 return ResourceManager.GetString("Register", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Change your password.
+        /// </summary>
+        public static string ResetPasswordWithTokenModel {
+            get {
+                return ResourceManager.GetString("ResetPasswordWithTokenModel", resourceCulture);
+            }
+        }
     }
 }
