@@ -129,8 +129,8 @@
     <Compile Include="StoredProcedures\Membership\SetPasswordConfirmationTokenStoredProcedure.cs" />
     <Compile Include="StoredProcedures\Membership\UpdatePasswordFailureStateStoredProcedure.cs" />
     <Compile Include="StoredProcedures\Membership\UpdatePasswordSuccessStateStoredProcedure.cs" />
-    <Compile Include="StoredProcedures\Membership\ValidateUserStoredProcedure.cs" />
     <Compile Include="StoredProcedures\Roles\GetRolesForUserStoredProcedure.cs" />
+    <Compile Include="StoredProcedures\Terms\GetCurrentTermsStoredProcedure.cs" />
     <Compile Include="UnitOfWork\Configuration\ErrorConfiguration.cs" />
     <Compile Include="UnitOfWork\Configuration\PasswordStrengthRuleConfiguration.cs" />
     <Compile Include="UnitOfWork\Configuration\RoleConfiguration.cs" />

@@ -132,7 +132,9 @@
     <Build Include="security\Stored Procedures\security.Role_Insert.sql" />
     <Build Include="security\security.sql" />
     <Build Include="security\Tables\UsersInRoles.sql" />
-    <Build Include="security\Tables\Membership.sql" />
+    <Build Include="security\Tables\Membership.sql">
+      <AnsiNulls>Off</AnsiNulls>
+    </Build>
     <Build Include="security\UnauthorisedRole.sql" />
     <Build Include="security\AppUnauthorisedUser.sql" />
     <Build Include="security\Tables\OAuthMembership.sql" />
@@ -216,7 +218,10 @@
       <AnsiNulls>On</AnsiNulls>
       <QuotedIdentifier>On</QuotedIdentifier>
     </Build>
-    <Build Include="application\Stored Procedures\application.TermAndCondition_GetCurrent.sql" />
+    <Build Include="application\Stored Procedures\application.TermAndCondition_GetCurrent.sql">
+      <AnsiNulls>Off</AnsiNulls>
+      <QuotedIdentifier>Off</QuotedIdentifier>
+    </Build>
     <Build Include="application\Stored Procedures\application.TermAndCondition_Insert.sql" />
     <Build Include="application\Stored Procedures\application.TermAndCondition_Update.sql" />
     <Build Include="application\Stored Procedures\application.TermAndCondition_Delete.sql" />

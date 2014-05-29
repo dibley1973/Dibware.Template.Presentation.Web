@@ -1,7 +1,12 @@
-﻿using Dibware.Template.Core.Domain.Contracts.Repositories;
+﻿using Dibware.Helpers.Validation;
+using Dibware.Template.Core.Domain.Contracts.Repositories;
 using Dibware.Template.Core.Domain.Contracts.UnitOfWork;
 using Dibware.Template.Core.Domain.Entities.Application;
 using Dibware.Template.Infrastructure.SqlDataAccess.Base;
+using Dibware.Template.Infrastructure.SqlDataAccess.Resources;
+using Dibware.Template.Infrastructure.SqlDataAccess.StoredProcedures.Terms;
+using System;
+using System.Linq;
 
 namespace Dibware.Template.Infrastructure.SqlDataAccess.Repositories
 {
@@ -25,7 +30,21 @@ namespace Dibware.Template.Infrastructure.SqlDataAccess.Repositories
         /// <exception cref="System.NotImplementedException"></exception>
         public TermAndCondition GetCurrent()
         {
-            throw new System.NotImplementedException();
+            // Ensure we have a UnitOfWork
+            Guard.InvalidOperation((UnitOfWork == null), ExceptionMessages.UnitOfWorkIsNull);
+
+            try
+            {
+                var procedure = new GetCurrentTermsStoredProcedure();
+                var results = UnitOfWork.ExecuteStoredProcedure<TermAndCondition>(procedure);
+                var returnValue = results.FirstOrDefault();
+                return returnValue;
+            }
+            catch (Exception ex)
+            {
+                //TODO: Remove this 'catch' and rethrow once all debuggung is complete
+                throw ex;
+            }
         }
     }
 }

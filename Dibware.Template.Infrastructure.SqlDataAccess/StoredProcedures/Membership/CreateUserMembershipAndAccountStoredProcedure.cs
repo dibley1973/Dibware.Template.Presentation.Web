@@ -1,5 +1,6 @@
 ﻿using Dibware.EF.Extensions.Base;
 using Dibware.EF.Extensions.Contracts;
+using Dibware.Template.Infrastructure.SqlDataAccess.Resources;
 using System;
 using System.Collections.Generic;
 
@@ -11,7 +12,7 @@ namespace Dibware.Template.Infrastructure.SqlDataAccess.StoredProcedures.Members
     public class CreateUserMembershipAndAccountStoredProcedure : BaseStoredProcedure<String>, IStoredProcedure<String>
     {
         public const String ProcedureName = @"Membership_CreateUserMembershipAndAccount";
-        public const String ProcedureSchema = @"security";
+        
 
         /// <summary>
         /// Initializes a new instance of the <see cref="CreateUserMembershipAndAccountStoredProcedure" /> class.
@@ -26,7 +27,7 @@ namespace Dibware.Template.Infrastructure.SqlDataAccess.StoredProcedures.Members
             String password,
             String emailAddress,
             String confirmationToken)
-            : base(ProcedureSchema, ProcedureName, new Dictionary<String, Object>()
+            : base(SchemaNames.Security, ProcedureName, new Dictionary<String, Object>()
                 {
                     { "username", username },
                     { "name", name },

@@ -1,4 +1,4 @@
-﻿CREATE PROCEDURE [application].[TermAndCondition_GetCurrent]
+CREATE PROCEDURE [application].[TermAndCondition_GetCurrent]
 AS
 BEGIN
 	-- SET NOCOUNT ON added to prevent extra result sets from
@@ -43,3 +43,13 @@ BEGIN
     END
 END
 GO
+GRANT EXECUTE
+    ON OBJECT::[application].[TermAndCondition_GetCurrent] TO [UnauthorisedRole]
+    AS [dbo];
+
+
+GO
+GRANT EXECUTE
+    ON OBJECT::[application].[TermAndCondition_GetCurrent] TO [MainRole]
+    AS [dbo];
+
