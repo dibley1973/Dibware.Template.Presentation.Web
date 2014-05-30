@@ -13,7 +13,7 @@ namespace Dibware.Template.Infrastructure.SqlDataAccessTests.Repositories
     [TestClass]
     public class StatusRepositoryTest
     {
-        #region Declarations
+        #region Private Members
 
         private WebsiteDbContext _unitOfWork;
 

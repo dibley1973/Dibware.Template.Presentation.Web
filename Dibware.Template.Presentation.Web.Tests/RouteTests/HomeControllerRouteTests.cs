@@ -12,7 +12,7 @@ namespace Dibware.Template.Presentation.Web.Tests.RouteTests
     [TestClass]
     public class HomeControllerRouteTests
     {
-        #region Declarations
+        #region Private Members
 
         private RouteCollection _routes;
 

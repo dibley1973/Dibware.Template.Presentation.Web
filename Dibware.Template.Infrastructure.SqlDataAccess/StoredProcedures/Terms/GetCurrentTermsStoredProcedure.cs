@@ -12,7 +12,6 @@ namespace Dibware.Template.Infrastructure.SqlDataAccess.StoredProcedures.Terms
     public class GetCurrentTermsStoredProcedure : BaseStoredProcedure<TermAndCondition>, IStoredProcedure<TermAndCondition>
     {
         public const String ProcedureName = @"TermAndCondition_GetCurrent";
-        //public const String ProcedureSchema = @"application";
 
         /// <summary>
         /// Initializes a new instance of the <see cref="GetPasswordStoredProcedure"/> class.

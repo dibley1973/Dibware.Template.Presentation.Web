@@ -70,6 +70,7 @@
     <Compile Include="Contracts\Repositories\Base\IRepository.cs" />
     <Compile Include="Contracts\Repositories\IErrorRepository.cs" />
     <Compile Include="Contracts\Repositories\IMembershipRepository.cs" />
+    <Compile Include="Contracts\Repositories\INotificationRepository.cs" />
     <Compile Include="Contracts\Repositories\IPasswordStrengthRuleRepository.cs" />
     <Compile Include="Contracts\Repositories\IRoleRepository.cs" />
     <Compile Include="Contracts\Repositories\IStatusRepository.cs" />
@@ -79,6 +80,7 @@
     <Compile Include="Contracts\Services\IDataService.cs" />
     <Compile Include="Contracts\Services\IErrorService.cs" />
     <Compile Include="Contracts\Services\ILookupService.cs" />
+    <Compile Include="Contracts\Services\INotificationService.cs" />
     <Compile Include="Contracts\Services\IPasswordService.cs" />
     <Compile Include="Contracts\Services\ITermAndConditionService.cs" />
     <Compile Include="Contracts\UnitOfWork\IUnitOfWork.cs" />
@@ -87,6 +89,7 @@
     <Compile Include="Contracts\UnitOfWork\IUnitOfWorkInRequestScope.cs" />
     <Compile Include="Entities\Accounting\AccountStatusChangeRule.cs" />
     <Compile Include="Entities\Application\Error.cs" />
+    <Compile Include="Entities\Application\Notification.cs" />
     <Compile Include="Entities\Application\Status.cs" />
     <Compile Include="Entities\Application\TermAndCondition.cs" />
     <Compile Include="Entities\Base\BaseEntity.cs" />

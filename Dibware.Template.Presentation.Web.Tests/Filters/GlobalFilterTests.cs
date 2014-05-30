@@ -8,7 +8,7 @@ namespace Dibware.Template.Presentation.Web.Tests.Filters
     [TestClass]
     public class GlobalFilterTests
     {
-        #region Declarations
+        #region Private Members
 
         private GlobalFilterCollection _filters;
 

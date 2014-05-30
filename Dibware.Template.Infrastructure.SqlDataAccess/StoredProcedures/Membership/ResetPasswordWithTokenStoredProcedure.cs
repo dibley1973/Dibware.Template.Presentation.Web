@@ -1,4 +1,5 @@
 ﻿using Dibware.EF.Extensions.Contracts;
+using Dibware.Template.Infrastructure.SqlDataAccess.Resources;
 using System;
 using System.Collections.Generic;
 
@@ -10,7 +11,6 @@ namespace Dibware.Template.Infrastructure.SqlDataAccess.StoredProcedures.Members
     internal class ResetPasswordWithTokenStoredProcedure : BaseMembershipStoredProcedure<Int32>, IStoredProcedure<Int32>
     {
         public const String ProcedureName = @"Membership_ResetPassword";
-        public new const String ProcedureSchema = @"security";
 
         /// <summary>
         /// Initializes a new instance of the <see cref="ConfirmAccountStoredProcedure" /> class.
@@ -19,7 +19,7 @@ namespace Dibware.Template.Infrastructure.SqlDataAccess.StoredProcedures.Members
         /// <param name="newHashedPassword">The new hashed password.</param>
         public ResetPasswordWithTokenStoredProcedure(
             String passwordConfirmationToken, String newHashedPassword)
-            : base(ProcedureSchema, ProcedureName, new Dictionary<String, Object>()
+            : base(SchemaNames.Security, ProcedureName, new Dictionary<String, Object>()
                 {
                     { "passwordConfirmationToken", passwordConfirmationToken },
                     { "newPassword", newHashedPassword }

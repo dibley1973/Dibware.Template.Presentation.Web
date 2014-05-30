@@ -141,6 +141,9 @@
   <data name="Notes" xml:space="preserve">
     <value>Notes</value>
   </data>
+  <data name="NotificationId" xml:space="preserve">
+    <value>NotificationId</value>
+  </data>
   <data name="Password" xml:space="preserve">
     <value>Password</value>
   </data>

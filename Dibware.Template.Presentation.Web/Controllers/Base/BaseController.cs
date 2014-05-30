@@ -1,4 +1,7 @@
-﻿using Dibware.Template.Presentation.Web.Models.Base;
+﻿using Dibware.Helpers.Validation;
+using Dibware.Template.Core.Domain.Contracts.Services;
+using Dibware.Template.Core.Domain.Entities.Application;
+using Dibware.Template.Presentation.Web.Models.Base;
 using Dibware.Template.Presentation.Web.Modules.ApplicationState;
 using Dibware.Template.Presentation.Web.Modules.Authentication;
 using Dibware.Template.Presentation.Web.Modules.Configuration;
@@ -19,6 +22,10 @@ namespace Dibware.Template.Presentation.Web.Controllers.Base
     [BlockSiteAccessOnTestingAttribute]
     public class BaseController : Controller
     {
+        #region Constructors
+
+        #endregion
+
         //public BaseController(IApplicationStatusProvider applicationStatusProvider)
         //{
         //    ApplicationStatusProvider = applicationStatusProvider;
@@ -54,6 +61,15 @@ namespace Dibware.Template.Presentation.Web.Controllers.Base
         //[Inject] //TODO: This does not work!
         public IApplicationStatusProvider ApplicationStatusProvider { get; private set; }
 
+        /// <summary>
+        /// Gets or sets the notification service.
+        /// </summary>
+        /// <value>
+        /// The notification service.
+        /// </value>
+        [Inject]
+        public INotificationService NotificationService { get; set; }
+
         #endregion
 
         /// <summary>
@@ -87,6 +103,11 @@ namespace Dibware.Template.Presentation.Web.Controllers.Base
             if (model.HasCustomColourTheme)
             {
                 FillListWithColourThemeStylesheetBundlePaths(model.StylesheetBundlePathList, model.CustomColourTheme);
+            }
+
+            if (user.Identity.IsAuthenticated)
+            {
+                FillNotificationList(user.Name, model.Notifications, NotificationService);
             }
         }
 
@@ -146,6 +167,27 @@ namespace Dibware.Template.Presentation.Web.Controllers.Base
                 default:
                     throw new ArgumentOutOfRangeException(ExceptionMessages.UnexpectedCustomThemeNameEncountered);
             }
+        }
+
+        /// <summary>
+        /// Fills the notification list.
+        /// </summary>
+        /// <param name="username">The username.</param>
+        /// <param name="list">The list.</param>
+        /// <param name="NotificationService">The notification service.</param>
+        /// <exception cref="System.NotImplementedException"></exception>
+        private void FillNotificationList(String username, List<Notification> list, INotificationService notificationService)
+        {
+            // Validate arguments
+            Guard.ArgumentIsNotNullOrEmpty(username, "username");
+            Guard.ArgumentIsNotNull(list, "list");
+            Guard.ArgumentIsNotNull(notificationService, "notificationService");
+
+            // Clear list if it is populated
+            if (list.Count > 0) { list.Clear(); }
+
+            // Add in any notifications for the user
+            list.AddRange(notificationService.GetAllCurrentForUser(username));
         }
 
         /// <summary>

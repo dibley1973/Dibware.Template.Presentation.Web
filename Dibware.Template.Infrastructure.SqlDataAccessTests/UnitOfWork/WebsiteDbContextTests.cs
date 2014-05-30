@@ -13,7 +13,7 @@ namespace Dibware.Template.Infrastructure.SqlDataAccessTests.UnitOfWork
     [TestClass]
     public class WebsiteDbContextTests
     {
-        #region Declarations
+        #region Private Members
 
         private WebsiteDbContext _unitOfWork;
 

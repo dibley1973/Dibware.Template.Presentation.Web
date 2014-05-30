@@ -14,7 +14,7 @@ namespace Dibware.Template.Infrastructure.SqlDataAccessTests.Repositories
     [TestClass]
     public class PasswordStrengthRuleRepositoryTests
     {
-        #region Declarations
+        #region Private Members
 
         private WebsiteDbContext _unitOfWork;
 

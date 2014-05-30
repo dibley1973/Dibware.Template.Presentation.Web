@@ -120,6 +120,9 @@
   <data name="Error" xml:space="preserve">
     <value>Error</value>
   </data>
+  <data name="Notification" xml:space="preserve">
+    <value>Notification</value>
+  </data>
   <data name="PasswordStrengthRule" xml:space="preserve">
     <value>PasswordStrengthRule</value>
   </data>

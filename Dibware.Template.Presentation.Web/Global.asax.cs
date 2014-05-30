@@ -1,13 +1,9 @@
 ﻿using AutoMapper;
 using Dibware.Template.Core.Domain.Contracts.Services;
 using Dibware.Template.Presentation.Web.Filters;
-using Dibware.Template.Presentation.Web.Modules.ApplicationState;
-using Dibware.Template.Presentation.Web.Modules.Authentication;
-using Dibware.Template.Presentation.Web.Modules.Configuration;
 using Dibware.Template.Presentation.Web.Modules.PostAuthenticateRequest;
 using Dibware.Template.Presentation.Web.Resources;
 using Dibware.Template.Presentation.Web.Resources.Ninjection;
-using Dibware.Web.Security.Principal;
 using Ninject;
 using Ninject.Web.Common;
 using Ninject.Web.Mvc;
@@ -22,6 +18,7 @@ using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
 using System.Web.Security;
+using System.Web.SessionState;
 
 namespace Dibware.Template.Presentation.Web
 {
@@ -39,6 +36,36 @@ namespace Dibware.Template.Presentation.Web
             var provider = (IPostAuthenticateRequestProvider)
                 DependencyResolver.Current.GetService(typeof(IPostAuthenticateRequestProvider));
             provider.ApplyPrincipalToHttpRequest(HttpContext.Current);
+        }
+
+        /// <summary>
+        /// Handles the PreRequestHandlerExecute event of the Application control.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        protected void Application_PreRequestHandlerExecute(Object sender, EventArgs e)
+        {
+            //Only access session state if it is available
+            if (Context.Handler is IRequiresSessionState || Context.Handler is IReadOnlySessionState)
+            {
+                //If we are authenticated AND we dont have a session here.. redirect to login page.
+                HttpCookie authenticationCookie = Request.Cookies[FormsAuthentication.FormsCookieName];
+                if (authenticationCookie != null)
+                {
+                    FormsAuthenticationTicket authenticationTicket = FormsAuthentication.Decrypt(authenticationCookie.Value);
+                    if (!authenticationTicket.Expired)
+                    {
+                        // Check that a session value we set on the login exists
+                        if (Session[SessionKeys.IsLoggedIn] == null)
+                        {
+                            //This means for some reason the session expired before the authentication ticket. Force a login.
+                            FormsAuthentication.SignOut();
+                            Response.Redirect(FormsAuthentication.LoginUrl, true);
+                            return;
+                        }
+                    }
+                }
+            }
         }
 
         /// <summary>
@@ -134,14 +161,14 @@ namespace Dibware.Template.Presentation.Web
         /// <param name="kernel">The Ninject kernel.</param>
         private static void RegisterGlobalFiltersRequiringInjection(IKernel kernel)
         {
-            RegsisterCustomHandleErrorAttribute(kernel);
+            RegisterCustomHandleErrorAttribute(kernel);
         }
 
         /// <summary>
         /// Regsisters the custom handle error attribute.
         /// </summary>
         /// <param name="kernel">The Ninject kernel.</param>
-        private static void RegsisterCustomHandleErrorAttribute(IKernel kernel)
+        private static void RegisterCustomHandleErrorAttribute(IKernel kernel)
         {
             // Get the implementation for the ErrorService
             IErrorService errorService =
@@ -158,6 +185,20 @@ namespace Dibware.Template.Presentation.Web
                 .When(r => true)
                 .WithConstructorArgument(ConstructorArguments.ErrorService, errorService)
                 .WithConstructorArgument(ConstructorArguments.ShowDetailedErrorMessages, showDetailedErrorMesages);
+        }
+
+        /// <summary>
+        /// Handles the Start event of the Session control.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        void Session_Start(object sender, EventArgs e)
+        {
+            if (HttpContext.Current.Request.IsAuthenticated)
+            {
+                // Kill off any old authentication
+                FormsAuthentication.SignOut();
+            }
         }
     }
 }

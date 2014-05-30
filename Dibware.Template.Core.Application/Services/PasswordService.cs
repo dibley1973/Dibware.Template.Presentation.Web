@@ -18,7 +18,7 @@ namespace Dibware.Template.Core.Application.Services
 
         #endregion
 
-        #region Declarations
+        #region Private Members
 
         private readonly char[] DELIMITER = { ':' };
         private const Int32 DELIMITER_INDEX = 0;

@@ -9,7 +9,7 @@ namespace Dibware.Template.Presentation.Web.Controllers
 {
     public class HomeController : BaseControllerWithDataLookup
     {
-        #region Declarations
+        #region Private Members
 
         private ITermAndConditionService _termAndConditionService;
 

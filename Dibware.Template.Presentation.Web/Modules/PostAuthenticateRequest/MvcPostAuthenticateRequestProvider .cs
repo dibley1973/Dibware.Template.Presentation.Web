@@ -14,7 +14,7 @@ namespace Dibware.Template.Presentation.Web.Modules.PostAuthenticateRequest
     /// </summary>
     public class MvcPostAuthenticateRequestProvider : IPostAuthenticateRequestProvider
     {
-        #region Declarations
+        #region Private Members
 
         private readonly IApplicationConfiguration _configuration;
         

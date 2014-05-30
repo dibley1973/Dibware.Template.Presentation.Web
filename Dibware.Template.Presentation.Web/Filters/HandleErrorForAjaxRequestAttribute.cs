@@ -1,4 +1,5 @@
-﻿using System.Text;
+﻿using System;
+using System.Text;
 using System.Web.Mvc;
 
 namespace Dibware.Template.Presentation.Web.Filters
@@ -7,6 +8,12 @@ namespace Dibware.Template.Presentation.Web.Filters
     {
         public override void OnException(ExceptionContext filterContext)
         {
+            // Validate arguments
+            if (filterContext == null)
+            {
+                throw new ArgumentNullException("filterContext");
+            }
+
             // If normal request go down normal channels to raise exception
             if (filterContext.RequestContext.HttpContext.Request.IsAjaxRequest()
                 && !filterContext.ExceptionHandled)

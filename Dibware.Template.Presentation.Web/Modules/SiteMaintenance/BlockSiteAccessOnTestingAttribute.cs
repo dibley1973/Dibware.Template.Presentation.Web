@@ -16,7 +16,7 @@ namespace Dibware.Template.Presentation.Web.Modules.SiteMaintenance
     /// </summary>
     public sealed class BlockSiteAccessOnTestingAttribute : ActionFilterAttribute
     {
-        #region Declarations
+        #region Private Members
 
         private const Int32 CacheTimeInMinutes = 1;
         private const Boolean SlidingExpiration = false;

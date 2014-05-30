@@ -73,6 +73,7 @@
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
     <Compile Include="Repositories\ErrorRepository.cs" />
+    <Compile Include="Repositories\NotificationRepository.cs" />
     <Compile Include="Repositories\PasswordStrengthRuleRepository.cs" />
     <Compile Include="Repositories\RoleRepository.cs" />
     <Compile Include="Repositories\MembershipRepository.cs" />
@@ -129,9 +130,11 @@
     <Compile Include="StoredProcedures\Membership\SetPasswordConfirmationTokenStoredProcedure.cs" />
     <Compile Include="StoredProcedures\Membership\UpdatePasswordFailureStateStoredProcedure.cs" />
     <Compile Include="StoredProcedures\Membership\UpdatePasswordSuccessStateStoredProcedure.cs" />
+    <Compile Include="StoredProcedures\Notification\GetCurrentNotificationsForUserStoredProcedure.cs" />
     <Compile Include="StoredProcedures\Roles\GetRolesForUserStoredProcedure.cs" />
     <Compile Include="StoredProcedures\Terms\GetCurrentTermsStoredProcedure.cs" />
     <Compile Include="UnitOfWork\Configuration\ErrorConfiguration.cs" />
+    <Compile Include="UnitOfWork\Configuration\NotificationConfiguration.cs" />
     <Compile Include="UnitOfWork\Configuration\PasswordStrengthRuleConfiguration.cs" />
     <Compile Include="UnitOfWork\Configuration\RoleConfiguration.cs" />
     <Compile Include="UnitOfWork\Configuration\StatusConfiguration.cs" />

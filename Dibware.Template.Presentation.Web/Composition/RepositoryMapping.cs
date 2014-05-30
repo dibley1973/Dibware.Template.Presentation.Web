@@ -71,6 +71,14 @@ namespace Dibware.Template.Presentation.Web.Composition
 
             #endregion
 
+            #region Notification
+
+            Bind<INotificationRepository>()
+                .To<NotificationRepository>()
+                .InRequestScope();
+
+            #endregion
+
             #region StatusRepository
 
             // Bind the Interface for the StatusRepository to a concrete implementation

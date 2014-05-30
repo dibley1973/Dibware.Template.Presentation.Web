@@ -213,6 +213,9 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Composition\IApplicationConfigurationMapping.cs" />
     <Compile Include="Composition\IApplicationStatusProviderMapping.cs" />
+    <Compile Include="Controllers\NotificationsController.cs" />
+    <Compile Include="Exceptions\ModelStateException.cs" />
+    <Compile Include="Filters\HandleModelStateExceptionAttribute.cs" />
     <Compile Include="Helpers\IpAddresshelper.cs" />
     <Compile Include="Models\Account\ResetPasswordConfirmedViewModel.cs" />
     <Compile Include="Models\Account\RecoverPasswordEmailSentModel.cs" />
@@ -388,6 +391,16 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ResponseHeaders.resx</DependentUpon>
     </Compile>
+    <Compile Include="Resources\SerializationInfoKeys.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SerializationInfoKeys.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\SessionKeys.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SessionKeys.resx</DependentUpon>
+    </Compile>
     <Compile Include="Resources\StaticPages.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -517,6 +530,14 @@
     <EmbeddedResource Include="Resources\ResponseHeaders.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>ResponseHeaders.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\SerializationInfoKeys.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>SerializationInfoKeys.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\SessionKeys.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>SessionKeys.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Resources\StaticPages.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>

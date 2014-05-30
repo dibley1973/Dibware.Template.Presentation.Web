@@ -35,4 +35,18 @@
     <Property Name="ParentElementType" Value="SqlTable" />
     <Property Name="NewName" Value="State" />
   </Operation>
+  <Operation Name="Rename Refactor" Key="8fe82b6b-af78-47cd-a2b4-4de86121027f" ChangeDateTime="05/30/2014 03:42:09">
+    <Property Name="ElementName" Value="[dbo].[Notifications].[Id]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[Notifications]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="NotificationId" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="33537072-a67a-4d9c-8d48-8f4167471d6f" ChangeDateTime="05/30/2014 03:46:54">
+    <Property Name="ElementName" Value="[dbo].[UserNotifications].[Id]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[UserNotifications]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="UserNotificationId" />
+  </Operation>
 </Operations>

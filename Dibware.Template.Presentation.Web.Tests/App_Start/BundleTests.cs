@@ -19,7 +19,7 @@ namespace Dibware.Template.Presentation.Web.Tests.App_Start
     [TestClass]
     public class BundleTests
     {
-        #region Declarations
+        #region Private Members
 
         private BundleContext _mockBundleContext;
 

@@ -79,6 +79,15 @@ namespace Dibware.Template.Infrastructure.SqlDataAccess.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to NotificationId.
+        /// </summary>
+        internal static string NotificationId {
+            get {
+                return ResourceManager.GetString("NotificationId", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Password.
         /// </summary>
         internal static string Password {

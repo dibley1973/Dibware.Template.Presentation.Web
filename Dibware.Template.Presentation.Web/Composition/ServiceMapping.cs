@@ -45,14 +45,29 @@ namespace Dibware.Template.Presentation.Web.Composition
             //.WithConstructorArgument("passwordStrengthRuleRepository", context => context.Kernel.Get<IPasswordStrengthRuleRepository>(;
             //.WithConstructorArgument("passwordStrengthRuleRepository", Kernel.Get<IPasswordStrengthRuleRepository>());
 
+            #region Error
 
             Bind<IErrorService>()
                 .To<ErrorService>()
                 .InRequestScope();
 
+            #endregion
+
+            #region Notification
+
+            Bind<INotificationService>()
+                .To<NotificationService>()
+                .InRequestScope();
+
+            #endregion
+
+            #region TermAndCondition
+
             Bind<ITermAndConditionService>()
                 .To<TermAndConditionService>()
                 .InRequestScope();
+
+            #endregion
         }
     }
 }

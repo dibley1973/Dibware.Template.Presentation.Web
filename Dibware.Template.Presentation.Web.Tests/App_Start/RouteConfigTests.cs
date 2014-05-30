@@ -18,7 +18,7 @@ namespace Dibware.Template.Presentation.Web.Tests.App_Start
     [TestClass]
     public class RouteConfigTests
     {
-        #region Declarations
+        #region Private Members
 
         private HttpConfiguration _config;
 

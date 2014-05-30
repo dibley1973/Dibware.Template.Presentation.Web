@@ -10,7 +10,7 @@ namespace Dibware.Template.Presentation.Web.Tests.App_Start
     [TestClass]
     public class WebApiConfigTests
     {
-        #region Declarations
+        #region Private Members
 
         ////private HttpConfiguration _config;
 

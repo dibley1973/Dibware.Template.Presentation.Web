@@ -108,7 +108,7 @@ EXEC    sp_addmessage
 
 
 
--- Membership is already confirmed in system
+-- user does not exist in system
 SET @MessageNumber = 50004
 IF EXISTS (SELECT 1 FROM sys.messages WHERE message_id = @MessageNumber) BEGIN
     EXEC    sp_dropmessage @msgnum = @MessageNumber, @lang = 'all'
@@ -202,6 +202,7 @@ EXEC    sp_addmessage
     @severity =16, 
     @msgtext = N'That password reset token has expired. ', 
     @lang = 'us_english'
+
 
 
 

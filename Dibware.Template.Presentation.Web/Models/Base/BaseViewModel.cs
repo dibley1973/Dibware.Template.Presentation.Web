@@ -1,7 +1,7 @@
 ﻿using Dibware.Extensions.System;
+using Dibware.Template.Core.Domain.Entities.Application;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
 
 namespace Dibware.Template.Presentation.Web.Models.Base
 {
@@ -19,6 +19,7 @@ namespace Dibware.Template.Presentation.Web.Models.Base
         public BaseViewModel()
         {
             InitializeBundleLists();
+            InitializeNotificationList();
         }
 
         /// <summary>
@@ -29,6 +30,14 @@ namespace Dibware.Template.Presentation.Web.Models.Base
             FontBundlePathList = new List<String>();
             JavaScriptBundlePathList = new List<String>();
             StylesheetBundlePathList = new List<String>();
+        }
+
+        /// <summary>
+        /// Initializes the Notification list.
+        /// </summary>
+        private void InitializeNotificationList()
+        {
+            Notifications = new List<Notification>();
         }
 
         #endregion Constructors and initializers
@@ -137,6 +146,18 @@ namespace Dibware.Template.Presentation.Web.Models.Base
         #endregion
 
         #region User Details
+
+        #endregion
+
+        #region Notifcations
+
+        /// <summary>
+        /// Gets or sets the notifications.
+        /// </summary>
+        /// <value>
+        /// The notifications.
+        /// </value>
+        public List<Notification> Notifications { get; set; }
 
         #endregion
 

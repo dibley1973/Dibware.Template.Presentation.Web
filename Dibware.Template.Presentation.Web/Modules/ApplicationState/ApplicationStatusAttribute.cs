@@ -13,7 +13,7 @@ namespace Dibware.Template.Presentation.Web.Modules.ApplicationState
     /// </summary>
     public sealed class ApplicationStatusAttribute : ActionFilterAttribute
     {
-        #region Declarations
+        #region Private Members
 
         private const Int32 ApplicationActiveState = 1;
 

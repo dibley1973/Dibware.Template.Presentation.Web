@@ -316,6 +316,9 @@ namespace Dibware.Template.Presentation.Web.Controllers
                     return View(ViewNames.Login, model);
                 }
 
+                // Set a simple session flag for checking if user is logged in
+                Session[SessionKeys.IsLoggedIn] = true;
+
                 // We have got this far so return the user to the passed URL
                 return RedirectToLocalOrDefault(returnUrl);
             }
@@ -335,6 +338,10 @@ namespace Dibware.Template.Presentation.Web.Controllers
         [WebsiteAuthorize(UserRole.AllAuthorised)]
         public ActionResult Logout()
         {
+            //Clears out Session
+            Session.Clear();
+            Session.Abandon();    
+
             // check if user is already logged in
             if (!WebSecurity.IsAuthenticated)
             {

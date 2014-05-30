@@ -15,7 +15,7 @@ BEGIN
 	-- interfering with SELECT statements.
 	SET NOCOUNT ON;
 
-    -- Insert the user and role relationship
+    -- get the roles for the user
 	SELECT  [r].[Name]
     FROM    [security].[Role]           [r]
 

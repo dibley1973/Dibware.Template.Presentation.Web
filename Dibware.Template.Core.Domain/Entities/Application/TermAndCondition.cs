@@ -4,19 +4,11 @@ using System;
 namespace Dibware.Template.Core.Domain.Entities.Application
 {
     /// <summary>
-    /// Represents an error of the system
+    /// Represents a term and condition in the system
     /// </summary>
     public class TermAndCondition : BaseIdEntity
     {
         #region Properties
-
-        /// <summary>
-        /// Gets or sets the evective from date.
-        /// </summary>
-        /// <value>
-        /// The eeffective from date.
-        /// </value>
-        public DateTime EffectiveFrom { get; set; }
 
         /// <summary>
         /// Gets or sets the description.
@@ -25,6 +17,14 @@ namespace Dibware.Template.Core.Domain.Entities.Application
         /// The description.
         /// </value>
         public String Description { get; set; }
+
+        /// <summary>
+        /// Gets or sets the evective from date.
+        /// </summary>
+        /// <value>
+        /// The eeffective from date.
+        /// </value>
+        public DateTime EffectiveFrom { get; set; }
 
         #endregion
 

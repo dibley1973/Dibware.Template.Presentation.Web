@@ -123,6 +123,9 @@
   <data name="ErrorId" xml:space="preserve">
     <value>ErrorId</value>
   </data>
+  <data name="NotificationId" xml:space="preserve">
+    <value>NotificationId</value>
+  </data>
   <data name="Password" xml:space="preserve">
     <value>Password</value>
   </data>

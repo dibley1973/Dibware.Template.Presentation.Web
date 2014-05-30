@@ -1,14 +1,11 @@
 ﻿using Dibware.Template.Core.Domain.Contracts.Repositories;
 using Dibware.Template.Core.Domain.Contracts.Services;
 using Dibware.Template.Core.Domain.Entities.Application;
-using System;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Dibware.Template.Core.Application.Services
 {
     /// <summary>
-    /// Represents the service used for interacting with terms data
+    /// Represents the service used for interacting with TermAndCondition data
     /// </summary>
     public class TermAndConditionService : ITermAndConditionService
     {

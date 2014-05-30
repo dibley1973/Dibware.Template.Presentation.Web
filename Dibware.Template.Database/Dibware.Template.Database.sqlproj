@@ -126,18 +126,18 @@
     <Folder Include="UtilityScripts" />
   </ItemGroup>
   <ItemGroup>
-    <Build Include="security\Tables\Role.sql" />
+    <Build Include="security\Tables\securityRole.sql" />
     <Build Include="security\Stored Procedures\security.Role_Delete.sql" />
     <Build Include="security\Stored Procedures\security.Role_Update.sql" />
     <Build Include="security\Stored Procedures\security.Role_Insert.sql" />
     <Build Include="security\security.sql" />
-    <Build Include="security\Tables\UsersInRoles.sql" />
-    <Build Include="security\Tables\Membership.sql">
+    <Build Include="security\Tables\securityUsersInRoles.sql" />
+    <Build Include="security\Tables\securityMembership.sql">
       <AnsiNulls>Off</AnsiNulls>
     </Build>
     <Build Include="security\UnauthorisedRole.sql" />
     <Build Include="security\AppUnauthorisedUser.sql" />
-    <Build Include="security\Tables\OAuthMembership.sql" />
+    <Build Include="security\Tables\securityOAuthMembership.sql" />
     <Build Include="security\AppUnauthorisedLogin.sql" />
     <Build Include="security\RoleMemberships.sql" />
     <Build Include="security\Stored Procedures\security.Membership_GetPassword.sql">
@@ -233,6 +233,22 @@
     <Build Include="security\Stored Procedures\security.Membership_ResetPassword.sql">
       <AnsiNulls>Off</AnsiNulls>
       <QuotedIdentifier>Off</QuotedIdentifier>
+    </Build>
+    <Build Include="application\Tables\dbo.Notifications.sql" />
+    <Build Include="application\Tables\application.UserNotifications.sql">
+      <AnsiNulls>Off</AnsiNulls>
+    </Build>
+    <Build Include="application\Stored Procedures\application.Notifications_GetForUser.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="application\Stored Procedures\application.Notifications_DeleteByIdForUser.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="application\Stored Procedures\application.Notifications_AddCurrentToUser.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
     </Build>
   </ItemGroup>
   <ItemGroup>

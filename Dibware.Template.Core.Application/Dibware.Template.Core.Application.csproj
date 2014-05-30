@@ -67,6 +67,7 @@
     <Compile Include="Services\DeepCopyCloneService.cs" />
     <Compile Include="Services\ErrorService.cs" />
     <Compile Include="Services\LookupService.cs" />
+    <Compile Include="Services\NotificationService.cs" />
     <Compile Include="Services\PasswordService.cs" />
     <Compile Include="Services\TermAndConditionService.cs" />
   </ItemGroup>

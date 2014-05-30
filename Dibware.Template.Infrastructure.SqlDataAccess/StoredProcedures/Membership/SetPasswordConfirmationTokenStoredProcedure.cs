@@ -1,4 +1,5 @@
 ﻿using Dibware.EF.Extensions.Contracts;
+using Dibware.Template.Infrastructure.SqlDataAccess.Resources;
 using System;
 using System.Collections.Generic;
 
@@ -10,8 +11,7 @@ namespace Dibware.Template.Infrastructure.SqlDataAccess.StoredProcedures.Members
     internal class SetPasswordConfirmationTokenStoredProcedure : BaseMembershipStoredProcedure<Int32>, IStoredProcedure<Int32>
     {
         public const String ProcedureName = @"Membership_SetPasswordConfirmationToken";
-        public new const String ProcedureSchema = @"security";
-
+        
         /// <summary>
         /// Initializes a new instance of the <see cref="ConfirmAccountStoredProcedure" /> class.
         /// </summary>
@@ -22,7 +22,7 @@ namespace Dibware.Template.Infrastructure.SqlDataAccess.StoredProcedures.Members
             String username,
             String passwordConfirmationToken,
             DateTime tokenExpirationTime)
-            : base(ProcedureSchema, ProcedureName, new Dictionary<String, Object>()
+            : base(SchemaNames.Security, ProcedureName, new Dictionary<String, Object>()
                 {
                     { "username", username },
                     { "passwordConfirmationToken", passwordConfirmationToken },
