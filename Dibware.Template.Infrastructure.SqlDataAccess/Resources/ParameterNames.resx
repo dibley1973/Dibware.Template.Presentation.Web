@@ -123,6 +123,9 @@
   <data name="EffectiveFrom" xml:space="preserve">
     <value>EffectiveFrom</value>
   </data>
+  <data name="EffectiveTo" xml:space="preserve">
+    <value>EffectiveTo</value>
+  </data>
   <data name="ErrorId" xml:space="preserve">
     <value>ErrorId</value>
   </data>

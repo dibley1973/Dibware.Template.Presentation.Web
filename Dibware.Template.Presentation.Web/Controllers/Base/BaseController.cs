@@ -130,6 +130,7 @@ namespace Dibware.Template.Presentation.Web.Controllers.Base
             javaScriptBundlePathList.Add(BundlePaths.Scripts.JQueryUi);
             javaScriptBundlePathList.Add(BundlePaths.Scripts.Bootstrap);
             javaScriptBundlePathList.Add(BundlePaths.Scripts.Modernizr);
+            javaScriptBundlePathList.Add(BundlePaths.Scripts.Bootbar);
         }
 
         /// <summary>
@@ -186,8 +187,11 @@ namespace Dibware.Template.Presentation.Web.Controllers.Base
             // Clear list if it is populated
             if (list.Count > 0) { list.Clear(); }
 
+            // Get the notifications for the current user
+            var notifications = notificationService.GetAllCurrentForUser(username);
+
             // Add in any notifications for the user
-            list.AddRange(notificationService.GetAllCurrentForUser(username));
+            list.AddRange(notifications);
         }
 
         /// <summary>

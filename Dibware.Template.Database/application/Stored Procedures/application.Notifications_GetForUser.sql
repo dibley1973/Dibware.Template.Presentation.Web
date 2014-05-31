@@ -16,7 +16,7 @@ BEGIN
 	SET NOCOUNT ON;
 
     -- Get all of the notifications...
-	SELECT  [n].[NotificationId]
+	SELECT  [n].[NotificationId]    [Id]
     ,       [n].[EffectiveFrom]
     ,       [n].[EffectiveTo]
     ,       [n].[Description]

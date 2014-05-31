@@ -152,6 +152,17 @@ namespace Dibware.Template.Presentation.Web.Models.Base
         #region Notifcations
 
         /// <summary>
+        /// Gets a value indicating whether this instance has notifications.
+        /// </summary>
+        /// <value>
+        /// <c>true</c> if this instance has notifications; otherwise, <c>false</c>.
+        /// </value>
+        public Boolean HasNotifications
+        {
+            get { return Notifications.Count > 0; }
+        }
+
+        /// <summary>
         /// Gets or sets the notifications.
         /// </summary>
         /// <value>

@@ -20,6 +20,7 @@ namespace Dibware.Template.Presentation.Web.Resources
             public const String JQueryUnobtrusive = @"~/bundles/jqueryunobtrusive";
             public const String JQueryVal = @"~/bundles/jqueryval";
             public const String Modernizr = @"~/bundles/modernizr";
+            public const String Bootbar = @"~/bundles/bootbar";
         }
 
         public static class Styles

@@ -5,7 +5,6 @@ using System;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity.ModelConfiguration;
 
-
 namespace Dibware.Template.Infrastructure.SqlDataAccess.UnitOfWork.Configuration
 {
     public class NotificationConfiguration : EntityTypeConfiguration<Notification>
@@ -106,6 +105,10 @@ namespace Dibware.Template.Infrastructure.SqlDataAccess.UnitOfWork.Configuration
             Property(e => e.EffectiveFrom)
                 .IsRequired();
 
+            // EffectiveTo
+            Property(e => e.EffectiveTo)
+                .IsRequired();
+
             // Description
             Property(e => e.Description)
                 .IsRequired()
@@ -119,11 +122,13 @@ namespace Dibware.Template.Infrastructure.SqlDataAccess.UnitOfWork.Configuration
                 .Insert(i => i
                     .HasName(NotificationInsertStoredProcedureName)
                     .Parameter(e => e.EffectiveFrom, ParameterNames.EffectiveFrom)
+                    .Parameter(e => e.EffectiveTo, ParameterNames.EffectiveTo)
                     .Parameter(e => e.Description, ParameterNames.Description))
                 .Update(u => u
                     .HasName(NotificationUpdateStoredProcedureName)
                     .Parameter(e => e.Id, ParameterNames.NotificationId)
                     .Parameter(e => e.EffectiveFrom, ParameterNames.EffectiveFrom)
+                    .Parameter(e => e.EffectiveTo, ParameterNames.EffectiveTo)
                     .Parameter(e => e.Description, ParameterNames.Description))
                 .Delete(d => d
                     .HasName(NotificationDeleteStoredProcedureName)

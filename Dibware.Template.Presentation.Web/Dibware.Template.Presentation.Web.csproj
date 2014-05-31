@@ -137,6 +137,8 @@
     <Reference Include="WebMatrix.WebData, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="assets\js\bootbar.js" />
+    <Content Include="assets\js\bootbar.min.js" />
     <Content Include="placeholder_app_offline.htm" />
     <Content Include="placeholder_app_testing.htm" />
     <Content Include="assets\fonts\glyphicons-halflings-regular.svg" />
@@ -189,6 +191,7 @@
     <Content Include="Views\Account\RecoverPasswordEmailSent.cshtml" />
     <Content Include="Views\Account\ResetPasswordWithToken.cshtml" />
     <Content Include="Views\Account\ResetPasswordConfirmed.cshtml" />
+    <Content Include="Views\JavascriptPartialViews\_BootBar.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

@@ -38,6 +38,10 @@ namespace Dibware.Template.Presentation.Web
                 AssetPaths.Js.ModernizrPath
             ));
 
+            bundles.Add(new ScriptBundle(BundlePaths.Scripts.Bootbar).Include(
+                AssetPaths.Js.BootbarMinPath
+            ));
+
             #endregion
 
             #region Fonts

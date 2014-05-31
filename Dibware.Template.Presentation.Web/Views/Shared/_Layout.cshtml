@@ -19,10 +19,12 @@
     <title>@Model.PageTitle</title>
     <link rel="shortcut icon" type="image/x-icon" href="~/favicon.ico" />
     @* Add Stylesheets *@
+    <!-- Stylesheets -->
     @foreach (var styleBundlePath in Model.StylesheetBundlePathList)
     {
       @Styles.Render(styleBundlePath)
     }
+    <!-- Stylesheets -->
   </head>
   <body>
 
@@ -57,11 +59,27 @@
       Add Javascript at the end of the document 
       so the browser can begin rendering sooner 
     *@
+    <!-- Javascript files -->
     @foreach (var scriptBundlePath in Model.JavaScriptBundlePathList)
     {
       @Scripts.Render(scriptBundlePath)
     }
+    <!-- Javascript files -->
+
+    <!-- Page Javascript -->
     @RenderSection("scripts", required: false)
 
+    @if(Model.HasNotifications)
+    {
+      <script>
+      $(document).ready(function(){
+        @foreach (var notification in Model.Notifications)
+        {
+          Html.RenderPartial("~/Views/JavascriptPartialViews/_BootBar.cshtml", notification);
+        }
+      });
+      </script>
+    }
+    <!-- page Javascript -->
   </body>
 </html>

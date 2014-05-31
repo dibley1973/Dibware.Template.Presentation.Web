@@ -1,5 +1,5 @@
 ﻿CREATE TABLE [application].[UserNotifications] (
-    [UserNotificationId] INT              NOT NULL,
+    [UserNotificationId] INT              NOT NULL IDENTITY (1,1),
     [NotificationId]     INT              NOT NULL,
     [UserGuid]           UNIQUEIDENTIFIER NOT NULL,
     CONSTRAINT [PK_UserNotifications_UserNotificationId] PRIMARY KEY CLUSTERED ([UserNotificationId] ASC),

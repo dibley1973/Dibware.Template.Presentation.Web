@@ -1,3 +1,11 @@
 ﻿body {
   padding-top: 50px;
 }
+
+.alert-messages {
+    position: fixed;
+    top: 0px;
+    left: 0;
+    right: 0;
+    z-index: 10000000;
+}

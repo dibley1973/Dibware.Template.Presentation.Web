@@ -79,6 +79,15 @@ namespace Dibware.Template.Infrastructure.SqlDataAccess.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to EffectiveTo.
+        /// </summary>
+        internal static string EffectiveTo {
+            get {
+                return ResourceManager.GetString("EffectiveTo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to ErrorId.
         /// </summary>
         internal static string ErrorId {

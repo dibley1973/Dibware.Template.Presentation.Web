@@ -234,7 +234,7 @@
       <AnsiNulls>Off</AnsiNulls>
       <QuotedIdentifier>Off</QuotedIdentifier>
     </Build>
-    <Build Include="application\Tables\dbo.Notifications.sql" />
+    <Build Include="application\Tables\application.Notifications.sql" />
     <Build Include="application\Tables\application.UserNotifications.sql">
       <AnsiNulls>Off</AnsiNulls>
     </Build>
@@ -247,6 +247,10 @@
       <QuotedIdentifier>On</QuotedIdentifier>
     </Build>
     <Build Include="application\Stored Procedures\application.Notifications_AddCurrentToUser.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="application\Stored Procedures\application.Notifications_AddNew.sql">
       <AnsiNulls>On</AnsiNulls>
       <QuotedIdentifier>On</QuotedIdentifier>
     </Build>

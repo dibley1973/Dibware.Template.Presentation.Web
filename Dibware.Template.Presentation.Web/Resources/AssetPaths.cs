@@ -56,6 +56,9 @@ namespace Dibware.Template.Presentation.Web.Resources
             public const String JQueryUnobtrusivePath = Prefixes.JsPrefix + JQueryUnobtrusive;
             public const String Modernizr = @"modernizr-*";
             public const String ModernizrPath = Prefixes.JsPrefix + Modernizr;
+            public const String Bootbar = @"bootbar.js";
+            public const String BootbarMinPath = Prefixes.JsPrefix + Bootbar;
+
         }
 
         public static class Themes
