@@ -1,0 +1,5 @@
+﻿var dibware = {
+    init: function () {
+
+    }
+}
