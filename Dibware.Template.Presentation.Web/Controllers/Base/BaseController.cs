@@ -131,6 +131,8 @@ namespace Dibware.Template.Presentation.Web.Controllers.Base
             javaScriptBundlePathList.Add(BundlePaths.Scripts.Bootstrap);
             javaScriptBundlePathList.Add(BundlePaths.Scripts.Modernizr);
             javaScriptBundlePathList.Add(BundlePaths.Scripts.Bootbar);
+            javaScriptBundlePathList.Add(BundlePaths.Scripts.Collinson);
+            javaScriptBundlePathList.Add(BundlePaths.Scripts.Dibware);
         }
 
         /// <summary>

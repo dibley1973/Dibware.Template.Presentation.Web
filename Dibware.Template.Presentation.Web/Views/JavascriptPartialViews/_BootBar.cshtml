@@ -5,10 +5,11 @@ $.bootbar.info(
   "@Model.Description", {
   autoDismiss: false,      // Don't automatically dismiss the bar.
   autoLinkClass: true,     // onDraw callback
-  dismissTimeout: 3000,    // 3 Seconds
   dismissEffect: "slide",  // Slide away: (slide, fade)
   dismissSpeed: "fast",    // Dismiss speed: (slow, fast)
-  onDismiss: null          // onDismiss callback
+  onDismiss: function () { // onDismiss callback
+      dibware.notifications.notificationOnDismiss(@Model.Id)          
+    }
   });
 
 @* Ref: http://www.jqueryscript.net/other/Minimal-Notification-Bar-Plugin-For-jQuery-Bootstrap-3-bootbar.html *@

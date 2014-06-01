@@ -130,6 +130,7 @@
     <Compile Include="StoredProcedures\Membership\SetPasswordConfirmationTokenStoredProcedure.cs" />
     <Compile Include="StoredProcedures\Membership\UpdatePasswordFailureStateStoredProcedure.cs" />
     <Compile Include="StoredProcedures\Membership\UpdatePasswordSuccessStateStoredProcedure.cs" />
+    <Compile Include="StoredProcedures\Notification\DismissForUserStoredProcedure.cs" />
     <Compile Include="StoredProcedures\Notification\GetCurrentNotificationsForUserStoredProcedure.cs" />
     <Compile Include="StoredProcedures\Roles\GetRolesForUserStoredProcedure.cs" />
     <Compile Include="StoredProcedures\Terms\GetCurrentTermsStoredProcedure.cs" />

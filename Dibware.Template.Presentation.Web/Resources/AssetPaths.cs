@@ -57,8 +57,21 @@ namespace Dibware.Template.Presentation.Web.Resources
             public const String Modernizr = @"modernizr-*";
             public const String ModernizrPath = Prefixes.JsPrefix + Modernizr;
             public const String Bootbar = @"bootbar.js";
-            public const String BootbarMinPath = Prefixes.JsPrefix + Bootbar;
+            public const String BootbarPath = Prefixes.JsPrefix + Bootbar;
+            public const String BootbarMin = @"bootbar.min.js";
+            public const String BootbarMinPath = Prefixes.JsPrefix + BootbarMin;
 
+            public const String CollinsonFunctions = @"collinson.functions.js";
+            public const String CollinsonFunctionsPath = Prefixes.JsPrefix + CollinsonFunctions;
+            public const String CollinsonFunctionsAjax = @"collinson.functions.ajax.js";
+            public const String CollinsonFunctionsAjaxPath = Prefixes.JsPrefix + CollinsonFunctionsAjax;
+
+            public const String DibwareJs = @"dibware.js";
+            public const String DibwareJsPath = Prefixes.JsPrefix + DibwareJs;
+            public const String DibwareLayoutJs = @"dibware.layout.js";
+            public const String DibwareLayoutPathJs = Prefixes.JsPrefix + DibwareLayoutJs;
+            public const String DibwareNotifcationsJs = @"dibware.notifications.js";
+            public const String DibwareNotifcationsJsPath = Prefixes.JsPrefix + DibwareNotifcationsJs;
         }
 
         public static class Themes

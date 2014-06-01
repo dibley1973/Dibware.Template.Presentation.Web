@@ -1,5 +1,5 @@
-﻿using System.Web.Optimization;
-using Dibware.Template.Presentation.Web.Resources;
+﻿using Dibware.Template.Presentation.Web.Resources;
+using System.Web.Optimization;
 
 namespace Dibware.Template.Presentation.Web
 {
@@ -39,7 +39,20 @@ namespace Dibware.Template.Presentation.Web
             ));
 
             bundles.Add(new ScriptBundle(BundlePaths.Scripts.Bootbar).Include(
-                AssetPaths.Js.BootbarMinPath
+                AssetPaths.Js.BootbarPath
+                //AssetPaths.Js.BootbarMinPath
+            ));
+
+
+            bundles.Add(new ScriptBundle(BundlePaths.Scripts.Collinson).Include(
+                AssetPaths.Js.CollinsonFunctionsPath,
+                AssetPaths.Js.CollinsonFunctionsAjaxPath
+            ));
+
+            bundles.Add(new ScriptBundle(BundlePaths.Scripts.Dibware).Include(
+                AssetPaths.Js.DibwareJsPath,
+                AssetPaths.Js.DibwareLayoutPathJs,
+                AssetPaths.Js.DibwareNotifcationsJsPath
             ));
 
             #endregion
@@ -73,7 +86,7 @@ namespace Dibware.Template.Presentation.Web
                 AssetPaths.Themes.Grey.BootstrapPath,
                 AssetPaths.Themes.Grey.BootstrapThemePath
             ));
-            
+
             // Pink Theme
             bundles.Add(new StyleBundle(BundlePaths.Styles.Themes.Pink).Include(
                 AssetPaths.Themes.Pink.BootstrapPath,

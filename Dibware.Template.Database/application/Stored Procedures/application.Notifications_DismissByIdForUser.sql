@@ -5,7 +5,7 @@
 -- Description:	Deletes notifications by ID for 
 --              the user specified by Username
 -- =============================================
-CREATE PROCEDURE [application].[Notifications_DeleteByIdForUser] 
+CREATE PROCEDURE [application].[Notifications_DismissByIdForUser] 
 (
     @NotificationId int
 ,   @Username varchar(MAX)
@@ -30,3 +30,8 @@ BEGIN
     -- ... and the notification ID matches the parameter
     AND     [un].[NotificationId]   = @NotificationId;
 END
+GO
+GRANT EXECUTE
+    ON OBJECT::[application].[Notifications_DismissByIdForUser] TO [MainRole]
+    AS [dbo];
+

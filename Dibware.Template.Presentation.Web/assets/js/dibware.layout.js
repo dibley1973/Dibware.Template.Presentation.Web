@@ -1,5 +1,8 @@
-﻿// Create objects
-dibware = typeof (dibware) == 'undefined' ? {} : dibware;
+﻿/*jslint browser: true*/
+/*global $, jQuery, dibware:true */
+
+// Create objects
+dibware = (dibware === undefined) ? {} : dibware;
 
 // View model
 dibware.layout = {

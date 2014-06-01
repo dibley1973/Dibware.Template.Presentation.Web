@@ -139,9 +139,11 @@
   <ItemGroup>
     <Content Include="assets\js\bootbar.js" />
     <Content Include="assets\js\bootbar.min.js" />
+    <Content Include="assets\js\collinson.functions.ajax.js" />
+    <Content Include="assets\js\collinson.functions.js" />
     <Content Include="assets\js\dibware.js" />
     <Content Include="assets\js\dibware.layout.js" />
-    <Content Include="assets\js\dibware.notifcations.js" />
+    <Content Include="assets\js\dibware.notifications.js" />
     <Content Include="placeholder_app_offline.htm" />
     <Content Include="placeholder_app_testing.htm" />
     <Content Include="assets\fonts\glyphicons-halflings-regular.svg" />

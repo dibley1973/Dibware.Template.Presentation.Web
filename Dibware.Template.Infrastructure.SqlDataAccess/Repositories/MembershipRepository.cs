@@ -247,23 +247,37 @@ namespace Dibware.Template.Infrastructure.SqlDataAccess.Repositories
             return result;
         }
 
+        /// <summary>
+        /// Gets the password changed date.
+        /// </summary>
+        /// <param name="username">The username.</param>
+        /// <returns></returns>
         public DateTime GetPasswordChangedDate(String username)
         {
             // Ensure we have a UnitOfWork
             Guard.InvalidOperation((UnitOfWork == null), ExceptionMessages.UnitOfWorkIsNull);
             Guard.ArgumentIsNotNullOrEmpty(username, ExceptionMessages.UsernameMustBeSupplied);
 
-            var result = GetAll().FirstOrDefault(u => u.Username == username).LastPasswordChangedDate;
+            var result = GetAll()
+                .FirstOrDefault(u => u.Username.ToLower() == username.ToLower())
+                .LastPasswordChangedDate;
             return result;
         }
 
+        /// <summary>
+        /// Gets the password failures since last success.
+        /// </summary>
+        /// <param name="username">The username.</param>
+        /// <returns></returns>
         public int GetPasswordFailuresSinceLastSuccess(String username)
         {
             // Ensure we have a UnitOfWork
             Guard.InvalidOperation((UnitOfWork == null), ExceptionMessages.UnitOfWorkIsNull);
             Guard.ArgumentIsNotNullOrEmpty(username, ExceptionMessages.UsernameMustBeSupplied);
 
-            var result = GetAll().FirstOrDefault(u => u.Username == username).PasswordFailuresSinceLastSuccess;
+            var result = GetAll()
+                .FirstOrDefault(u => u.Username.ToLower() == username.ToLower())
+                .PasswordFailuresSinceLastSuccess;
             return result;
         }
 

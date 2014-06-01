@@ -1,11 +1,7 @@
 ﻿using Dibware.Template.Core.Domain.Contracts.Services;
 using Dibware.Template.Presentation.Web.Controllers.Base;
-using Dibware.Template.Presentation.Web.Exceptions;
 using Dibware.Template.Presentation.Web.Filters;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 
 namespace Dibware.Template.Presentation.Web.Controllers
@@ -17,7 +13,7 @@ namespace Dibware.Template.Presentation.Web.Controllers
         private INotificationService _notificationService;
 
         #endregion
-        
+
         #region Constructors
 
         public NotificationsController(INotificationService notificationService)
@@ -31,20 +27,30 @@ namespace Dibware.Template.Presentation.Web.Controllers
         #region Actions
 
         //
-        // POST: /administration/adjustmentCodeExclusions/edit/{id}
+        // POST: /notifications/getallcurrentforuser/{username}
         [HttpPost]
         [HandleModelStateExceptionForJson]
         public JsonResult GetAllCurrentForUser(string username)
         {
-            if(String.IsNullOrEmpty(username))
+            if (String.IsNullOrEmpty(username))
             {
                 throw new ArgumentNullException(username);
             }
 
-            var notifcations = 
+            var notifcations =
                 _notificationService.GetAllCurrentForUser(username);
 
             return Json(notifcations);
+        }
+
+        //
+        // POST: /notifications/dismissnotification/{notificationId}
+        public JsonResult DismissNotification(Int32 notificationId)
+        {
+            String username = User.Name;
+            Boolean dismissed = false;
+            dismissed = _notificationService.DismissForUser(notificationId, username);
+            return Json(dismissed);
         }
 
         #endregion

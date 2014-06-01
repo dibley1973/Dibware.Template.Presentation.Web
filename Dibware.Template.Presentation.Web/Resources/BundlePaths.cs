@@ -21,6 +21,8 @@ namespace Dibware.Template.Presentation.Web.Resources
             public const String JQueryVal = @"~/bundles/jqueryval";
             public const String Modernizr = @"~/bundles/modernizr";
             public const String Bootbar = @"~/bundles/bootbar";
+            public const String Collinson = @"~/bundles/collinson";
+            public const String Dibware = @"~/bundles/dibware";
         }
 
         public static class Styles

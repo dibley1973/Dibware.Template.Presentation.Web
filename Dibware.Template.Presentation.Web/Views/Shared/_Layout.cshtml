@@ -72,12 +72,14 @@
     @if(Model.HasNotifications)
     {
       <script>
-      $(document).ready(function(){
-        @foreach (var notification in Model.Notifications)
-        {
-          Html.RenderPartial("~/Views/JavascriptPartialViews/_BootBar.cshtml", notification);
-        }
-      });
+        $(document).ready(function(){
+          @foreach (var notification in Model.Notifications)
+          {
+            Html.RenderPartial("~/Views/JavascriptPartialViews/_BootBar.cshtml", notification);
+          }
+        });
+        var url = '@Url.Action("dismissnotification", "notifications")';
+        dibware.notifications.init(url);
       </script>
     }
     <!-- page Javascript -->
