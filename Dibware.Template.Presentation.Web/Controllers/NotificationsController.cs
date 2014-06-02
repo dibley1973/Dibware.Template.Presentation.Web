@@ -49,7 +49,18 @@ namespace Dibware.Template.Presentation.Web.Controllers
         {
             String username = User.Name;
             Boolean dismissed = false;
-            dismissed = _notificationService.DismissForUser(notificationId, username);
+
+            try
+            {
+                dismissed = _notificationService.DismissForUser(notificationId, username);
+            }
+            catch (Exception ex)
+            {
+                // Handle the error silently
+                ErrorService.LogException(ex, username);
+            }
+
+            // rturn the result of the call
             return Json(dismissed);
         }
 

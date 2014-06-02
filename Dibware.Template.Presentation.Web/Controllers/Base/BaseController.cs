@@ -70,6 +70,15 @@ namespace Dibware.Template.Presentation.Web.Controllers.Base
         [Inject]
         public INotificationService NotificationService { get; set; }
 
+        /// <summary>
+        /// Gets or sets the error service.
+        /// </summary>
+        /// <value>
+        /// The error service.
+        /// </value>
+        [Inject]
+        public IErrorService ErrorService { get; set; }
+
         #endregion
 
         /// <summary>

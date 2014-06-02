@@ -205,6 +205,27 @@ EXEC    sp_addmessage
 
 
 
+-- That notification does not exist. 
+SET @MessageNumber = 50020
+IF EXISTS (SELECT 1 FROM sys.messages WHERE message_id = @MessageNumber) BEGIN
+    EXEC    sp_dropmessage @msgnum = @MessageNumber, @lang = 'all'
+END
+EXEC    sp_addmessage 
+    @msgnum = @MessageNumber, 
+    @severity =16, 
+    @msgtext = N'That notification does not exist. ', 
+    @lang = 'us_english'
 
+
+-- That user notification still exists. 
+SET @MessageNumber = 50021
+IF EXISTS (SELECT 1 FROM sys.messages WHERE message_id = @MessageNumber) BEGIN
+    EXEC    sp_dropmessage @msgnum = @MessageNumber, @lang = 'all'
+END
+EXEC    sp_addmessage 
+    @msgnum = @MessageNumber, 
+    @severity =16, 
+    @msgtext = N'That user notification still exists. ', 
+    @lang = 'us_english'
 
 -- DECLARE @MessageNumber int;

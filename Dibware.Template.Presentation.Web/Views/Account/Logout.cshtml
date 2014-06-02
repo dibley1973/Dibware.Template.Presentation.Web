@@ -2,6 +2,10 @@
 @using Dibware.Template.Presentation.Web.HtmlHelpers
 @model Dibware.Template.Presentation.Web.Models.Account.LogoutViewModel
 
+@section Metadata
+{
+  <meta http-equiv='refresh' content='5; url=@Url.Action(ActionMethods.Index, ControllerNames.Home)'>
+}
 <hgroup class="title">
   <h1>@PageTitles.Logout</h1>
 </hgroup>

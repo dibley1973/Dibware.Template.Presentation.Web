@@ -29,6 +29,10 @@ BEGIN
     
     -- ... and the notification ID matches the parameter
     AND     [un].[NotificationId]   = @NotificationId;
+
+    -- Select / Return a value indicating success
+    SELECT 1;
+    RETURN 1;
 END
 GO
 GRANT EXECUTE

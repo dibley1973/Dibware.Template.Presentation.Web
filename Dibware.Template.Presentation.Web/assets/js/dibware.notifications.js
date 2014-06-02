@@ -23,28 +23,23 @@ dibware.notifications = {
             onAjaxSuccess,
             onAjaxError;
 
-        // Debugging only
-        //alert(notificationId);
-
         // Callback to run once ajax has completed
-        onAjaxSuccess = function (response) {
-            // Do nothing
-            alert(response);
+        onAjaxSuccess = function () {
+            // Success
+            window.status = 'Notifcation dismissed';
         };
 
         // Callback to run on any ajax error and unblock the screen
         onAjaxError = function (xhr, status, err, options) {
-
             $.ajaxError(xhr, status, err, options);
         };
 
-        // Ajax server
+        // Use Ajax to call to the server
         $.appAjax(that.notificationDismissUrl, {
             type: 'POST',
             data: { notificationId: notificationId },
             callback: onAjaxSuccess,
             errorHandler: onAjaxError
         });
-
     }
 };

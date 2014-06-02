@@ -52,5 +52,5 @@ BEGIN
     
     -- ...which have not yet expired
     WHERE
-        [EffectiveFrom] > GETDATE();
+        [EffectiveTo] > GETDATE();
 END
