@@ -12,17 +12,17 @@ Feel free to branch, copy or assist if the project looks helpeful to you. Please
 
 ### Feature MoSCoW
 #### Must have
-* Sql Membership, Roles, Account mamangement
-* Registration and Login
-* Error Logging module
-* Dated Terms and conditions module
+* Sql Membership, Roles, Account mamangement - COMPLETE
+* Registration and Login - COMPLETE
+* Error Logging module - COMPLETE
+* Dated Terms and conditions module - COMPLETE
 * Contact Form module
-* Application Status module
+* Application Status module - COMPLETE
 * About page
 * Add more tests!
 
 ### Should have
-* Notifications module
+* Notifications module - COMPLETE
 * Add more tests!
 
 #### Could have
