@@ -11,26 +11,7 @@ This is very much a work in progress. Check back soon for more updates.
 Feel free to branch, copy or assist if the project looks helpeful to you. Please note database project is included in solution.
 
 ### Feature MoSCoW
-#### Must have
-* Sql Membership, Roles, Account mamangement - COMPLETE
-* Registration and Login - COMPLETE
-* Error Logging module - COMPLETE
-* Dated Terms and conditions module - COMPLETE
-* Contact Form module
-* Application Status module - COMPLETE
-* About page
-* Add more tests!
-
-### Should have
-* Notifications module - COMPLETE
-* Add more tests!
-
-#### Could have
-* Change contact form to a ticket based system
-* Add more tests!
-
-#### Would have
-* Add more tests!
+See Wiki page
 
 ## Architecture
 * Based strongly on a DDD architecture devised by John collinson
