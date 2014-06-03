@@ -197,6 +197,7 @@
     <Content Include="Views\Account\ResetPasswordWithToken.cshtml" />
     <Content Include="Views\Account\ResetPasswordConfirmed.cshtml" />
     <Content Include="Views\JavascriptPartialViews\_BootBar.cshtml" />
+    <Content Include="Views\Home\Contact.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -228,6 +229,7 @@
     <Compile Include="Models\Account\ResetPasswordConfirmedViewModel.cs" />
     <Compile Include="Models\Account\RecoverPasswordEmailSentModel.cs" />
     <Compile Include="Models\Account\ResetPasswordWithTokenViewModel.cs" />
+    <Compile Include="Models\Home\ContactViewModel.cs" />
     <Compile Include="Models\Home\StatusViewModel.cs" />
     <Compile Include="Modules\ApplicationState\ApplicationStatus.cs" />
     <Compile Include="Modules\ApplicationState\ApplicationStatusAttribute.cs" />
