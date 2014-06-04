@@ -133,6 +133,15 @@ namespace Dibware.Template.Presentation.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Contact Email Sent.
+        /// </summary>
+        public static string ContactEmailSent {
+            get {
+                return ResourceManager.GetString("ContactEmailSent", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Ermagad!.
         /// </summary>
         public static string Error {

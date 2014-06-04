@@ -2,8 +2,9 @@
 <siteMap xmlns="http://schemas.microsoft.com/AspNet/SiteMap-File-1.0" >
   <siteMapNode resourceKey="/" url="~/" title="Root"  description="The root node" roles="*">
     <siteMapNode resourceKey="home" url="~/home/index" title="Home" description="The website homepage" />
-    <siteMapNode resourceKey="home" url="~/home/about" title="About" description="Information about this website" />
-    <siteMapNode resourceKey="home" url="~/home/terms" title="Terms" description="Information about the terms and conditions for the website" />
+    <siteMapNode resourceKey="home-about" url="~/home/about" title="About" description="Information about this website" />
+    <siteMapNode resourceKey="home-terms" url="~/home/terms" title="Terms" description="Information about the terms and conditions for the website" />
+    <siteMapNode resourceKey="home-contact" url="~/home/contact" title="Contact" description="Contact us with your enquiry" />
     <siteMapNode resourceKey="account-login" url="~/account/login" title="Login" description="Log into your account" />
     <siteMapNode resourceKey="account-logout" url="~/account/logout" title="Logout" description="Log out of your account" />
     <siteMapNode resourceKey="account-register" url="~/account/register" title="Register" description="Register for an account" />

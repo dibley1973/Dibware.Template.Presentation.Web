@@ -1,5 +1,6 @@
 ﻿using Dibware.Template.Core.Domain.Contracts.Services;
 using Dibware.Template.Presentation.Web.Controllers.Base;
+using Dibware.Template.Presentation.Web.Helpers;
 using Dibware.Template.Presentation.Web.Models.Home;
 using Dibware.Template.Presentation.Web.Resources;
 using System;
@@ -50,6 +51,39 @@ namespace Dibware.Template.Presentation.Web.Controllers
         {
             var model = new AboutViewModel();
             return View(ViewNames.About, model);
+        }
+
+        //
+        // GET: /Contact/
+        // No authorisation, anyone can view this.
+        [HttpGet]
+        [AllowAnonymous]
+        public ActionResult Contact()
+        {
+            var model = new ContactViewModel();
+            return View(ViewNames.Contact, model);
+        }
+
+        //
+        // POST: /Contact/
+        // No authorisation, anyone can view this.
+        [HttpPost]
+        [AllowAnonymous]
+        public ActionResult Contact(ContactViewModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                // Send contact email to new registerant
+                EmailHelper.SendContactEmail(
+                    model.Name,
+                    model.EmailAddress,
+                    model.Enquiry);
+
+                var sentModel = new ContactEmailSentViewModel();
+                return View(ViewNames.ContactEmailSent, sentModel);
+            }
+            // If we got this far, something failed, redisplay form
+            return View(ViewNames.Contact, model);
         }
 
         //

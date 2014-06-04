@@ -135,6 +135,9 @@
   <data name="ConfirmAccountSuccess" xml:space="preserve">
     <value>Your account has now been confirmed. Please use the link below to take you to the login screen.</value>
   </data>
+  <data name="ContactEmailSent" xml:space="preserve">
+    <value>Your enquiry has been sent. We will be in contact in due course.</value>
+  </data>
   <data name="Logout" xml:space="preserve">
     <value>You have been logged out</value>
   </data>

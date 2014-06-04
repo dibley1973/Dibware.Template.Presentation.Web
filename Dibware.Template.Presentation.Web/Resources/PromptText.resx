@@ -141,4 +141,10 @@
   <data name="NewPassword" xml:space="preserve">
     <value>New Password</value>
   </data>
+  <data name="Enquiry" xml:space="preserve">
+    <value>Enter your enquiry here...</value>
+  </data>
+  <data name="Name" xml:space="preserve">
+    <value>Enter your name here...</value>
+  </data>
 </root>

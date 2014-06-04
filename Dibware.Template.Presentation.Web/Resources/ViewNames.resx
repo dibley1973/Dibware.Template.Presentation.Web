@@ -138,6 +138,12 @@
   <data name="ConfirmAccountSuccess" xml:space="preserve">
     <value>ConfirmAccountSuccess</value>
   </data>
+  <data name="Contact" xml:space="preserve">
+    <value>Contact</value>
+  </data>
+  <data name="ContactEmailSent" xml:space="preserve">
+    <value>ContactEmailSent</value>
+  </data>
   <data name="Index" xml:space="preserve">
     <value>Index</value>
   </data>

@@ -115,6 +115,15 @@ namespace Dibware.Template.Presentation.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Your enquiry has been sent. We will be in contact in due course..
+        /// </summary>
+        public static string ContactEmailSent {
+            get {
+                return ResourceManager.GetString("ContactEmailSent", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to You have been logged out.
         /// </summary>
         public static string Logout {

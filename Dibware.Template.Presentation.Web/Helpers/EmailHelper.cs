@@ -70,6 +70,58 @@ namespace Dibware.Template.Presentation.Web.Helpers
                 priority);
         }
 
+        /// <summary>
+        /// Sends the contact email.
+        /// </summary>
+        /// <param name="name">The name.</param>
+        /// <param name="emailAddress">The email address.</param>
+        /// <param name="enquiry">The enquiry.</param>
+        /// <exception cref="System.NotImplementedException"></exception>
+        internal static void SendContactEmail(
+            String name,
+            String emailAddress,
+            String enquiry)
+        {
+            // Get the application name from Web.config
+            var applicationName =
+                ConfigurationManager.AppSettings[ConfigurationKeys.ApplicationTitle];
+
+            // Create the email body text
+            var bodyText =
+                EmailContentHelper.CreateContactEmailBodyText(
+                    name,
+                    emailAddress,
+                    applicationName,
+                    enquiry);
+
+            // Create the email subject
+            var subjectText =
+                EmailContentHelper.CreateContactEmailSubjectText(
+                name,
+                applicationName);
+
+            // Set the email priority
+            var priority = EmailHelper.EmailPriority.Normal;
+
+            var systemContactEmailAddress =
+                            ConfigurationManager.AppSettings[ConfigurationKeys.ContactEmailAddress];
+
+            // Send the email
+            EmailHelper.SendHtmlEmail(
+                systemContactEmailAddress,
+                emailAddress,
+                subjectText,
+                bodyText,
+                priority);
+        }
+
+        /// <summary>
+        /// Sends the password recovery email.
+        /// </summary>
+        /// <param name="userEmail">The user email.</param>
+        /// <param name="username">The username.</param>
+        /// <param name="passwordRecoveryToken">The password recovery token.</param>
+        /// <param name="relativeUrl">The relative URL.</param>
         public static void SendPasswordRecoveryEmail(
             String userEmail,
             String username,
@@ -125,12 +177,47 @@ namespace Dibware.Template.Presentation.Web.Helpers
             String bodyText,
             EmailPriority priority)
         {
+
+            SendHtmlEmail(toAddress, null, subjectText, bodyText, priority);
+
+            //try
+            //{
+            //    var priorityText = EnumHelper.GetName<EmailPriority>(priority);
+
+            //    WebMail.Send(
+            //        to: toAddress,
+            //        body: bodyText,
+            //        isBodyHtml: true,
+            //        priority: priorityText,
+            //        subject: subjectText
+            //    );
+            //}
+            //catch (Exception ex)
+            //{
+            //    throw new ApplicationException(ExceptionMessages.ErrorSendingMail, ex);
+            //}
+        }
+
+        /// <summary>
+        /// Sends an HTML email. Wraps up WebMail.Send()
+        /// </summary>
+        /// <param name="toAddress">The email address to send to.</param>
+        /// <param name="subjectText">The subject text.</param>
+        /// <param name="bodyText">The body text.</param>
+        public static void SendHtmlEmail(
+            String toAddress,
+            String fromAddress,
+            String subjectText,
+            String bodyText,
+            EmailPriority priority)
+        {
             try
             {
                 var priorityText = EnumHelper.GetName<EmailPriority>(priority);
 
                 WebMail.Send(
                     to: toAddress,
+                    from: fromAddress,
                     body: bodyText,
                     isBodyHtml: true,
                     priority: priorityText,
@@ -142,6 +229,5 @@ namespace Dibware.Template.Presentation.Web.Helpers
                 throw new ApplicationException(ExceptionMessages.ErrorSendingMail, ex);
             }
         }
-
     }
 }

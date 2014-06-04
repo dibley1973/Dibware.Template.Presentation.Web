@@ -186,4 +186,7 @@
   <data name="TokenExpirationInMinutesFromNow" xml:space="preserve">
     <value>TokenExpirationInMinutesFromNow</value>
   </data>
+  <data name="ContactEmailAddress" xml:space="preserve">
+    <value>ContactEmailAddress</value>
+  </data>
 </root>

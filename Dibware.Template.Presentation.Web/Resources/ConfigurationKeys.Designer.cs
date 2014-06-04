@@ -124,6 +124,15 @@ namespace Dibware.Template.Presentation.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to ContactEmailAddress.
+        /// </summary>
+        public static string ContactEmailAddress {
+            get {
+                return ResourceManager.GetString("ContactEmailAddress", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to DefaultApplicationStatusId.
         /// </summary>
         public static string DefaultApplicationStatusId {

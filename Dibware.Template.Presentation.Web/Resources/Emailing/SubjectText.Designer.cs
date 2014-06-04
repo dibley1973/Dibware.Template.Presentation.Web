@@ -70,6 +70,15 @@ namespace Dibware.Template.Presentation.Web.Resources.Emailing {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to {0} has made an enquiry from {1}.
+        /// </summary>
+        internal static string ContactForm {
+            get {
+                return ResourceManager.GetString("ContactForm", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to {0}, Recover your {1} password.
         /// </summary>
         internal static string PasswordRecovery {

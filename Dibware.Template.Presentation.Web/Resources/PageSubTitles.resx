@@ -123,6 +123,9 @@
   <data name="ConfirmAccount" xml:space="preserve">
     <value>Confirm your account</value>
   </data>
+  <data name="ContactUs" xml:space="preserve">
+    <value>Contact us with your enquiry</value>
+  </data>
   <data name="ErroOccurredWhileProcessingAction" xml:space="preserve">
     <value>An error occurred while processing your action.</value>
   </data>
