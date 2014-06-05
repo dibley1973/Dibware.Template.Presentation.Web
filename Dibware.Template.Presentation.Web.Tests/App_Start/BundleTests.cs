@@ -1,13 +1,13 @@
-﻿using System;
+﻿using Dibware.Template.Presentation.Web.Resources;
+using Dibware.Template.Presentation.Web.Tests.Helpers;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Moq;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Optimization;
-using Dibware.Template.Presentation.Web.Resources;
-using Dibware.Template.Presentation.Web.Tests.Helpers;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Moq;
 
 namespace Dibware.Template.Presentation.Web.Tests.App_Start
 {
@@ -247,6 +247,26 @@ namespace Dibware.Template.Presentation.Web.Tests.App_Start
             Assert.IsNotNull(bundle);
             Assert.AreEqual(1, files.Count);
             Assert.IsTrue(files.Contains(AssetPaths.Js.BootstrapMin));
+        }
+
+        [TestMethod]
+        public void Test_ScriptBundles_ContainsBootbar()
+        {
+            // Arrange
+            var bundles = new BundleCollection();
+
+            // Act
+            BundleConfig.RegisterBundles(bundles);
+            var bundle = bundles.First(x => x.Path == BundlePaths.Scripts.Bootbar);
+            var files = bundle.EnumerateFiles(_mockBundleContext)
+                .Select(x => x.Name.ToLower())
+                .OrderBy(x => x)
+                .ToList();
+
+            // Assert
+            Assert.IsNotNull(bundle);
+            Assert.AreEqual(1, files.Count);
+            Assert.IsTrue(files.Contains(AssetPaths.Js.Bootbar));
         }
 
         [TestMethod]
