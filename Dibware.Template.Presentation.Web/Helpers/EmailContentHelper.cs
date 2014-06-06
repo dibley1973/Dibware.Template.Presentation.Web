@@ -4,7 +4,7 @@ using System;
 namespace Dibware.Template.Presentation.Web.Helpers
 {
     /// <summary>
-    /// encapsualtes functionality for creating emails
+    /// Ancapsualtes functionality for creating emails
     /// </summary>
     public static class EmailContentHelper
     {

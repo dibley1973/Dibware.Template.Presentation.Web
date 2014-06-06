@@ -115,7 +115,7 @@ namespace Dibware.Template.Presentation.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Your enquiry has been sent. We will be in contact in due course..
+        ///   Looks up a localized string similar to Your enquiry has been sent. Thank you for contacting us. We will be in touch in due course..
         /// </summary>
         public static string ContactEmailSent {
             get {

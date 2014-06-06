@@ -164,7 +164,6 @@ namespace Dibware.Template.Presentation.Web.Helpers
                 priority);
         }
 
-
         /// <summary>
         /// Sends an HTML email. Wraps up WebMail.Send()
         /// </summary>
@@ -177,25 +176,7 @@ namespace Dibware.Template.Presentation.Web.Helpers
             String bodyText,
             EmailPriority priority)
         {
-
             SendHtmlEmail(toAddress, null, subjectText, bodyText, priority);
-
-            //try
-            //{
-            //    var priorityText = EnumHelper.GetName<EmailPriority>(priority);
-
-            //    WebMail.Send(
-            //        to: toAddress,
-            //        body: bodyText,
-            //        isBodyHtml: true,
-            //        priority: priorityText,
-            //        subject: subjectText
-            //    );
-            //}
-            //catch (Exception ex)
-            //{
-            //    throw new ApplicationException(ExceptionMessages.ErrorSendingMail, ex);
-            //}
         }
 
         /// <summary>
