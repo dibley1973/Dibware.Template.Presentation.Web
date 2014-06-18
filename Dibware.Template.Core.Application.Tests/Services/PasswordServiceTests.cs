@@ -76,7 +76,7 @@ namespace Dibware.Template.Core.Application.Tests.Services
                     Sequence = PasswordStrengthRuleData.Rule6.Sequence,
                     Description = PasswordStrengthRuleData.Rule6.Description,
                     Notes = PasswordStrengthRuleData.Rule6.Notes,
-                    RegularExpression = PasswordStrengthRuleData.Rule5.RegularExpression
+                    RegularExpression = PasswordStrengthRuleData.Rule6.RegularExpression
                 },
                 new PasswordStrengthRule
                 {
@@ -179,15 +179,17 @@ namespace Dibware.Template.Core.Application.Tests.Services
                 PasswordStrengthRuleData.Rule2.RegularExpression,
                 PasswordStrengthRuleData.Rule3.RegularExpression,
                 PasswordStrengthRuleData.Rule4.RegularExpression,
-                PasswordStrengthRuleData.Rule5.RegularExpression
+                PasswordStrengthRuleData.Rule5.RegularExpression,
+                PasswordStrengthRuleData.Rule6.RegularExpression,
+                PasswordStrengthRuleData.Rule7.RegularExpression
             );
 
             // Act
-            var result = PasswordService.GetPasswordStrengthRegularExpression(
+            var actualResult = PasswordService.GetPasswordStrengthRegularExpression(
                 _passwordStrengthRuleRepository.Object);
 
             // Assert
-            Assert.AreEqual(expectedResult, result);
+            Assert.AreEqual(expectedResult, actualResult);
         }
 
         #endregion

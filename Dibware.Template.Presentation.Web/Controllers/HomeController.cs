@@ -3,6 +3,7 @@ using Dibware.Template.Presentation.Web.Controllers.Base;
 using Dibware.Template.Presentation.Web.Helpers;
 using Dibware.Template.Presentation.Web.Models.Home;
 using Dibware.Template.Presentation.Web.Resources;
+using Ninject;
 using System;
 using System.Web.Mvc;
 
@@ -12,31 +13,44 @@ namespace Dibware.Template.Presentation.Web.Controllers
     {
         #region Private Members
 
-        private ITermAndConditionService _termAndConditionService;
+        //private ITermAndConditionService _termAndConditionService;
+
+        #endregion
+
+        #region Properties
+
+        /// <summary>
+        /// Gets or sets the term and condition service.
+        /// </summary>
+        /// <value>
+        /// The term and condition service.
+        /// </value>
+        [Inject]
+        public ITermAndConditionService TermAndConditionService { get; set; }
 
         #endregion
 
         #region Constructors
 
-        ///// <summary>
-        ///// Initializes a new instance of the <see cref="AccountController"/> class.
-        ///// </summary>
-        ///// <param name="lookupService">The lookup service.</param>
-        //public HomeController(ILookupService lookupService)
-        //    : base(lookupService) { }
-
-        //TODO: swap constructors when all service code is complete...
-        //
         /// <summary>
         /// Initializes a new instance of the <see cref="AccountController"/> class.
         /// </summary>
         /// <param name="lookupService">The lookup service.</param>
-        public HomeController(ILookupService lookupService,
-            ITermAndConditionService termAndConditionService)
-            : base(lookupService)
-        {
-            _termAndConditionService = termAndConditionService;
-        }
+        public HomeController(ILookupService lookupService)
+            : base(lookupService) { }
+
+        ////TODO: swap constructors when all service code is complete...
+        ////
+        ///// <summary>
+        ///// Initializes a new instance of the <see cref="AccountController"/> class.
+        ///// </summary>
+        ///// <param name="lookupService">The lookup service.</param>
+        //public HomeController(ILookupService lookupService,
+        //    ITermAndConditionService termAndConditionService)
+        //    : base(lookupService)
+        //{
+        //    _termAndConditionService = termAndConditionService;
+        //}
 
         #endregion
 
@@ -120,7 +134,7 @@ namespace Dibware.Template.Presentation.Web.Controllers
         {
             var model = new TermsViewModel()
             {
-                CurrentTerms = _termAndConditionService.GetCurrent()
+                CurrentTerms = TermAndConditionService.GetCurrent()
             };
             return View(ViewNames.Terms, model);
         }
